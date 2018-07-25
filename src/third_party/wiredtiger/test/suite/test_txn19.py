@@ -106,7 +106,7 @@ class test_txn19(wttest.WiredTigerTestCase, suite_subprocess):
         if corruptpos == 0:
             return kind == 'removal'
 
-        # NOTE:
+        # NOTE:  id:3485
         # The removal or truncation of a middle log file (not first or last)
         # that would be used in recovery is not currently handled gracefully.
         if (kind == 'removal' or kind == 'truncate') and \
@@ -151,7 +151,7 @@ class test_txn19(wttest.WiredTigerTestCase, suite_subprocess):
         if self.kind == 'zero-end':
             return False
 
-        # NOTE:
+        # NOTE:  id:2462
         # If garbage is added to an otherwise valid log file, the invalid
         # portion is effectively 'skipped over'.
         if self.kind == 'garbage-end':
@@ -224,7 +224,7 @@ class test_txn19(wttest.WiredTigerTestCase, suite_subprocess):
     #  - removal of the last log
     #  - corruption in the middle of a log file.
     def log_corrupt_but_valid(self):
-        # NOTE:
+        # NOTE:  id:2854
         # Currently, corruption in the middle of a log file is not yet
         # detected.
         if self.kind == 'garbage-middle':

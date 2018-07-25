@@ -68,7 +68,7 @@ func (s *ctScanner) scan(p int) int {
 	for i := 0; i < n && p < len(str); {
 		e := states[i]
 		c := str[p]
-		// TODO: a significant number of contractions are of a form that
+		// TODO: a significant number of contractions are of a form that id:2977
 		// cannot match discontiguous UTF-8 in a normalized string. We could let
 		// a negative value of e.n mean that we can set s.done = true and avoid
 		// the need for additional matches.
@@ -110,7 +110,7 @@ func (s *ctScannerString) scan(p int) int {
 	for i := 0; i < n && p < len(str); {
 		e := states[i]
 		c := str[p]
-		// TODO: a significant number of contractions are of a form that
+		// TODO: a significant number of contractions are of a form that id:1154
 		// cannot match discontiguous UTF-8 in a normalized string. We could let
 		// a negative value of e.n mean that we can set s.done = true and avoid
 		// the need for additional matches.

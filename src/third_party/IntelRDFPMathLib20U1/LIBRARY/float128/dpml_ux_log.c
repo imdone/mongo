@@ -459,7 +459,7 @@ pack_it:
     PRINT_U_TBL_ITEM( /* data 1 */ LOG_OF_NEGATIVE);
 
     /*
-    ** NOTE: the fraction fields of 1/sqrt(2) and sqrt(2) are identical, so
+    ** NOTE: the fraction fields of 1/sqrt(2) and sqrt(2) are identical, so id:2272
     ** that in the above code, the symbolic constants ONE_OVER_SQRT_2 and
     ** I_SQRT_2 have the same numerical value.
     */

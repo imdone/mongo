@@ -97,7 +97,7 @@ void KVStorageEngine::loadCatalog(OperationContext* opCtx) {
     bool catalogExists = _engine->hasIdent(opCtx, catalogInfo);
     if (_options.forRepair && catalogExists) {
         log() << "Repairing catalog metadata";
-        // TODO should also validate all BSON in the catalog.
+        // TODO should also validate all BSON in the catalog. id:2052
         _engine->repairIdent(opCtx, catalogInfo).transitional_ignore();
     }
 

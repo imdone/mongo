@@ -52,7 +52,7 @@ void ConfigServerOpObserver::onDelete(OperationContext* opCtx,
         if (!repl::ReplicationCoordinator::get(opCtx)->getMemberState().rollback()) {
             uasserted(40302, "cannot delete config.version document while in --configsvr mode");
         } else {
-            // TODO (SERVER-34165): this is only used for rollback via refetch and can be removed
+            // TODO (SERVER-34165): this is only used for rollback via refetch and can be removed id:656
             // with it.
             // Throw out any cached information related to the cluster ID.
             ShardingCatalogManager::get(opCtx)->discardCachedConfigDatabaseInitializationState();
@@ -68,7 +68,7 @@ repl::OpTime ConfigServerOpObserver::onDropCollection(OperationContext* opCtx,
         if (!repl::ReplicationCoordinator::get(opCtx)->getMemberState().rollback()) {
             uasserted(40303, "cannot drop config.version document while in --configsvr mode");
         } else {
-            // TODO (SERVER-34165): this is only used for rollback via refetch and can be removed
+            // TODO (SERVER-34165): this is only used for rollback via refetch and can be removed id:1888
             // with it.
             // Throw out any cached information related to the cluster ID.
             ShardingCatalogManager::get(opCtx)->discardCachedConfigDatabaseInitializationState();

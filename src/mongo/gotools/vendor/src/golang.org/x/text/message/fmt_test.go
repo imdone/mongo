@@ -553,7 +553,7 @@ var fmtTests = []struct {
 	{"%8e", complex(posInf, posInf), "(       ∞      +∞i)"},
 	{"% 8E", complex(posInf, posInf), "(       ∞      +∞i)"},
 	{"%+8f", complex(negInf, negInf), "(      -∞      -∞i)"},
-	{"% +8g", complex(negInf, negInf), "(      -∞      -∞i)"}, // TODO(g)
+	{"% +8g", complex(negInf, negInf), "(      -∞      -∞i)"}, // TODO (g) id:3042
 	{"% -8G", complex(NaN, NaN), "(NaN     +NaN    i)"},
 	{"%+-8b", complex(NaN, NaN), "(+NaN    +NaN    i)"},
 	// Zero padding does not apply to infinities and NaN.
@@ -938,7 +938,7 @@ var fmtTests = []struct {
 	{"% +7.2f", -1.0, "  -1.00"},
 	// Padding with 0's indicates minimum number of integer digits minus the
 	// period, if present, and minus the sign if it is fixed.
-	// TODO: consider making this number the number of significant digits.
+	// TODO: consider making this number the number of significant digits. id:1288
 	{"%07.2f", 1.0, "0,001.00"},
 	{"%07.2f", -1.0, "-0,001.00"},
 	{"% 07.2f", 1.0, " 001.00"},
@@ -1193,7 +1193,7 @@ var reorderTests = []struct {
 	{"%[5]d %[2]d %d", SE{1, 2, 3}, "%!d(BADINDEX) 2 3"},
 	{"%d %[3]d %d", SE{1, 2}, "1 %!d(BADINDEX) 2"}, // Erroneous index does not affect sequence.
 	{"%.[]", SE{}, "%!](BADINDEX)"},                // Issue 10675
-	{"%.-3d", SE{42}, "%!-(int=42)3d"},             // TODO: Should this set return better error messages?
+	{"%.-3d", SE{42}, "%!-(int=42)3d"},             // TODO: Should this set return better error messages? id:1074
 	// The following messages are interpreted as if there is no substitution,
 	// in which case it is okay to have extra arguments. This is different
 	// semantics from the fmt package.
@@ -1415,7 +1415,7 @@ var mallocTest = []struct {
 	{2, `Sprintf("%x")`, func(p *Printer) { p.Sprintf("%x", 7) }},
 	{2, `Sprintf("%s")`, func(p *Printer) { p.Sprintf("%s", "hello") }},
 	{3, `Sprintf("%x %x")`, func(p *Printer) { p.Sprintf("%x %x", 7, 112) }},
-	{2, `Sprintf("%g")`, func(p *Printer) { p.Sprintf("%g", float32(3.14159)) }}, // TODO: Can this be 1?
+	{2, `Sprintf("%g")`, func(p *Printer) { p.Sprintf("%g", float32(3.14159)) }}, // TODO: Can this be 1? id:1929
 	{1, `Fprintf(buf, "%s")`, func(p *Printer) { mallocBuf.Reset(); p.Fprintf(&mallocBuf, "%s", "hello") }},
 	// If the interface value doesn't need to allocate, amortized allocation overhead should be zero.
 	{0, `Fprintf(buf, "%x %x %x")`, func(p *Printer) {
@@ -1432,7 +1432,7 @@ func TestCountMallocs(t *testing.T) {
 		t.Skip("skipping malloc count in short mode")
 	case runtime.GOMAXPROCS(0) > 1:
 		t.Skip("skipping; GOMAXPROCS>1")
-		// TODO: detect race detecter enabled.
+		// TODO: detect race detecter enabled. id:1422
 		// case race.Enabled:
 		// 	t.Skip("skipping malloc count under race detector")
 	}

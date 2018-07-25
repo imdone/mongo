@@ -302,7 +302,7 @@ static int GET_STACK_TRACE_OR_FRAMES {
   //    sp[1]   caller address
   //    sp[2]   first argument
   //    ...
-  // NOTE: This will break under llvm, since result is a copy and not in sp[2]
+  // NOTE: This will break under llvm, since result is a copy and not in sp[2] id:3207
   sp = (void **)&result - 2;
 #elif defined(__x86_64__)
   unsigned long rbp;

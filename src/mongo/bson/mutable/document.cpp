@@ -486,7 +486,7 @@ struct ElementRep {
 
 private:
     // The cached sizes for this element, or -1 if unknown or too big to fit.
-    // TODO consider putting _fieldNameSize in the reserved bit field above to allow larger total
+    // TODO consider putting _fieldNameSize in the reserved bit field above to allow larger total id:321
     // sizes to be cached. Alternatively, could use an 8/24 split uint32_t. Since BSONObj is limited
     // to just over 16MB, that will cover all practical element sizes. For now, this is fine since
     // computing the size is a trivial cost when working with elements larger 32KB.
@@ -585,7 +585,7 @@ const bool paranoid = false;
  *  BSON. Impl provides various utility methods to insert, lookup, and interrogate the
  *  Elements, BSONObj objects, field names, and builders associated with the Document.
  *
- *  TODO: At some point, we could remove the firewall and inline the members of Impl into
+ *  TODO: At some point, we could remove the firewall and inline the members of Impl into id:317
  *  Document.
  */
 class Document::Impl {
@@ -690,7 +690,7 @@ public:
         rep.objIdx = kLeafObjIdx;
         rep.serialized = true;
         dassert(offset >= 0);
-        // TODO: Is this a legitimate possibility?
+        // TODO: Is this a legitimate possibility? id:385
         dassert(static_cast<unsigned int>(offset) < std::numeric_limits<uint32_t>::max());
         rep.offset = offset;
         _objects[kLeafObjIdx] = _leafBuilder.asTempObj();
@@ -960,7 +960,7 @@ public:
 
     // Returns true if 'data' points within the leaf BufBuilder.
     inline bool inLeafBuilder(const char* data) const {
-        // TODO: Write up something documenting that the following is technically UB due
+        // TODO: Write up something documenting that the following is technically UB due id:322
         // to illegality of comparing pointers to different aggregates for ordering. Also,
         // do we need to do anything to prevent the optimizer from compiling this out on
         // that basis? I've seen clang do that. We may need to declare these volatile. On
@@ -1037,13 +1037,13 @@ public:
 
     // Check all preconditions on doing an in-place update, except for size match.
     bool canUpdateInPlace(const ElementRep& sourceRep, const ElementRep& targetRep) {
-        // NOTE: CodeWScope might arguably be excluded since it has substructure, but
+        // NOTE: CodeWScope might arguably be excluded since it has substructure, but id:968
         // mutable doesn't permit navigation into its document, so we can handle it.
 
         // We can only do an in-place update to an element that is serialized and is not in
         // the leaf heap.
         //
-        // TODO: In the future, we can replace values in the leaf heap if they are of the
+        // TODO: In the future, we can replace values in the leaf heap if they are of the id:323
         // same size as the origin was. For now, we don't support that.
         if (!hasValue(targetRep) || (targetRep.objIdx == kLeafObjIdx))
             return false;
@@ -1292,7 +1292,7 @@ Status Element::rename(StringData newName) {
 
     dassert(impl.doesNotAlias(newName));
 
-    // TODO: Some rename operations may be possible to do in-place.
+    // TODO: Some rename operations may be possible to do in-place. id:320
     impl.disableInPlaceUpdates();
 
     // Operations below may invalidate thisRep, so we may need to reacquire it.
@@ -1317,7 +1317,7 @@ Status Element::rename(StringData newName) {
 
         thisRep->array = array;
 
-        // TODO: If we ever want to be able to add to the left or right of an opaque object
+        // TODO: If we ever want to be able to add to the left or right of an opaque object id:387
         // without expanding, this may need to change.
         thisRep->objIdx = kInvalidObjIdx;
     }
@@ -1416,7 +1416,7 @@ Element Element::findFirstChildNamed(StringData name) const {
     invariant(getType() != BSONType::Array);
     Element::RepIdx current = _repIdx;
     current = impl.resolveLeftChild(current);
-    // TODO: Could DRY this loop with the identical logic in findElementNamed.
+    // TODO: Could DRY this loop with the identical logic in findElementNamed. id:325
     while ((current != kInvalidRepIdx) && (impl.getFieldName(impl.getElementRep(current)) != name))
         current = impl.resolveRightSibling(current);
     return Element(_doc, current);
@@ -1542,7 +1542,7 @@ int Element::compareWithElement(const ConstElement& other,
     // Subtle: we must negate the comparison result here because we are reversing the
     // argument order in this call.
     //
-    // TODO: Andy has suggested that this may not be legal since woCompare is not reflexive
+    // TODO: Andy has suggested that this may not be legal since woCompare is not reflexive id:969
     // in all cases.
     if (impl.hasValue(thisRep))
         return -other.compareWithBSONElement(
@@ -1750,7 +1750,7 @@ Status Element::setValueBinary(const uint32_t len,
     invariant(ok());
     Document::Impl& impl = getDocument().getImpl();
 
-    // TODO: Alias check for binary data?
+    // TODO: Alias check for binary data? id:326
 
     const ElementRep& thisRep = impl.getElementRep(_repIdx);
     const StringData fieldName = impl.getFieldNameForNewElement(thisRep);
@@ -2012,17 +2012,17 @@ Status Element::addChild(Element e, bool front) {
 
     impl.disableInPlaceUpdates();
 
-    // TODO: In both of the following cases, we call two public API methods each. We can
+    // TODO: In both of the following cases, we call two public API methods each. We can id:324
     // probably do better by writing this explicitly here and drying it with the public
     // addSiblingLeft and addSiblingRight implementations.
     if (front) {
-        // TODO: It is cheap to get the left child. However, it still means creating a rep
+        // TODO: It is cheap to get the left child. However, it still means creating a rep id:389
         // for it. Can we do better?
         Element lc = leftChild();
         if (lc.ok())
             return lc.addSiblingLeft(e);
     } else {
-        // TODO: It is expensive to get the right child, since we have to build reps for
+        // TODO: It is expensive to get the right child, since we have to build reps for id:327
         // all of the opaque children. But in principle, we don't really need them. Could
         // we potentially add this element as a right child, leaving its left sibling
         // opaque? We would at minimum need to update leftSibling, which currently assumes
@@ -2186,7 +2186,7 @@ void Document::Impl::writeElement(Element::RepIdx repIdx,
 
 template <typename Builder>
 void Document::Impl::writeChildren(Element::RepIdx repIdx, Builder* builder) const {
-    // TODO: In theory, I think we can walk rightwards building a write region from all
+    // TODO: In theory, I think we can walk rightwards building a write region from all id:971
     // serialized embedded children that share an obj id and form a contiguous memory
     // region. For arrays we would need to know something about how many elements we wrote
     // that way so that the indexes would come out right.
@@ -2379,7 +2379,7 @@ Element Document::makeElementBinary(StringData fieldName,
                                     const void* const data) {
     Impl& impl = getImpl();
     dassert(impl.doesNotAlias(fieldName));
-    // TODO: Alias check 'data'?
+    // TODO: Alias check 'data'? id:328
 
     BSONObjBuilder& builder = impl.leafBuilder();
     const int leafRef = builder.len();

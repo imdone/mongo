@@ -43,7 +43,7 @@ AllPathsAccessMethod::AllPathsAccessMethod(IndexCatalogEntry* allPathsState,
 void AllPathsAccessMethod::doGetKeys(const BSONObj& obj,
                                      BSONObjSet* keys,
                                      MultikeyPaths* multikeyPaths) const {
-    // TODO SERVER-35748: Until MultikeyPaths has been updated to facilitate 'allPaths' indexes, we
+    // TODO SERVER-35748: Until MultikeyPaths has been updated to facilitate 'allPaths' indexes, we id:617
     // use AllPathsKeyGenerator::MultikeyPathsMock to separate multikey paths from RecordId keys.
     auto multikeyPathsMock = SimpleBSONObjComparator::kInstance.makeBSONObjSet();
     _keyGen.generateKeys(obj, keys, &multikeyPathsMock);

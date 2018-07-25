@@ -11,7 +11,7 @@ import (
 	"golang.org/x/text/language"
 )
 
-// TODO:
+// TODO:  id:1179
 // - grouping of fractions
 // - allow user-defined superscript notation (such as <sup>4</sup>)
 // - same for non-breaking spaces, like &nbsp;
@@ -20,7 +20,7 @@ import (
 // will be shown to the user.
 type VisibleDigits interface {
 	Digits(buf []byte, t language.Tag, scale int) Digits
-	// TODO: Do we also need to add the verb or pass a format.State?
+	// TODO: Do we also need to add the verb or pass a format.State? id:1000
 }
 
 // Formatting proceeds along the following lines:
@@ -394,7 +394,7 @@ func appendScientific(dst []byte, f *Formatter, n *Digits) (b []byte, postPre, p
 
 	// exp
 	buf := [12]byte{}
-	// TODO: use exponential if superscripting is not available (no Latin
+	// TODO: use exponential if superscripting is not available (no Latin id:1794
 	// numbers or no tags) and use exponential in all other cases.
 	exp := n.Exp - int32(n.Comma)
 	exponential := f.Symbol(SymExponential)
@@ -473,7 +473,7 @@ func (f *Formatter) getAffixes(neg bool) (affix, suffix string) {
 		affix = str[1:sufStart]
 		suffix = str[sufStart+1:]
 	}
-	// TODO: introduce a NeedNeg sign to indicate if the left pattern already
+	// TODO: introduce a NeedNeg sign to indicate if the left pattern already id:1246
 	// has a sign marked?
 	if f.NegOffset == 0 && (neg || f.Flags&AlwaysSign != 0) {
 		affix = "-" + affix

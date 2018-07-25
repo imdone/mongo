@@ -670,7 +670,7 @@ std::string runQuery(OperationContext* opCtx,
         LOG(5) << "caching executor with cursorid " << ccId << " after returning " << numResults
                << " results";
 
-        // TODO document
+        // TODO document id:668
         if (qr.isExhaust()) {
             curOp.debug().exhaust = true;
         }

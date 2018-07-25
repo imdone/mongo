@@ -337,7 +337,7 @@ void
 TextTrieMap::search(const UnicodeString &text, int32_t start,
                   TextTrieMapSearchResultHandler *handler, UErrorCode &status) const {
     {
-        // TODO: if locking the mutex for each check proves to be a performance problem,
+        // TODO: if locking the mutex for each check proves to be a performance problem, id:2585
         //       add a flag of type atomic_int32_t to class TextTrieMap, and use only
         //       the ICU atomic safe functions for assigning and testing.
         //       Don't test the pointer fLazyContents.

@@ -54,7 +54,7 @@ public:
 
     using DBClientBase::query;
 
-    // XXX: is this valid or useful?
+    // XXX: is this valid or useful? id:691
     void setOpCtx(OperationContext* opCtx);
 
     virtual std::unique_ptr<DBClientCursor> query(const std::string& ns,

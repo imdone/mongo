@@ -82,7 +82,7 @@ namespace detail {
 
     struct unspecified_bool
     {
-        // NOTE TO THE USER: If you see this in error messages then you tried
+        // NOTE TO THE USER: If you see this in error messages then you tried id:1446
         // to apply an unsupported operator on the object that supports
         // explicit conversion to bool.
         struct OPERATORS_NOT_ALLOWED;
@@ -95,7 +95,7 @@ namespace detail {
     // MSVC and VACPP are too eager to convert pointer to function to void* even though they shouldn't
     struct unspecified_bool
     {
-        // NOTE TO THE USER: If you see this in error messages then you tried
+        // NOTE TO THE USER: If you see this in error messages then you tried id:2296
         // to apply an unsupported operator on the object that supports
         // explicit conversion to bool.
         struct OPERATORS_NOT_ALLOWED;

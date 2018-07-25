@@ -24,7 +24,7 @@
     // ---- Test 1. No operations before prepare ----
 
     session.startTransaction();
-    // TODO SERVER-35787: make this fail with NoSuchTransaction.
+    // TODO SERVER-35787: make this fail with NoSuchTransaction. id:120
     assert.commandFailedWithCode(sessionDB.adminCommand({prepareTransaction: 1}),
                                  ErrorCodes.OperationNotSupportedInTransaction);
     session.abortTransaction();

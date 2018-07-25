@@ -109,7 +109,7 @@ Value DocumentSourceRedact::redactValue(const Value& in, const Document& root) {
             return Value();
         }
     } else if (valueType == Array) {
-        // TODO dont copy if possible
+        // TODO dont copy if possible id:1164
         vector<Value> newArr;
         const vector<Value>& arr = in.getArray();
         for (size_t i = 0; i < arr.size(); i++) {
@@ -180,7 +180,7 @@ intrusive_ptr<DocumentSource> DocumentSourceRedact::createFromBson(
     intrusive_ptr<Expression> expression = Expression::parseOperand(expCtx, elem, vps);
     intrusive_ptr<DocumentSourceRedact> source = new DocumentSourceRedact(expCtx, expression);
 
-    // TODO figure out how much of this belongs in constructor and how much here.
+    // TODO figure out how much of this belongs in constructor and how much here. id:509
     // Set up variables. Never need to reset DESCEND, PRUNE, or KEEP.
     source->_currentId = currentId;
     auto& variables = expCtx->variables;

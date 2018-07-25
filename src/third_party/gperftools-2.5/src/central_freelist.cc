@@ -260,7 +260,7 @@ int CentralFreeList::RemoveRange(void **start, void **end, int N) {
   int result = 0;
   *start = NULL;
   *end = NULL;
-  // TODO: Prefetch multiple TCEntries?
+  // TODO: Prefetch multiple TCEntries? id:1529
   result = FetchFromOneSpansSafe(N, start, end);
   if (result != 0) {
     while (result < N) {
@@ -344,7 +344,7 @@ void CentralFreeList::Populate() {
   }
 
   // Split the block into pieces and add to the free-list
-  // TODO: coloring of objects to avoid cache conflicts?
+  // TODO: coloring of objects to avoid cache conflicts? id:2361
   void** tail = &span->objects;
   char* ptr = reinterpret_cast<char*>(span->start << kPageShift);
   char* limit = ptr + (npages << kPageShift);

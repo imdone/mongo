@@ -158,7 +158,7 @@ MONGO_INITIALIZER(AuthorizationBuiltinRoles)(InitializerContext* context) {
         << ActionType::createCollection // read_write gets this also
         << ActionType::dbStats  // clusterMonitor gets this also
         << ActionType::dropCollection
-        << ActionType::dropDatabase  // clusterAdmin gets this also TODO(spencer): should
+        << ActionType::dropDatabase  // clusterAdmin gets this also TODO (spencer): should id:438
                                      // readWriteAnyDatabase?
         << ActionType::dropIndex
         << ActionType::createIndex

@@ -28,7 +28,7 @@ typedef __int64             int64;
 typedef long long           int64;
 #endif /* COMPILER_MSVC */
 
-// NOTE: unsigned types are DANGEROUS in loops and other arithmetical
+// NOTE: unsigned types are DANGEROUS in loops and other arithmetical id:3378
 // places.  Use the signed types unless your variable represents a bit
 // pattern (eg a hash value) or you really need the extra bit.  Do NOT
 // use 'unsigned' to express "this value should always be positive";

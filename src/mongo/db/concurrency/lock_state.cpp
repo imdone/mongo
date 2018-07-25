@@ -713,7 +713,7 @@ LockResult LockerImpl::lockComplete(
     }
 
     // If _maxLockTimeout is set and lower than the given timeout, override it.
-    // TODO: there should be an invariant against the simultaneous usage of
+    // TODO: there should be an invariant against the simultaneous usage of id:417
     // _uninterruptibleLocksRequested and _maxLockTimeout (SERVER-34951).
     if (_maxLockTimeout && _uninterruptibleLocksRequested == 0) {
         timeout = std::min(timeout, _maxLockTimeout.get());

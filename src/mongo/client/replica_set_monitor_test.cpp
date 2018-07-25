@@ -57,7 +57,7 @@ std::vector<HostAndPort> basicSeedsBuilder() {
 const std::vector<HostAndPort> basicSeeds = basicSeedsBuilder();
 const std::set<HostAndPort> basicSeedsSet(basicSeeds.begin(), basicSeeds.end());
 
-// NOTE: Unless stated otherwise, all tests assume exclusive access to state belongs to the
+// NOTE: Unless stated otherwise, all tests assume exclusive access to state belongs to the id:431
 // current (only) thread, so they do not lock SetState::mutex before examining state. This is
 // NOT something that non-test code should do.
 
@@ -642,7 +642,7 @@ TEST(ReplicaSetMonitor, SlavesUsableEvenIfNoMaster) {
     // Mock a reply from the only host we know about and have it claim to not be master or know
     // about any other hosts. This leaves the scan with no more hosts to scan, but all hosts are
     // still marked as down since we never contacted a master. The next call to
-    // Refresher::getNextStep will apply all unconfimedReplies and return DONE.
+    // Refresher::getNextStep will apply all unconfimedReplies and return DONE . id:364
     NextStep ns = refresher.getNextStep();
     ASSERT_EQUALS(ns.step, NextStep::CONTACT_HOST);
     ASSERT_EQUALS(ns.host.host(), "a");

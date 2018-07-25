@@ -105,7 +105,7 @@ public:
      * Has acquire and release semantics.
      */
     WordType compareAndSwap(WordType expected, WordType newValue) {
-        // NOTE: Subtle: compare_exchange mutates its first argument.
+        // NOTE: Subtle: compare_exchange mutates its first argument. id:2008
         _value.compare_exchange_strong(expected, newValue);
         return expected;
     }
@@ -238,7 +238,7 @@ public:
      * Has acquire and release semantics.
      */
     WordType compareAndSwap(WordType expected, WordType newValue) {
-        // NOTE: Subtle: compare_exchange mutates its first argument.
+        // NOTE: Subtle: compare_exchange mutates its first argument. id:1488
         auto v = _toStorage(expected);
         _storage.compare_exchange_strong(v, _toStorage(newValue));
         return _fromStorage(v);

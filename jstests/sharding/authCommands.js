@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:155
     TestData.disableImplicitSessions = true;
 
     load("jstests/replsets/rslib.js");
@@ -15,7 +15,7 @@
     // briefly authenticates as __system and recieves clusterTime metadata then will fail trying to
     // gossip that time later in setup.
     //
-    // TODO SERVER-32672: remove this flag.
+    // TODO SERVER-32672: remove this flag. id:237
     TestData.skipGossipingClusterTime = true;
 
     var st = new ShardingTest({
@@ -127,7 +127,7 @@
             assert.eq(expectedDocs, testDB.foo.find().itcount());
             assert.eq(expectedDocs, testDB.foo.count());
 
-            // NOTE: This is an explicit check that GLE can be run with read prefs, not the result
+            // NOTE: This is an explicit check that GLE can be run with read prefs, not the result id:866
             // of above.
             assert.eq(null, testDB.runCommand({getlasterror: 1}).err);
             checkCommandSucceeded(testDB, {dbstats: 1});

@@ -35,7 +35,7 @@ BID_F80_CONST_DEF( c_neg_8000, c00bf40000000000, 0000000000000000); //-8000
 BID_F80_CONST_DEF( c_1e2000,   59f2cf6c9c9bc5f8, 84a294e53edc955f); // 1e2000
 BID_F80_CONST_DEF( c_1em2000,  260b1ad56d712a5d, 7f02384e5ded39be); // 1e-2000
 
-// TODO need to set up as hex
+// TODO need to set up as hex id:2274
 #if __ENABLE_BINARY80__
 #define EXPL_OVERFL 1.0e2000l
 #else

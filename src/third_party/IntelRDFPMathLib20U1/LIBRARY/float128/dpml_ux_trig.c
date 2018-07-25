@@ -576,7 +576,7 @@ UX_SINCOS(
     /*
     ** Select the polynomial coefficients and the form of the 
     ** polynomial based on the quadrant the reduced argument
-    ** lies in.  NOTE: the difference between the sin and cos
+    ** lies in.  NOTE: the difference between the sin and cos id:1657
     ** has been accounted for in the value of octant.
     */
 

@@ -5,7 +5,7 @@
 (function() {
     'use strict';
 
-    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:245
     TestData.disableImplicitSessions = true;
 
     function assertUnauthorized(res, msg) {
@@ -23,7 +23,7 @@
         doassert(finalMsg);
     }
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:884
     var st = new ShardingTest({
         auth: true,
         other: {keyFile: 'jstests/libs/key1', useHostname: false, shardAsReplicaSet: false}

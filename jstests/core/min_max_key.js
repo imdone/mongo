@@ -89,7 +89,7 @@
     testTypeBracketedQueries();
 
     assert.commandWorked(coll.createIndex({a: 1}));
-    // TODO: SERVER-35921 The results of the queries above should not change based on the
+    // TODO: SERVER-35921 The results of the queries above should not change based on the id:84
     // presence of an index
     assert.commandWorked(coll.dropIndexes());
 

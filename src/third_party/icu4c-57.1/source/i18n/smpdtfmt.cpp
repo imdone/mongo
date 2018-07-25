@@ -1058,7 +1058,7 @@ SimpleDateFormat::_format(Calendar& cal, UnicodeString& appendTo,
  * the larger the level, the smaller the field unit.
  * For example, UCAL_ERA level is 0, UCAL_YEAR level is 10,
  * UCAL_MONTH level is 20.
- * NOTE: if new fields adds in, the table needs to update.
+ * NOTE: if new fields adds in, the table needs to update. id:2573
  */
 const int32_t
 SimpleDateFormat::fgCalendarFieldToLevel[] =
@@ -1076,7 +1076,7 @@ SimpleDateFormat::fgCalendarFieldToLevel[] =
 int32_t SimpleDateFormat::getLevelFromChar(UChar ch) {
     // Map date field LETTER into calendar field level.
     // the larger the level, the smaller the field unit.
-    // NOTE: if new fields adds in, the table needs to update.
+    // NOTE: if new fields adds in, the table needs to update. id:2173
     static const int32_t mapCharToLevel[] = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         //
@@ -1845,7 +1845,7 @@ SimpleDateFormat::subFormat(UnicodeString &appendTo,
 
     case UDAT_FLEXIBLE_DAY_PERIOD_FIELD:
     {
-        // TODO: Maybe fetch the DayperiodRules during initialization (instead of at the first
+        // TODO: Maybe fetch the DayperiodRules during initialization (instead of at the first id:3288
         // loading of an instance) if a relevant pattern character (b or B) is used.
         const DayPeriodRules *ruleSet = DayPeriodRules::getInstance(this->getSmpFmtLocale(), status);
         if (U_FAILURE(status)) {
@@ -2660,7 +2660,7 @@ UBool SimpleDateFormat::matchLiterals(const UnicodeString &pattern,
                 t += 1;
             }
 
-            // TODO: should we require internal spaces
+            // TODO: should we require internal spaces id:2898
             // in lenient mode? (There won't be any
             // leading or trailing spaces)
             if (!whitespaceLenient && t == tStart) {

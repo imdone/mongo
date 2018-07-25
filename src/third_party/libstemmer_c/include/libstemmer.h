@@ -7,7 +7,7 @@ extern "C" {
 struct sb_stemmer;
 typedef unsigned char sb_symbol;
 
-/* FIXME - should be able to get a version number for each stemming
+/* FIXME - should be able to get a version number for each stemming id:1971
  * algorithm (which will be incremented each time the output changes). */
 
 /** Returns an array of the names of the available stemming algorithms.

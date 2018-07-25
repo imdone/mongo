@@ -349,7 +349,7 @@ class LaTeX(SCons.Scanner.Base):
         # This is a hand-coded DSU (decorate-sort-undecorate, or
         # Schwartzian transform) pattern.  The sort key is the raw name
         # of the file as specifed on the \include, \input, etc. line.
-        # TODO: what about the comment in the original Classic scanner:
+        # TODO: what about the comment in the original Classic scanner: id:2446
         # """which lets
         # us keep the sort order constant regardless of whether the file
         # is actually found in a Repository or locally."""

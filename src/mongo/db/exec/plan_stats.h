@@ -87,13 +87,13 @@ struct CommonStats {
     // Time elapsed while working inside this stage.
     long long executionTimeMillis;
 
-    // TODO: have some way of tracking WSM sizes (or really any series of #s).  We can measure
+    // TODO: have some way of tracking WSM sizes (or really any series of #s). We can measure id:1320
     // the size of our inputs and the size of our outputs.  We can do a lot with the WS here.
 
-    // TODO: once we've picked a plan, collect different (or additional) stats for display to
+    // TODO: once we've picked a plan, collect different (or additional) stats for display to id:547
     // the user, eg. time_t totalTimeSpent;
 
-    // TODO: keep track of the total yield time / fetch time done for a plan.
+    // TODO: keep track of the total yield time / fetch time done for a plan. id:441
 
     bool isEOF;
 
@@ -449,7 +449,7 @@ struct IndexScanStats : public SpecificStats {
     size_t dupsDropped;
 
     size_t seenInvalidated;
-    // TODO: we could track key sizes here.
+    // TODO: we could track key sizes here. id:718
 
     // Number of entries retrieved from the index during the scan.
     size_t keysExamined;

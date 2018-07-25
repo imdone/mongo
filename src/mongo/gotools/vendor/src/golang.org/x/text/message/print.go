@@ -6,7 +6,7 @@ package message
 
 import (
 	"bytes"
-	"fmt" // TODO: consider copying interfaces from package fmt to avoid dependency.
+	"fmt" // TODO: consider copying interfaces from package fmt to avoid dependency. id:1435
 	"math"
 	"reflect"
 	"sync"
@@ -46,7 +46,7 @@ var printerPool = sync.Pool{
 func newPrinter(pp *Printer) *printer {
 	p := printerPool.Get().(*printer)
 	p.Printer = *pp
-	// TODO: cache most of the following call.
+	// TODO: cache most of the following call. id:3056
 	p.catContext = pp.cat.Context(pp.tag, p)
 
 	p.panicking = false
@@ -276,7 +276,7 @@ func (p *printer) initDecimal(minFrac, maxFrac int) {
 		if p.fmt.Zero {
 			wid := p.fmt.Width
 			// Use significant integers for this.
-			// TODO: this is not the same as width, but so be it.
+			// TODO: this is not the same as width, but so be it. id:1308
 			if f.MinFractionDigits > 0 {
 				wid -= 1 + int(f.MinFractionDigits)
 			}
@@ -444,7 +444,7 @@ func (p *printer) fmtComplex(v complex128, size int, verb rune) {
 		oldPlus := p.fmt.Plus
 		p.fmt.Plus = true
 		p.fmtFloat(imag(v), size/2, verb)
-		p.WriteString("i)") // TODO: use symbol?
+		p.WriteString("i)") // TODO: use symbol? id:1097
 		p.fmt.Plus = oldPlus
 	default:
 		p.badVerb(verb)
@@ -545,7 +545,7 @@ func (p *printer) fmtPointer(value reflect.Value, verb rune) {
 		p.fmt0x64(uint64(u), !p.fmt.Sharp)
 	case 'b', 'o', 'd', 'x', 'X':
 		if verb == 'd' {
-			p.fmt.Sharp = true // Print as standard go. TODO: does this make sense?
+			p.fmt.Sharp = true // Print as standard go. TODO: does this make sense? id:1943
 		}
 		p.fmtInteger(uint64(u), unsigned, verb)
 	default:

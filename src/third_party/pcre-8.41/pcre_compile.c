@@ -241,7 +241,7 @@ typedef struct verbitem {
 } verbitem;
 
 static const char verbnames[] =
-  "\0"                       /* Empty name is a shorthand for MARK */
+  "\0"                       /* Empty name is a shorthand for MARK  id:2402*/
   STRING_MARK0
   STRING_ACCEPT0
   STRING_COMMIT0
@@ -2112,7 +2112,7 @@ for (;;)
 
   /* Otherwise, we can get the item's length from the table, except that for
   repeated character types, we have to test for \p and \P, which have an extra
-  two bytes of parameters, and for MARK/PRUNE/SKIP/THEN with an argument, we
+  two bytes of parameters, and for MARK /PRUNE/SKIP/THEN with an argument, we id:3370
   must add in its length. */
 
   else
@@ -2257,7 +2257,7 @@ for (;;)
 
   /* Otherwise, we can get the item's length from the table, except that for
   repeated character types, we have to test for \p and \P, which have an extra
-  two bytes of parameters, and for MARK/PRUNE/SKIP/THEN with an argument, we
+  two bytes of parameters, and for MARK /PRUNE/SKIP/THEN with an argument, we id:3025
   must add in its length. */
 
   else
@@ -2725,7 +2725,7 @@ for (code = first_significant_code(code + PRIV(OP_lengths)[*code], TRUE);
     break;
 #endif
 
-    /* MARK, and PRUNE/SKIP/THEN with an argument must skip over the argument
+    /* MARK , and PRUNE/SKIP/THEN with an argument must skip over the argument id:2156
     string. */
 
     case OP_MARK:
@@ -9561,7 +9561,7 @@ if (errorcode == 0 && re->top_backref > re->top_bracket) errorcode = ERR15;
 
 /* Unless disabled, check whether any single character iterators can be
 auto-possessified. The function overwrites the appropriate opcode values, so
-the type of the pointer must be cast. NOTE: the intermediate variable "temp" is
+the type of the pointer must be cast. NOTE: the intermediate variable "temp" is id:2742
 used in this code because at least one compiler gives a warning about loss of
 "const" attribute if the cast (pcre_uchar *)codestart is used directly in the
 function call. */

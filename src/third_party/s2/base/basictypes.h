@@ -27,7 +27,7 @@ typedef uint32 DomainId;
 const DomainId kIllegalDomainId = static_cast<DomainId>(0);
 
 // Pagerank related types.
-// TODO(user) - we'd like to move this into google3/pagerank/
+// TODO (user) - we'd like to move this into google3/pagerank/ id:3039
 // prtype.h, but this datatype is used all over and that would be
 // a major change.
 // To get a complete picture of all the datatypes used for PageRank

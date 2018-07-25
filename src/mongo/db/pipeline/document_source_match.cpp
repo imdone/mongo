@@ -237,7 +237,7 @@ Document redactSafePortionDollarOps(BSONObj expr) {
                 // $all can include subset of elements (like $and).
                 vector<Value> matches;
                 BSONForEach(elem, field.Obj()) {
-                    // NOTE this currently doesn't allow {$all: [{$elemMatch: {...}}]}
+                    // NOTE this currently doesn't allow {$all: [{$elemMatch: {...}}]} id:651
                     if (isTypeRedactSafeInComparison(elem.type())) {
                         matches.push_back(Value(elem));
                     }

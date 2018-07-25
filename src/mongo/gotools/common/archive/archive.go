@@ -39,7 +39,7 @@ type Header struct {
 const minBSONSize = 4 + 1 // an empty BSON document should be exactly five bytes long
 
 var terminator int32 = -1
-var terminatorBytes = []byte{0xFF, 0xFF, 0xFF, 0xFF} // TODO, rectify this with terminator
+var terminatorBytes = []byte{0xFF, 0xFF, 0xFF, 0xFF} // TODO , rectify this with terminator id:1567
 
 // MagicNumber is four bytes that are found at the beginning of the archive that indicate that
 // the byte stream is an archive, as opposed to anything else, including a stream of BSON documents

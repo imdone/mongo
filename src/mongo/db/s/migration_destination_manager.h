@@ -74,7 +74,7 @@ public:
     /**
      * Returns the singleton instance of the migration destination manager.
      *
-     * TODO (SERVER-25333): This should become per-collection instance instead of singleton.
+     * TODO (SERVER-25333): This should become per-collection instance instead of singleton. id:664
      */
     static MigrationDestinationManager* get(OperationContext* opCtx);
 

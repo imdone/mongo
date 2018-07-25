@@ -188,7 +188,7 @@ std::string CommandHelpers::parseNsFullyQualified(const BSONObj& cmdObj) {
 NamespaceString CommandHelpers::parseNsCollectionRequired(StringData dbname,
                                                           const BSONObj& cmdObj) {
     // Accepts both BSON String and Symbol for collection name per SERVER-16260
-    // TODO(kangas) remove Symbol support in MongoDB 3.0 after Ruby driver audit
+    // TODO (kangas) remove Symbol support in MongoDB 3.0 after Ruby driver audit id:397
     BSONElement first = cmdObj.firstElement();
     uassert(ErrorCodes::InvalidNamespace,
             str::stream() << "collection name has invalid type " << typeName(first.type()),

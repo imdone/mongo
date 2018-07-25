@@ -122,7 +122,7 @@ template<> struct is_protectable<other_action<assignment_action> > {
   BOOST_STATIC_CONSTANT(bool, value = true);
 };
 
-// NOTE: comma action is also protectable, but the specialization is
+// NOTE: comma action is also protectable, but the specialization is id:1728
   // in actions.hpp
 
 

@@ -102,7 +102,7 @@ StatusWith<std::vector<ShardStatistics>> ClusterStatisticsImpl::getStats(Operati
     // maximum allowed quotas and current utilization. We get the latter by issuing
     // db.serverStatus() (mem.mapped) to all shards.
     //
-    // TODO: skip unresponsive shards and mark information as stale.
+    // TODO: skip unresponsive shards and mark information as stale. id:703
     auto shardsStatus = Grid::get(opCtx)->catalogClient()->getAllShards(
         opCtx, repl::ReadConcernLevel::kMajorityReadConcern);
     if (!shardsStatus.isOK()) {

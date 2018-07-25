@@ -1664,7 +1664,7 @@ class TestByTestResult(TestResult):
         if details is None:
             details = {'reason': text_content(reason)}
         elif reason:
-            # XXX: What if details already has 'reason' key?
+            # XXX: What if details already has 'reason' key? id:2541
             details['reason'] = text_content(reason)
         self._details = details
 

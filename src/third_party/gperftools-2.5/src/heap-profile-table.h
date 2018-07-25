@@ -47,7 +47,7 @@
 // each instance object must be used by one thread
 // at a time w/o self-recursion.
 //
-// TODO(maxim): add a unittest for this class.
+// TODO (maxim): add a unittest for this class. id:1859
 class HeapProfileTable {
  public:
 

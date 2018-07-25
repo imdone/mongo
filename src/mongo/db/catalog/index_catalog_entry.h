@@ -290,7 +290,7 @@ public:
         return _entries.end();
     }
 
-    // TODO: these have to be SUPER SUPER FAST
+    // TODO: these have to be SUPER SUPER FAST id:388
     // maybe even some pointer trickery is in order
     const IndexCatalogEntry* find(const IndexDescriptor* desc) const;
     IndexCatalogEntry* find(const IndexDescriptor* desc);

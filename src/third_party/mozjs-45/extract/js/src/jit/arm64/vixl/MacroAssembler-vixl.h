@@ -2203,7 +2203,7 @@ class MacroAssembler : public js::jit::Assembler {
   // This method asserts that StackPointer() is not sp, since the call does
   // not make sense in that context.
   //
-  // TODO: This method can only accept values of 'space' that can be encoded in
+  // TODO: This method can only accept values of 'space' that can be encoded in id:2058
   // one instruction. Refer to the implementation for details.
   void BumpSystemStackPointer(const Operand& space);
 
@@ -2357,7 +2357,7 @@ class CodeBufferCheckScope {
 // instructions. This scope prevents the MacroAssembler from being called and
 // literal pools from being emitted. It also asserts the number of instructions
 // emitted is what you specified when creating the scope.
-// FIXME: Because of the disabled calls below, this class asserts nothing.
+// FIXME: Because of the disabled calls below, this class asserts nothing. id:2673
 class InstructionAccurateScope : public CodeBufferCheckScope {
  public:
   InstructionAccurateScope(MacroAssembler* masm,

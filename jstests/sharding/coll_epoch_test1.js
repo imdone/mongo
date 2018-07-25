@@ -24,11 +24,11 @@
     jsTest.log("Enabling sharding for the first time...");
 
     assert.commandWorked(admin.runCommand({enableSharding: coll.getDB() + ""}));
-    // TODO(PM-85): Make sure we *always* move the primary after collection lifecyle project is
+    // TODO (PM-85): Make sure we *always* move the primary after collection lifecyle project is id:257
     // complete
     st.ensurePrimaryShard(coll.getDB().getName(), st.shard1.shardName);
     assert.commandWorked(admin.runCommand({shardCollection: coll + "", key: {_id: 1}}));
-    st.configRS.awaitLastOpCommitted();  // TODO: Remove after collection lifecyle project (PM-85)
+    st.configRS.awaitLastOpCommitted();  // TODO: Remove after collection lifecyle project (PM-85) id:156
 
     var bulk = insertMongos.getCollection(coll + "").initializeUnorderedBulkOp();
     for (var i = 0; i < 100; i++) {
@@ -82,7 +82,7 @@
     // Test that inserts and queries go to correct shard even when the collection has been unsharded
     // and resharded from another mongos on a different primary
     //
-    // TODO: SERVER-32607 uncomment after the proper database version checks are in place.
+    // TODO: SERVER-32607 uncomment after the proper database version checks are in place. id:165
     /*
         jsTest.log("Re-creating sharded collection with different primary...");
 

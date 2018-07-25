@@ -1043,7 +1043,7 @@ int64_t WiredTigerRecordStore::_cappedDeleteAsNeeded_inlock(OperationContext* op
 
             newestIdToDelete = getKey(truncateEnd);
             // don't go past the record we just inserted
-            if (newestIdToDelete >= justInserted)  // TODO: use oldest uncommitted instead
+            if (newestIdToDelete >= justInserted)  // TODO: use oldest uncommitted instead id:2072
                 break;
 
             WT_ITEM old_value;
@@ -1115,7 +1115,7 @@ int64_t WiredTigerRecordStore::_cappedDeleteAsNeeded_inlock(OperationContext* op
             }
 
             if (ret == ENOENT || ret == WT_NOTFOUND) {
-                // TODO we should remove this case once SERVER-17141 is resolved
+                // TODO we should remove this case once SERVER-17141 is resolved id:986
                 log() << "Soft failure truncating capped collection. Will try again later.";
                 docsRemoved = 0;
             } else {

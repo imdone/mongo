@@ -67,7 +67,7 @@ TEST_F(QueryPlannerTest, Basic2DNonNear) {
     assertSolutionExists("{cscan: {dir: 1}}");
     assertSolutionExists("{fetch: {node: {ixscan: {pattern: {a: '2d'}}}}}");
 
-    // TODO: test that we *don't* annotate for things we shouldn't.
+    // TODO: test that we *don't* annotate for things we shouldn't. id:548
 }
 
 TEST_F(QueryPlannerTest, Basic2DSphereCompound) {
@@ -138,7 +138,7 @@ TEST_F(QueryPlannerTest, Basic2DSphereNonNear) {
     assertSolutionExists("{cscan: {dir: 1}}");
     assertSolutionExists("{fetch: {node: {ixscan: {pattern: {a: '2dsphere'}}}}}");
 
-    // TODO: test that we *don't* annotate for things we shouldn't.
+    // TODO: test that we *don't* annotate for things we shouldn't. id:1819
 }
 
 TEST_F(QueryPlannerTest, Multikey2DSphereNonNear) {
@@ -160,7 +160,7 @@ TEST_F(QueryPlannerTest, Multikey2DSphereNonNear) {
     assertSolutionExists("{cscan: {dir: 1}}");
     assertSolutionExists("{fetch: {node: {ixscan: {pattern: {a: '2dsphere'}}}}}");
 
-    // TODO: test that we *don't* annotate for things we shouldn't.
+    // TODO: test that we *don't* annotate for things we shouldn't. id:762
 }
 
 TEST_F(QueryPlannerTest, Basic2DGeoNear) {

@@ -273,7 +273,7 @@ static void udata_initHashTable() {
     U_ASSERT(gCommonDataCache == NULL);
     gCommonDataCache = uhash_open(uhash_hashChars, uhash_compareChars, NULL, &err);
     if (U_FAILURE(err)) {
-        // TODO: handle errors better.
+        // TODO: handle errors better. id:2470
         gCommonDataCache = NULL;
     }
     if (gCommonDataCache != NULL) {
@@ -661,7 +661,7 @@ openCommonData(const char *path,          /*  Path from OpenChoice?          */
 
     UDataMemory_init(&tData);
 
-    /* ??????? TODO revisit this */ 
+    /* ??????? TODO revisit this id:1934*/ 
     if (commonDataIndex >= 0) {
         /* "mini-cache" for common ICU data */
         if(commonDataIndex >= UPRV_LENGTHOF(gCommonICUDataArray)) {

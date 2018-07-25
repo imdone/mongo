@@ -1009,7 +1009,7 @@ js::intl_CompareStrings(JSContext* cx, unsigned argc, Value* vp)
     RootedObject collator(cx, &args[0].toObject());
 
     // Obtain a UCollator object, cached if possible.
-    // XXX Does this handle Collator instances from other globals correctly?
+    // XXX Does this handle Collator instances from other globals correctly? id:2215
     bool isCollatorInstance = collator->getClass() == &CollatorClass;
     UCollator* coll;
     if (isCollatorInstance) {

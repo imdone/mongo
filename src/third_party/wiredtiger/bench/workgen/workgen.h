@@ -200,7 +200,7 @@ struct Table {
     std::string _uri;
     TableInternal *_internal;
 
-    /* XXX select table from range */
+    /* XXX select table from range id:3418*/
 
     Table();
     Table(const char *tablename);
@@ -247,7 +247,7 @@ struct Key {
     int _size;
     ParetoOptions _pareto;
 
-    /* XXX specify more about key distribution */
+    /* XXX specify more about key distribution id:3463*/
     Key() : _keytype(KEYGEN_AUTO), _size(0), _pareto(ParetoOptions::DEFAULT) {}
     Key(KeyType keytype, int size=0,
       const ParetoOptions &pareto=ParetoOptions::DEFAULT) :
@@ -263,7 +263,7 @@ struct Key {
 struct Value {
     int _size;
 
-    /* XXX specify how value is calculated */
+    /* XXX specify how value is calculated id:2269*/
     Value() : _size(0) {}
     Value(int size) : _size(size) {}
     Value(const Value &other) : _size(other._size) {}

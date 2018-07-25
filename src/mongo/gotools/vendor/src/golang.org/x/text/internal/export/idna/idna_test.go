@@ -152,7 +152,7 @@ func TestConformance(t *testing.T) {
 			wantToASCII = ""
 		}
 
-		// TODO: also do IDNA tests.
+		// TODO: also do IDNA tests. id:993
 		// invalidInIDNA2008 := p.String(4) == "NV8"
 
 		for _, p := range profiles {

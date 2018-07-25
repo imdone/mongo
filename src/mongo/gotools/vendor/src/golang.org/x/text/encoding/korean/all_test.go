@@ -36,7 +36,7 @@ func TestNonRepertoire(t *testing.T) {
 		{enc, EUCKR, "א", ""},
 		{enc, EUCKR, "aא", "a"},
 		{enc, EUCKR, "\uac00א", "\xb0\xa1"},
-		// TODO: should we also handle Jamo?
+		// TODO: should we also handle Jamo? id:1137
 
 		{dec, EUCKR, "\x80", "\ufffd"},
 		{dec, EUCKR, "\xff", "\ufffd"},

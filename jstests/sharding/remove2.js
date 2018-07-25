@@ -130,7 +130,7 @@ TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
     // Shut down shard and wait for its ReplicaSetMonitor to be cleaned up, then start it back up
     // and use it.
     //
-    // TODO: test this both with AND without waiting for the ReplicaSetMonitor to be cleaned up.
+    // TODO: test this both with AND without waiting for the ReplicaSetMonitor to be cleaned up. id:177
     //
     // This part doesn't pass, even without cleaning up the ReplicaSetMonitor - see SERVER-5900.
     /*

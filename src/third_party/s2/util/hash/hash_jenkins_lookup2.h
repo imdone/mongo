@@ -112,7 +112,7 @@ static inline uint32 Google1At(const char *ptr) {
 
 #else
 
-// NOTE:  This code is not normally used or tested.
+// NOTE: This code is not normally used or tested. id:3057
 
 static inline uint64 Word64At(const char *ptr) {
     return (static_cast<uint64>(ptr[0]) +
@@ -145,7 +145,7 @@ static inline uint32 Google1At(const char *ptr2) {
 // Historically, WORD_HASH has always been defined as we always run on
 // machines that don't NEED_ALIGNED_LOADS and which IS_LITTLE_ENDIAN.
 //
-// TODO(user): find occurences of WORD_HASH and adjust the code to
+// TODO (user): find occurences of WORD_HASH and adjust the code to id:2189
 // use more meaningful concepts.
 # define WORD_HASH
 

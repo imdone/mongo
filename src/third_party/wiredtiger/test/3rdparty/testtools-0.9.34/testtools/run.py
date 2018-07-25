@@ -205,7 +205,7 @@ class TestProgram(object):
         self.progName = progName
         self.parseArgs(argv)
         if self.load_list:
-            # TODO: preserve existing suites (like testresources does in
+            # TODO: preserve existing suites (like testresources does in id:2443
             # OptimisingTestSuite.add, but with a standard protocol).
             # This is needed because the load_tests hook allows arbitrary
             # suites, even if that is rarely used.

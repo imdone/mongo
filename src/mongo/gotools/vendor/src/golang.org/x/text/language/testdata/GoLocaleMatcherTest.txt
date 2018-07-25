@@ -125,7 +125,7 @@ nl, nl-Latn, nl-NL, nl-BE ; 	nl-Latn-NL ; 	nl-NL
 pt, pt-PT ; 	pt-ES ; 	pt-PT
 
 # if no preferred locale specified, pick top language, not regional
-en, fr, fr-CA, fr-CH ; 	fr-US ; 	fr #TODO: ; fr-u-rg-US
+en, fr, fr-CA, fr-CH ; 	fr-US ; 	fr #TODO: ; fr-u-rg-US id:3038
 
 # region distance German
 de-AT, de-DE, de-CH ; 	de ; 	de-DE

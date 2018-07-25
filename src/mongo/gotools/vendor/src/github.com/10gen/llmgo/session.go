@@ -386,7 +386,7 @@ func DialWithInfo(info *DialInfo) (*Session, error) {
 	for i, addr := range info.Addrs {
 		p := strings.LastIndexAny(addr, "]:")
 		if p == -1 || addr[p] != ':' {
-			// XXX This is untested. The test suite doesn't use the standard port.
+			// XXX This is untested. The test suite doesn't use the standard port. id:2123
 			addr += ":27017"
 		}
 		addrs[i] = addr
@@ -3121,7 +3121,7 @@ type DBRef struct {
 	Database   string      `bson:"$db,omitempty"`
 }
 
-// NOTE: Order of fields for DBRef above does matter, per documentation.
+// NOTE: Order of fields for DBRef above does matter, per documentation. id:1037
 
 // FindRef returns a query that looks for the document in the provided
 // reference. If the reference includes the DB field, the document will
@@ -3430,7 +3430,7 @@ func (iter *Iter) Close() error {
 	}
 	socket, err := iter.acquireSocket()
 	if err == nil {
-		// TODO Batch kills.
+		// TODO Batch kills. id:841
 		err = socket.Query(&KillCursorsOp{[]int64{cursorId}})
 		socket.Release()
 	}
@@ -3536,7 +3536,7 @@ func (iter *Iter) Next(result interface{}) bool {
 			return false
 		}
 		debugf("Iter %p document unmarshaled: %#v", iter, result)
-		// XXX Only have to check first document for a query error?
+		// XXX Only have to check first document for a query error? id:1654
 		err = checkQueryError(iter.op.Collection, docData)
 		if err != nil {
 			iter.m.Lock()
@@ -4298,7 +4298,7 @@ func (iter *Iter) replyFunc() replyFunc {
 				}
 				iter.op.CursorId = replyOp.CursorId
 			}
-			// XXX Handle errors and flags.
+			// XXX Handle errors and flags. id:847
 			debugf("Iter %p received reply document %d/%d (cursor=%d)", iter, rfl.docNum+1, rdocs, replyOp.CursorId)
 			iter.docData.Push(rfl.docData)
 		}
@@ -4444,7 +4444,7 @@ func (c *Collection) writeOpQuery(socket *MongoSocket, safeOp *QueryOp, op inter
 	}
 	mutex.Lock() // Wait.
 	if replyErr != nil {
-		return nil, replyErr // XXX TESTME
+		return nil, replyErr // XXX TESTME id:2125
 	}
 	if hasErrMsg(replyData) {
 		// Looks like getLastError itself failed.

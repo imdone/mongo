@@ -90,7 +90,7 @@ static void decodeSCRAMUsername(std::string& user) {
  * Generate server-first-message on the form:
  * r=client-nonce|server-nonce,s=user-salt,i=iteration-count
  *
- * NOTE: we are ignoring the authorization ID part of the message
+ * NOTE: we are ignoring the authorization ID part of the message id:378
  */
 template <typename Policy>
 StatusWith<std::tuple<bool, std::string>> SaslSCRAMServerMechanism<Policy>::_firstStep(
@@ -258,7 +258,7 @@ StatusWith<std::tuple<bool, std::string>> SaslSCRAMServerMechanism<Policy>::_fir
  * or failed authentication server-final-message on the form:
  * e=message
  *
- * NOTE: we are ignoring the channel binding part of the message
+ * NOTE: we are ignoring the channel binding part of the message id:584
 **/
 template <typename Policy>
 StatusWith<std::tuple<bool, std::string>> SaslSCRAMServerMechanism<Policy>::_secondStep(

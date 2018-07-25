@@ -173,7 +173,7 @@ public:
 };
 
 TEST(ClonablePtrTest, syntax_smoke_test) {
-// TODO: Either add a compressed pair type for optimization, or wait for MSVC to get this feature by
+// TODO: Either add a compressed pair type for optimization, or wait for MSVC to get this feature by id:944
 //       default.  MSVC doesn't make its tuple compressed, which causes this test to fail on MSVC.
 #ifndef _MSC_VER
     {
@@ -307,7 +307,7 @@ void augmentedConstruction() {
     // Test Clone Factory construction
     { mongo::clonable_ptr<Clonable, CloneFactory>{Clonable::getCloningFunction()}; }
 
-// TODO: Revist this when MSVC's enable-if and deletion on ctors works.
+// TODO: Revist this when MSVC's enable-if and deletion on ctors works. id:301
 #ifndef _MSC_VER
     // Test non-construction from a nullptr
     {
@@ -320,7 +320,7 @@ void augmentedConstruction() {
     // Test construction from a nullptr with factory
     { mongo::clonable_ptr<Clonable, CloneFactory>{nullptr, Clonable::getCloningFunction()}; }
 
-// TODO: Revist this when MSVC's enable-if and deletion on ctors works.
+// TODO: Revist this when MSVC's enable-if and deletion on ctors works. id:233
 #ifndef _MSC_VER
     // Test construction from a raw Clonable pointer.
     {
@@ -609,7 +609,7 @@ TEST(ClonablePtrTest, basic_construction_test) {
     }
 }
 
-// TODO: Bring in an "equivalence class for equality predicate testing" framework.
+// TODO: Bring in an "equivalence class for equality predicate testing" framework. id:360
 // Equals and Not Equals need to be tested independently -- It is not valid to assume that equals
 // and not equals are correctly implemented as complimentary predicates.  Equality must be
 // reflexive, symmetric and transitive.  This requres several instances that all have the same
@@ -792,7 +792,7 @@ TEST(ClonablePtrTest, basicEqualityTest) {
     ASSERT(c != b);
 }
 
-// TODO: all other forms of equality with other types (`std::nullptr_t` and `std::unique_ptr< T >`)
+// TODO: all other forms of equality with other types (` and ` T >`) std::nullptr_t` std::unique_ptr< id:286
 // need testing still.
 
 TEST(ClonablePtrTest, ownershipStabilityTest) {

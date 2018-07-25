@@ -24,14 +24,14 @@ type State interface {
 	// Language reports the requested language in which to render a message.
 	Language() language.Tag
 
-	// TODO: consider this and removing rune from the Format method in the
+	// TODO: consider this and removing rune from the Format method in the id:1240
 	// Formatter interface.
 	//
 	// Verb returns the format variant to render, analogous to the types used
 	// in fmt. Use 'v' for the default or only variant.
 	// Verb() rune
 
-	// TODO: more info:
+	// TODO: more info: id:2996
 	// - sentence context such as linguistic features passed by the translator.
 }
 

@@ -2,7 +2,7 @@
  * This test checks the upgrade path for mixed mode ssl + x509 auth
  * from disabled/keyfiles up to preferSSL/x509
  *
- * NOTE: This test is similar to upgrade_to_x509_ssl.js in the
+ * NOTE: This test is similar to upgrade_to_x509_ssl.js in the id:199
  * ssl test suite. This test cannot use ssl communication
  * and therefore cannot test modes that only allow ssl.
  *
@@ -42,7 +42,7 @@ var rst =
 rst.startSet();
 
 // ReplSetTest.initiate() requires all nodes to be to be authorized to run replSetGetStatus.
-// TODO(SERVER-14017): Remove this in favor of using initiate() everywhere.
+// TODO (SERVER-14017): Remove this in favor of using initiate() everywhere. id:200
 rst.initiateWithAnyNodeAsPrimary(Object.extend(
     rst.getReplSetConfig(), {writeConcernMajorityJournalDefault: wcMajorityJournalDefault}));
 

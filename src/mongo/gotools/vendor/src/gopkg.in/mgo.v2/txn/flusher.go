@@ -588,7 +588,7 @@ func (f *flusher) assert(t *transaction, revnos []int64, pull map[bson.ObjectId]
 			} else {
 				revnoq = n
 			}
-			// XXX Add tt to the query here, once we're sure it's all working.
+			// XXX Add tt to the query here, once we're sure it's all working. id:1152
 			//     Not having it increases the chances of breaking on bad logic.
 			qdoc = append(qdoc, bson.DocElem{"txn-revno", revnoq})
 			if op.Assert != DocExists {

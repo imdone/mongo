@@ -73,7 +73,7 @@ var $config = (function() {
     function setup(db, collName, cluster) {
         var bulk = db[collName].initializeUnorderedBulkOp();
         for (var i = 0; i < this.numDocs; ++i) {
-            // TODO: this actually does assume that there are no unique indexes
+            // TODO: this actually does assume that there are no unique indexes id:182
             var doc = makeDoc(this.numDocs / 100, this.numDocs / 10);
             bulk.insert(doc);
         }

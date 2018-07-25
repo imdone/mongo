@@ -62,7 +62,7 @@ public:
      * Finds a host matching readPref blocking up to 20 seconds or until the given operation is
      * interrupted or its deadline expires.
      *
-     * TODO(schwerin): Once operation max-time behavior is more uniformly integrated into sharding,
+     * TODO (schwerin): Once operation max-time behavior is more uniformly integrated into sharding, id:355
      * remove the 20-second ceiling on wait time.
      */
     virtual StatusWith<HostAndPort> findHost(OperationContext* opCtx,
@@ -85,7 +85,7 @@ public:
      * This method may still engage in blocking networking calls, but will attempt contact every
      * member of the replica set at most one time.
      *
-     * TODO(schwerin): Change this implementation to not perform any networking, once existing
+     * TODO (schwerin): Change this implementation to not perform any networking, once existing id:568
      * callers have been shown to be safe with this behavior or changed to call findHost.
      */
     StatusWith<HostAndPort> findHostNoWait(const ReadPreferenceSetting& readPref) {

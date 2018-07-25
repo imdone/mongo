@@ -3156,7 +3156,7 @@ func (s *S) TestEnsureIndex(c *C) {
 
 		// 		obtained := M{}
 		// 		err = idxs.Find(M{"name": expectedName}).One(obtained)
-		// 		c.Assert(err, IsNil) // XXX ERR HERE
+		// 		c.Assert(err, IsNil) // XXX ERR HERE id:1994
 		//
 		// 		delete(obtained, "v")
 		//

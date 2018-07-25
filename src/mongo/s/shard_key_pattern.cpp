@@ -260,7 +260,7 @@ BSONObj ShardKeyPattern::extractShardKeyFromMatchable(const MatchableDocument& m
                 patternEl.fieldName(),
                 BSONElementHasher::hash64(matchEl, BSONElementHasher::DEFAULT_HASH_SEED));
         } else {
-            // NOTE: The matched element may *not* have the same field name as the path -
+            // NOTE: The matched element may *not* have the same field name as the path - id:3115
             // index keys don't contain field names, for example
             keyBuilder.appendAs(matchEl, patternEl.fieldName());
         }
@@ -308,19 +308,19 @@ StatusWith<BSONObj> ShardKeyPattern::extractShardKeyFromQuery(OperationContext* 
 BSONObj ShardKeyPattern::extractShardKeyFromQuery(const CanonicalQuery& query) const {
     // Extract equalities from query.
     EqualityMatches equalities;
-    // TODO: Build the path set initially?
+    // TODO: Build the path set initially? id:2568
     FieldRefSet keyPatternPathSet(transitional_tools_do_not_use::unspool_vector(_keyPatternPaths));
     // We only care about extracting the full key pattern paths - if they don't exist (or are
     // conflicting), we don't contain the shard key.
     Status eqStatus =
         pathsupport::extractFullEqualityMatches(*query.root(), keyPatternPathSet, &equalities);
-    // NOTE: Failure to extract equality matches just means we return no shard key - it's not
+    // NOTE: Failure to extract equality matches just means we return no shard key - it's not id:1319
     // an error we propagate
     if (!eqStatus.isOK())
         return BSONObj();
 
     // Extract key from equalities
-    // NOTE: The method below is equivalent to constructing a BSONObj and running
+    // NOTE: The method below is equivalent to constructing a BSONObj and running id:2131
     // extractShardKeyFromMatchable, but doesn't require creating the doc.
 
     BSONObjBuilder keyBuilder;
@@ -337,7 +337,7 @@ BSONObj ShardKeyPattern::extractShardKeyFromQuery(const CanonicalQuery& query) c
                 patternPath.dottedField(),
                 BSONElementHasher::hash64(equalEl, BSONElementHasher::DEFAULT_HASH_SEED));
         } else {
-            // NOTE: The equal element may *not* have the same field name as the path - nested $and,
+            // NOTE: The equal element may *not* have the same field name as the path - nested $and, id:1546
             // $eq, for example
             keyBuilder.appendAs(equalEl, patternPath.dottedField());
         }

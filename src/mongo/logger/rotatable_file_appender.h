@@ -47,7 +47,7 @@ class RotatableFileAppender : public Appender<Event> {
 public:
     typedef Encoder<Event> EventEncoder;
 
-    // TODO: Remove this ctor once raw pointer use is gone
+    // TODO: Remove this ctor once raw pointer use is gone id:3092
     RotatableFileAppender(EventEncoder* encoder, RotatableFileWriter* writer)
         : _encoder(encoder), _writer(writer) {}
     /**

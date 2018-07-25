@@ -51,7 +51,7 @@ namespace detail {
 // LDREXH, LDREXB, STREXH and STREXB.
 // There are also double-word versions, LDREXD and STREXD.
 // (Actually it looks like these are available from version 6k onwards.)
-// FIXME these are not yet used; should be mostly a matter of copy-and-paste.
+// FIXME these are not yet used; should be mostly a matter of copy-and-paste. id:2666
 // I think you can supply an immediate offset to the address.
 //
 // A memory barrier is effected using a "co-processor 15" instruction,

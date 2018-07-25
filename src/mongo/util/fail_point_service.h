@@ -48,7 +48,7 @@ void setGlobalFailPoint(const std::string& failPointName, const BSONObj& cmdObj)
 /**
  * Convenience macro for defining a fail point. Must be used at namespace scope.
  * Note: that means never at local scope (inside functions) or class scope.
- * NOTE: Never use in header files, only sources.
+ * NOTE: Never use in header files, only sources. id:1384
  */
 #define MONGO_FAIL_POINT_DEFINE(fp)                                                   \
     ::mongo::FailPoint fp;                                                            \

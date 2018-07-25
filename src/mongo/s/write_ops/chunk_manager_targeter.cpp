@@ -589,7 +589,7 @@ StatusWith<std::vector<ShardEndpoint>> ChunkManagerTargeter::_targetUpdateByShar
 
 StatusWith<std::vector<ShardEndpoint>> ChunkManagerTargeter::_targetDoc(
     OperationContext* opCtx, const BSONObj& doc, const BSONObj& collation) const {
-    // NOTE: This is weird and fragile, but it's the way our language works right now - documents
+    // NOTE: This is weird and fragile, but it's the way our language works right now - documents id:2140
     // are either A) invalid or B) valid equality queries over themselves.
     return _targetQuery(opCtx, doc, collation);
 }
@@ -775,7 +775,7 @@ Status ChunkManagerTargeter::refreshIfNeeded(OperationContext* opCtx, bool* wasC
         return Status::OK();
     } else if (!_remoteShardVersions.empty()) {
         // If we got stale shard versions from remote shards, we may need to refresh
-        // NOTE: Not sure yet if this can happen simultaneously with targeting issues
+        // NOTE: Not sure yet if this can happen simultaneously with targeting issues id:1555
 
         CompareResult result = compareAllShardVersions(*_routingInfo, _remoteShardVersions);
 

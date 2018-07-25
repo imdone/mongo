@@ -89,7 +89,7 @@ StatusWithMatchExpression MatchExpressionParser::_parseNot(
     if (!s.isOK())
         return StatusWithMatchExpression(s);
 
-    // TODO: this seems arbitrary?
+    // TODO: this seems arbitrary? id:1386
     // tested in jstests/not2.js
     for (unsigned i = 0; i < theAnd->numChildren(); i++)
         if (theAnd->getChild(i)->matchType() == MatchExpression::REGEX)

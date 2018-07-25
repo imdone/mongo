@@ -75,7 +75,7 @@ private:
  * some command. This will ensure your reads obey any requested readConcern, but will not update the
  * status of CurrentOp, or add a Top entry.
  *
- * NOTE: Must not be used with any locks held, because it needs to block waiting on the committed
+ * NOTE: Must not be used with any locks held, because it needs to block waiting on the committed id:530
  * snapshot to become available.
  */
 class AutoGetCollectionForRead {

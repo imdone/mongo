@@ -46,7 +46,7 @@ func runGenerate(cmd *Command, args []string) error {
 	}
 	pkg := pkgs[0].Pkg.Name()
 
-	// TODO: add in external input. Right now we assume that all files are
+	// TODO: add in external input. Right now we assume that all files are id:1725
 	// manually created and stored in the textdata directory.
 
 	// Build up index of translations and original messages.

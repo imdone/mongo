@@ -341,7 +341,7 @@ int64_t Simulator::ExtendValue(unsigned reg_size,
 void Simulator::FPCompare(double val0, double val1, FPTrapFlags trap) {
   AssertSupportedFPCR();
 
-  // TODO: This assumes that the C++ implementation handles comparisons in the
+  // TODO: This assumes that the C++ implementation handles comparisons in the id:2063
   // way that we expect (as per AssertSupportedFPCR()).
   bool process_exception = false;
   if ((std::isnan(val0) != 0) || (std::isnan(val1) != 0)) {
@@ -2261,7 +2261,7 @@ void Simulator::SysOp_W(int op, int64_t val) {
       // to the specified address.
       volatile uint8_t y = Memory::Read<uint8_t>(val);
       USE(y);
-      // TODO: Implement "case ZVA:".
+      // TODO: Implement "case ZVA:". id:2677
       break;
     }
     default:

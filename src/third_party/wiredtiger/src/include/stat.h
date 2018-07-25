@@ -231,7 +231,7 @@ __wt_stats_clear(void *stats_arg, int slot)
  * Update data-source handle statistics if statistics gathering is enabled
  * and the data-source handle is set.
  *
- * XXX
+ * XXX  id:2837
  * We shouldn't have to check if the data-source handle is NULL, but it's
  * necessary until everything is converted to using data-source handles.
  */

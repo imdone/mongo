@@ -130,7 +130,7 @@
                 '--password',
                 passwordNotTest);
 
-    // TODO: Enable this set of tests in the future -- needs proper encoding for X509 username in
+    // TODO: Enable this set of tests in the future -- needs proper encoding for X509 username in id:920
     // URI
     if (false) {
         testConnect(

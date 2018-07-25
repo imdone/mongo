@@ -347,7 +347,7 @@ namespace gregorian {
     return is;
   }
 
-  //NOTE: output operator for greg_day was not necessary
+  //NOTE: output operator for greg_day was not necessary id:3172
 
   //! input operator for greg_day
   template <class CharT, class Traits>
@@ -388,7 +388,7 @@ namespace gregorian {
     return is;
   }
 
-  //NOTE: output operator for greg_year was not necessary
+  //NOTE: output operator for greg_year was not necessary id:2682
 
   //! input operator for greg_year
   template <class CharT, class Traits>

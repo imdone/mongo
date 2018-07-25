@@ -292,7 +292,7 @@ func (b *builder) genSymbols(w *gen.CodeWriter, data *cldr.CLDR) {
 					v = ""
 				}
 				cur := b.currencies.Index([]byte(c.Type))
-				// XXX gets reassigned to 0 in the package's code.
+				// XXX gets reassigned to 0 in the package's code. id:1745
 				if c.Type == "XXX" {
 					cur = 0
 				}

@@ -43,7 +43,7 @@ namespace rpc {
  * An interface for augmenting egress networking components with domain-specific metadata handling
  * logic.
  *
- * TODO: At some point we will want the opposite of this interface (readRequestMetadata,
+ * TODO: At some point we will want the opposite of this interface (readRequestMetadata, id:2077
  * writeReplyMetadata) that we will use for ingress networking. This will allow us to move much
  * of the metadata handling logic out of Command::run.
  */

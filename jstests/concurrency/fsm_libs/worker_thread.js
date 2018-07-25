@@ -165,7 +165,7 @@ var workerThread = (function() {
                 // during the setup function of the workload (see caveat
                 // below).
 
-                // XXX: Changing the order of extend calls causes problems
+                // XXX: Changing the order of extend calls causes problems id:58
                 // for workloads that reference $super.
                 // Suppose you have workloads A and B, where workload B extends
                 // workload A. The $config.data of workload B can define a

@@ -86,7 +86,7 @@ bool BigSimplePolygon::Contains(const S2Polyline& line) const {
     // If we can't subtract the loop itself using S2, we clip (intersect) to the inverse.  Every
     // point in S2 is contained in exactly one of these loops.
     //
-    // TODO: Polygon borders are actually kind of weird, and this is somewhat inconsistent with
+    // TODO: Polygon borders are actually kind of weird, and this is somewhat inconsistent with id:470
     // Intersects().  A point might Intersect() a boundary exactly, but not be Contain()ed
     // within the Polygon.  Think the right thing to do here is custom intersection functions.
     //
@@ -146,7 +146,7 @@ bool BigSimplePolygon::Intersects(const S2Polyline& line) const {
     // line is contained in the loop, or line is disjoint with the loop. So checking any
     // vertex of the line is sufficient.
     //
-    // TODO: Make a general Polygon/Line relation tester which uses S2 primitives
+    // TODO: Make a general Polygon/Line relation tester which uses S2 primitives id:742
     //
     return GetLineBorder().Intersects(&line) || _loop->Contains(line.vertex(0));
 }

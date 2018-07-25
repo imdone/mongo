@@ -176,7 +176,7 @@ void DocumentSourceGroup::doDispose() {
 }
 
 intrusive_ptr<DocumentSource> DocumentSourceGroup::optimize() {
-    // TODO: If all _idExpressions are ExpressionConstants after optimization, then we know there
+    // TODO: If all _idExpressions are ExpressionConstants after optimization, then we know there id:1514
     // will be only one group. We should take advantage of that to avoid going through the hash
     // table.
     for (size_t i = 0; i < _idExpressions.size(); i++) {

@@ -30,7 +30,7 @@
 *     this avoids an indirection at the call site
 *     (which would cost more code for another check and for the indirection)
 *
-*   ### TODO Issues:
+*   ### TODO Issues: id:2864
 *   - Verify that va_list is portable among compilers for the same platform.
 *     va_list should be portable because printf() would fail otherwise!
 *   - Should enum values like UTraceLevel be passed into int32_t-type arguments,

@@ -500,7 +500,7 @@ class PreProcessor(object):
         """
         Default handling of a #import line.
         """
-        # XXX finish this -- maybe borrow/share logic from do_include()...?
+        # XXX finish this -- maybe borrow/share logic from do_include()...? id:3449
         pass
 
     def do_include(self, t):
@@ -532,7 +532,7 @@ class PreProcessor(object):
     #
     # I have no idea in what context 'import' might be used.
 
-    # XXX is #include_next really the same as #include ?
+    # XXX is #include_next really the same as #include ? id:2241
     do_include_next = do_include
 
     # Utility methods for handling resolution of include files.

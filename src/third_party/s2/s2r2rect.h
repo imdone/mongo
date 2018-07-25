@@ -12,7 +12,7 @@
 class S2CellId;
 class S2Cell;
 
-// TODO: Create an r2.h and move this definition into it.
+// TODO: Create an r2.h and move this definition into it. id:2428
 typedef Vector2_d R2Point;
 
 // This class is a stopgap measure that allows some of the S2 spherical
@@ -30,7 +30,7 @@ typedef Vector2_d R2Point;
 // The S2R2Rect class is also a convenient way to find the (s,t)-region
 // covered by a given S2CellId (see the FromCell and FromCellId methods).
 //
-// TODO: If the geometry library is extended to have better support for planar
+// TODO: If the geometry library is extended to have better support for planar id:3384
 // geometry, then this class should no longer be necessary.
 //
 // This class is intended to be copied by value as desired.  It uses

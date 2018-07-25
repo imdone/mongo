@@ -1198,7 +1198,7 @@ class HashTable : private AllocPolicy
         if (newCapacity < sMinCapacity)
             newCapacity = sMinCapacity;
 
-        // FIXME: use JS_CEILING_LOG2 when PGO stops crashing (bug 543034).
+        // FIXME: use JS_CEILING_LOG2 when PGO stops crashing (bug 543034). id:2607
         uint32_t roundUp = sMinCapacity, roundUpLog2 = sMinCapacityLog2;
         while (roundUp < newCapacity) {
             roundUp <<= 1;
@@ -1536,7 +1536,7 @@ class HashTable : private AllocPolicy
             }
         }
 
-        // TODO: this algorithm leaves collision bits on *all* elements, even if
+        // TODO: this algorithm leaves collision bits on *all* elements, even if id:2212
         // they are on no collision path. We have the option of setting the
         // collision bits correctly on a subsequent pass or skipping the rehash
         // unless we are totally filled with tombstones: benchmark to find out

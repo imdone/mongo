@@ -69,7 +69,7 @@ __curstat_lsm_init(
 		/*
 		 * Get the statistics for the chunk's underlying object.
 		 *
-		 * XXX kludge: we may have an empty chunk where no checkpoint
+		 * XXX kludge: we may have an empty chunk where no checkpoint id:3428
 		 * was written.  If so, try to open the ordinary handle on that
 		 * chunk instead.
 		 */

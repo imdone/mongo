@@ -16,7 +16,7 @@ import (
 	"golang.org/x/text/message"
 )
 
-// TODO: test that tables are properly dropped by the linker for various use
+// TODO: test that tables are properly dropped by the linker for various use id:1804
 // cases.
 
 var (
@@ -332,7 +332,7 @@ func TestTag(t *testing.T) {
 		{"agq", "sr", "|[language: sr]"},
 		{"nl", "nl", "Nederlands"},
 		// CLDR 30 dropped Vlaams as the word for nl-BE. It is still called
-		// Flemish in English, though. TODO: check if this is a CLDR bug.
+		// Flemish in English, though. TODO: check if this is a CLDR bug. id:1388
 		// {"nl", "nl-BE", "Vlaams"},
 		{"nl", "nl-BE", "Nederlands (België)"},
 		{"nl", "vls", "West-Vlaams"},
@@ -383,7 +383,7 @@ func TestTag(t *testing.T) {
 				// due to CLDR's update procedure which treats modern and other
 				// languages differently.
 				// See http://unicode.org/cldr/trac/ticket/8051.
-				// TODO: use language capitalization to sanitize the strings.
+				// TODO: use language capitalization to sanitize the strings. id:3012
 				t.Errorf("Name(%s) = %q; want %q", tag, n, name)
 			}
 
@@ -413,7 +413,7 @@ func TestLanguage(t *testing.T) {
 		// sr is in Value.Languages(), but is not supported by agq.
 		{"agq", "sr", "|[language: sr]"},
 		// CLDR 30 dropped Vlaams as the word for nl-BE. It is still called
-		// Flemish in English, though. TODO: this is probably incorrect.
+		// Flemish in English, though. TODO: this is probably incorrect. id:1200
 		// West-Vlaams (vls) is not Vlaams. West-Vlaams could be considered its
 		// own language, whereas Vlaams is generally Dutch. So expect to have
 		// to change these tests back.
@@ -579,7 +579,7 @@ func TestSelf(t *testing.T) {
 	}{
 		{"nl", "Nederlands"},
 		// CLDR 30 dropped Vlaams as the word for nl-BE. It is still called
-		// Flemish in English, though. TODO: check if this is a CLDR bug.
+		// Flemish in English, though. TODO: check if this is a CLDR bug. id:1018
 		// {"nl-BE", "Vlaams"},
 		{"nl-BE", "Nederlands"},
 		{"en-GB", "British English"},
@@ -607,11 +607,11 @@ func TestSelf(t *testing.T) {
 		{"zh-Hant-TW", "繁體中文"},
 		{"zh-Hans-TW", "简体中文"},
 		// Take the entry for sr which has the matching script.
-		// TODO: Capitalization changed as of CLDR 26, but change seems
+		// TODO: Capitalization changed as of CLDR 26, but change seems id:1806
 		// arbitrary. Revisit capitalization with revision 27. See
 		// http://unicode.org/cldr/trac/ticket/8051.
 		{"sr", "српски"},
-		// TODO: sr-ME should show up as Serbian or Montenegrin, not Serbo-
+		// TODO: sr-ME should show up as Serbian or Montenegrin, not Serbo- id:1392
 		// Croatian. This is an artifact of the current algorithm, which is the
 		// way it is to have the preferred behavior for other languages such as
 		// Chinese. We can hardwire this case in the table generator or package
@@ -620,7 +620,7 @@ func TestSelf(t *testing.T) {
 		{"sr-Latn-ME", "srpskohrvatski"},
 		{"sr-Cyrl-ME", "српски"},
 		{"sr-NL", "српски"},
-		// NOTE: kk is defined, but in Cyrillic script. For China, Arab is the
+		// NOTE: kk is defined, but in Cyrillic script. For China, Arab is the id:3014
 		// dominant script. We do not have data for kk-Arab and we chose to not
 		// fall back in such cases.
 		{"kk-CN", ""},

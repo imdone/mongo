@@ -201,7 +201,7 @@ void SessionCatalog::scanSessions(OperationContext* opCtx,
     LOG(2) << "Beginning scanSessions. Scanning " << _txnTable.size() << " sessions.";
 
     for (auto it = _txnTable.begin(); it != _txnTable.end(); ++it) {
-        // TODO SERVER-33850: Rename KillAllSessionsByPattern and
+        // TODO SERVER-33850: Rename KillAllSessionsByPattern and id:2037
         // ScopedKillAllSessionsByPatternImpersonator to not refer to session kill.
         if (const KillAllSessionsByPattern* pattern = matcher.match(it->first)) {
             ScopedKillAllSessionsByPatternImpersonator impersonator(opCtx, *pattern);

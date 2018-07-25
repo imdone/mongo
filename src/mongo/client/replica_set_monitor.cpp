@@ -93,7 +93,7 @@ const ReadPreferenceSetting kPrimaryOnlyReadPreference(ReadPreference::PrimaryOn
 const Milliseconds kFindHostMaxBackOffTime(500);
 AtomicBool areRefreshRetriesDisabledForTest{false};  // Only true in tests.
 
-// TODO: Move to ReplicaSetMonitorManager
+// TODO: Move to ReplicaSetMonitorManager id:356
 ReplicaSetMonitor::ConfigChangeHook asyncConfigChangeHook;
 ReplicaSetMonitor::ConfigChangeHook syncConfigChangeHook;
 
@@ -110,7 +110,7 @@ bool opTimeGreater(const Node* lhs, const Node* rhs) {
 }
 
 bool compareLatencies(const Node* lhs, const Node* rhs) {
-    // NOTE: this automatically compares Node::unknownLatency worse than all others.
+    // NOTE: this automatically compares worse than all others. Node::unknownLatency id:992
     return lhs->latencyMicros < rhs->latencyMicros;
 }
 
@@ -119,7 +119,7 @@ bool hostsEqual(const Node& lhs, const HostAndPort& rhs) {
 }
 
 // Allows comparing two Nodes, or a HostAndPort and a Node.
-// NOTE: the two HostAndPort overload is only needed to support extra checks in some STL
+// NOTE: the two HostAndPort overload is only needed to support extra checks in some STL id:424
 // implementations. For simplicity, no comparator should be used with collections of just
 // HostAndPort.
 struct CompareHosts {
@@ -404,11 +404,11 @@ void ReplicaSetMonitor::setSynchronousConfigChangeHook(ConfigChangeHook hook) {
     syncConfigChangeHook = hook;
 }
 
-// TODO move to correct order with non-statics before pushing
+// TODO move to correct order with non-statics before pushing id:358
 void ReplicaSetMonitor::appendInfo(BSONObjBuilder& bsonObjBuilder) const {
     stdx::lock_guard<stdx::mutex> lk(_state->mutex);
 
-    // NOTE: the format here must be consistent for backwards compatibility
+    // NOTE: the format here must be consistent for backwards compatibility id:571
     BSONArrayBuilder hosts(bsonObjBuilder.subarrayStart("hosts"));
     for (unsigned i = 0; i < _state->nodes.size(); i++) {
         const Node& node = _state->nodes[i];
@@ -517,7 +517,7 @@ Refresher::NextStep Refresher::getNextStep() {
             // contact a master, we will remove any nodes that it doesn't think are part of
             // the set, undoing the damage we cause here.
 
-            // NOTE: we don't modify seedNodes or notify about set membership change in this
+            // NOTE: we don't modify seedNodes or notify about set membership change in this id:362
             // case since it hasn't been confirmed by a master.
             const string oldAddr = _set->getUnconfirmedServerAddress();
             for (UnconfirmedReplies::iterator it = _scan->unconfirmedReplies.begin();
@@ -547,7 +547,7 @@ Refresher::NextStep Refresher::getNextStep() {
             }
         }
 
-        // Makes sure all other Refreshers in this round return DONE
+        // Makes sure all other Refreshers in this round return DONE  id:994
         _set->currentScan.reset();
 
         return NextStep(NextStep::DONE);
@@ -620,7 +620,7 @@ void Refresher::receivedIsMaster(const HostAndPort& from,
     // connectible host that is that claims to be in the set.
     _scan->foundAnyUpNodes = true;
 
-    // TODO consider only notifying if we've updated a node or we've emptied waitingFor.
+    // TODO consider only notifying if we've updated a node or we've emptied waitingFor. id:426
     _set->cv.notify_all();
 
     DEV _set->checkInvariants();
@@ -647,7 +647,7 @@ ScanStatePtr Refresher::startNewScan(const SetState* set) {
     // we either get the latest set of members from a master or talk to all possible hosts
     // without finding a master.
 
-    // TODO It might make sense to check down nodes first if the last seen master is still
+    // TODO It might make sense to check down nodes first if the last seen master is still id:359
     // marked as up.
 
     int upNodes = 0;
@@ -708,7 +708,7 @@ Status Refresher::receivedIsMasterFromMaster(const HostAndPort& from, const IsMa
     _set->configVersion = reply.configVersion;
 
     // Mark all nodes as not master. We will mark ourself as master before releasing the lock.
-    // NOTE: we use a "last-wins" policy if multiple hosts claim to be master.
+    // NOTE: we use a "last-wins" policy if multiple hosts claim to be master. id:574
     for (size_t i = 0; i < _set->nodes.size(); i++) {
         _set->nodes[i].isMaster = false;
     }
@@ -822,7 +822,7 @@ HostAndPort Refresher::_refreshUntilMatches(const ReadPreferenceSetting* criteri
                 // getNextStep may have updated nodes if no master was found
                 return criteria ? _set->getMatchingHost(*criteria) : HostAndPort();
 
-            case NextStep::WAIT:  // TODO consider treating as DONE for refreshAll
+            case NextStep::WAIT:  // TODO consider treating as DONE for refreshAll id:365
                 _set->cv.wait(lk);
                 continue;
 
@@ -976,7 +976,7 @@ void Node::update(const IsMasterReply& reply) {
     if (!tags.binaryEqual(reply.tags))
         tags = reply.tags.getOwned();
 
-    if (reply.latencyMicros >= 0) {  // TODO upper bound?
+    if (reply.latencyMicros >= 0) {  // TODO upper bound? id:996
         if (latencyMicros == unknownLatency) {
             latencyMicros = reply.latencyMicros;
         } else {
@@ -1031,7 +1031,7 @@ HostAndPort SetState::getMatchingHost(const ReadPreferenceSetting& criteria) con
         case ReadPreference::PrimaryPreferred: {
             HostAndPort out =
                 getMatchingHost(ReadPreferenceSetting(ReadPreference::PrimaryOnly, criteria.tags));
-            // NOTE: the spec says we should use the primary even if tags don't match
+            // NOTE: the spec says we should use the primary even if tags don't match id:428
             if (!out.empty())
                 return out;
             return getMatchingHost(ReadPreferenceSetting(
@@ -1043,13 +1043,13 @@ HostAndPort SetState::getMatchingHost(const ReadPreferenceSetting& criteria) con
                 ReadPreference::SecondaryOnly, criteria.tags, criteria.maxStalenessSeconds));
             if (!out.empty())
                 return out;
-            // NOTE: the spec says we should use the primary even if tags don't match
+            // NOTE: the spec says we should use the primary even if tags don't match id:361
             return getMatchingHost(
                 ReadPreferenceSetting(ReadPreference::PrimaryOnly, criteria.tags));
         }
 
         case ReadPreference::PrimaryOnly: {
-            // NOTE: isMaster implies isUp
+            // NOTE: isMaster implies isUp id:576
             Nodes::const_iterator it = std::find_if(nodes.begin(), nodes.end(), isMaster);
             if (it == nodes.end())
                 return HostAndPort();

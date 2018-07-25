@@ -55,12 +55,12 @@ func TestCompliance(t *testing.T) {
 }
 
 var skip = map[string]bool{
-	// TODO: bugs
+	// TODO: bugs id:3032
 	// Honor the wildcard match. This may only be useful to select non-exact
 	// stuff.
 	"mul,af/nl": true, // match: got "af"; want "mul"
 
-	// TODO: include other extensions.
+	// TODO: include other extensions. id:1275
 	// combined: got "en-GB-u-ca-buddhist-nu-arab"; want "en-GB-fonipa-t-m0-iso-i0-pinyin-u-ca-buddhist-nu-arab"
 	"und,en-GB-u-sd-gbsct/en-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin": true,
 
@@ -229,7 +229,7 @@ func TestAddLikelySubtags(t *testing.T) {
 		{"de-1901", "de-Latn-DE-1901"},
 		{"de-x-abc", "de-Latn-DE-x-abc"},
 		{"de-1901-x-abc", "de-Latn-DE-1901-x-abc"},
-		{"x-abc", "x-abc"}, // TODO: is this the desired behavior?
+		{"x-abc", "x-abc"}, // TODO: is this the desired behavior? id:1057
 	}
 	for i, tt := range tests {
 		in, _ := Parse(tt.in)
@@ -281,7 +281,7 @@ func TestMinimize(t *testing.T) {
 		{"de-Latn-1901", "de-1901"},
 		{"de-Latn-x-abc", "de-x-abc"},
 		{"de-DE-1901-x-abc", "de-1901-x-abc"},
-		{"x-abc", "x-abc"}, // TODO: is this the desired behavior?
+		{"x-abc", "x-abc"}, // TODO: is this the desired behavior? id:1919
 	}
 	for i, tt := range tests {
 		in, _ := Parse(tt.in)

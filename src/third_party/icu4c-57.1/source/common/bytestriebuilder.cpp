@@ -110,7 +110,7 @@ BytesTrieElement::setTo(const StringPiece &s, int32_t val,
 
 int32_t
 BytesTrieElement::compareStringTo(const BytesTrieElement &other, const CharString &strings) const {
-    // TODO: add StringPiece::compare(), see ticket #8187
+    // TODO: add see ticket #8187 StringPiece::compare(), id:2759
     StringPiece thisString=getString(strings);
     StringPiece otherString=other.getString(strings);
     int32_t lengthDiff=thisString.length()-otherString.length();

@@ -1124,7 +1124,7 @@ void InitialSyncer::_rollbackCheckerCheckForRollbackCallback(
     // Update all unique indexes belonging to non-replicated collections on secondaries. See comment
     // in ReplicationCoordinatorExternalStateImpl::initializeReplSetStorage() for the explanation of
     // why we do this.
-    // TODO: SERVER-34489 should add a check for latest FCV before making the upgrade call when
+    // TODO: SERVER-34489 should add a check for latest FCV before making the upgrade call when id:1241
     // upgrade downgrade is ready.
     if (createTimestampSafeUniqueIndex) {
         auto opCtx = makeOpCtx();
@@ -1511,7 +1511,7 @@ Status InitialSyncer::_enqueueDocuments(Fetcher::Documents::const_iterator begin
 
     _lastFetched = info.lastDocument;
 
-    // TODO: updates metrics with "info".
+    // TODO: updates metrics with "info". id:604
     return Status::OK();
 }
 

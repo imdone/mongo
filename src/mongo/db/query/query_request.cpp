@@ -338,7 +338,7 @@ StatusWith<unique_ptr<QueryRequest>> QueryRequest::parseFromFindCommand(unique_p
             // 'options' field. We accept this only if the 'options' field is empty so that
             // the shell's explain implementation is forwards compatible.
             //
-            // TODO: Remove for 3.4.
+            // TODO: Remove for 3.4. id:1821
             if (!qr->isExplain()) {
                 return Status(ErrorCodes::FailedToParse,
                               str::stream() << "Field '" << kOptionsField
@@ -796,7 +796,7 @@ Status QueryRequest::initFullQuery(const BSONObj& top) {
             } else if (Array == e.type()) {
                 _sort = e.embeddedObject();
 
-                // TODO: Is this ever used?  I don't think so.
+                // TODO: Is this ever used? I don't think so. id:764
                 // Quote:
                 // This is for languages whose "objects" are not well ordered (JSON is well
                 // ordered).

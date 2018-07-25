@@ -127,7 +127,7 @@ BSONObj makeMetadataObject(bool isV1ElectionProtocol) {
  * oplog to be ahead of ours. If false, the sync source's oplog is allowed to be at the same point
  * as ours, but still cannot be behind ours.
  *
- * TODO (SERVER-27668): Make remoteLastOpApplied and remoteRBID non-optional in mongodb 3.8.
+ * TODO (SERVER-27668): Make remoteLastOpApplied and remoteRBID non-optional in mongodb 3.8. id:608
  *
  * Returns OplogStartMissing if we cannot find the optime of the last fetched operation in
  * the remote oplog.
@@ -233,7 +233,7 @@ Status checkRemoteOplogStart(const Fetcher::Documents& documents,
  * no OplogQueryMetadata is provided then it returns boost::none.
  *
  * OplogQueryMetadata is made optional for backwards compatibility.
- * TODO (SERVER-27668): Make this non-optional in mongodb 3.8. When this stops being optional
+ * TODO (SERVER-27668): Make this non-optional in mongodb 3.8. When this stops being optional id:1247
  * we can remove the duplicated fields in both metadata types and begin to always use
  * OplogQueryMetadata's data.
  */
@@ -479,7 +479,7 @@ StatusWith<BSONObj> OplogFetcher::_onSuccessfulBatch(const Fetcher::QueryRespons
     // Record time for each batch.
     getmoreReplStats.recordMillis(durationCount<Milliseconds>(queryResponse.elapsedMillis));
 
-    // TODO: back pressure handling will be added in SERVER-23499.
+    // TODO: back pressure handling will be added in SERVER-23499. id:613
     auto status = _enqueueDocumentsFn(firstDocToApply, documents.cend(), info);
     if (!status.isOK()) {
         return status;

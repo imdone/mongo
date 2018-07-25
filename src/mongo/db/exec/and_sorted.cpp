@@ -239,7 +239,7 @@ PlanStage::StageState AndSortedStage::moveTowardTargetRecordId(WorkingSetID* out
 void AndSortedStage::doInvalidate(OperationContext* opCtx,
                                   const RecordId& dl,
                                   InvalidationType type) {
-    // TODO remove this since calling isEOF is illegal inside of doInvalidate().
+    // TODO remove this since calling isEOF is illegal inside of doInvalidate(). id:422
     if (isEOF()) {
         return;
     }

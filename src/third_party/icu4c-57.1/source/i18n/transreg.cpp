@@ -432,7 +432,7 @@ public:
         FACTORY,
         NONE // Only used for uninitialized entries
     } entryType;
-    // NOTE: stringArg cannot go inside the union because
+    // NOTE: stringArg cannot go inside the union because id:2179
     // it has a copy constructor
     UnicodeString stringArg; // For RULES_*, ALIAS, COMPOUND_RBT
     int32_t intArg; // For COMPOUND_RBT, LOCALE_RULES
@@ -1176,7 +1176,7 @@ TransliteratorEntry* TransliteratorRegistry::find(UnicodeString& source,
     TransliteratorEntry* entry;
 
     // Seek exact match in hashtable.  Temporary fix for ICU 4.6.
-    // TODO: The general logic for finding a matching transliterator needs to be reviewed.
+    // TODO: The general logic for finding a matching transliterator needs to be reviewed. id:3291
     // ICU ticket #8089
     UnicodeString ID;
     TransliteratorIDParser::STVtoID(source, target, variant, ID);
@@ -1284,7 +1284,7 @@ Transliterator* TransliteratorRegistry::instantiateEntry(const UnicodeString& ID
             }
             int32_t passNumber = 1;
             for (int32_t i = 0; U_SUCCESS(status) && i < entry->u.dataVector->size(); i++) {
-                // TODO: Should passNumber be turned into a decimal-string representation (1 -> "1")?
+                // TODO: Should passNumber be turned into a decimal-string representation (1 -> "1")? id:2901
                 Transliterator* t = new RuleBasedTransliterator(UnicodeString(CompoundTransliterator::PASS_STRING) + UnicodeString(passNumber++),
                     (TransliterationRuleData*)(entry->u.dataVector->elementAt(i)), FALSE);
                 if (t == 0)
@@ -1328,7 +1328,7 @@ Transliterator* TransliteratorRegistry::instantiateEntry(const UnicodeString& ID
             
             //if (U_FAILURE(status)) {
                 // We have a failure of some kind.  Remove the ID from the
-                // registry so we don't keep trying.  NOTE: This will throw off
+                // registry so we don't keep trying.  NOTE: This will throw off id:1828
                 // anyone who is, at the moment, trying to iterate over the
                 // available IDs.  That's acceptable since we should never
                 // really get here except under installation, configuration,

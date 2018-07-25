@@ -158,7 +158,7 @@ var hashOIDs = map[crypto.Hash]asn1.ObjectIdentifier{
 	crypto.SHA512: asn1.ObjectIdentifier([]int{2, 16, 840, 1, 101, 3, 4, 2, 3}),
 }
 
-// TODO(rlb): This is also from crypto/x509, so same comment as AGL's below
+// TODO (rlb): This is also from crypto/x509, so same comment as AGL's below id:2167
 var signatureAlgorithmDetails = []struct {
 	algo       x509.SignatureAlgorithm
 	oid        asn1.ObjectIdentifier
@@ -179,7 +179,7 @@ var signatureAlgorithmDetails = []struct {
 	{x509.ECDSAWithSHA512, oidSignatureECDSAWithSHA512, x509.ECDSA, crypto.SHA512},
 }
 
-// TODO(rlb): This is also from crypto/x509, so same comment as AGL's below
+// TODO (rlb): This is also from crypto/x509, so same comment as AGL's below id:1073
 func signingParamsForPublicKey(pub interface{}, requestedSigAlgo x509.SignatureAlgorithm) (hashFunc crypto.Hash, sigAlgo pkix.AlgorithmIdentifier, err error) {
 	var pubType x509.PublicKeyAlgorithm
 
@@ -245,7 +245,7 @@ func signingParamsForPublicKey(pub interface{}, requestedSigAlgo x509.SignatureA
 	return
 }
 
-// TODO(agl): this is taken from crypto/x509 and so should probably be exported
+// TODO (agl): this is taken from crypto/x509 and so should probably be exported id:882
 // from crypto/x509 or crypto/x509/pkix.
 func getSignatureAlgorithmFromOID(oid asn1.ObjectIdentifier) x509.SignatureAlgorithm {
 	for _, details := range signatureAlgorithmDetails {
@@ -256,7 +256,7 @@ func getSignatureAlgorithmFromOID(oid asn1.ObjectIdentifier) x509.SignatureAlgor
 	return x509.UnknownSignatureAlgorithm
 }
 
-// TODO(rlb): This is not taken from crypto/x509, but it's of the same general form.
+// TODO (rlb): This is not taken from crypto/x509, but it's of the same general form. id:1693
 func getHashAlgorithmFromOID(target asn1.ObjectIdentifier) crypto.Hash {
 	for hash, oid := range hashOIDs {
 		if oid.Equal(target) {

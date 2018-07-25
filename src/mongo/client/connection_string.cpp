@@ -47,7 +47,7 @@ ConnectionString::ConnectionString(StringData setName, std::vector<HostAndPort> 
     _finishInit();
 }
 
-// TODO: unify c-tors
+// TODO: unify c-tors id:341
 ConnectionString::ConnectionString(ConnectionType type,
                                    const std::string& s,
                                    const std::string& setName) {
@@ -83,7 +83,7 @@ ConnectionString ConnectionString::forLocal() {
     return ConnectionString(LOCAL);
 }
 
-// TODO: rewrite parsing  make it more reliable
+// TODO: rewrite parsing make it more reliable id:402
 void ConnectionString::_fillServers(std::string s) {
     //
     // Custom-handled servers/replica sets start with '$'
@@ -137,7 +137,7 @@ void ConnectionString::_finishInit() {
     }
 
     // Needed here as well b/c the parsing logic isn't used in all constructors
-    // TODO: Refactor so that the parsing logic *is* used in all constructors
+    // TODO: Refactor so that the parsing logic *is* used in all constructors id:342
     if (_type == MASTER && _servers.size() > 0) {
         if (_servers[0].host().find('$') == 0) {
             _type = CUSTOM;

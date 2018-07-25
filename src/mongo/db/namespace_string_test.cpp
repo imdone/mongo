@@ -297,14 +297,14 @@ TEST(NamespaceStringTest, CollectionComponentValidNames) {
     ASSERT(NamespaceString::validCollectionComponent("a.b"));
     ASSERT(!NamespaceString::validCollectionComponent("a."));
     ASSERT(!NamespaceString::validCollectionComponent("a..foo"));
-    ASSERT(NamespaceString::validCollectionComponent("a.b."));  // TODO: should this change?
+    ASSERT(NamespaceString::validCollectionComponent("a.b."));  // TODO: should this change? id:1138
 }
 
 TEST(NamespaceStringTest, CollectionValidNames) {
     ASSERT(NamespaceString::validCollectionName("a"));
     ASSERT(NamespaceString::validCollectionName("a.b"));
-    ASSERT(NamespaceString::validCollectionName("a."));    // TODO: should this change?
-    ASSERT(NamespaceString::validCollectionName("a.b."));  // TODO: should this change?
+    ASSERT(NamespaceString::validCollectionName("a."));    // TODO: should this change? id:497
+    ASSERT(NamespaceString::validCollectionName("a.b."));  // TODO: should this change? id:1391
     ASSERT(!NamespaceString::validCollectionName(".a"));
     ASSERT(!NamespaceString::validCollectionName("$a"));
     ASSERT(!NamespaceString::validCollectionName("a$b"));

@@ -44,7 +44,7 @@ struct CloneFactory {
     }
 };
 
-// TODO: Move some of these traits detection structs to a template metaprogramming header.
+// TODO: Move some of these traits detection structs to a template metaprogramming header. id:274
 template <typename T>
 struct detect_clone_factory_type_member_impl {
     struct Fallback {
@@ -109,9 +109,9 @@ struct clonable_traits : clonable_ptr_detail::clonable_traits_impl<T> {};
  *  * `T` may have an accompanying specialization of `mongo::clonable_traits< T >` which
  *    defines `clonable_factory_type`.
  *
- * NOTE: The `CloneFactory` type is permitted to be stateful, but must be copy constructible and
+ * NOTE: The `CloneFactory` type is permitted to be stateful, but must be copy constructible and id:934
  * copy assignable.
- * NOTE: The `CloneFactory` member does NOT participate in value comparisons for a `clonable_ptr`,
+ * NOTE: The `CloneFactory` member does NOT participate in value comparisons for a `clonable_ptr`, id:287
  * even when it has state.
  *
  * `T`: The type of the object being managed.
@@ -194,7 +194,7 @@ public:
      *
      * `copy`: The original value to copy.
      * THROWS: Any exceptions thrown by `cloneFactory( *copy )`.
-     * TODO: Consider adding a noexcept deduction specifier to this copy operation.
+     * TODO: Consider adding a noexcept deduction specifier to this copy operation. id:211
      */
     inline clonable_ptr(const clonable_ptr& copy)
         : data{copy.cloneFactory(), clone_with_factory(copy, copy.cloneFactory())} {}
@@ -209,12 +209,12 @@ public:
      * value, then `*this` will have an independent pointer.  If `copy` stores `nullptr`, then
      * `*this` will also store `nullptr`.
      *
-     * NOTE: The `CloneFactory` will be copied from the `copy` poiner, by default.
+     * NOTE: The `CloneFactory` will be copied from the `copy` poiner, by default. id:346
      *
      * `copy`: The original value to copy.
      * `factory`: The factory to use for cloning.  Defaults to the source's factory.
      * THROWS: Any exceptions thrown by `factory( *copy )`.
-     * TODO: Consider adding a noexcept deduction specifier to this copy operation.
+     * TODO: Consider adding a noexcept deduction specifier to this copy operation. id:276
      */
     inline clonable_ptr(const clonable_ptr& copy, const CloneFactory& factory)
         : data{factory, clone_with_factory(copy, factory)} {}
@@ -225,10 +225,10 @@ public:
      * `copy`, as created by `copy->clone()`.  If `copy` is not managing anything (its internal
      * pointer is `nullptr`), then this new copy will also be nullptr.
      *
-     * NOTE: This operation cannot be conducted on an xvalue or prvalue instance.  (This prevents
+     * NOTE: This operation cannot be conducted on an xvalue or prvalue instance. (This prevents id:936
      * silliness such as: `func_returning_ptr()= some_other_func_returning_ptr();`)
      *
-     * NOTE: `copy`'s `CloneFactory` will be used to copy.
+     * NOTE: `copy`'s `CloneFactory` will be used to copy. id:289
      *
      * POST: `copy != nullptr ? copy != *this : copy == *this` -- If `copy` stores a pointer to a
      * value, then `*this` will have an independent pointer.  If `copy` stores `nullptr`, then
@@ -236,7 +236,7 @@ public:
      *
      * `copy`: The value to make a copy of.
      * RETURNS: A reference to this pointer, after modification.
-     * TODO: Consider adding a noexcept deduction specifier to this copy operation.
+     * TODO: Consider adding a noexcept deduction specifier to this copy operation. id:213
      */
     inline clonable_ptr& operator=(const clonable_ptr& copy) & {
         return *this = clonable_ptr{copy};
@@ -251,7 +251,7 @@ public:
      * `nullptr` construct a clonable pointer (to `nullptr`), if the `CloneFactory` type is
      * stateless.
      * The value will be a pointer to nothing, with a default `CloneFactory`.
-     * NOTE: This constructor is only available for types with a stateless `CloneFactory` type.
+     * NOTE: This constructor is only available for types with a stateless `CloneFactory` type. id:348
      */
     template <typename CloneFactory_ = CloneFactory>
     inline clonable_ptr(
@@ -260,7 +260,7 @@ public:
     /*!
      * Disable `nullptr` construction of clonable pointer (to `nullptr`), if the `CloneFactory` type
      * is stateful.
-     * NOTE: This constructor is disabled for types with a stateless `CloneFactory` type.
+     * NOTE: This constructor is disabled for types with a stateless `CloneFactory` type. id:278
      */
     template <typename CloneFactory_ = CloneFactory>
     inline clonable_ptr(typename std::enable_if<!std::is_empty<CloneFactory_>::value,
@@ -290,7 +290,7 @@ public:
     /*!
      * Disable single-argument construction of clonable pointer (with a raw pointer), if the
      * `CloneFactory` type is stateful.
-     * NOTE: This constructor is disabled for types with a stateless `CloneFactory` type.
+     * NOTE: This constructor is disabled for types with a stateless `CloneFactory` type. id:938
      */
     template <typename CloneFactory_ = CloneFactory>
     explicit inline clonable_ptr(
@@ -313,7 +313,7 @@ public:
      * `factory` parameter will be used as the `CloneFactory`
      * `p`: The pointer to take ownership of.
      * `factory`: The clone factory to use in future copies.
-     * NOTE: It is not recommended to use this constructor, as the following is not exception safe
+     * NOTE: It is not recommended to use this constructor, as the following is not exception safe id:292
      * code:
      * ~~~
      * std::function<T* ()> cloner= [](const T& p){ return p; };
@@ -331,7 +331,7 @@ public:
     /*!
      * We forbid construction of a `clonable_ptr` from an unmanaged pointer, when specifying
      * a cloning function -- regardless of whether the `CloneFactory` is stateful or not.
-     * NOTE: We have disabled this constructor, as the following is not exception safe
+     * NOTE: We have disabled this constructor, as the following is not exception safe id:217
      * code:
      * ~~~
      * clonable_ptr<T, std::function<T* ()>> bad{new T, [](const T& p){ return p; }}; // BAD IDEA!!!
@@ -355,9 +355,9 @@ public:
      * Constructs a `clonable_ptr` by transferring ownership from `p` to `*this`.  A default
      * `CloneFactory` will be provided for future copies.
      * `p`: The pointer to take ownership of.
-     * NOTE: This constructor allows for implicit conversion from a `UniquePtr` (xvalue) object.
-     * NOTE: This constructor is unavailable when `CloneFactory` is stateful.
-     * NOTE: This usage should be preferred over the raw-pointer construction forms, when using
+     * NOTE: This constructor allows for implicit conversion from a `UniquePtr` (xvalue) object. id:351
+     * NOTE: This constructor is unavailable when `CloneFactory` is stateful. id:280
+     * NOTE: This usage should be preferred over the raw-pointer construction forms, when using id:940
      * factories as constructor arguments, as in the following exception safe code:
      * ~~~
      * clonable_ptr<T, std::function<T* ()>> good{std::make_unique<T>(),
@@ -372,10 +372,10 @@ public:
     /*!
      * Constructs a `clonable_ptr` by transferring ownership from `p` to `*this`.  The `factory`
      * parameter will be used as the `CloneFactory` for future copies.
-     * NOTE: This constructor allows for implicit conversion from a `UniquePtr` (xvalue) object.
+     * NOTE: This constructor allows for implicit conversion from a `UniquePtr` (xvalue) object. id:294
      * `p`: The pointer to take ownership of.
      * `factory`: The clone factory to use in future copies.
-     * NOTE: This usage should be preferred over the raw-pointer construction forms, when using
+     * NOTE: This usage should be preferred over the raw-pointer construction forms, when using id:220
      * factories as constructor arguments, as in the following exception safe code:
      * ~~~
      * clonable_ptr<T, std::function<T* ()>> good{std::make_unique<T>(),
@@ -392,10 +392,10 @@ public:
      * `copy`, as created by `copy->clone()`.  If `copy` is not managing anything (its internal
      * pointer is `nullptr`), then this new copy will also be nullptr.
      *
-     * NOTE: This operation cannot be performed on an xvalue or prvalue instance.  (This prevents
+     * NOTE: This operation cannot be performed on an xvalue or prvalue instance. (This prevents id:354
      * silliness such as: `func_returning_ptr()= some_other_func_returning_ptr();`)
      *
-     * NOTE: `copy`'s `CloneFactory` will be used to copy.
+     * NOTE: `copy`'s `CloneFactory` will be used to copy. id:282
      *
      * POST: `copy != nullptr ? copy != *this : copy == *this` -- If `copy` stores a pointer to a
      * value, then `*this` will have an independent pointer.  If `copy` stores `nullptr`, then
@@ -415,7 +415,7 @@ public:
 
     /*!
      * Change the `CloneFactory` for `*this` to `factory`.
-     * NOTE: This operation cannot be performed on an xvalue or prvalue instance.  (This prevents
+     * NOTE: This operation cannot be performed on an xvalue or prvalue instance. (This prevents id:942
      * silliness such as: `func_returning_ptr().setCloneFactory( factory );`.)
      */
     template <typename FactoryType>
@@ -425,7 +425,7 @@ public:
 
     /*!
      * Dereferences the pointer owned by `*this`.
-     * NOTE: The behavior is undefined if `this->get() == nullptr`.
+     * NOTE: The behavior is undefined if `this->get() == nullptr`. id:298
      * RETURNS: The object owned by `*this`, equivalent to `*get()`.
      */
     inline auto& operator*() const {
@@ -434,7 +434,7 @@ public:
 
     /*!
      * Dereferences the pointer owned by `*this`.
-     * NOTE: The behavior is undefined if `this->get() == nullptr`.
+     * NOTE: The behavior is undefined if `this->get() == nullptr`. id:227
      * RETURNS: A pointer to the object owned by `*this`, equivalent to `get()`.
      */
     inline auto* operator-> () const {
@@ -455,8 +455,8 @@ public:
      * be called from an lvalue context -- rvalue operations are used to represent transfer of
      * ownership semantics.
      *
-     * NOTE: This function is only applicable in `rvalue` contexts.
-     * NOTE: This function has transfer of ownership semantics.
+     * NOTE: This function is only applicable in `rvalue` contexts. id:357
+     * NOTE: This function has transfer of ownership semantics. id:284
      *
      * RETURNS: A `UniquePtr< T >` which owns the pointer formerly managed by `*this`.
      */

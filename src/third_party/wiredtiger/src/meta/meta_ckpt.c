@@ -419,7 +419,7 @@ __wt_meta_ckptlist_set(WT_SESSION_IMPL *session,
 				ckpt->order = ++maxorder;
 
 			/*
-			 * XXX
+			 * XXX  id:3473
 			 * Assumes a time_t fits into a uintmax_t, which isn't
 			 * guaranteed, a time_t has to be an arithmetic type,
 			 * but not an integral type.

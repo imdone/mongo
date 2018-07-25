@@ -215,7 +215,7 @@ __wt_bloom_finalize(WT_BLOOM *bloom)
 
 	/*
 	 * Create a bit table to store the bloom filter in.
-	 * TODO: should this call __wt_schema_create directly?
+	 * TODO: should this call __wt_schema_create directly? id:2511
 	 */
 	WT_RET(wt_session->create(wt_session, bloom->uri, bloom->config));
 	WT_RET(wt_session->open_cursor(

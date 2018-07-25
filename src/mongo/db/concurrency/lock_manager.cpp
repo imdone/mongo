@@ -310,7 +310,7 @@ struct LockHead {
 
     // References partitions that may have PartitionedLockHeads for this LockHead.
     // Non-empty implies the lock has no conflicts and only has intent modes as grantedModes.
-    // TODO: Remove this vector and make LockHead a POD
+    // TODO: Remove this vector and make LockHead a POD id:415
     std::vector<LockManager::Partition*> partitions;
 
     //
@@ -423,7 +423,7 @@ LockManager::~LockManager() {
     cleanupUnusedLocks();
 
     for (unsigned i = 0; i < _numLockBuckets; i++) {
-        // TODO: dump more information about the non-empty bucket to see what locks were leaked
+        // TODO: dump more information about the non-empty bucket to see what locks were leaked id:1290
         invariant(_lockBuckets[i].data.empty());
     }
 
@@ -499,7 +499,7 @@ LockResult LockManager::convert(ResourceId resId, LockRequest* request, LockMode
         return LOCK_OK;
     }
 
-    // TODO: For the time being we do not need conversions between unrelated lock modes (i.e.,
+    // TODO: For the time being we do not need conversions between unrelated lock modes (i.e., id:525
     // modes which both add and remove to the conflicts set), so these are not implemented yet
     // (e.g., S -> IX).
     invariant((LockConflictsTable[request->mode] | LockConflictsTable[newMode]) ==

@@ -66,7 +66,7 @@
 #       Thus, the key remains unchanged, but the associated value
 #       changes (the size of the value may be altered as well).
 #
-#       TODO: we need to separate the cursor tracking information
+#       TODO: we need to separate the cursor tracking information id:2550
 #       (the current position where we believe we are) from
 #       the database information (what we think is in the data storage).
 #       Once that's done, we can have multiple cursor tests
@@ -291,7 +291,7 @@ class TestCursorTracker(wttest.WiredTigerTestCase):
         self.curremoved = False
 
     def cur_update(self, cursor, key):
-        # TODO:
+        # TODO:  id:3438
         pass
 
     def bitspos(self, bits):
@@ -303,7 +303,7 @@ class TestCursorTracker(wttest.WiredTigerTestCase):
         if bits not in self.vers:
             self.bitlist.append(bits)
             if self.isrow:
-                #TODO: why doesn't self.bitlist.sort() work?
+                #TODO: why doesn't self.bitlist.sort() work? id:3483
                 self.bitlist = sorted(self.bitlist)
             self.vers[bits] = 0
         else:
@@ -316,7 +316,7 @@ class TestCursorTracker(wttest.WiredTigerTestCase):
         cursor[wtkey] = wtval
 
     def cur_remove_here(self, cursor):
-        # TODO: handle the exception case
+        # TODO: handle the exception case id:2455
         if self.nopos:
             expectException = True
         else:

@@ -19,7 +19,7 @@
 #include "boost/date_time/iso_format.hpp"
 #include "boost/date_time/date_format_simple.hpp"
 
-/* NOTE: "to_*_string" code for older compilers, ones that define 
+/* NOTE: "to_*_string" code for older compilers, ones that define id:3171
  * BOOST_DATE_TIME_INCLUDE_LIMITED_HEADERS, is located in 
  * formatters_limited.hpp
  */

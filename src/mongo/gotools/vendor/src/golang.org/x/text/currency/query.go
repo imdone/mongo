@@ -122,7 +122,7 @@ func (i *iter) Next() bool {
 }
 
 func (r *regionInfo) Region() language.Region {
-	// TODO: this could be much faster.
+	// TODO: this could be much faster. id:1079
 	var buf [2]byte
 	buf[0] = uint8(r.region >> 8)
 	buf[1] = uint8(r.region)

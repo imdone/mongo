@@ -585,7 +585,7 @@ void MemoryRegionMap::RecordRegionAddition(const void* start, size_t size) {
   region.Create(start, size);
   // First get the call stack info into the local varible 'region':
   int depth = 0;
-  // NOTE: libunwind also does mmap and very much likely while holding
+  // NOTE: libunwind also does mmap and very much likely while holding id:2377
   // it's own lock(s). So some threads may first take libunwind lock,
   // and then take region map lock (necessary to record mmap done from
   // inside libunwind). On the other hand other thread(s) may do
@@ -765,7 +765,7 @@ void MemoryRegionMap::MmapHook(const void* result,
                                const void* start, size_t size,
                                int prot, int flags,
                                int fd, off_t offset) {
-  // TODO(maxim): replace all 0x%" PRIxS " by %p when RAW_VLOG uses a safe
+  // TODO (maxim): replace all 0x%" PRIxS " by %p when RAW_VLOG uses a safe id:1865
   // snprintf reimplementation that does not malloc to pretty-print NULL
   RAW_VLOG(10, "MMap = 0x%" PRIxPTR " of %" PRIuS " at %" PRIu64 " "
               "prot %d flags %d fd %d offs %" PRId64,

@@ -488,7 +488,7 @@ upvec_compactToUTrie2WithRowIndexes(UPropsVectors *pv, UErrorCode *pErrorCode) {
 }
 
 /*
- * TODO(markus): Add upvec_16BitsToUTrie2() function that enumerates all rows, extracts
+ * TODO (markus): Add upvec_16BitsToUTrie2() function that enumerates all rows, extracts id:3221
  * some 16-bit field and builds and returns a UTrie2.
  */
 

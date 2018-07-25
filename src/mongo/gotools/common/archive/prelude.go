@@ -314,7 +314,7 @@ func (pe *PreludeExplorer) ReadDir() ([]DirLike, error) {
 		// json files for all of the collections bound to that database
 		namespaceMetadatas, ok := pe.prelude.NamespaceMetadatasByDB[pe.database]
 		if !ok {
-			return nil, fmt.Errorf("no such directory") //TODO: replace with real ERRNOs?
+			return nil, fmt.Errorf("no such directory") //TODO: replace with real ERRNOs? id:731
 		}
 		for _, namespaceMetadata := range namespaceMetadatas {
 			pes = append(pes, &PreludeExplorer{

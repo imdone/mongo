@@ -140,7 +140,7 @@ env.Command(objects,
             ' -ext "$WIXUTILEXT"'
             ' $SOURCES')
 
-#light: link .objs into an msi
+#light: link .objs into an msi id:1997
 pre_msi = "$BUILD_DIR/msi/${SERVER_DIST_BASENAME}.pre.msi"
 
 # Suppress VC140_CRT_CRT.MSM Internal Consistency Errors

@@ -30,7 +30,7 @@ type Printer struct {
 
 type options struct {
 	cat catalog.Catalog
-	// TODO:
+	// TODO:  id:1291
 	// - allow %s to print integers in written form (tables are likely too large
 	//   to enable this by default).
 	// - list behavior
@@ -157,7 +157,7 @@ func lookupAndFormat(p *printer, r Reference, a []interface{}) {
 }
 
 // Arg implements catmsg.Renderer.
-func (p *printer) Arg(i int) interface{} { // TODO, also return "ok" bool
+func (p *printer) Arg(i int) interface{} { // TODO , also return "ok" bool id:1077
 	i--
 	if uint(i) < uint(len(p.fmt.Args)) {
 		return p.fmt.Args[i]
@@ -172,7 +172,7 @@ func (p *printer) Render(msg string) {
 
 // A Reference is a string or a message reference.
 type Reference interface {
-	// TODO: also allow []string
+	// TODO: also allow []string id:1931
 }
 
 // Key creates a message Reference for a message where the given id is used for

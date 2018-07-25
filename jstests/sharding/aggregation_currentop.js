@@ -31,7 +31,7 @@ TestData.skipAwaitingReplicationOnShardsBeforeCheckingUUIDs = true;
     // briefly authenticates as __system and recieves clusterTime metadata then will fail trying to
     // gossip that time later in setup.
     //
-    // TODO SERVER-32672: remove this flag.
+    // TODO SERVER-32672: remove this flag. id:136
     TestData.skipGossipingClusterTime = true;
 
     const key = "jstests/libs/key1";

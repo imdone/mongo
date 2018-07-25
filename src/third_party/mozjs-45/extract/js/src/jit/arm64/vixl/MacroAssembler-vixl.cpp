@@ -206,7 +206,7 @@ void MacroAssembler::B(Label* label, Condition cond) {
     b(label);
     bind(&done);
   } else {
-    // TODO: Need to register a slot in a literal pool, so that we can
+    // TODO: Need to register a slot in a literal pool, so that we can id:3335
     // write a branch instruction there and use that to branch in case
     // the unbound label winds up being out of range.
     b(label, cond);
@@ -224,7 +224,7 @@ void MacroAssembler::Cbnz(const Register& rt, Label* label) {
     b(label);
     bind(&done);
   } else {
-    // TODO: Need to register a slot in a literal pool, so that we can
+    // TODO: Need to register a slot in a literal pool, so that we can id:2959
     // write a branch instruction there and use that to branch in case
     // the unbound label winds up being out of range.
     cbnz(rt, label);
@@ -242,7 +242,7 @@ void MacroAssembler::Cbz(const Register& rt, Label* label) {
     b(label);
     bind(&done);
   } else {
-    // TODO: Nede to register a slot in a literal pool, so that we can
+    // TODO: Nede to register a slot in a literal pool, so that we can id:2053
     // write a branch instruction there and use that to branch in case
     // the unbound label winds up being out of range.
     cbz(rt, label);
@@ -260,7 +260,7 @@ void MacroAssembler::Tbnz(const Register& rt, unsigned bit_pos, Label* label) {
     b(label);
     bind(&done);
   } else {
-    // TODO: Nede to register a slot in a literal pool, so that we can
+    // TODO: Nede to register a slot in a literal pool, so that we can id:2669
     // write a branch instruction there and use that to branch in case
     // the unbound label winds up being out of range.
     tbnz(rt, bit_pos, label);
@@ -278,7 +278,7 @@ void MacroAssembler::Tbz(const Register& rt, unsigned bit_pos, Label* label) {
     b(label);
     bind(&done);
   } else {
-    // TODO: Nede to register a slot in a literal pool, so that we can
+    // TODO: Nede to register a slot in a literal pool, so that we can id:2327
     // write a branch instruction there and use that to branch in case
     // the unbound label winds up being out of range.
     tbz(rt, bit_pos, label);
@@ -668,7 +668,7 @@ void MacroAssembler::Movi(const VRegister& vd,
 void MacroAssembler::Movi(const VRegister& vd,
                           uint64_t hi,
                           uint64_t lo) {
-  // TODO: Move 128-bit values in a more efficient way.
+  // TODO: Move 128-bit values in a more efficient way. id:3336
   VIXL_ASSERT(vd.Is128Bits());
   UseScratchRegisterScope temps(this);
   Movi(vd.V2D(), lo);
@@ -904,7 +904,7 @@ void MacroAssembler::Fmov(VRegister vd, double imm) {
         Assembler::fImmPool64(vd, imm);
       }
     } else {
-      // TODO: consider NEON support for load literal.
+      // TODO: consider NEON support for load literal. id:2961
       Movi(vd, rawbits);
     }
   }
@@ -932,7 +932,7 @@ void MacroAssembler::Fmov(VRegister vd, float imm) {
         Assembler::fImmPool32(vd, imm);
       }
     } else {
-      // TODO: consider NEON support for load literal.
+      // TODO: consider NEON support for load literal. id:2056
       Movi(vd, rawbits);
     }
   }
@@ -1212,7 +1212,7 @@ void MacroAssembler::LoadStorePairMacro(const CPURegister& rt,
                                         const CPURegister& rt2,
                                         const MemOperand& addr,
                                         LoadStorePairOp op) {
-  // TODO(all): Should we support register offset for load-store-pair?
+  // TODO (all): Should we support register offset for load-store-pair? id:2671
   VIXL_ASSERT(!addr.IsRegisterOffset());
   // Worst case is ldp/stp immediate:
   //  * 1 instruction for ldp/stp
@@ -1592,7 +1592,7 @@ void MacroAssembler::Drop(const Operand& size) {
 void MacroAssembler::PushCalleeSavedRegisters() {
   // Ensure that the macro-assembler doesn't use any scratch registers.
   // 10 stp will be emitted.
-  // TODO(all): Should we use GetCalleeSaved and SavedFP.
+  // TODO (all): Should we use GetCalleeSaved and SavedFP. id:2331
   InstructionAccurateScope scope(this, 10);
 
   // This method must not be called unless the current stack pointer is sp.
@@ -1617,7 +1617,7 @@ void MacroAssembler::PushCalleeSavedRegisters() {
 void MacroAssembler::PopCalleeSavedRegisters() {
   // Ensure that the macro-assembler doesn't use any scratch registers.
   // 10 ldp will be emitted.
-  // TODO(all): Should we use GetCalleeSaved and SavedFP.
+  // TODO (all): Should we use GetCalleeSaved and SavedFP. id:3337
   InstructionAccurateScope scope(this, 10);
 
   // This method must not be called unless the current stack pointer is sp.
@@ -1714,7 +1714,7 @@ MemOperand MacroAssembler::BaseMemOperandForLoadStoreCPURegList(
 
 void MacroAssembler::BumpSystemStackPointer(const Operand& space) {
   VIXL_ASSERT(!sp.Is(GetStackPointer64()));
-  // TODO: Several callers rely on this not using scratch registers, so we use
+  // TODO: Several callers rely on this not using scratch registers, so we use id:2963
   // the assembler directly here. However, this means that large immediate
   // values of 'space' cannot be handled.
   InstructionAccurateScope scope(this, 1);

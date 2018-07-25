@@ -890,7 +890,7 @@ TEST(Decimal128Test, TestDecimal128ToIntExactSignaling) {
     uint32_t sigFlags = Decimal128::SignalingFlag::kNoFlag;
     int32_t intVal = d.toIntExact(&sigFlags);
     ASSERT_EQUALS(intVal, std::numeric_limits<int32_t>::lowest());
-    // TODO: The supported library does not set the kInexact flag even though
+    // TODO: The supported library does not set the kInexact flag even though id:1168
     // the documentation claims to for exact integer conversions.
     // ASSERT_TRUE(Decimal128::hasFlag(sigFlags, Decimal128::SignalingFlag::kInexact));
     ASSERT_TRUE(Decimal128::hasFlag(sigFlags, Decimal128::SignalingFlag::kInvalid));
@@ -901,7 +901,7 @@ TEST(Decimal128Test, TestDecimal128ToLongExactSignaling) {
     uint32_t sigFlags = Decimal128::SignalingFlag::kNoFlag;
     int64_t longVal = d.toLongExact(&sigFlags);
     ASSERT_EQUALS(longVal, std::numeric_limits<int64_t>::lowest());
-    // TODO: The supported library does not set the kInexact flag even though
+    // TODO: The supported library does not set the kInexact flag even though id:2010
     // the documentation claims to for exact integer conversions.
     // ASSERT_TRUE(Decimal128::hasFlag(sigFlags, Decimal128::SignalingFlag::kInexact));
     ASSERT_TRUE(Decimal128::hasFlag(sigFlags, Decimal128::SignalingFlag::kInvalid));

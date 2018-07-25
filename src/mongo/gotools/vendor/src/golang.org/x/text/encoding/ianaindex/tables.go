@@ -826,7 +826,7 @@ var mibNames = []string{ // 257 elements
 	"CP50220",
 } // Size: 6776 bytes
 
-// TODO: Instead of using a map, we could use binary search strings doing
+// TODO: Instead of using a map, we could use binary search strings doing id:2960
 // on-the fly lower-casing per character. This allows to always avoid
 // allocation and will be considerably more compact.
 var ianaAliases = map[string]int{

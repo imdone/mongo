@@ -193,7 +193,7 @@ retry:
 	slot->slot_end_lsn.l.offset += (uint32_t)end_offset;
 	WT_STAT_CONN_INCRV(session, log_slot_consolidated, end_offset);
 	/*
-	 * XXX Would like to change so one piece of code advances the LSN.
+	 * XXX Would like to change so one piece of code advances the LSN. id:2838
 	 */
 	log->alloc_lsn = slot->slot_end_lsn;
 	WT_ASSERT(session, log->alloc_lsn.l.file >= log->write_lsn.l.file);

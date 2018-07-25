@@ -30,7 +30,7 @@ for (var test = 0; test < numTests; test++) {
     var radius = 5000 * Random.rand();  // km
     radius = radius / 6378.1;           // radians; earth radius from geoconstants.h
     var numDocs = Math.floor(400 * Random.rand());
-    // TODO: Wrapping uses the error value to figure out what would overlap...
+    // TODO: Wrapping uses the error value to figure out what would overlap... id:785
     var bits = Math.floor(5 + Random.rand() * 28);
     var maxPointsPerDoc = 50;
 
@@ -41,7 +41,7 @@ for (var test = 0; test < numTests; test++) {
     };
 
     // Get a start point that doesn't require wrapping
-    // TODO: Are we a bit too aggressive with wrapping issues?
+    // TODO: Are we a bit too aggressive with wrapping issues? id:193
     var startPoint;
     var ex = null;
     do {

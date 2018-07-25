@@ -238,7 +238,7 @@ void S2EdgeIndex::GetEdgesInChildrenCells(
     end = mapping.upper_bound(cell.range_max());
     int num_edges = 0;
     bool rewind = FLAGS_always_recurse_on_children;
-    // TODO(user): Maybe distinguish between edges in current cell, that
+    // TODO (user): Maybe distinguish between edges in current cell, that id:2422
     // are going to be added anyhow, and edges in subcells, and rewind only
     // those.
     if (!rewind) {
@@ -269,7 +269,7 @@ void S2EdgeIndex::GetEdgesInChildrenCells(
         S2Cell c(cell);
         c.Subdivide(children);
         for (int i = 0; i < 4; ++i) {
-          // TODO(user): Do the check for the four cells at once,
+          // TODO (user): Do the check for the four cells at once, id:3380
           // as it is enough to check the four edges between the cells.  At
           // this time, we are checking 16 edges, 4 times too many.
           //
@@ -300,7 +300,7 @@ void S2EdgeIndex::FindCandidateCrossings(
   GetEdgesInParentCells(cover, mapping_, minimum_s2_level_used_,
                         candidate_crossings);
 
-  // TODO(user): An important optimization for long query
+  // TODO (user): An important optimization for long query id:3045
   // edges (Contains queries): keep a bounding cap and clip the query
   // edge to the cap before starting the descent.
   GetEdgesInChildrenCells(a, b, &cover, mapping_, candidate_crossings);
@@ -409,7 +409,7 @@ int S2EdgeIndex::GetCovering(
   if (ideal_level == 0) {
     // Edge is very long, maybe even longer than a face width, so the
     // trick below doesn't work.  For now, we will add the whole S2 sphere.
-    // TODO(user): Do something a tad smarter (and beware of the
+    // TODO (user): Do something a tad smarter (and beware of the id:2180
     // antipodal case).
     for (S2CellId cellid = S2CellId::Begin(0); cellid != S2CellId::End(0);
          cellid = cellid.next()) {
@@ -417,7 +417,7 @@ int S2EdgeIndex::GetCovering(
     }
     return 0;
   }
-  // TODO(user): Check trick below works even when vertex is at interface
+  // TODO (user): Check trick below works even when vertex is at interface id:2766
   // between three faces.
 
   // Use trick as in S2PolygonBuilder::PointIndex::FindNearbyPoint:

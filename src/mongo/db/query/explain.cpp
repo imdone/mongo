@@ -842,7 +842,7 @@ void Explain::explainPipelineExecutor(PlanExecutor* exec,
 
     // If we need execution stats, this runs the plan in order to gather the stats.
     if (verbosity >= ExplainOptions::Verbosity::kExecStats) {
-        // TODO SERVER-32732: An execution error should be reported in explain, but should not
+        // TODO SERVER-32732: An execution error should be reported in explain, but should not id:526
         // cause the explain itself to fail.
         uassertStatusOK(exec->executePlan());
     }

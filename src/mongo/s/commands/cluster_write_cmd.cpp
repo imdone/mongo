@@ -91,7 +91,7 @@ void batchErrorToLastError(const BatchedCommandRequest& request,
 
     // Record write stats otherwise
     //
-    // NOTE: For multi-write batches, our semantics change a little because we don't have
+    // NOTE: For multi-write batches, our semantics change a little because we don't have id:3111
     // un-aggregated "n" stats
     if (request.getBatchType() == BatchedCommandRequest::BatchType_Update) {
         BSONObj upsertedId;
@@ -266,7 +266,7 @@ private:
             numAttempts = batchedRequest.sizeWriteOps();
         }
 
-        // TODO: increase opcounters by more than one
+        // TODO: increase opcounters by more than one id:2556
         auto& debug = CurOp::get(opCtx)->debug();
         switch (_batchedRequest.getBatchType()) {
             case BatchedCommandRequest::BatchType_Insert:

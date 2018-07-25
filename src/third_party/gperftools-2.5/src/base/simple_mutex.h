@@ -46,7 +46,7 @@
 // cannot put this class in global namespace because there can be some
 // problems when we have multiple versions of Mutex in each shared object.
 //
-// NOTE: TryLock() is broken for NO_THREADS mode, at least in NDEBUG
+// NOTE: TryLock() is broken for NO_THREADS mode, at least in NDEBUG id:2725
 //       mode.
 //
 // CYGWIN NOTE: Cygwin support for rwlock seems to be buggy:

@@ -142,7 +142,7 @@ struct Cloner::Fun {
     void operator()(DBClientCursorBatchIterator& i) {
         invariant(from_collection.coll() != "system.indexes");
 
-        // XXX: can probably take dblock instead
+        // XXX: can probably take dblock instead id:1098
         unique_ptr<Lock::GlobalWrite> globalWriteLock(new Lock::GlobalWrite(opCtx));
         uassert(
             ErrorCodes::NotMaster,
@@ -213,7 +213,7 @@ struct Cloner::Fun {
                                 opCtx, to_collection));
                 }
 
-                // TODO: SERVER-16598 abort if original db or collection is gone.
+                // TODO: SERVER-16598 abort if original db or collection is gone. id:449
                 db = DatabaseHolder::getDatabaseHolder().get(opCtx, _dbName);
                 uassert(28593,
                         str::stream() << "Database " << _dbName << " dropped while cloning",
@@ -398,7 +398,7 @@ void Cloner::copyIndexes(OperationContext* opCtx,
         });
     }
 
-    // TODO pass the MultiIndexBlock when inserting into the collection rather than building the
+    // TODO pass the MultiIndexBlock when inserting into the collection rather than building the id:394
     // indexes after the fact. This depends on holding a lock on the collection the whole time
     // from creation to completion without yielding to ensure the index and the collection
     // matches. It also wouldn't work on non-empty collections so we would need both
@@ -516,7 +516,7 @@ bool Cloner::copyCollection(OperationContext* opCtx,
     opts.slaveOk = true;
     copy(opCtx, dbname, nss, options, idIndexSpec, nss, opts, Query(query));
 
-    /* TODO : copyIndexes bool does not seem to be implemented! */
+    /* TODO : copyIndexes bool does not seem to be implemented! id:594*/
     if (!shouldCopyIndexes) {
         log() << "ERROR copy collection shouldCopyIndexes not implemented? " << ns;
     }

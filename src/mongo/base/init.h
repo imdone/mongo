@@ -112,7 +112,7 @@
  *            ::mongo::InitializerContext* context) {
  *    }
  *
- * TODO: May want to be able to name the initializer separately from the function name.
+ * TODO: May want to be able to name the initializer separately from the function name. id:363
  * A form that takes an existing function or that lets the programmer supply the name
  * of the function to declare would be options.
  */

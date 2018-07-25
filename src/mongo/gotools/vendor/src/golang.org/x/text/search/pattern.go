@@ -8,7 +8,7 @@ import (
 	"golang.org/x/text/internal/colltab"
 )
 
-// TODO: handle variable primary weights?
+// TODO: handle variable primary weights? id:1105
 
 func (p *Pattern) deleteEmptyElements() {
 	k := 0
@@ -33,15 +33,15 @@ func isIgnorable(m *Matcher, e colltab.Elem) bool {
 		// ignore the tertiary element, as it only pertains to the modifier.
 		return true
 	}
-	// TODO: further distinguish once we have the new implementation.
+	// TODO: further distinguish once we have the new implementation. id:1951
 	if !(m.ignoreWidth || m.ignoreCase) && e.Tertiary() > 0 {
 		return false
 	}
-	// TODO: we ignore the Quaternary level for now.
+	// TODO: we ignore the Quaternary level for now. id:1445
 	return true
 }
 
-// TODO: Use a Boyer-Moore-like algorithm (probably Sunday) for searching.
+// TODO: Use a Boyer-Moore-like algorithm (probably Sunday) for searching. id:3066
 
 func (p *Pattern) forwardSearch(it *colltab.Iter) (start, end int) {
 	for start := 0; it.Next(); it.Reset(start) {
@@ -80,7 +80,7 @@ func (p *Pattern) next(i *int, f func(colltab.Elem) int) (weight int, ok bool) {
 	return 0, false
 }
 
-// TODO: remove this function once Elem is internal and Tertiary returns int.
+// TODO: remove this function once Elem is internal and Tertiary returns int. id:1325
 func tertiary(e colltab.Elem) int {
 	return int(e.Tertiary())
 }
@@ -114,7 +114,7 @@ func (p *Pattern) searchOnce(it *colltab.Iter) (end int) {
 				continue
 			}
 
-			// TODO: distinguish between case and width. This will be easier to
+			// TODO: distinguish between case and width. This will be easier to id:1107
 			// implement after we moved to the new collation implementation.
 			if !m.ignoreWidth && !m.ignoreCase {
 				if v := it.Elems[k].Tertiary(); v > 0 {
@@ -123,7 +123,7 @@ func (p *Pattern) searchOnce(it *colltab.Iter) (end int) {
 					}
 				}
 			}
-			// TODO: check quaternary weight
+			// TODO: check quaternary weight id:1953
 		}
 		it.Discard() // Remove the current segment from the buffer.
 

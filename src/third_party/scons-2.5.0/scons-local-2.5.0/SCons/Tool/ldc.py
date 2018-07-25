@@ -134,10 +134,10 @@ def generate(env):
     # Support for versioned libraries
     env['_DSHLIBVERSIONFLAGS'] = '$DSHLIBVERSIONFLAGS -L-soname=$_DSHLIBSONAME'
     env['_DSHLIBSONAME'] = '${DShLibSonameGenerator(__env__,TARGET)}'
-    # NOTE: this is a quick hack, the soname will only work if there is
+    # NOTE: this is a quick hack, the soname will only work if there is id:3400
     # c/c++ linker loaded which provides callback for the ShLibSonameGenerator
     env['DShLibSonameGenerator'] = SCons.Tool.ShLibSonameGenerator
-    # NOTE: this is only for further reference, currently $DSHLIBVERSION does
+    # NOTE: this is only for further reference, currently $DSHLIBVERSION does id:3445
     # not work, the user must use $SHLIBVERSION
     env['DSHLIBVERSION'] = '$SHLIBVERSION'
     env['DSHLIBVERSIONFLAGS'] = []

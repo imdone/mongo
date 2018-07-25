@@ -110,7 +110,7 @@ config_check(WT_SESSION_IMPL *session,
 			    (v.type != WT_CONFIG_ITEM_NUM ||
 			    (v.val != 0 && v.val != 1));
 		} else if (strcmp(checks[i].type, "category") == 0) {
-			/* Deal with categories of the form: XXX=(XXX=blah). */
+			/* Deal with categories of the form: XXX =(XXX=blah). id:2278*/
 			ret = config_check(session,
 			    checks[i].subconfigs, checks[i].subconfigs_entries,
 			    k.str + strlen(checks[i].name) + 1, v.len);

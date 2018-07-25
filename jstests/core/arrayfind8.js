@@ -144,7 +144,7 @@ checkQuery({$gt: 4}, [3, 7], null, null, {a: {$elemMatch: {$lt: 6}}});
 checkQuery({$gte: 5}, [5], null, null, {a: {$elemMatch: {$lte: 5}}});
 checkQuery({$in: [4, 6]}, [6], null, null, {a: {$elemMatch: {$gt: 5}}});
 
-// TODO SERVER-1264
+// TODO SERVER-1264 id:65
 if (0) {
     checkQuery({$elemMatch: {$in: [5]}}, null, [[5]], [5], null);
 }

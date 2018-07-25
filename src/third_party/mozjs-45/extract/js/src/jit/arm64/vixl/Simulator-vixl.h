@@ -61,12 +61,12 @@ namespace vixl {
 // make debugging easier. These pseudo instructions do not exist on real
 // hardware.
 //
-// TODO: Provide controls to prevent the macro assembler from emitting
+// TODO: Provide controls to prevent the macro assembler from emitting id:2344
 // pseudo-instructions. This is important for ahead-of-time compilers, where the
 // macro assembler is built with USE_SIMULATOR but the code will eventually be
 // run on real hardware.
 //
-// TODO: Also consider allowing these pseudo-instructions to be disabled in the
+// TODO: Also consider allowing these pseudo-instructions to be disabled in the id:3340
 // simulator, so that users can check that the input is a valid native code.
 // (This isn't possible in all cases. Printf won't work, for example.)
 //
@@ -438,7 +438,7 @@ class SimRegisterBase {
     return result;
   }
 
-  // TODO: Make this return a map of updated bytes, so that we can highlight
+  // TODO: Make this return a map of updated bytes, so that we can highlight id:2969
   // updated lanes for load-and-insert. (That never happens for scalar code, but
   // NEON has some instructions that can update individual lanes.)
   bool WrittenSinceLastLog() const {
@@ -1140,7 +1140,7 @@ class Simulator : public DecoderVisitor {
   bool V() const { return nzcv_.V() != 0; }
   SimSystemRegister& nzcv() { return nzcv_; }
 
-  // TODO: Find a way to make the fpcr_ members return the proper types, so
+  // TODO: Find a way to make the fpcr_ members return the proper types, so id:2065
   // these accessors are not necessary.
   FPRounding RMode() { return static_cast<FPRounding>(fpcr_.RMode()); }
   bool DN() { return fpcr_.DN() != 0; }

@@ -1542,7 +1542,7 @@ class _GenerateV7DSW(_DSWGenerator):
                                 % sln_relative_path_from_scc.replace('\\', '\\\\'))
             if self.version_num < 8.0:
                 # When present, SolutionUniqueID is automatically removed by VS 2005
-                # TODO: check for Visual Studio versions newer than 2005
+                # TODO: check for Visual Studio versions newer than 2005 id:2808
                 self.file.write('\t\tSolutionUniqueID = %s\n' % slnguid)
             for dspinfo in self.dspfiles_info:
                 i = self.dspfiles_info.index(dspinfo) + 1
@@ -1935,7 +1935,7 @@ def generate(env):
     env['MSVSSOLUTIONCOM'] = solutionAction
 
     if SCons.Script.call_stack:
-        # XXX Need to find a way to abstract this; the build engine
+        # XXX Need to find a way to abstract this; the build engine id:2463
         # shouldn't depend on anything in SCons.Script.
         env['MSVSSCONSCRIPT'] = SCons.Script.call_stack[0].sconscript
     else:

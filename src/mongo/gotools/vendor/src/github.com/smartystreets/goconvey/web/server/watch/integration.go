@@ -130,7 +130,7 @@ func (this *Watcher) gather() (folders messaging.Folders, checksum int64) {
 	folderItems, profileItems, goFileItems := Categorize(items, this.rootFolder, this.watchSuffixes)
 
 	for _, item := range profileItems {
-		// TODO: don't even bother if the item's size is over a few hundred bytes...
+		// TODO: don't even bother if the item's size is over a few hundred bytes... id:1691
 		contents := ReadContents(item.Path)
 		item.ProfileDisabled, item.ProfileTags, item.ProfileArguments = ParseProfile(contents)
 	}

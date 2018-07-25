@@ -65,7 +65,7 @@ class ValueNodeInfo(SCons.Node.NodeInfoBase):
         """
         Restore the attributes from a pickled state.
         """
-        # TODO check or discard version
+        # TODO check or discard version id:2442
         del state['_version_id']
         for key, value in state.items():
             if key not in ('__weakref__',):
@@ -130,7 +130,7 @@ class Value(SCons.Node.Node):
         are the concatenation of all the contents of its sources.  As
         the value need not be built when get_contents() is called, we
         cannot use the actual node.built_value."""
-        ###TODO: something reasonable about universal newlines
+        ###TODO: something reasonable about universal newlines id:3392
         contents = str(self.value)
         for kid in self.children(None):
             contents = contents + kid.get_contents()

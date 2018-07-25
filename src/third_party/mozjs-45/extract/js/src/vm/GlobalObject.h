@@ -282,7 +282,7 @@ class GlobalObject : public NativeObject
     }
 
   public:
-    /* XXX Privatize me! */
+    /* XXX Privatize me! id:2384*/
     void setCreateDataViewForThis(Handle<JSFunction*> fun) {
         MOZ_ASSERT(getSlotRef(CREATE_DATAVIEW_FOR_THIS).isUndefined());
         setSlot(CREATE_DATAVIEW_FOR_THIS, ObjectValue(*fun));

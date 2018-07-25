@@ -51,7 +51,7 @@ extern "C" {
  * application was started, so this routine ignores setenv() calls/etc.  Also
  * note it only reads the first 16K of the environment.
  * 
- * NOTE: this is version of GetenvBeforeMain that's usable from
+ * NOTE: this is version of GetenvBeforeMain that's usable from id:1853
  * C. Implementation is in sysinfo.cc
  */
 const char* TCMallocGetenvSafe(const char* name);

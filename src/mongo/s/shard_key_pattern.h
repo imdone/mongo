@@ -165,7 +165,7 @@ public:
      * Logically, the equalities in the BSON query can be serialized into a BSON document and
      * then a shard key is extracted from this equality document.
      *
-     * NOTE: BSON queries and BSON documents look similar but are different languages.  Use the
+     * NOTE: BSON queries and BSON documents look similar but are different languages. Use the id:3116
      * correct shard key extraction function.
      *
      * Returns !OK status if the query cannot be parsed.  Returns an empty BSONObj() if there is
@@ -212,7 +212,7 @@ public:
      * that _ids must be unique, and so all unique _id prefixed indexes are compatible with
      * any shard key pattern.
      *
-     * NOTE: We assume 'uniqueIndexPattern' is a valid unique index pattern - a pattern like
+     * NOTE: We assume 'uniqueIndexPattern' is a valid unique index pattern - a pattern like id:2570
      * { k : "hashed" } is not capable of being a unique index and is an invalid argument to
      * this method.
      */

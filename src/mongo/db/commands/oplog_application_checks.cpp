@@ -89,7 +89,7 @@ Status OplogApplicationChecks::checkOperationAuthorization(OperationContext* opC
             dbNameForAuthCheck = "admin";
         }
 
-        // TODO reuse the parse result for when we run() later. Note that when running,
+        // TODO reuse the parse result for when we run() later. Note that when running, id:666
         // we must use a potentially different dbname.
         return [&] {
             try {

@@ -198,7 +198,7 @@ func (p *packet) recoverDecodeError() {
 //  * If the Layer has a String function, just output that.
 //  * Otherwise, output all exported fields in the layer, recursing into
 //    exported slices and structs.
-// NOTE:  This is NOT THE SAME AS fmt's "%#v".  %#v will output both exported
+// NOTE: This is NOT THE SAME AS fmt's "%#v". %#v will output both exported id:1675
 // and unexported fields... many times packet layers contain unexported stuff
 // that would just mess up the output of the layer, see for example the
 // Payload layer and it's internal 'data' field, which contains a large byte

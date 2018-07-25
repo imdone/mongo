@@ -202,7 +202,7 @@ public:
      * Returns true if there exists at least one privilege document in the system.
      * Used by the AuthorizationSession to determine whether localhost connections should be
      * granted special access to bootstrap the system.
-     * NOTE: If this method ever returns true, the result is cached in _privilegeDocsExist,
+     * NOTE: If this method ever returns true, the result is cached in _privilegeDocsExist, id:1004
      * meaning that once this method returns true it will continue to return true for the
      * lifetime of this process, even if all users are subsequently dropped from the system.
      */

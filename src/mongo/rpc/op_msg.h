@@ -113,7 +113,7 @@ struct OpMsg {
  * type-safety along with a place to hang request-specific methods.
  */
 struct OpMsgRequest : public OpMsg {
-    // TODO in C++17 remove constructors so we can use aggregate initialization.
+    // TODO in C++17 remove constructors so we can use aggregate initialization. id:2082
     OpMsgRequest() = default;
     explicit OpMsgRequest(OpMsg&& generic) : OpMsg(std::move(generic)) {}
 
@@ -187,7 +187,7 @@ public:
      * elements with field names that already exist in the body. You must destroy or call done() on
      * the returned builder before calling any methods on this object.
      *
-     * TODO decide if it is worth keeping the begin/resume distinction in the public API.
+     * TODO decide if it is worth keeping the begin/resume distinction in the public API. id:1496
      */
     BSONObjBuilder resumeBody();
     void appendElementsToBody(const BSONObj& body) {

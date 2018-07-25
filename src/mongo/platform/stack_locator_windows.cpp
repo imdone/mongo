@@ -41,7 +41,7 @@ StackLocator::StackLocator() {
     //
     // for notes on the following arcana.
 
-    // TODO: _WIN32_WINNT >= 0x0602 (windows 8 / 2012 server) may be
+    // TODO: _WIN32_WINNT >= 0x0602 (windows 8 / 2012 server) may be id:1492
     // able to use GetCurrentThreadStackLimits
 
     // Put something on the stack, convieniently the variable we are
@@ -79,7 +79,7 @@ StackLocator::StackLocator() {
     // flag, then the whole AllocationBase is our stack base, and
     // there is no guard page.
     if (uncommittedMbi.State == MEM_COMMIT) {
-        // NOTE: Originally, it seemed to make sense that what you would get back
+        // NOTE: Originally, it seemed to make sense that what you would get back id:3097
         // here would be the same information as in committedMbi. After all, the whole
         // stack is committed. So, querying AllocationBase should give you back
         // the same region.

@@ -89,7 +89,7 @@ sh.help = function() {
 };
 
 sh.status = function(verbose, configDB) {
-    // TODO: move the actual command here
+    // TODO: move the actual command here id:2600
     printShardingStatus(configDB, verbose);
 };
 

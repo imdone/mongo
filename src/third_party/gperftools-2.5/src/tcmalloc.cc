@@ -78,9 +78,9 @@
 //         Otherwise it points to a Span.  This span may be free
 //         or allocated.  If free, it is in one of pageheap's freelist.
 //
-// TODO: Bias reclamation to larger addresses
-// TODO: implement mallinfo/mallopt
-// TODO: Better testing
+// TODO: Bias reclamation to larger addresses id:2383
+// TODO: implement mallinfo/mallopt id:1871
+// TODO: Better testing id:3208
 //
 // 9/28/2003 (new page-level allocator replaces ptmalloc2):
 // * malloc/free of small objects goes from ~300 ns to ~50 ns.
@@ -571,7 +571,7 @@ class TCMallocImplementation : public MallocExtension {
   // different sizes.  This member keeps track of the extra bytes bytes
   // released so that the app can periodically call ReleaseToSystem() to
   // release memory at a constant rate.
-  // NOTE: Protected by Static::pageheap_lock().
+  // NOTE: Protected by Static::pageheap_lock(). id:2747
   size_t extra_bytes_released_;
 
  public:
@@ -1233,7 +1233,7 @@ inline void* do_malloc_pages(ThreadCache* heap, size_t size) {
 
   Length num_pages = tcmalloc::pages(size);
 
-  // NOTE: we're passing original size here as opposed to rounded-up
+  // NOTE: we're passing original size here as opposed to rounded-up id:1591
   // size as we do in do_malloc_small. The difference is small here
   // (at most 4k out of at least 256k). And not rounding up saves us
   // from possibility of overflow, which rounding up could produce.
@@ -1423,7 +1423,7 @@ ALWAYS_INLINE void do_free(void* ptr) {
   return do_free_with_callback(ptr, &InvalidFree, false, 0);
 }
 
-// NOTE: some logic here is duplicated in GetOwnership (above), for
+// NOTE: some logic here is duplicated in GetOwnership (above), for id:2385
 // speed.  If you change this function, look at that one too.
 inline size_t GetSizeWithCallback(const void* ptr,
                                   size_t (*invalid_getsize_fn)(const void*)) {
@@ -1546,8 +1546,8 @@ void* do_memalign(size_t align, size_t size) {
 
   if (align <= kPageSize) {
     // Any page-level allocation will be fine
-    // TODO: We could put the rest of this page in the appropriate
-    // TODO: cache but it does not seem worth it.
+    // TODO: We could put the rest of this page in the appropriate id:1873
+    // TODO: cache but it does not seem worth it. id:3209
     Span* span = Static::pageheap()->New(tcmalloc::pages(size));
     return UNLIKELY(span == NULL) ? NULL : SpanToMallocResult(span);
   }

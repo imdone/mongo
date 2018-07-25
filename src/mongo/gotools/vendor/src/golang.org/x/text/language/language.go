@@ -7,7 +7,7 @@
 
 package language
 
-// TODO: Remove above NOTE after:
+// TODO: Remove above NOTE after: id:1907
 // - verifying that tables are dropped correctly (most notably matcher tables).
 
 import (
@@ -36,7 +36,7 @@ const (
 type Tag struct {
 	lang   langID
 	region regionID
-	// TODO: we will soon run out of positions for script. Idea: instead of
+	// TODO: we will soon run out of positions for script. Idea: instead of id:1402
 	// storing lang, region, and script codes, store only the compact index and
 	// have a lookup table from this code to its expansion. This greatly speeds
 	// up table lookup, speed up common variant cases.
@@ -133,7 +133,7 @@ const (
 
 	canonLang = DeprecatedBase | Legacy | Macro
 
-	// TODO: LikelyScript, LikelyRegion: suppress similar to ICU.
+	// TODO: LikelyScript, LikelyRegion: suppress similar to ICU. id:3024
 )
 
 // canonicalize returns the canonicalized equivalent of the tag and
@@ -170,7 +170,7 @@ func (t Tag) canonicalize(c CanonType) (Tag, bool) {
 						// change is currently under consideration for CLDR as well.
 						// See http://unicode.org/cldr/trac/ticket/2698 and also
 						// http://unicode.org/cldr/trac/ticket/1790 for some of the
-						// practical implications. TODO: this check could be removed
+						// practical implications. TODO: this check could be removed id:1265
 						// if CLDR adopts this change.
 						if c&CLDR == 0 || t.lang != _nb {
 							changed = true
@@ -386,13 +386,13 @@ func (t Tag) Region() (Region, Confidence) {
 		return Region{t.region}, Exact
 	}
 	if t, err := addTags(t); err == nil {
-		return Region{t.region}, Low // TODO: differentiate between high and low.
+		return Region{t.region}, Low // TODO: differentiate between high and low. id:1045
 	}
 	t, _ = (Deprecated | Macro).Canonicalize(t)
 	if tag, err := addTags(t); err == nil {
 		return Region{tag.region}, Low
 	}
-	return Region{_ZZ}, No // TODO: return world instead of undetermined?
+	return Region{_ZZ}, No // TODO: return world instead of undetermined? id:1910
 }
 
 // Variant returns the variants specified explicitly for this language tag.
@@ -708,8 +708,8 @@ func (t Tag) findTypeForKey(key string) (start, end int, hasExt bool) {
 // 'va' type of the 'u' extension, are ignored. It will return 0, false if no
 // compact tag exists, where 0 is the index for the root language (Und).
 func CompactIndex(t Tag) (index int, ok bool) {
-	// TODO: perhaps give more frequent tags a lower index.
-	// TODO: we could make the indexes stable. This will excluded some
+	// TODO: perhaps give more frequent tags a lower index. id:1404
+	// TODO: we could make the indexes stable. This will excluded some id:3026
 	//       possibilities for optimization, so don't do this quite yet.
 	b, s, r := t.Raw()
 	if len(t.str) > 0 {

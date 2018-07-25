@@ -139,7 +139,7 @@ void NetworkInterfaceTL::signalWorkAvailable() {
 }
 
 Date_t NetworkInterfaceTL::now() {
-    // TODO This check is because we set up NetworkInterfaces in MONGO_INITIALIZERS and then expect
+    // TODO This check is because we set up NetworkInterfaces in MONGO_INITIALIZERS and then expect id:1563
     // this method to work before the NI is started.
     if (!_reactor) {
         return Date_t::now();
@@ -198,7 +198,7 @@ Status NetworkInterfaceTL::startCommand(const TaskExecutor::CallbackHandle& cbHa
     // hook up a connection returning unique_ptr that ensures that however we exit, we always do the
     // return on the reactor thread.
     //
-    // TODO: get rid of this cruft once we have a connection pool that's executor aware.
+    // TODO: get rid of this cruft once we have a connection pool that's executor aware. id:722
     auto connFuture = _reactor->execute([this, state, request, baton] {
         return makeReadyFutureWith(
                    [this, request] { return _pool->get(request.target, request.timeout); })
@@ -209,7 +209,7 @@ Status NetworkInterfaceTL::startCommand(const TaskExecutor::CallbackHandle& cbHa
             .then([this, baton](ConnectionPool::ConnectionHandle conn) {
                 auto deleter = conn.get_deleter();
 
-                // TODO: drop out this shared_ptr once we have a unique_function capable future
+                // TODO: drop out this shared_ptr once we have a unique_function capable future id:2093
                 return std::make_shared<CommandState::ConnHandle>(
                     conn.release(), CommandState::Deleter{deleter, _reactor});
             });

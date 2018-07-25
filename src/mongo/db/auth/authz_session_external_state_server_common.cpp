@@ -48,7 +48,7 @@ MONGO_EXPORT_STARTUP_SERVER_PARAMETER(enableLocalhostAuthBypass, bool, true);
 std::once_flag checkShouldAllowLocalhostOnceFlag;
 }  // namespace
 
-// NOTE: we default _allowLocalhost to true under the assumption that _checkShouldAllowLocalhost
+// NOTE: we default _allowLocalhost to true under the assumption that _checkShouldAllowLocalhost id:582
 // will always be called before any calls to shouldAllowLocalhost.  If this is not the case,
 // it could cause a security hole.
 AuthzSessionExternalStateServerCommon::AuthzSessionExternalStateServerCommon(

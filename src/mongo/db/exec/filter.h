@@ -57,7 +57,7 @@ public:
             return new BSONElementIterator(path, _wsm->obj.value());
         }
 
-        // NOTE: This (kind of) duplicates code in WorkingSetMember::getFieldDotted.
+        // NOTE: This (kind of) duplicates code in WorkingSetMember::getFieldDotted. id:429
         // Keep in sync w/that.
         // Find the first field in the index key data described by path and return an iterator
         // over it.

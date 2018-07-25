@@ -51,7 +51,7 @@ class CopytreeError(EnvironmentError):
                 
 # This is a patched version of shutil.copytree from python 2.5.  It
 # doesn't fail if the dir exists, which regular copytree does
-# (annoyingly).  Note the XXX comment in the docstring.
+# (annoyingly).  Note the XXX comment in the docstring. id:3444
 def scons_copytree(src, dst, symlinks=False):
     """Recursively copy a directory tree using copy2().
 
@@ -82,7 +82,7 @@ def scons_copytree(src, dst, symlinks=False):
                 scons_copytree(srcname, dstname, symlinks)
             else:
                 shutil.copy2(srcname, dstname)
-            # XXX What about devices, sockets etc.?
+            # XXX What about devices, sockets etc.? id:2225
         except (IOError, os.error), why:
             errors.append((srcname, dstname, str(why)))
         # catch the CopytreeError from the recursive copytree so that we can

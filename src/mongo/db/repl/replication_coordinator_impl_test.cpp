@@ -2658,7 +2658,7 @@ TEST_F(ReplCoordTest, DoNotAllowSettingMaintenanceModeWhileConductingAnElection)
     getReplCoord()->setMyLastAppliedOpTime(OpTimeWithTermOne(100, 1));
     getReplCoord()->setMyLastDurableOpTime(OpTimeWithTermOne(100, 1));
 
-    // TODO this election shouldn't have to happen.
+    // TODO this election shouldn't have to happen. id:1258
     simulateSuccessfulV1Election();
 
     auto opCtx = makeOperationContext();
@@ -2870,7 +2870,7 @@ TEST_F(ReplCoordTest, IsMaster) {
     ASSERT_EQUALS(2, response.getReplSetVersion());
     ASSERT_FALSE(response.isMaster());
     ASSERT_TRUE(response.isSecondary());
-    // TODO(spencer): test that response includes current primary when there is one.
+    // TODO (spencer): test that response includes current primary when there is one. id:625
     ASSERT_FALSE(response.isArbiterOnly());
     ASSERT_TRUE(response.isPassive());
     ASSERT_FALSE(response.isHidden());
@@ -4099,7 +4099,7 @@ TEST_F(ReplCoordTest, NodeReturnsNotAReplicaSetWhenWaitUntilOpTimeIsRunAgainstAS
     ASSERT_EQ(status, ErrorCodes::NotAReplicaSet);
 }
 
-// TODO(dannenberg): revisit these after talking with mathias (redundant with other set?)
+// TODO (dannenberg): revisit these after talking with mathias (redundant with other set?) id:1856
 TEST_F(ReplCoordTest, ReadAfterCommittedWhileShutdown) {
     assertStartSuccess(BSON("_id"
                             << "mySet"
@@ -5712,7 +5712,7 @@ TEST_F(ReplCoordTest, NodeFailsVoteRequestIfItFailsToStoreLastVote) {
     ASSERT_EQUALS(lastVote.getCandidateIndex(), 0);
 }
 
-// TODO(schwerin): Unit test election id updating
+// TODO (schwerin): Unit test election id updating id:806
 }  // namespace
 }  // namespace repl
 }  // namespace mongo

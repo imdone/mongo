@@ -4,7 +4,7 @@
 // there are.
 // @tags: [requires_sharding]
 
-// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:19
 var st = new ShardingTest({
     shards: 1,
     mongos: 1,

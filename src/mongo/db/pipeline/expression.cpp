@@ -146,7 +146,7 @@ intrusive_ptr<Expression> Expression::parseExpression(
     auto& entry = it->second;
     uassert(
         ErrorCodes::QueryFeatureNotAllowed,
-        // TODO SERVER-31968 we would like to include the current version and the required minimum
+        // TODO SERVER-31968 we would like to include the current version and the required minimum id:653
         // version in this error message, but using FeatureCompatibilityVersion::toString() would
         // introduce a dependency cycle.
         str::stream() << opName
@@ -2138,7 +2138,7 @@ ExpressionFilter::ExpressionFilter(const boost::intrusive_ptr<ExpressionContext>
       _filter(std::move(filter)) {}
 
 intrusive_ptr<Expression> ExpressionFilter::optimize() {
-    // TODO handle when _input is constant.
+    // TODO handle when _input is constant. id:512
     _input = _input->optimize();
     _filter = _filter->optimize();
     return this;
@@ -2364,7 +2364,7 @@ ExpressionMap::ExpressionMap(const boost::intrusive_ptr<ExpressionContext>& expC
     : Expression(expCtx), _varName(varName), _varId(varId), _input(input), _each(each) {}
 
 intrusive_ptr<Expression> ExpressionMap::optimize() {
-    // TODO handle when _input is constant
+    // TODO handle when _input is constant id:1166
     _input = _input->optimize();
     _each = _each->optimize();
     return this;

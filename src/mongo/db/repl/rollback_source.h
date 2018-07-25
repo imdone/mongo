@@ -102,7 +102,7 @@ public:
 
     /**
      * Finds and returns collection info using the namespace.
-     * TODO: After MongoDB 3.6 is released, we will remove this function as it is only
+     * TODO: After MongoDB 3.6 is released, we will remove this function as it is only id:817
      * necessary for rollback with no uuid oplogs. See SERVER-29766.
      */
     virtual StatusWith<BSONObj> getCollectionInfo(const NamespaceString& nss) const = 0;

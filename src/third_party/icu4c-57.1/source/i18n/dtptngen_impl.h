@@ -15,8 +15,8 @@
 #include "unicode/udatpg.h"
 #include "uvector.h"
 
-// TODO(claireho): Split off Builder class.
-// TODO(claireho): If splitting off Builder class: As subclass or independent?
+// TODO (claireho): Split off Builder class. id:2538
+// TODO (claireho): If splitting off Builder class: As subclass or independent? id:2032
 
 #define MAX_PATTERN_ENTRIES 52
 #define MAX_CLDR_FIELD_LEN  60

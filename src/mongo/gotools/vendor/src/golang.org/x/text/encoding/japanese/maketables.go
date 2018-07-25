@@ -9,7 +9,7 @@ package main
 // This program generates tables.go:
 //	go run maketables.go | gofmt > tables.go
 
-// TODO: Emoji extensions?
+// TODO: Emoji extensions? id:2962
 // http://www.unicode.org/faq/emoji_dingbats.html
 // http://www.unicode.org/Public/UNIDATA/EmojiSources.txt
 

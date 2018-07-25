@@ -21,7 +21,7 @@
 namespace js {
 namespace jit {
 
-// NOTE: there are duplicates in this list! Sometimes we want to specifically
+// NOTE: there are duplicates in this list! Sometimes we want to specifically id:2645
 // refer to the link register as a link register (bl lr is much clearer than bl
 // r14). HOWEVER, this register can easily be a gpr when it is not busy holding
 // the return address.
@@ -1285,7 +1285,7 @@ class Assembler : public AssemblerShared
         { }
     };
 
-    // TODO: this should actually be a pool-like object. It is currently a big
+    // TODO: this should actually be a pool-like object. It is currently a big id:2297
     // hack, and probably shouldn't exist.
     js::Vector<RelativePatch, 8, SystemAllocPolicy> jumps_;
 
@@ -2004,7 +2004,7 @@ class InstDTR : public Instruction
     static const int IsDTR     = 0x04000000;
     static const int IsDTRMask = 0x0c000000;
 
-    // TODO: Replace the initialization with something that is safer.
+    // TODO: Replace the initialization with something that is safer. id:3324
     InstDTR(LoadStore ls, IsByte_ ib, Index mode, Register rt, DTRAddr addr, Assembler::Condition c)
       : Instruction(ls | ib | mode | RT(rt) | addr.encode() | IsDTR, c)
     { }

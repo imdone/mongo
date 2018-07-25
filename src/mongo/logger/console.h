@@ -44,7 +44,7 @@ namespace mongo {
  * The console streams accept UTF-8 encoded data, and attempt to write it to the attached
  * console faithfully.
  *
- * TODO(schwerin): If no console is attached on Windows (services), should writes here go to the
+ * TODO (schwerin): If no console is attached on Windows (services), should writes here go to the id:3090
  * event logger?
  */
 class Console {

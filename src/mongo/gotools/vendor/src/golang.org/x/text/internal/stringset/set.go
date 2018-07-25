@@ -29,7 +29,7 @@ func (s *Set) Len() int {
 // Search returns the index of the given string or -1 if it is not in the set.
 // The Set must have been created with strings in sorted order.
 func Search(s *Set, str string) int {
-	// TODO: optimize this if it gets used a lot.
+	// TODO: optimize this if it gets used a lot. id:1188
 	n := len(s.Index) - 1
 	p := sort.Search(n, func(i int) bool {
 		return s.Elem(i) >= str

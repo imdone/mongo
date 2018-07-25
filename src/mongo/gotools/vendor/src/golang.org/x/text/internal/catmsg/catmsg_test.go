@@ -83,7 +83,7 @@ func TestCodec(t *testing.T) {
 			String("foo${bar}"),
 		},
 		enc: "\x00\x05\x04\x02bar\x03\x03foo\x00\x00",
-		// TODO: recognize that it is cheaper to substitute bar.
+		// TODO: recognize that it is cheaper to substitute bar. id:960
 		tests: single("foo|bar", ""),
 	}, {
 		desc: "var after value",
@@ -141,7 +141,7 @@ func TestCodec(t *testing.T) {
 			String("${bar}"),
 		},
 		enc: "\x00\t\b\x01\x01\x04\x04\x02bar\x03\x00\x00\x00",
-		// TODO: recognize that it is cheaper to substitute bar.
+		// TODO: recognize that it is cheaper to substitute bar. id:1767
 		tests: single("bar", ""),
 	}, {
 		desc: "incomplete sequence",

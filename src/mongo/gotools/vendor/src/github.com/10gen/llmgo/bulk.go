@@ -38,7 +38,7 @@ type bulkDeleteOp []interface{}
 
 // BulkError holds an error returned from running a Bulk operation.
 //
-// TODO: This is private for the moment, until we understand exactly how
+// TODO: This is private for the moment, until we understand exactly how id:839
 //       to report these multi-errors in a useful and convenient way.
 type bulkError struct {
 	errs []error

@@ -389,7 +389,7 @@ public:
      *                  pass the U_SUCCESS() test, or else the function returns
      *                  immediately. Check for U_FAILURE() on output or use with
      *                  function chaining. (See User Guide for details.)
-     * TODO: turn @throws into UErrorCode specifics?
+     * TODO: turn @throws into UErrorCode specifics? id:3241
      * @throws IllegalArgumentException for syntax errors in the pattern string
      * @throws IndexOutOfBoundsException if certain limits are exceeded
      *         (e.g., argument number too high, argument name too long, etc.)

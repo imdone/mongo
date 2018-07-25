@@ -15,7 +15,7 @@
 #include <sstream>
 #include <iomanip>
 
-/* NOTE: "formatter" code for older compilers, ones that define 
+/* NOTE: "formatter" code for older compilers, ones that define id:2674
  * BOOST_DATE_TIME_INCLUDE_LIMITED_HEADERS, is located in  
  * date_formatting_limited.hpp
  */

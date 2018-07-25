@@ -1244,7 +1244,7 @@ class MacroAssemblerMIPS64Compat : public MacroAssemblerMIPS64
     void store32(Imm32 src, const Address& address);
     void store32(Imm32 src, const BaseIndex& address);
 
-    // NOTE: This will use second scratch on MIPS64. Only ARM needs the
+    // NOTE: This will use second scratch on MIPS64. Only ARM needs the id:2075
     // implementation without second scratch.
     void store32_NoSecondScratch(Imm32 src, const Address& address) {
         store32(src, address);

@@ -173,7 +173,7 @@ public:
     std::string toString() const;
 
     inline size_t hash() const {
-        // TODO: Choose a better hash function.
+        // TODO: Choose a better hash function. id:376
         return MONGO_HASH_NAMESPACE::hash<std::string>()(_ns.ns()) ^ _matchType;
     }
 

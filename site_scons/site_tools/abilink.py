@@ -15,10 +15,10 @@
 import SCons
 import subprocess
 
-# TODO: Make a SUFF variable for the suffix to write to
-# TODO: Prevent using abilink when -gsplit-dwarf is in play, since it doesn't work
-# TODO: Make a variable for the md5sum utility (allow any hasher)
-# TODO: Add an ABILINKCOM variable to the Action, so it can be silenced.
+# TODO: Make a SUFF variable for the suffix to write to id:270
+# TODO: Prevent using abilink when -gsplit-dwarf is in play, since it doesn't work id:930
+# TODO: Make a variable for the md5sum utility (allow any hasher) id:283
+# TODO: Add an ABILINKCOM variable to the Action, so it can be silenced. id:205
 
 def _detect(env):
     try:

@@ -329,7 +329,7 @@ bool BSONObj::couldBeArray() const {
         if (e.eoo())
             break;
 
-        // TODO:  If actually important, may be able to do int->char* much faster
+        // TODO: If actually important, may be able to do int->char* much faster id:956
         if (strcmp(e.fieldName(), ((string)(str::stream() << index)).c_str()) != 0)
             return false;
         index++;
@@ -425,13 +425,13 @@ Status BSONObj::storageValidEmbedded() const {
                 case Object:
                 case Array: {
                     Status s = e.embeddedObject().storageValidEmbedded();
-                    // TODO: combine field names for better error messages
+                    // TODO: combine field names for better error messages id:314
                     if (!s.isOK())
                         return s;
                 } break;
                 case CodeWScope: {
                     Status s = e.codeWScopeObject().storageValidEmbedded();
-                    // TODO: combine field names for better error messages
+                    // TODO: combine field names for better error messages id:302
                     if (!s.isOK())
                         return s;
                 } break;

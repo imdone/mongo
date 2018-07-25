@@ -1695,7 +1695,7 @@ __conn_single(WT_SESSION_IMPL *session, const char *cfg[])
 	 * If this is a read-only connection and we cannot grab the lock file,
 	 * check if it is because there's no write permission or if the file
 	 * does not exist. If so, then ignore the error.
-	 * XXX Ignoring the error does allow multiple read-only connections to
+	 * XXX Ignoring the error does allow multiple read-only connections to id:2833
 	 * exist at the same time on a read-only directory.
 	 *
 	 * If we got an expected permission or non-existence error then skip

@@ -591,7 +591,7 @@ js::proxy_DeleteProperty(JSContext* cx, HandleObject obj, HandleId id, ObjectOpR
 {
     if (!Proxy::delete_(cx, obj, id, result))
         return false;
-    return SuppressDeletedProperty(cx, obj, id); // XXX is this necessary?
+    return SuppressDeletedProperty(cx, obj, id); // XXX is this necessary? id:3360
 }
 
 void

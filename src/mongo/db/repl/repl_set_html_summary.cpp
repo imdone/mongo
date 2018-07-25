@@ -184,7 +184,7 @@ const std::string ReplSetHtmlSummary::toHtmlString() const {
                 memberTable << td(grey(str::stream() << "(was " << state << ')', true));
             }
             memberTable << td(grey(memberHB.getLastHeartbeatMsg(), !up));
-            // TODO(dannenberg): change timestamp to optime in V1
+            // TODO (dannenberg): change timestamp to optime in V1 id:797
             memberTable << td(memberHB.getLastHeartbeat() == Date_t()
                                   ? "?"
                                   : memberHB.getHeartbeatAppliedOpTime().toString());

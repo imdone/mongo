@@ -102,7 +102,7 @@ void BreakTransliterator::handleTransliterate(Replaceable& text, UTransPosition&
         int32_t boundary;
         for(boundary = bi->next(); boundary != UBRK_DONE && boundary < offsets.limit; boundary = bi->next()) {
             if (boundary == 0) continue;
-            // HACK: Check to see that preceeding item was a letter
+            // HACK: Check to see that preceeding item was a letter id:2508
 
             UChar32 cp = sText.char32At(boundary-1);
             int type = u_charType(cp);
@@ -150,7 +150,7 @@ void BreakTransliterator::handleTransliterate(Replaceable& text, UTransPosition&
             }
         }
 
-        // TODO:  do something with U_FAILURE(status);
+        // TODO: do something with U_FAILURE(status); id:1989
         //        (need to look at transliterators overall, not just here.)
 }
 

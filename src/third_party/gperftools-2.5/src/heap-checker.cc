@@ -432,7 +432,7 @@ typedef map<uintptr_t, uintptr_t, less<uintptr_t>,
            > GlobalRegionCallerRangeMap;
 static GlobalRegionCallerRangeMap* global_region_caller_ranges = NULL;
 
-// TODO(maxim): make our big data structs into own modules
+// TODO (maxim): make our big data structs into own modules id:1568
 
 // Disabler is implemented by keeping track of a per-thread count
 // of active Disabler objects.  Any objects allocated while the
@@ -462,7 +462,7 @@ static pthread_key_t thread_disable_counter_key;
 static int main_thread_counter;   // storage for use before main()
 static bool use_main_thread_counter = true;
 
-// TODO(csilvers): this is called from NewHook, in the middle of malloc().
+// TODO (csilvers): this is called from NewHook, in the middle of malloc(). id:2369
 // If perftools_pthread_getspecific calls malloc, that will lead to an
 // infinite loop.  I don't know how to fix that, so I hope it never happens!
 inline int get_thread_disable_counter() {
@@ -480,7 +480,7 @@ inline void set_thread_disable_counter(int value) {
   intptr_t pointer_sized_value = value;
   // kinda evil: store the counter directly in the void*
   void* p = (void*)pointer_sized_value;
-  // NOTE: this may call malloc, which will call NewHook which will call
+  // NOTE: this may call malloc, which will call NewHook which will call id:1857
   // get_thread_disable_counter() which will call pthread_getspecific().  I
   // don't know if anything bad can happen if we call getspecific() in the
   // middle of a setspecific() call.  It seems to work ok in practice...
@@ -829,7 +829,7 @@ void HeapLeakChecker::DisableLibraryAllocsLocked(const char* library,
                                                  uintptr_t end_address) {
   RAW_DCHECK(heap_checker_lock.IsHeld(), "");
   int depth = 0;
-  // TODO(maxim): maybe this should be extended to also use objdump
+  // TODO (maxim): maybe this should be extended to also use objdump id:3201
   //              and pick the text portion of the library more precisely.
   if (IsLibraryNamed(library, "/libpthread")  ||
         // libpthread has a lot of small "system" leaks we don't care about.
@@ -2124,7 +2124,7 @@ void HeapLeakChecker_InternalInitStart() {
   // but some other data-structure still retains a pointer to X.
   // Then the same heap memory is used for another object, which is leaked,
   // but the leak is not noticed due to the pointer to the original object at X.
-  // TODO(csilvers): support this in some manner.
+  // TODO (csilvers): support this in some manner. id:2736
 #if 0
   SetCommandLineOptionWithMode("max_free_queue_size", "104857600",  // 100M
                                SET_FLAG_IF_DEFAULT);
@@ -2253,7 +2253,7 @@ extern bool heap_leak_checker_bcad_variable;  // in heap-checker-bcad.cc
 
 static bool has_called_before_constructors = false;
 
-// TODO(maxim): inline this function with
+// TODO (maxim): inline this function with id:1571
 // MallocHook_InitAtFirstAllocation_HeapLeakChecker, and also rename
 // HeapLeakChecker::BeforeConstructorsLocked.
 void HeapLeakChecker_BeforeConstructors() {

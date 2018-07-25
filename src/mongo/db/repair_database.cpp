@@ -160,7 +160,7 @@ Status rebuildIndexesOnCollection(OperationContext* opCtx,
 
         // Indexes must be dropped before we open the Collection otherwise we could attempt to
         // open a bad index and fail.
-        // TODO see if MultiIndexBlock can be made to work without a Collection.
+        // TODO see if MultiIndexBlock can be made to work without a Collection. id:774
         const StringData ns = cce->ns().ns();
         const auto uuid = cce->getCollectionOptions(opCtx).uuid;
         collection.reset(new Collection(opCtx, ns, uuid, cce, dbce->getRecordStore(ns), dbce));
@@ -207,7 +207,7 @@ Status rebuildIndexesOnCollection(OperationContext* opCtx,
         dataSize += data.size();
 
         // Now index the record.
-        // TODO SERVER-14812 add a mode that drops duplicates rather than failing
+        // TODO SERVER-14812 add a mode that drops duplicates rather than failing id:591
         WriteUnitOfWork wunit(opCtx);
         status = indexer->insert(data.releaseToBson(), id);
         if (!status.isOK())
@@ -294,7 +294,7 @@ Status repairDatabase(OperationContext* opCtx, StorageEngine* engine, const std:
         if (!status.isOK())
             return status;
 
-        // TODO: uncomment once SERVER-16869
+        // TODO: uncomment once SERVER-16869 id:1235
         // engine->flushAllFiles(true);
     }
 

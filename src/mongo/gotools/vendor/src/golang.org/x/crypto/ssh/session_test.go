@@ -93,7 +93,7 @@ func TestSessionShell(t *testing.T) {
 	}
 }
 
-// TODO(dfc) add support for Std{in,err}Pipe when the Server supports it.
+// TODO (dfc) add support for Std{in,err}Pipe when the Server supports it. id:2325
 
 // Test a simple string is returned via StdoutPipe.
 func TestSessionStdoutPipe(t *testing.T) {

@@ -16,7 +16,7 @@ type Option option
 
 type option func(tag language.Tag, f *number.Formatter)
 
-// TODO: SpellOut requires support of the ICU RBNF format.
+// TODO: SpellOut requires support of the ICU RBNF format. id:1101
 // func SpellOut() Option
 
 // NoSeparator causes a number to be displayed without grouping separators.
@@ -122,8 +122,8 @@ func noop(language.Tag, *number.Formatter) {}
 // option at startup time.
 // PatternOverrides must be the first Option passed to a formatter.
 func PatternOverrides(patterns map[string]string) Option {
-	// TODO: make it so that it does not have to be the first option.
-	// TODO: use -x-nochild to indicate it does not override child tags.
+	// TODO: make it so that it does not have to be the first option. id:1947
+	// TODO: use -x-nochild to indicate it does not override child tags. id:1441
 	m := map[language.Tag]*number.Pattern{}
 	for k, v := range patterns {
 		tag := language.MustParse(k)
@@ -134,8 +134,8 @@ func PatternOverrides(patterns map[string]string) Option {
 		m[tag] = p
 	}
 	return func(t language.Tag, f *number.Formatter) {
-		// TODO: Use language grouping relation instead of parent relation.
-		// TODO: Should parent implement the grouping relation?
+		// TODO: Use language grouping relation instead of parent relation. id:3062
+		// TODO: Should parent implement the grouping relation? id:1318
 		for lang := t; ; lang = t.Parent() {
 			if p, ok := m[lang]; ok {
 				f.Pattern = *p
@@ -168,7 +168,7 @@ func Pad(r rune) Option {
 	}
 }
 
-// TODO:
+// TODO:  id:1103
 // - FormatPosition (using type aliasing?)
 // - Multiplier: find a better way to represent and figure out what to do
 //   with clashes with percent/permille.

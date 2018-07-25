@@ -11,7 +11,7 @@ import (
 	"golang.org/x/text/language"
 )
 
-// TODO: these definitions should be moved to a package so that the can be used
+// TODO: these definitions should be moved to a package so that the can be used id:1085
 // by other tools.
 
 // The file contains the structures used to define translations of a certain
@@ -34,7 +34,7 @@ type Config struct {
 
 	Packages []string
 
-	// TODO:
+	// TODO:  id:1937
 	// - Printf-style configuration
 	// - Template-style configuration
 	// - Extraction options
@@ -65,7 +65,7 @@ type Message struct {
 
 	Placeholders []Placeholder `json:"placeholders,omitempty"`
 
-	// TODO: default placeholder syntax is {foo}. Allow alternative escaping
+	// TODO: default placeholder syntax is {foo}. Allow alternative escaping id:1431
 	// like `foo`.
 
 	// Extraction information.
@@ -161,7 +161,7 @@ type argument struct {
 type Feature struct {
 	Type string `json:"type"` // Right now this is only gender and plural.
 
-	// TODO: possible values and examples for the language under consideration.
+	// TODO: possible values and examples for the language under consideration. id:3052
 
 }
 
@@ -234,7 +234,7 @@ type Select struct {
 	Cases   map[string]Text `json:"cases"`
 }
 
-// TODO: order matters, but can we derive the ordering from the case keys?
+// TODO: order matters, but can we derive the ordering from the case keys? id:1304
 // type Case struct {
 // 	Key   string `json:"key"`
 // 	Value Text   `json:"value"`

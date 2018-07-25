@@ -42,7 +42,7 @@ namespace local_time {
       std::logic_error(std::string("is_dst flag does not match resulting dst for time label given: " + msg)) {}
   };
 
-  //TODO: I think these should be in local_date_time_base and not
+  //TODO: I think these should be in local_date_time_base and not id:1456
   // necessarily brought into the namespace
   using date_time::time_is_dst_result;
   using date_time::is_in_dst;
@@ -130,7 +130,7 @@ namespace local_time {
       }
     }
 
-    //TODO maybe not the right set...Ignore the last 2 for now...
+    //TODO maybe not the right set...Ignore the last 2 for now... id:2307
     enum DST_CALC_OPTIONS { EXCEPTION_ON_ERROR, NOT_DATE_TIME_ON_ERROR };
                             //ASSUME_DST_ON_ERROR, ASSUME_NOT_DST_ON_ERROR };
 
@@ -280,7 +280,7 @@ namespace local_time {
      * zone abbrev will not be included if calling object is a special_value*/
     std::string to_string() const
     {
-      //TODO is this a temporary function ???
+      //TODO is this a temporary function ??? id:1703
       std::ostringstream ss;
       if(this->is_special()){
         ss << utc_time();

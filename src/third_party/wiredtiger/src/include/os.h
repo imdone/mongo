@@ -12,7 +12,7 @@
 	 * 0 is not the only successful return must provide an		\
 	 * expression evaluating to 0 in all successful	cases.		\
 	 *								\
-	 * XXX								\
+	 * XXX \ id:2294
 	 * Casting the call's return to int is because CentOS 7.3.1611	\
 	 * complains about syscall returning a long and the loss of	\
 	 * integer precision in the assignment to ret. The cast should	\

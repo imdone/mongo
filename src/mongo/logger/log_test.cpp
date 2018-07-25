@@ -62,7 +62,7 @@ TEST_F(LogTestUnadornedEncoder, logContext) {
     ASSERT_GREATER_THAN(_logLines.size(), 1U);
     ASSERT_NOT_EQUALS(_logLines[0].find("WHA!"), std::string::npos);
 
-    // TODO(schwerin): Ensure that logContext rights a proper context to the log stream,
+    // TODO (schwerin): Ensure that logContext rights a proper context to the log stream, id:3091
     // including the address of the logContext() function.
     // void const* logContextFn = reinterpret_cast<void const*>(logContext);
 }

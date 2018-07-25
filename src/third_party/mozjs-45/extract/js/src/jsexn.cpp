@@ -354,7 +354,7 @@ Error(JSContext* cx, unsigned argc, Value* vp)
             return false;
     } else {
         lineNumber = iter.done() ? 0 : iter.computeLine(&columnNumber);
-        // XXX: Make the column 1-based as in other browsers, instead of 0-based
+        // XXX: Make the column 1-based as in other browsers, instead of 0-based id:3351
         // which is how SpiderMonkey stores it internally. This will be
         // unnecessary once bug 1144340 is fixed.
         ++columnNumber;
@@ -910,14 +910,14 @@ ErrorReport::populateUncaughtExceptionReportVA(JSContext* cx, va_list ap)
     new (&ownedReport) JSErrorReport();
     ownedReport.flags = JSREPORT_ERROR;
     ownedReport.errorNumber = JSMSG_UNCAUGHT_EXCEPTION;
-    // XXXbz this assumes the stack we have right now is still
+    // XXX bz this assumes the stack we have right now is still id:2989
     // related to our exception object.  It would be better if we
     // could accept a passed-in stack of some sort instead.
     NonBuiltinFrameIter iter(cx, cx->compartment()->principals());
     if (!iter.done()) {
         ownedReport.filename = iter.scriptFilename();
         ownedReport.lineno = iter.computeLine(&ownedReport.column);
-        // XXX: Make the column 1-based as in other browsers, instead of 0-based
+        // XXX: Make the column 1-based as in other browsers, instead of 0-based id:2095
         // which is how SpiderMonkey stores it internally. This will be
         // unnecessary once bug 1144340 is fixed.
         ++ownedReport.column;

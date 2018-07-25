@@ -63,7 +63,7 @@
 
     // the only way that setSharVersion passes is if the shard agrees with the version
     // the shard takes its version from config directly
-    // TODO bump timestamps in config
+    // TODO bump timestamps in config id:260
     // assert(a2.runCommand({ "setShardVersion": "alleyinsider.foo", configdb: s._configDB, version:
     // 2 }).ok == 1, "setShardVersion a2-1");
 

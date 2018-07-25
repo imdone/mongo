@@ -52,7 +52,7 @@ func (f *formatInfo) writePadding(n int) {
 	}
 	// Fill padding with padByte.
 	for i := 0; i < n; i++ {
-		f.buf.WriteByte(padByte) // TODO: make more efficient.
+		f.buf.WriteByte(padByte) // TODO: make more efficient. id:3044
 	}
 }
 

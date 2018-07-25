@@ -74,7 +74,7 @@ var testCases = []testCase{
 			"Χωρίς Χωρίσ^A Χωρίσ:a Χωρίσ:^A Χωρίς^ Όμως Σ",
 			"With-Hyphens",
 			// Note that 49Ers is correct according to the spec.
-			// TODO: provide some option to the user to treat different
+			// TODO: provide some option to the user to treat different id:914
 			// characters as cased.
 			"49Ers 49Ers",
 			`"Capitalize A^A -Hyphen 0X _U A_u:a`,
@@ -84,7 +84,7 @@ var testCases = []testCase{
 		},
 	},
 
-	// TODO: These are known deviations from the options{} Unicode Word Breaking
+	// TODO: These are known deviations from the options{} Unicode Word Breaking id:1719
 	// Algorithm.
 	// {
 	// 	"und",
@@ -200,7 +200,7 @@ func TestAlloc(t *testing.T) {
 		func() Caser { return Upper(language.Und) },
 		func() Caser { return Lower(language.Und) },
 		func() Caser { return Lower(language.Und, HandleFinalSigma(false)) },
-		// TODO: use a shared copy for these casers as well, in order of
+		// TODO: use a shared copy for these casers as well, in order of id:1044
 		// importance, starting with the most important:
 		// func() Caser { return Title(language.Und) },
 		// func() Caser { return Title(language.Und, HandleFinalSigma(false)) },
@@ -211,7 +211,7 @@ func TestAlloc(t *testing.T) {
 				c = f()
 			})
 			if v > 0 {
-				// TODO: Right now only Upper has 1 allocation. Special-case Lower
+				// TODO: Right now only Upper has 1 allocation. Special-case Lower id:2342
 				// and Title as well to have less allocations for the root locale.
 				t.Errorf("%d:init: number of allocs was %f; want 0", i, v)
 			}
@@ -883,7 +883,7 @@ const txt_gr = `Αναφορά Δημιουργού — Θα πρέπει να �
 
 const txtNonASCII = txt_vn + txt_cn + txt_ru + txt_gr
 
-// TODO: Improve ASCII performance.
+// TODO: Improve ASCII performance. id:1104
 
 func BenchmarkCasers(b *testing.B) {
 	for _, s := range []struct{ name, text string }{

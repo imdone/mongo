@@ -195,7 +195,7 @@ public:
     /**
      * Desired duration of the bench run activity, in seconds.
      *
-     * NOTE: Only used by the javascript benchRun() and benchRunSync() functions.
+     * NOTE: Only used by the javascript benchRun() and benchRunSync() functions. id:2586
      */
     double seconds;
 
@@ -239,7 +239,7 @@ public:
      * Every thread in a benchRun job will perform these operations in sequence, restarting at
      * the beginning when the end is reached, until the job is stopped.
      *
-     * TODO: Introduce support for performing each operation exactly N times.
+     * TODO: Introduce support for performing each operation exactly N times. id:1349
      */
     std::vector<BenchRunOp> ops;
 
@@ -529,7 +529,7 @@ public:
      * Utility method to create a new bench runner from a BSONObj representation
      * of a configuration.
      *
-     * TODO: This is only really for the use of the javascript benchRun() methods,
+     * TODO: This is only really for the use of the javascript benchRun() methods, id:2153
      * and should probably move out of the BenchRunner class.
      */
     static BenchRunner* createWithConfig(const BSONObj& configArgs);
@@ -537,7 +537,7 @@ public:
     /**
      * Look up a bench runner object by OID.
      *
-     * TODO: Same todo as for "createWithConfig".
+     * TODO: Same todo as for "createWithConfig". id:1574
      */
     static BenchRunner* get(OID oid);
 
@@ -545,7 +545,7 @@ public:
      * Stop a running "runner", and return a BSON representation of its resultant
      * BenchRunStats.
      *
-     * TODO: Same as for "createWithConfig".
+     * TODO: Same as for "createWithConfig". id:3125
      */
     static BSONObj finish(BenchRunner* runner);
 
@@ -580,7 +580,7 @@ public:
 
     const BenchRunConfig& config() const {
         return *_config;
-    }  // TODO: Remove this function.
+    }  // TODO: Remove this function. id:2588
 
     // JS bindings
     static BSONObj benchFinish(const BSONObj& argsFake, void* data);
@@ -588,7 +588,7 @@ public:
     static BSONObj benchRunSync(const BSONObj& argsFake, void* data);
 
 private:
-    // TODO: Same as for createWithConfig.
+    // TODO: Same as for createWithConfig. id:1352
     static stdx::mutex _staticMutex;
     static std::map<OID, BenchRunner*> _activeRuns;
 

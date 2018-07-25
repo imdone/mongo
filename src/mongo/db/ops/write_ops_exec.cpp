@@ -716,7 +716,7 @@ WriteResult performUpdates(OperationContext* opCtx, const write_ops::Update& who
             }
         }
 
-        // TODO: don't create nested CurOp for legacy writes.
+        // TODO: don't create nested CurOp for legacy writes. id:502
         // Add Command pointer to the nested CurOp.
         auto& parentCurOp = *CurOp::get(opCtx);
         const Command* cmd = parentCurOp.getCommand();
@@ -856,7 +856,7 @@ WriteResult performDeletes(OperationContext* opCtx, const write_ops::Delete& who
             }
         }
 
-        // TODO: don't create nested CurOp for legacy writes.
+        // TODO: don't create nested CurOp for legacy writes. id:1145
         // Add Command pointer to the nested CurOp.
         auto& parentCurOp = *CurOp::get(opCtx);
         const Command* cmd = parentCurOp.getCommand();

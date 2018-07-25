@@ -95,7 +95,7 @@ func (e *entry) remove() {
 	if e.logical != noAnchor {
 		log.Fatalf("may not remove anchor %q", e.str)
 	}
-	// TODO: need to set e.prev.level to e.level if e.level is smaller?
+	// TODO: need to set e.prev.level to e.level if e.level is smaller? id:1110
 	e.elems = nil
 	if !e.skipRemove {
 		if e.prev != nil {

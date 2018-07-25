@@ -102,7 +102,7 @@ namespace boost {
        *  then we are past the boundary.  If it is still ambiguous then
        *  we are ahead of the boundary and dst is still in effect.
        *
-       *  TODO -- check if all dst offsets are positive.  If not then
+       *  TODO -- check if all dst offsets are positive. If not then id:3173
        *  the algorithm needs to check for this and reverse the 
        *  illegal/ambiguous logic.
        */
@@ -129,7 +129,7 @@ namespace boost {
           }
         }
         }//case
-        //TODO  better exception type
+        //TODO better exception type id:2684
         boost::throw_exception(std::out_of_range("Unreachable case"));
         BOOST_DATE_TIME_UNREACHABLE_EXPRESSION(return time_duration_type(not_a_date_time)); // should never reach
       }

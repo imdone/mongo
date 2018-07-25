@@ -64,7 +64,7 @@ class test_txn14(wttest.WiredTigerTestCase, suite_subprocess):
                 shutil.copy(fullname, newdir)
         #
         # close the original connection and open to new directory
-        # NOTE:  This really cannot test the difference between the
+        # NOTE: This really cannot test the difference between the id:3440
         # write-no-sync (off) version of log_flush and the sync
         # version since we're not crashing the system itself.
         #

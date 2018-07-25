@@ -450,7 +450,7 @@ struct SuiteInstance {
  *
  * Typically thrown by helpers in the TestAssertion class and its ilk, below.
  *
- * NOTE(schwerin): This intentionally does _not_ extend std::exception, so that code under
+ * NOTE (schwerin): This intentionally does _not_ extend so that code under std::exception, id:2216
  * test that (foolishly?) catches std::exception won't swallow test failures.  Doesn't
  * protect you from code that foolishly catches ..., but you do what you can.
  */

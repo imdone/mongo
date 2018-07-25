@@ -57,7 +57,7 @@ void ReportOutOfMemory(ExclusiveContext* cxArg);
  * the lifetime of the container, this policy may only be used for containers
  * whose lifetime is a shorter than the given JSContext.
  *
- * FIXME bug 647103 - rewrite this in terms of temporary allocation functions,
+ * FIXME bug 647103 - rewrite this in terms of temporary allocation functions, id:2364
  * not the system ones.
  */
 class TempAllocPolicy

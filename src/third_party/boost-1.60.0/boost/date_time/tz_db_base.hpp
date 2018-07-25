@@ -103,7 +103,7 @@ namespace boost {
      * // 2004-Aug-30 00:00:00 EDT
      * @endcode
      *
-     * NOTE: The exact format/function names may vary - see local_time 
+     * NOTE: The exact format/function names may vary - see local_time id:1464
      * documentation for further details.
      *
      * GMT offset:
@@ -236,7 +236,7 @@ namespace boost {
       // start and end rule are of the same type
       typedef typename rule_type::start_rule::week_num week_num;
 
-      /* TODO: mechanisms need to be put in place to handle different
+      /* TODO: mechanisms need to be put in place to handle different id:2316
        * types of rule specs. parse_rules() only handles nth_kday
        * rule types. */
       

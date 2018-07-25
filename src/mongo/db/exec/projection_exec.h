@@ -60,7 +60,7 @@ public:
     };
 
     /**
-     * TODO: document why we like StringMap so much here
+     * TODO: document why we like StringMap so much here id:1323
      */
     typedef StringMap<ProjectionExec*> FieldMap;
     typedef StringMap<MatchExpression*> Matchers;
@@ -141,7 +141,7 @@ private:
     bool _special;
 
     // We must group projections with common prefixes together.
-    // TODO: benchmark std::vector<pair> vs map
+    // TODO: benchmark vs map std::vector<pair> id:549
     //
     // Projection is a rooted tree.  If we have {a.b: 1, a.c: 1} we don't want to
     // double-traverse the document when we're projecting it.  Instead, we have an entry in

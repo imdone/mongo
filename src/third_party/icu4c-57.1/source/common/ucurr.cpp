@@ -637,7 +637,7 @@ ucurr_forLocale(const char* locale,
 /**
  * Modify the given locale name by removing the rightmost _-delimited
  * element.  If there is none, empty the string ("" == root).
- * NOTE: The string "root" is not recognized; do not use it.
+ * NOTE: The string "root" is not recognized; do not use it. id:1653
  * @return TRUE if the fallback happened; FALSE if locale is already
  * root ("").
  */
@@ -830,7 +830,7 @@ ucurr_getPluralName(const UChar* currency,
 
 #define NEED_TO_BE_DELETED 0x1
 
-// TODO: a better way to define this?
+// TODO: a better way to define this? id:2467
 #define MAX_CURRENCY_NAME_LEN 100
 
 typedef struct {
@@ -892,7 +892,7 @@ getCurrencyNameCount(const char* loc, int32_t* total_currency_name_count, int32_
     const icu::Hashtable *currencySymbolsEquiv = getCurrSymbolsEquiv();
     for (;;) {
         UErrorCode ec2 = U_ZERO_ERROR;
-        // TODO: ures_openDirect?
+        // TODO: ures_openDirect? id:1932
         UResourceBundle* rb = ures_open(U_ICUDATA_CURR, locale, &ec2);
         UResourceBundle* curr = ures_getByKey(rb, CURRENCIES, NULL, &ec2);
         int32_t n = ures_getSize(curr);
@@ -996,7 +996,7 @@ collectCurrencyNames(const char* locale,
     UHashtable* currencyPluralIsoCodes = uhash_open(uhash_hashChars, uhash_compareChars, NULL, &ec4);
     for (int32_t localeLevel = 0; ; ++localeLevel) {
         ec2 = U_ZERO_ERROR;
-        // TODO: ures_openDirect
+        // TODO: ures_openDirect id:3235
         UResourceBundle* rb = ures_open(U_ICUDATA_CURR, loc, &ec2);
         UResourceBundle* curr = ures_getByKey(rb, CURRENCIES, NULL, &ec2);
         int32_t n = ures_getSize(curr);
@@ -1004,7 +1004,7 @@ collectCurrencyNames(const char* locale,
             UResourceBundle* names = ures_getByIndex(curr, i, NULL, &ec2);
             int32_t len;
             s = ures_getStringByIndex(names, UCURR_SYMBOL_NAME, &len, &ec2);
-            // TODO: uhash_put wont change key/value?
+            // TODO: uhash_put wont change key/value? id:2799
             iso = (char*)ures_getKey(names);
             if (localeLevel == 0) {
                 uhash_put(currencyIsoCodes, iso, iso, &ec3); 
@@ -1074,7 +1074,7 @@ collectCurrencyNames(const char* locale,
             int32_t num = ures_getSize(names);
             int32_t len;
             for (int32_t j = 0; j < num; ++j) {
-                // TODO: remove duplicates between singular name and 
+                // TODO: remove duplicates between singular name and id:1656
                 // currency long name?
                 s = ures_getStringByIndex(names, j, &len, &ec3);
                 (*currencyNames)[*total_currency_name_count].IsoCode = iso;

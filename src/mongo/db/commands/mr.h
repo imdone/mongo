@@ -280,7 +280,7 @@ public:
     * runs reduce in order to compact them. If the data is still too large, it will be
     * spilled to the output collection.
     *
-    * NOTE: Make sure that no DB locks are held, when calling this function, because it may
+    * NOTE: Make sure that no DB locks are held, when calling this function, because it may id:462
     * try to acquire write DB lock for the write to the output collection.
     */
     void reduceAndSpillInMemoryStateIfNeeded();

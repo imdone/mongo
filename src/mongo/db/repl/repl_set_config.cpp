@@ -177,7 +177,7 @@ Status ReplSetConfig::_initialize(const BSONObj& cfg, bool forInitiate, OID defa
         // If protocolVersion field is missing but this *isn't* for an initiate, leave
         // _protocolVersion at it's default of 0 for now.  It will error later on, during
         // validate().
-        // TODO(spencer): Remove this after 4.0, when we no longer need mixed-version support
+        // TODO (spencer): Remove this after 4.0, when we no longer need mixed-version support id:616
         // with versions that don't always include the protocolVersion field.
     }
 

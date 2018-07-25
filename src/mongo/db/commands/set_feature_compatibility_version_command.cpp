@@ -113,7 +113,7 @@ public:
         // upgrade process cannot be rolled back. There is currently no mechanism to specify a
         // default writeConcern, so we manually call waitForWriteConcern upon exiting this command.
         //
-        // TODO SERVER-25778: replace this with the general mechanism for specifying a default
+        // TODO SERVER-25778: replace this with the general mechanism for specifying a default id:409
         // writeConcern.
         ON_BLOCK_EXIT([&] {
             // Propagate the user's wTimeout if one was given.

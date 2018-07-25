@@ -524,7 +524,7 @@ typedef struct {
 # endif
 
 # if EXCEPTION_INTERFACE_SEND & send_return_address
-    /* NOTE THE TRAILING COMMA						    */
+    /* NOTE THE TRAILING COMMA id:2270*/
 #   define INIT_RETURN_ADDRESS \
 	P_EXCPT_REC_RET_VAL_PTR( ( &tmp_rec ), RET_ADDR ),
 # else

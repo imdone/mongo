@@ -250,7 +250,7 @@ RoutingTableHistory::overlappingRanges(const BSONObj& min,
 IndexBounds ChunkManager::getIndexBoundsForQuery(const BSONObj& key,
                                                  const CanonicalQuery& canonicalQuery) {
     // $text is not allowed in planning since we don't have text index on mongos.
-    // TODO: Treat $text query as a no-op in planning on mongos. So with shard key {a: 1},
+    // TODO: Treat $text query as a no-op in planning on mongos. So with shard key {a: 1}, id:3103
     //       the query { a: 2, $text: { ... } } will only target to {a: 2}.
     if (QueryPlannerCommon::hasNode(canonicalQuery.root(), MatchExpression::TEXT)) {
         IndexBounds bounds;
@@ -365,7 +365,7 @@ IndexBounds ChunkManager::collapseQuerySolution(const QuerySolutionNode* node) {
 bool RoutingTableHistory::compatibleWith(const RoutingTableHistory& other,
                                          const ShardId& shardName) const {
     // Return true if the shard version is the same in the two chunk managers
-    // TODO: This doesn't need to be so strong, just major vs
+    // TODO: This doesn't need to be so strong, just major vs id:1715
     return other.getVersion(shardName) == getVersion(shardName);
 }
 
@@ -544,7 +544,7 @@ std::shared_ptr<RoutingTableHistory> RoutingTableHistory::makeUpdated(
     // If at least one diff was applied, the metadata is correct, but it might not have changed so
     // in this case there is no need to recreate the chunk manager.
     //
-    // NOTE: In addition to the above statement, it is also important that we return the same chunk
+    // NOTE: In addition to the above statement, it is also important that we return the same chunk id:1194
     // manager object, because the write commands' code relies on changes of the chunk manager's
     // sequence number to detect batch writes not making progress because of chunks moving across
     // shards too frequently.

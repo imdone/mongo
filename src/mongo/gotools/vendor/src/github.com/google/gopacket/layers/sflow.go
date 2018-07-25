@@ -315,10 +315,10 @@ func (s *SFlowDatagram) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback)
 				return err
 			}
 		case SFlowTypeExpandedFlowSample:
-			// TODO
+			// TODO  id:1049
 			return fmt.Errorf("Unsupported SFlow sample type TypeExpandedFlowSample")
 		case SFlowTypeExpandedCounterSample:
-			// TODO
+			// TODO  id:856
 			return fmt.Errorf("Unsupported SFlow sample type TypeExpandedCounterSample")
 		default:
 			return fmt.Errorf("Unsupported SFlow sample type %d", sampleType)
@@ -456,43 +456,43 @@ func decodeFlowSample(data *[]byte) (SFlowFlowSample, error) {
 				return s, err
 			}
 		case SFlowTypeEthernetFrameFlow:
-			// TODO
+			// TODO  id:1670
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeEthernetFrameFlow")
 		case SFlowTypeIpv4Flow:
-			// TODO
+			// TODO  id:864
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeIpv4Flow")
 		case SFlowTypeIpv6Flow:
-			// TODO
+			// TODO  id:2141
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeIpv6Flow")
 		case SFlowTypeExtendedMlpsFlow:
-			// TODO
+			// TODO  id:1052
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedMlpsFlow")
 		case SFlowTypeExtendedNatFlow:
-			// TODO
+			// TODO  id:859
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedNatFlow")
 		case SFlowTypeExtendedMlpsTunnelFlow:
-			// TODO
+			// TODO  id:1673
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedMlpsTunnelFlow")
 		case SFlowTypeExtendedMlpsVcFlow:
-			// TODO
+			// TODO  id:867
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedMlpsVcFlow")
 		case SFlowTypeExtendedMlpsFecFlow:
-			// TODO
+			// TODO  id:2144
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedMlpsFecFlow")
 		case SFlowTypeExtendedMlpsLvpFecFlow:
-			// TODO
+			// TODO  id:1054
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedMlpsLvpFecFlow")
 		case SFlowTypeExtendedVlanFlow:
-			// TODO
+			// TODO  id:861
 			skipRecord(data)
 			return s, fmt.Errorf("skipping TypeExtendedVlanFlow")
 		default:

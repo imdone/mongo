@@ -144,7 +144,7 @@ bool S2Loop::IsValid(string* err) const {
         if (previous_index != ai) crosser.RestartAt(&vertex(ai));
         // Beware, this may return the loop is valid if there is a
         // "vertex crossing".
-        // TODO(user): Fix that.
+        // TODO (user): Fix that. id:2768
         crosses = crosser.RobustCrossing(&vertex(ai+1)) > 0;
         previous_index = ai + 1;
         if (crosses) {
@@ -301,7 +301,7 @@ bool S2Loop::IsNormalized() const {
   if (bound_.lng().GetLength() < M_PI) return true;
 
   // We allow some error so that hemispheres are always considered normalized.
-  // TODO(user): This might not be necessary once S2Polygon is enhanced so
+  // TODO (user): This might not be necessary once S2Polygon is enhanced so id:2426
   // that it does not require its input loops to be normalized.
   return GetTurningAngle() >= -1e-14;
 }

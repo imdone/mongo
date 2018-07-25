@@ -19,7 +19,7 @@ __curds_txn_enter(WT_SESSION_IMPL *session, bool update)
 	if (update)
 		WT_RET(__wt_txn_autocommit_check(session));
 
-	session->ncursors++;				/* XXX */
+	session->ncursors++;				/* XXX  id:3425*/
 	__wt_txn_cursor_op(session);
 
 	return (0);
@@ -32,7 +32,7 @@ __curds_txn_enter(WT_SESSION_IMPL *session, bool update)
 static void
 __curds_txn_leave(WT_SESSION_IMPL *session)
 {
-	if (--session->ncursors == 0)			/* XXX */
+	if (--session->ncursors == 0)			/* XXX  id:3470*/
 		__wt_txn_read_last(session);
 }
 
@@ -516,7 +516,7 @@ __wt_curds_open(
 	cursor->session = &session->iface;
 
 	/*
-	 * XXX
+	 * XXX  id:2288
 	 * The underlying data-source may require the object's key and value
 	 * formats.  This isn't a particularly elegant way of getting that
 	 * information to the data-source, this feels like a layering problem

@@ -218,7 +218,7 @@ func initCatalog(t *testing.T, tc testCase) Catalog {
 	if err != nil {
 		t.Fatal(err)
 	}
-	// TODO: implement macros for fixed catalogs.
+	// TODO: implement macros for fixed catalogs. id:1285
 	b := NewBuilder()
 	setMacros(b)
 	c.(*catalog).macros.index = b.macros.index

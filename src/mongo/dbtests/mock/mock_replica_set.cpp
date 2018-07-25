@@ -194,7 +194,7 @@ void MockReplicaSet::mockIsMasterCmd() {
             builder.append("secondary", !isPrimary);
 
             {
-                // TODO: add passives & arbiters
+                // TODO: add passives & arbiters id:1556
                 vector<string> hostList;
                 hostList.push_back(getPrimary());
 
@@ -280,7 +280,7 @@ void MockReplicaSet::mockReplSetGetStatusCmd() {
             selfStatBuilder.append("state", getState(node->getServerAddress()));
 
             selfStatBuilder.append("self", true);
-            // TODO: _id, stateStr, uptime, optime, optimeDate, maintenanceMode, errmsg
+            // TODO: _id, stateStr, uptime, optime, optimeDate, maintenanceMode, errmsg id:713
 
             hostsField.push_back(selfStatBuilder.obj());
         }
@@ -296,7 +296,7 @@ void MockReplicaSet::mockReplSetGetStatusCmd() {
 
             BSONObjBuilder hostMemberBuilder;
 
-            // TODO: _id, stateStr, uptime, optime, optimeDate, lastHeartbeat, pingMs
+            // TODO: _id, stateStr, uptime, optime, optimeDate, lastHeartbeat, pingMs id:2084
             // errmsg, authenticated
 
             hostMemberBuilder.append("name", hostNode->getServerAddress());
@@ -311,7 +311,7 @@ void MockReplicaSet::mockReplSetGetStatusCmd() {
                   hostsField.end(),
                   SimpleBSONObjComparator::kInstance.makeLessThan());
 
-        // TODO: syncingTo
+        // TODO: syncingTo id:1008
 
         fullStatBuilder.append("set", _setName);
         fullStatBuilder.appendTimeT("date", time(0));

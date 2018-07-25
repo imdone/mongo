@@ -42,12 +42,12 @@ func TestLabelErrors(t *testing.T) {
 		{lengthA, "", "", "A4"},
 
 		{lengthU, "xn--", "", "A4"},
-		{lengthU, "foo.xn--", "foo.", "A4"}, // TODO: is dropping xn-- correct?
+		{lengthU, "foo.xn--", "foo.", "A4"}, // TODO: is dropping xn-- correct? id:2994
 		{lengthU, "xn--.foo", ".foo", "A4"},
 		{lengthU, "foo.xn--.bar", "foo..bar", "A4"},
 
 		{display, "xn--", "", ""},
-		{display, "foo.xn--", "foo.", ""}, // TODO: is dropping xn-- correct?
+		{display, "foo.xn--", "foo.", ""}, // TODO: is dropping xn-- correct? id:1172
 		{display, "xn--.foo", ".foo", ""},
 		{display, "foo.xn--.bar", "foo..bar", ""},
 

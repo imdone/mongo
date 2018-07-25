@@ -131,7 +131,7 @@ public:
      */
     const_iterator cfind(const K& key) const {
         auto it = this->_map.find(key);
-        // TODO(SERVER-28890): Remove the function-style cast when MSVC's
+        // TODO (SERVER-28890): Remove the function-style cast when MSVC's id:2242
         // `std::list< ... >::iterator` implementation doesn't conflict with their `/Zc:ternary`
         // flag support .
         return (it == this->_map.end()) ? this->end() : const_iterator(it->second);

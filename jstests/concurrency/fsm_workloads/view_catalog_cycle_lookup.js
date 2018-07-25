@@ -103,7 +103,7 @@ var $config = (function() {
             // collection lock before creating and iterating the cursor on the underlying namespace.
             // In this short window of time, it's possible that that namespace has been dropped and
             // replaced with a view.
-            // TODO (SERVER-35635): It would be more appropriate for the server to return
+            // TODO (SERVER-35635): It would be more appropriate for the server to return id:63
             // OperationFailed, as CommandNotSupportedOnView is misleading.
             assertAlways(res.ok === 1 || res.code === ErrorCodes.CommandNotSupportedOnView,
                          () => tojson(res));

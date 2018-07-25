@@ -167,7 +167,7 @@ func isExternal(line string) bool {
 	return false
 }
 
-// NOTE: any new packages that host goconvey packages will need to be added here!
+// NOTE: any new packages that host goconvey packages will need to be added here! id:1068
 // An alternative is to scan the goconvey directory and then exclude stuff like
 // the examples package but that's nasty too.
 var internalPackages = []string{

@@ -336,7 +336,7 @@ GetPageFaultCount()
 void*
 AllocateMappedContent(int fd, size_t offset, size_t length, size_t alignment)
 {
-    // TODO: Bug 988813 - Support memory mapped array buffer for Windows platform.
+    // TODO: Bug 988813 - Support memory mapped array buffer for Windows platform. id:2621
     return nullptr;
 }
 
@@ -344,7 +344,7 @@ AllocateMappedContent(int fd, size_t offset, size_t length, size_t alignment)
 void
 DeallocateMappedContent(void* p, size_t length)
 {
-    // TODO: Bug 988813 - Support memory mapped array buffer for Windows platform.
+    // TODO: Bug 988813 - Support memory mapped array buffer for Windows platform. id:2228
 }
 
 // MONGODB Modification: See SERVER-22927
@@ -497,7 +497,7 @@ MapMemory(size_t length, int prot = PROT_READ | PROT_WRITE,
     * hardware and kernel configurations. But the work around is slightly
     * different due to the different mmap behavior.
     *
-    * TODO: Merge with the above code block if this implementation works for
+    * TODO: Merge with the above code block if this implementation works for id:3312
     * ia64 and sparc64.
     */
     const uintptr_t start = UINT64_C(0x0000070000000000);

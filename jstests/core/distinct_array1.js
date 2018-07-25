@@ -54,7 +54,7 @@ assert.eq("d,e,f", res.toString());
 t.ensureIndex({"a.b": 1});
 res = t.distinct("a.b");
 res.sort();
-// TODO SERVER-14832 The presence of an index may change results, but only if the index is not
+// TODO SERVER-14832 The presence of an index may change results, but only if the index is not id:773
 // multikey.
 // In a sharded scenario, an unlucky distribution of data will cause all the arrays to go to one
 // shard, and one shard be left with only non-multikey documents, including one with {a: 9}, which

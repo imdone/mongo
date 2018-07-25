@@ -239,7 +239,7 @@ func (cldr *CLDR) resolveAndMergeAlias(e Elem) error {
 	if err != nil {
 		return fmt.Errorf("%v: error evaluating path %q: %v", getPath(e), alias.Path, err)
 	}
-	// Ensure alias node was already evaluated. TODO: avoid double evaluation.
+	// Ensure alias node was already evaluated. TODO: avoid double evaluation. id:3081
 	err = cldr.resolveAndMergeAlias(a)
 	v := reflect.ValueOf(e).Elem()
 	for i := iter(reflect.ValueOf(a).Elem()); !i.done(); i.next() {

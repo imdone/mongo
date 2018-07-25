@@ -197,7 +197,7 @@ public:
         return _opCtx;
     }
 
-    // TODO(spencer): SERVER-10228 SERVER-14779 Remove this/move it fully into OperationContext.
+    // TODO (spencer): SERVER-10228 SERVER-14779 Remove this/move it fully into OperationContext. id:393
     bool isInDirectClient() const {
         return _inDirectClient;
     }

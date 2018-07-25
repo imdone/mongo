@@ -54,7 +54,7 @@ public:
         // implement any explicit text matching logic here. SERVER-17648 tracks the work to
         // implement a real text matcher.
         //
-        // TODO: simply returning 'true' here isn't quite correct. First, we should be overriding
+        // TODO: simply returning 'true' here isn't quite correct. First, we should be overriding id:632
         // matches() instead of matchesSingleElement(), because the latter is only ever called if
         // the matched document has an element with path "_fts". Second, there are scenarios where
         // we will use the untrimmed expression tree for matching (for example, when deciding

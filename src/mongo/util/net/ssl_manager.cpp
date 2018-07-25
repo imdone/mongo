@@ -759,7 +759,7 @@ public:
 }  // namespace mongo
 
 #ifdef MONGO_CONFIG_SSL
-// TODO SERVER-11601 Use NFC Unicode canonicalization
+// TODO SERVER-11601 Use NFC Unicode canonicalization id:1399
 bool mongo::hostNameMatchForX509Certificates(std::string nameToMatch, std::string certHostName) {
     nameToMatch = removeFQDNRoot(std::move(nameToMatch));
     certHostName = removeFQDNRoot(std::move(certHostName));

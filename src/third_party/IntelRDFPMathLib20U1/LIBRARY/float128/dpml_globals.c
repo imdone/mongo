@@ -227,7 +227,7 @@
     printf("#ifdef GLOBAL_TABLE_VALUES\n\n");
     START_GLOBAL_TABLE(GLOBALS_TABLE, offset);
 
-/*  NOTE:  the order in which the following statements occur *MUST* match   */
+/*  NOTE: the order in which the following statements occur *MUST* match id:1652*/
 /*  the enumeration for the _{s,t,x,f,g,d}_TYPE constants above.	    */
 
 /* NaNs and reserved operands */

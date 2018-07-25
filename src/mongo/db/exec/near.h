@@ -83,14 +83,14 @@ namespace mongo {
  * deduplicate. Every document in _resultBuffer is kept track of in _seenDocuments. When a
  * document is returned or invalidated, it is removed from _seenDocuments.
  *
- * TODO: If a document is indexed in multiple cells (Polygons, PolyLines, etc.), there is a
+ * TODO: If a document is indexed in multiple cells (Polygons, PolyLines, etc.), there is a id:545
  * possibility that it will be returned more than once. Since doInvalidate() force fetches a
  * document and removes it from _seenDocuments, NearStage will not deduplicate if it encounters
  * another instance of this document. This will only occur if two cells for a document are in the
  * same interval and the invalidation occurs between the scan of the first cell and the second, so
  * NearStage no longer knows that it's seen this document before.
  *
- * TODO: Right now the interface allows the nextCovering() to be adaptive, but doesn't allow
+ * TODO: Right now the interface allows the nextCovering() to be adaptive, but doesn't allow id:437
  * aborting and shrinking a covered range being buffered if we guess wrong.
  */
 class NearStage : public PlanStage {

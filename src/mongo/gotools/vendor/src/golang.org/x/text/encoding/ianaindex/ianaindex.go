@@ -26,12 +26,12 @@ import (
 	"golang.org/x/text/encoding/unicode"
 )
 
-// TODO: remove the "Status... incomplete" in the package doc comment.
-// TODO: allow users to specify their own aliases?
-// TODO: allow users to specify their own indexes?
-// TODO: allow canonicalizing names
+// TODO: remove the "Status... incomplete" in the package doc comment. id:1752
+// TODO: allow users to specify their own aliases? id:1197
+// TODO: allow users to specify their own indexes? id:2957
+// TODO: allow canonicalizing names id:1133
 
-// NOTE: only use these top-level variables if we can get the linker to drop
+// NOTE: only use these top-level variables if we can get the linker to drop id:947
 // the indexes when they are not used. Make them a function or perhaps only
 // support MIME otherwise.
 
@@ -100,7 +100,7 @@ func (x *Index) Name(e encoding.Encoding) (string, error) {
 	return x.names(v), nil
 }
 
-// TODO: the coverage of this index is rather spotty. Allowing users to set
+// TODO: the coverage of this index is rather spotty. Allowing users to set id:1754
 // encodings would allow:
 // - users to increase coverage
 // - allow a partially loaded set of encodings in case the user doesn't need to

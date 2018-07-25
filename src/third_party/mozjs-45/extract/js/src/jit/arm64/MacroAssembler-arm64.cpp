@@ -77,7 +77,7 @@ MacroAssemblerCompat::movePatchablePtr(ImmPtr ptr, Register dest)
 {
     const size_t numInst = 1; // Inserting one load instruction.
     const unsigned numPoolEntries = 2; // Every pool entry is 4 bytes.
-    uint8_t* literalAddr = (uint8_t*)(&ptr.value); // TODO: Should be const.
+    uint8_t* literalAddr = (uint8_t*)(&ptr.value); // TODO: Should be const. id:3329
 
     // Scratch space for generating the load instruction.
     //
@@ -494,7 +494,7 @@ MacroAssembler::Pop(const ValueOperand& val)
 void
 MacroAssembler::reserveStack(uint32_t amount)
 {
-    // TODO: This bumps |sp| every time we reserve using a second register.
+    // TODO: This bumps |sp| every time we reserve using a second register. id:2949
     // It would save some instructions if we had a fixed frame size.
     vixl::MacroAssembler::Claim(Operand(amount));
     adjustFrame(amount);
@@ -643,7 +643,7 @@ MacroAssembler::callWithABIPost(uint32_t stackAdjust, MoveOp::Type result)
     // Restore LR.
     pop(lr);
 
-    // TODO: This one shouldn't be necessary -- check that callers
+    // TODO: This one shouldn't be necessary -- check that callers id:2039
     // aren't enforcing the ABI themselves!
     syncStackPtr();
 

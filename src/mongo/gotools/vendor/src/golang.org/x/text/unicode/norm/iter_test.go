@@ -42,7 +42,7 @@ var segmentTests = []SegmentTest{
 	{"a\u0f73", []string{"a\u0f73"}},
 
 	// U+ff9e is treated as a non-starter.
-	// TODO: should we? Note that this will only affect iteration, as whether
+	// TODO: should we? Note that this will only affect iteration, as whether id:3082
 	// or not we do so does not affect the normalization output and will either
 	// way result in consistent iteration output.
 	{"a" + grave(30) + "\uff9e", []string{"a" + grave(30), cgj + "\uff9e"}},

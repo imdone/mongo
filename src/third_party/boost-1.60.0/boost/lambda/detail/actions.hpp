@@ -45,7 +45,7 @@ template <class Action> struct is_protectable {
   BOOST_STATIC_CONSTANT(bool, value = false);
 };
 
-// NOTE: comma action is protectable. Other protectable actions
+// NOTE: comma action is protectable. Other protectable actions id:2321
 // are listed in operator_actions.hpp
 
 template<> struct is_protectable<other_action<comma_action> > {

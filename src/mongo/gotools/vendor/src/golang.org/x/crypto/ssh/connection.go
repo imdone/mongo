@@ -70,7 +70,7 @@ type Conn interface {
 	// error causing the shutdown.
 	Wait() error
 
-	// TODO(hanwen): consider exposing:
+	// TODO (hanwen): consider exposing: id:1702
 	//   RequestKeyChange
 	//   Disconnect
 }

@@ -91,7 +91,7 @@ MongoRunner.stopMongod(mongo);
 
 print("2. Testing x.509 auth to mongos");
 
-// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:197
 var st = new ShardingTest({
     shards: 1,
     mongos: 1,

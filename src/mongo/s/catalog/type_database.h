@@ -57,7 +57,7 @@ public:
                  DatabaseVersion);
 
 #ifdef _WIN32
-    // TODO: Remove this when Microsoft's implementation of std::future doesn't require a default
+    // TODO: Remove this when Microsoft's implementation of doesn't require a default std::future id:1504
     // constructor.
     // This type should not normally have a default constructor, however Microsoft's implementation
     // of future requires one in violation of the standard so we're providing one only for Windows.

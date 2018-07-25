@@ -73,7 +73,7 @@ public:
     /**
      * Starts the journal listener, and snapshot threads
      *
-     * NOTE: Only starts threads if they are not already started,
+     * NOTE: Only starts threads if they are not already started, id:619
      */
     virtual void startThreads(const ReplSettings& settings) = 0;
 

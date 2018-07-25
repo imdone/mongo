@@ -118,7 +118,7 @@ public:
      *
      *  It is an error to call these functions after "validate" has been called
      *
-     *  NOTE: These DO NOT take ownership of the pointer passed in
+     *  NOTE: These DO NOT take ownership of the pointer passed in id:2250
      */
     Status addKeyConstraint(KeyConstraint* keyConstraint);
     Status addConstraint(Constraint* constraint);

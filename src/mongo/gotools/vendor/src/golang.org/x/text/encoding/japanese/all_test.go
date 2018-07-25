@@ -113,7 +113,7 @@ func TestNonRepertoire(t *testing.T) {
 		{dec, ISO2022JP, "\x1b$(D\x7e\x7e", "\ufffd"},
 		{dec, ISO2022JP, "\x80", "\ufffd"},
 
-		// TODO: according to https://encoding.spec.whatwg.org/#iso-2022-jp,
+		// TODO: according to https://encoding.spec.whatwg.org/#iso-2022-jp, id:949
 		// these should all be correct.
 		// {dec, ISO2022JP, "\x1b(B\x0E", "\ufffd"},
 		// {dec, ISO2022JP, "\x1b(B\x0F", "\ufffd"},

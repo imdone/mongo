@@ -561,7 +561,7 @@ var DB;
 
         // Use the copyDatabase native helper for SCRAM-SHA-1/256
         if (mechanism != "MONGODB-CR") {
-            // TODO SERVER-30886: Add session support for Mongo.prototype.copyDatabaseWithSCRAM().
+            // TODO SERVER-30886: Add session support for Mongo.prototype.copyDatabaseWithSCRAM(). id:1577
             return this.getMongo().copyDatabaseWithSCRAM(
                 fromdb, todb, fromhost, username, password, slaveOk);
         }

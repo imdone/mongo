@@ -56,7 +56,7 @@ def idl_scanner(node, env, path):
 
 idl_scanner = SCons.Scanner.Scanner(function=idl_scanner, skeys=['.idl'])
 
-# TODO: create a scanner for imports when imports are implemented
+# TODO: create a scanner for imports when imports are implemented id:207
 IDLCBuilder = SCons.Builder.Builder(
     action=IDLCAction,
     emitter=idlc_emitter,

@@ -53,7 +53,7 @@ bool rangeOverlaps(const BSONObj& inclusiveLower1,
  * A RangeMap is a mapping of an inclusive lower BSON key to an exclusive upper key, using standard
  * BSON woCompare.
  *
- * NOTE: For overlap testing to work correctly, there may be no overlaps present in the map itself.
+ * NOTE: For overlap testing to work correctly, there may be no overlaps present in the map itself. id:1825
  */
 typedef BSONObjIndexedMap<BSONObj> RangeMap;
 

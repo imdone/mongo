@@ -77,7 +77,7 @@ struct ConnectionPoolStats;
  * and should avoid doing any caching of their own. The caching is delegated to a parallel
  * read-only view of the catalog, which is maintained by a higher level code.
  *
- * TODO: For now this also includes some methods that write the sharding catalog metadata.  Those
+ * TODO: For now this also includes some methods that write the sharding catalog metadata. Those id:1609
  * should eventually all be moved to ShardingCatalogManager as catalog manipulation operations
  * move to be run on the config server primary.
  */
@@ -287,7 +287,7 @@ public:
      * Reads global sharding settings from the confing.settings collection. The key parameter is
      * used as the _id of the respective setting document.
      *
-     * NOTE: This method should generally not be used directly and instead the respective
+     * NOTE: This method should generally not be used directly and instead the respective id:1186
      * configuration class should be used (e.g. BalancerConfiguration).
      *
      * Returns ErrorCodes::NoMatchingDocument if no such key exists or the BSON content of the
@@ -314,7 +314,7 @@ public:
     /**
      * Directly sends the specified command to the config server and returns the response.
      *
-     * NOTE: Usage of this function is disallowed in new code, which should instead go through
+     * NOTE: Usage of this function is disallowed in new code, which should instead go through id:2088
      *       the regular catalog management calls. It is currently only used privately by this
      *       class and externally for writes to the admin/config namespaces.
      *
@@ -329,7 +329,7 @@ public:
      * Directly inserts a document in the specified namespace on the config server. The document
      * must have an _id index. Must only be used for insertions in the 'config' database.
      *
-     * NOTE: Should not be used in new code outside the ShardingCatalogManager.
+     * NOTE: Should not be used in new code outside the ShardingCatalogManager. id:1500
      */
     virtual Status insertConfigDocument(OperationContext* opCtx,
                                         const NamespaceString& nss,
@@ -348,7 +348,7 @@ public:
      * was upserted or it existed and any of the fields changed) and false otherwise (basically
      * returns whether the update command's response update.n value is > 0).
      *
-     * NOTE: Should not be used in new code outside the ShardingCatalogManager.
+     * NOTE: Should not be used in new code outside the ShardingCatalogManager. id:3101
      */
     virtual StatusWith<bool> updateConfigDocument(OperationContext* opCtx,
                                                   const NamespaceString& nss,
@@ -361,7 +361,7 @@ public:
      * Removes documents matching a particular query predicate from the specified namespace on the
      * config server. Must only be used for deletions from the 'config' database.
      *
-     * NOTE: Should not be used in new code outside the ShardingCatalogManager.
+     * NOTE: Should not be used in new code outside the ShardingCatalogManager. id:1615
      */
     virtual Status removeConfigDocuments(OperationContext* opCtx,
                                          const NamespaceString& nss,

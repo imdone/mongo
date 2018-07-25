@@ -85,7 +85,7 @@ class RBBINode : public UMemory {
                                             //     (no '^' present).
 
         UVector       *fFirstPosSet;
-        UVector       *fLastPosSet;         // TODO: rename fFirstPos & fLastPos to avoid confusion.
+        UVector       *fLastPosSet;         // TODO: rename fFirstPos & fLastPos to avoid confusion. id:1635
         UVector       *fFollowPos;
 
 

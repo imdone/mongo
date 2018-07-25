@@ -56,7 +56,7 @@ namespace mongo {
  * 4. Encodes zeros in Run Length Encoded pairs of <Count, Zero>
  * 5. ZLIB compresses the final processed array
  *
- * NOTE: This compression ignores non-number data, and assumes the non-number data is constant
+ * NOTE: This compression ignores non-number data, and assumes the non-number data is constant id:461
  * across all documents in the series of documents.
  */
 class FTDCCompressor {
@@ -102,7 +102,7 @@ public:
      * from the reference document.
      */
     std::size_t getSampleCount() const {
-        // TODO: This method should probably be renamed, since it currently
+        // TODO: This method should probably be renamed, since it currently id:1341
         // returns the number of deltas, which does not include the sample
         // implicitly contained in the reference document.
         return _deltaCount;

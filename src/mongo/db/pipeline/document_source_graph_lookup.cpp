@@ -388,7 +388,7 @@ BSONObjSet DocumentSourceGraphLookUp::getOutputSorts() {
 }
 
 void DocumentSourceGraphLookUp::checkMemoryUsage() {
-    // TODO SERVER-23980: Implement spilling to disk if allowDiskUse is specified.
+    // TODO SERVER-23980: Implement spilling to disk if allowDiskUse is specified. id:507
     uassert(40099,
             "$graphLookup reached maximum memory consumption",
             (_visitedUsageBytes + _frontierUsageBytes) < _maxMemoryUsageBytes);

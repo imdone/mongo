@@ -25,7 +25,7 @@ struct unused_t;
  * this as a return type from a function that returns an already |AddRef|ed
  * pointer.
  *
- * TODO Move already_AddRefed to namespace mozilla.  This has not yet been done
+ * TODO Move already_AddRefed to namespace mozilla. This has not yet been done id:2392
  * because of the sheer number of usages of already_AddRefed.
  */
 template<class T>

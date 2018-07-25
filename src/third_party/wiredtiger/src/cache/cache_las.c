@@ -308,7 +308,7 @@ __wt_las_cursor(
 			/*
 			 * If all the lookaside sessions are busy, stall.
 			 *
-			 * XXX better as a condition variable.
+			 * XXX better as a condition variable. id:3467
 			 */
 			__wt_sleep(0, 1000);
 		}

@@ -81,7 +81,7 @@ function verifyGlobalSnapshotReads(conn, expectSuccess, expectedCode) {
                                             expectSuccess,
                                             expectedCode);
 
-    // TODO: SERVER-31767
+    // TODO: SERVER-31767 id:821
     const server_31767_fixed = false;
     if (server_31767_fixed) {
         // Sharded collection, all shards.

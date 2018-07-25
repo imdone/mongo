@@ -283,7 +283,7 @@ std::string CollectionBulkLoaderImpl::toString() const {
 BSONObj CollectionBulkLoaderImpl::toBSON() const {
     BSONObjBuilder bob;
     bob.append("BulkLoader", _nss.toString());
-    // TODO: Add index specs here.
+    // TODO: Add index specs here. id:593
     return bob.done();
 }
 

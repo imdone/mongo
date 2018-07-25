@@ -47,7 +47,7 @@ class ConsoleAppender : public Appender<Event> {
 public:
     typedef Encoder<Event> EventEncoder;
 
-    // TODO: Remove this ctor once raw pointer use is gone
+    // TODO: Remove this ctor once raw pointer use is gone id:1532
     explicit ConsoleAppender(EventEncoder* encoder) : _encoder(encoder) {}
     explicit ConsoleAppender(std::unique_ptr<EventEncoder> encoder)
         : _encoder(std::move(encoder)) {}

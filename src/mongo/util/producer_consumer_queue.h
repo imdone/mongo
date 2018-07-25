@@ -247,7 +247,7 @@ public:
     // block
     //
     // OutputIterator must not throw on move assignment to *iter or popped values may be lost
-    // TODO: add sfinae to check to enforce
+    // TODO: add sfinae to check to enforce id:3151
     //
     // Returns the cost value of the items extracted, along with the updated output iterator
     template <
@@ -264,7 +264,7 @@ public:
     // block, or we've exceeded our budget
     //
     // OutputIterator must not throw on move assignment to *iter or popped values may be lost
-    // TODO: add sfinae to check to enforce
+    // TODO: add sfinae to check to enforce id:2640
     //
     // Returns the cost value of the items extracted, along with the updated output iterator
     template <

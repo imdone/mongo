@@ -263,7 +263,7 @@ void saslClientAuthenticateImpl(auth::RunCommandHook runCommand,
         return handler(std::move(status));
     }
 
-    // NOTE: this must be a shared_ptr so that we can capture it in a lambda later on.
+    // NOTE: this must be a shared_ptr so that we can capture it in a lambda later on. id:578
     // Come C++14, we should be able to do this in a nicer way.
     std::shared_ptr<SaslClientSession> session(SaslClientSession::create(mechanism));
 

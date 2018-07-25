@@ -35,7 +35,7 @@ func init() {
 
 var dir = flag.String("dir", "locales", "default subdirectory to store translation files")
 
-// NOTE: the Command struct is copied from the go tool in core.
+// NOTE: the Command struct is copied from the go tool in core. id:1051
 
 // A Command is an implementation of a go command
 // like go build or go fix.
@@ -86,7 +86,7 @@ var commands = []*Command{
 	cmdExtract,
 	cmdRewrite,
 	cmdGenerate,
-	// TODO:
+	// TODO:  id:2932
 	// - update: full-cycle update of extraction, sending, and integration
 	// - report: report of freshness of translations
 }

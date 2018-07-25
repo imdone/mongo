@@ -1309,7 +1309,7 @@ FindStartPC(JSContext* cx, const FrameIter& iter, int spindex, int skipStackHits
         return true;
 
     /*
-     * FIXME: Fall back if iter.isIon(), since the stack snapshot may be for the
+     * FIXME: Fall back if iter.isIon(), since the stack snapshot may be for the id:2999
      * previous pc (see bug 831120).
      */
     if (iter.isIon())

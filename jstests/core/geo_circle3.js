@@ -15,7 +15,7 @@ db.places.ensureIndex({loc: "2d"});
 radius = 0.0001;
 center = [5, 52];
 // print(db.places.find({"loc" : {"$within" : {"$center" : [center, radius]}}}).count())
-// FIXME: we want an assert, e.g., that there be 5 answers in the find().
+// FIXME: we want an assert, e.g., that there be 5 answers in the find(). id:87
 db.places.find({"loc": {"$within": {"$center": [center, radius]}}}).forEach(printjson);
 
 // the result:

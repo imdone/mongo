@@ -87,7 +87,7 @@ EnsureCanEnterIon(JSContext* cx, ICWarmUpCounter_Fallback* stub, BaselineFrame* 
 
     // Failed to compile.  Reset warm-up counter and return.
     if (stat != Method_Compiled) {
-        // TODO: If stat == Method_CantCompile, insert stub that just skips the
+        // TODO: If stat == Method_CantCompile, insert stub that just skips the id:2004
         // warm-up counter entirely, instead of resetting it.
         bool bailoutExpected = script->hasIonScript() && script->ionScript()->bailoutExpected();
         if (stat == Method_CantCompile || bailoutExpected) {
@@ -203,9 +203,9 @@ DoWarmUpCounterFallback(JSContext* cx, BaselineFrame* frame, ICWarmUpCounter_Fal
     FallbackICSpew(cx, stub, "WarmUpCounter(%d)", isLoopEntry ? int(script->pcToOffset(pc)) : int(-1));
 
     if (!script->canIonCompile()) {
-        // TODO: ASSERT that ion-compilation-disabled checker stub doesn't exist.
-        // TODO: Clear all optimized stubs.
-        // TODO: Add a ion-compilation-disabled checker IC stub
+        // TODO: ASSERT that ion-compilation-disabled checker stub doesn't exist. id:2627
+        // TODO: Clear all optimized stubs. id:2235
+        // TODO: Add a ion-compilation-disabled checker IC stub id:3315
         script->resetWarmUpCounter();
         return true;
     }
@@ -216,9 +216,9 @@ DoWarmUpCounterFallback(JSContext* cx, BaselineFrame* frame, ICWarmUpCounter_Fal
     // this script at an appropriate LOOPENTRY or the next time this function is called.
     if (script->hasIonScript() && !isLoopEntry) {
         JitSpew(JitSpew_BaselineOSR, "IonScript exists, but not at loop entry!");
-        // TODO: ASSERT that a ion-script-already-exists checker stub doesn't exist.
-        // TODO: Clear all optimized stubs.
-        // TODO: Add a ion-script-already-exists checker stub.
+        // TODO: ASSERT that a ion-script-already-exists checker stub doesn't exist. id:2925
+        // TODO: Clear all optimized stubs. id:2007
+        // TODO: Add a ion-script-already-exists checker stub. id:2629
         return true;
     }
 
@@ -679,7 +679,7 @@ DoToBoolFallback(JSContext* cx, BaselineFrame* frame, ICToBool_Fallback* stub, H
 
     // Check to see if a new stub should be generated.
     if (stub->numOptimizedStubs() >= ICToBool_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub.
+        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub. id:2237
         // But for now we just bail.
         return true;
     }
@@ -1775,7 +1775,7 @@ DoGetElemFallback(JSContext* cx, BaselineFrame* frame, ICGetElem_Fallback* stub_
 
     bool attached = false;
     if (stub->numOptimizedStubs() >= ICGetElem_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub.
+        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub. id:3316
         // But for now we just bail.
         stub->noteUnoptimizableAccess();
         attached = true;
@@ -2791,7 +2791,7 @@ DoSetElemFallback(JSContext* cx, BaselineFrame* frame, ICSetElem_Fallback* stub_
         return true;
 
     if (stub->numOptimizedStubs() >= ICSetElem_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub.
+        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub. id:2926
         // But for now we just bail.
         return true;
     }
@@ -3937,7 +3937,7 @@ TryAttachGlobalNameValueStub(JSContext* cx, HandleScript script, jsbytecode* pc,
 
     if (shape->hasDefaultGetter() && shape->hasSlot()) {
 
-        // TODO: if there's a previous stub discard it, or just update its Shape + slot?
+        // TODO: if there's a previous stub discard it, or just update its Shape + slot? id:2009
 
         ICStub* monitorStub = stub->fallbackMonitorStub()->firstMonitorStub();
         ICStub* newStub;
@@ -4179,7 +4179,7 @@ DoGetNameFallback(JSContext* cx, BaselineFrame* frame, ICGetName_Fallback* stub_
 
     // Attach new stub.
     if (stub->numOptimizedStubs() >= ICGetName_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with generic stub.
+        // TODO: Discard all stubs in this IC and replace with generic stub. id:2631
         attached = true;
     }
 
@@ -4797,7 +4797,7 @@ DoSetPropFallback(JSContext* cx, BaselineFrame* frame, ICSetProp_Fallback* stub_
         return true;
 
     if (stub->numOptimizedStubs() >= ICSetProp_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with generic setprop stub.
+        // TODO: Discard all stubs in this IC and replace with generic setprop stub. id:2240
         return true;
     }
 
@@ -5573,7 +5573,7 @@ TryAttachFunApplyStub(JSContext* cx, ICCall_Fallback* stub, HandleScript script,
             return true;
         }
 
-        // TODO: handle FUNAPPLY for native targets.
+        // TODO: handle FUNAPPLY for native targets. id:3317
     }
 
     if (argv[1].isObject() && argv[1].toObject().is<ArrayObject>()) {
@@ -5781,7 +5781,7 @@ TryAttachCallStub(JSContext* cx, ICCall_Fallback* stub, HandleScript script, jsb
         return true;
 
     if (stub->numOptimizedStubs() >= ICCall_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub.
+        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub. id:2927
         // But for now we just bail.
         return true;
     }

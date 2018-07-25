@@ -123,7 +123,7 @@ func (r *rewriter) Visit(n ast.Node) ast.Visitor {
 		return r
 	}
 
-	// TODO: Handle literal values?
+	// TODO: Handle literal values? id:3054
 	sel, ok := call.Fun.(*ast.SelectorExpr)
 	if !ok {
 		return r
@@ -137,7 +137,7 @@ func (r *rewriter) Visit(n ast.Node) ast.Visitor {
 		fun = meth.Obj().Name()
 	}
 
-	// TODO: remove cheap hack and check if the type either
+	// TODO: remove cheap hack and check if the type either id:1306
 	// implements some interface or is specifically of type
 	// "golang.org/x/text/message".Printer.
 	m, ok := rewriteFuncs[source]
@@ -205,7 +205,7 @@ func (r *rewriter) Visit(n ast.Node) ast.Visitor {
 
 	call.Args = newArgs
 
-	// TODO: consider creating an expression instead of a constant string and
+	// TODO: consider creating an expression instead of a constant string and id:1092
 	// then wrapping it in an escape function or so:
 	// call.Args[argn+i] = &ast.CallExpr{
 	// 		Fun: &ast.SelectorExpr{
@@ -243,7 +243,7 @@ type rewriteType struct {
 // rewriteFuncs list functions that can be directly mapped to the printer
 // functions of the message package.
 var rewriteFuncs = map[string]map[string]rewriteType{
-	// TODO: Printer -> *golang.org/x/text/message.Printer
+	// TODO: Printer -> *golang.org/x/text/message.Printer id:1941
 	"fmt": {
 		"Print":  rewriteType{methodf: "Printf"},
 		"Sprint": rewriteType{methodf: "Sprintf"},

@@ -47,7 +47,7 @@ var (
 )
 
 func dictTags() (tag []language.Tag) {
-	// TODO: replace with language.Common.Tags() once supported.
+	// TODO: replace with language.Common.Tags() once supported. id:1021
 	const str = "af am ar ar-001 az bg bn ca cs da de el en en-US en-GB " +
 		"es es-ES es-419 et fa fi fil fr fr-CA gu he hi hr hu hy id is it ja " +
 		"ka kk km kn ko ky lo lt lv mk ml mn mr ms my ne nl no pa pl pt pt-BR " +
@@ -208,7 +208,7 @@ func (b *builder) generate() {
 				lang := v.Type
 				if lang == "root" {
 					// We prefer the data from "und"
-					// TODO: allow both the data for root and und somehow.
+					// TODO: allow both the data for root and und somehow. id:1896
 					continue
 				}
 				tag := tagForm.MustParse(lang)
@@ -223,7 +223,7 @@ func (b *builder) generate() {
 			for _, v := range ldn.Scripts.Script {
 				code := language.MustParseScript(v.Type)
 				if code.IsPrivateUse() { // Qaaa..Qabx
-					// TODO: data currently appears to be very meager.
+					// TODO: data currently appears to be very meager. id:1394
 					// Reconsider if we have data for English.
 					if loc == language.English {
 						log.Fatal("Consider including data for private use scripts.")
@@ -407,7 +407,7 @@ func (b *builder) writeGroup(name string) {
 		index = append(index, uint16(len(data)))
 
 		// Trim the tail of the index.
-		// TODO: indexes can be reduced in size quite a bit more.
+		// TODO: indexes can be reduced in size quite a bit more. id:3016
 		n := len(index)
 		for ; n >= 2 && index[n-2] == index[n-1]; n-- {
 		}

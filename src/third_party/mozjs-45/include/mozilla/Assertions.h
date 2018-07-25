@@ -28,7 +28,7 @@ namespace CrashReporter {
 // nsExceptionHandler.h is not directly included in this file as it includes
 // windows.h, which can cause problems when it is imported into some files due
 // to the number of macros defined.
-// XXX If you change this definition - also change the definition in
+// XXX If you change this definition - also change the definition in id:2737
 // nsExceptionHandler.h
 void AnnotateMozCrashReason(const char* aReason);
 } // namespace CrashReporter

@@ -387,7 +387,7 @@ func (exp *MongoExport) Export(out io.Writer) (int64, error) {
 // them to an output stream.
 func (exp *MongoExport) getExportOutput(out io.Writer) (ExportOutput, error) {
 	if exp.OutputOpts.Type == CSV {
-		// TODO what if user specifies *both* --fields and --fieldFile?
+		// TODO what if user specifies *both* --fields and --fieldFile? id:2111
 		var fields []string
 		var err error
 		if len(exp.OutputOpts.Fields) > 0 {
@@ -441,6 +441,6 @@ func getSortFromArg(queryRaw string) (bson.D, error) {
 	if err != nil {
 		return nil, fmt.Errorf("query '%v' is not valid JSON: %v", queryRaw, err)
 	}
-	// TODO: verify sort specification before returning a nil error
+	// TODO: verify sort specification before returning a nil error id:1030
 	return parsedJSON, nil
 }

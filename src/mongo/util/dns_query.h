@@ -45,7 +45,7 @@ namespace mongo {
 namespace dns {
 /**
  * An `SRVHostEntry` object represents the information received from a DNS lookup of an SRV record.
- * NOTE: An SRV DNS record has several fields, such as priority and weight.  This structure lacks
+ * NOTE: An SRV DNS record has several fields, such as priority and weight. This structure lacks id:1381
  * those fields at this time.  They should be safe to add in the future.  The code using this
  * structure does not need access to those fields at this time.
  */
@@ -106,7 +106,7 @@ std::vector<std::string> getTXTRecords(const std::string& service);
  * THROWS: `DBException` with `ErrorCodes::DNSHostNotFound` as the status value if the entry is not
  * found and `ErrorCodes::DNSProtocolError` as the status value if the DNS lookup fails, for any
  * other reason.
- * NOTE: This function mostly exists to provide an easy test of the OS DNS APIs in our test driver.
+ * NOTE: This function mostly exists to provide an easy test of the OS DNS APIs in our test driver. id:2223
  */
 std::vector<std::string> lookupARecords(const std::string& service);
 }  // namespace dns

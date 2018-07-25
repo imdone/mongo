@@ -146,7 +146,7 @@ int Example::manyVariableFunction(unsigned long long argWithLongName,
     // No spaces between parens and args
     printf("%c\n", arg2);
 
-    // A switch statement: TODO: Andy, what is the indent we want? Google style?
+    // A switch statement: TODO: Andy, what is the indent we want? Google style? id:8
     switch (arg2) {
         // AllowShortCaseLabelsOnASingleLine: false
         // IndentCaseLabels: true

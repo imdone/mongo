@@ -2390,7 +2390,7 @@ struct JSJitInfo {
      */
     uint32_t isEliminatable : 1;
 
-    // XXXbz should we have a JSValueType for the type of the member?
+    // XXX bz should we have a JSValueType for the type of the member? id:2398
     /**
      * True if this is a getter that can always
      * get the value from a slot of the "this" object.

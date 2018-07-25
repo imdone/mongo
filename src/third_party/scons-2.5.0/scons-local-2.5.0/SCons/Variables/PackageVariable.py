@@ -73,7 +73,7 @@ def _validator(key, val, env, searchfunc):
     # NB: searchfunc is currently undocumented and unsupported
     """
     """
-    # TODO write validator, check for path
+    # TODO write validator, check for path id:2469
     import os
     if env[key] is True:
         if searchfunc:

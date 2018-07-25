@@ -186,7 +186,7 @@ void ReplicationCoordinatorImpl::_handleHeartbeatResponse(
 
     if (responseStatus.isOK()) {
         networkTime = cbData.response.elapsedMillis.value_or(Milliseconds{0});
-        // TODO(sz) Because the term is duplicated in ReplSetMetaData, we can get rid of this
+        // TODO (sz) Because the term is duplicated in ReplSetMetaData, we can get rid of this id:621
         // and update tests.
         const auto& hbResponse = hbStatusResponse.getValue();
         _updateTerm_inlock(hbResponse.getTerm());

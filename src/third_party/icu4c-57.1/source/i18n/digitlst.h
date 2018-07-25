@@ -178,8 +178,8 @@ public:
      *              With the revamped DigitList based on decNumber, append is very
      *              inefficient, and the interaction with the exponent value is confusing.
      *              Best avoided.
-     *              TODO:  remove this function once all use has been replaced.
-     *              TODO:  describe alternative to append()
+     *              TODO: remove this function once all use has been replaced. id:2530
+     *              TODO: describe alternative to append() id:2025
      * @param digit The digit to be appended.
      */
     void append(char digit);

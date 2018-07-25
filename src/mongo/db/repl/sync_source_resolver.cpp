@@ -207,7 +207,7 @@ std::unique_ptr<Fetcher> SyncSourceResolver::_makeRequiredOpTimeFetcher(HostAndP
 
 Status SyncSourceResolver::_scheduleFetcher(std::unique_ptr<Fetcher> fetcher) {
     stdx::lock_guard<stdx::mutex> lk(_mutex);
-    // TODO SERVER-27499 need to check if _state is kShuttingDown inside the mutex.
+    // TODO SERVER-27499 need to check if _state is kShuttingDown inside the mutex. id:824
     // Must schedule fetcher inside lock in case fetcher's callback gets invoked immediately by task
     // executor.
     auto status = fetcher->schedule();

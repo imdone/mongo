@@ -93,7 +93,7 @@ static UMeasureFormatWidth getRegularWidth(UMeasureFormatWidth width) {
  * complete sets of unit & per patterns,
  * to correspond to the resource data and its aliases.
  *
- * TODO: Maybe store more sparsely in general, with pointers rather than potentially-empty objects.
+ * TODO: Maybe store more sparsely in general, with pointers rather than potentially-empty objects. id:1795
  */
 class MeasureFormatCacheData : public SharedObject {
 public:
@@ -114,7 +114,7 @@ public:
     virtual ~MeasureFormatCacheData();
 
     UBool hasPerFormatter(int32_t width) const {
-        // TODO: Create a more obvious way to test if the per-formatter has been set?
+        // TODO: Create a more obvious way to test if the per-formatter has been set? id:2549
         // Use pointers, check for NULL? Or add an isValid() method?
         return perFormatters[width].getArgumentLimit() == 2;
     }

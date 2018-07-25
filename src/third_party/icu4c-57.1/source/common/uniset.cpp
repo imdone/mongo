@@ -642,7 +642,7 @@ UMatchDegree UnicodeSet::matches(const Replaceable& text,
             // might separate forward and backward loops later
             // for now they are combined
 
-            // TODO Improve efficiency of this, at least in the forward
+            // TODO Improve efficiency of this, at least in the forward id:1690
             // direction, if not in both.  In the forward direction we
             // can assume the strings are sorted.
 
@@ -1744,7 +1744,7 @@ void UnicodeSet::exclusiveOr(const UChar32* other, int32_t otherLen, int8_t pola
             // discard both values!
             a = list[i++];
             b = other[j++];
-        } else { // DONE!
+        } else { // DONE ! id:2488
             buffer[k++] = UNICODESET_HIGH;
             len = k;
             break;

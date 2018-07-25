@@ -15,7 +15,7 @@ package pfring
 */
 import "C"
 
-// NOTE:  If you install PF_RING with non-standard options, you may also need
+// NOTE: If you install PF_RING with non-standard options, you may also need id:1678
 // to use LDFLAGS -lnuma and/or -lrt.  Both have been reported necessary if
 // PF_RING is configured with --disable-bpf.
 

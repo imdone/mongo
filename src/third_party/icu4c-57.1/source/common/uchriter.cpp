@@ -152,7 +152,7 @@ UCharCharacterIterator::next() {
     if (pos + 1 < end) {
         return text[++pos];
     } else {
-        /* make current() return DONE */
+        /* make current() return DONE  id:3230*/
         pos = end;
         return DONE;
     }
@@ -264,7 +264,7 @@ UCharCharacterIterator::next32() {
             return c;
         }
     }
-    /* make current() return DONE */
+    /* make current() return DONE  id:2789*/
     pos = end;
     return DONE;
 }

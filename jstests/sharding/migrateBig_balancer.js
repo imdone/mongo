@@ -6,7 +6,7 @@
 (function() {
     "use strict";
 
-    // TODO: SERVER-33830 remove shardAsReplicaSet: false
+    // TODO: SERVER-33830 remove shardAsReplicaSet: false id:169
     var st = new ShardingTest({
         name: 'migrateBig_balancer',
         shards: 2,

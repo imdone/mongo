@@ -80,7 +80,7 @@ __wt_connection_init(WT_CONNECTION_IMPL *conn)
 
 	/*
 	 * Block manager.
-	 * XXX
+	 * XXX  id:2280
 	 * If there's ever a second block manager, we'll want to make this
 	 * more opaque, but for now this is simpler.
 	 */

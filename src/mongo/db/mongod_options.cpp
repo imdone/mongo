@@ -107,7 +107,7 @@ Status addMongodOptions(moe::OptionSection* options) {
         .format("(:?disabled)|(:?enabled)", "(disabled/enabled)");
 
     // setParameter parameters that we want as config file options
-    // TODO: Actually read these into our environment.  Currently they have no effect
+    // TODO: Actually read these into our environment. Currently they have no effect id:495
     general_options.addOptionChaining("security.authSchemaVersion", "", moe::String, "TODO")
         .setSources(moe::SourceYAMLConfig);
 
@@ -732,7 +732,7 @@ Status storeMongodOptions(const moe::Environment& params) {
         return ret;
     }
 
-    // TODO: Integrate these options with their setParameter counterparts
+    // TODO: Integrate these options with their setParameter counterparts id:1389
     if (params.count("security.authSchemaVersion")) {
         return Status(ErrorCodes::BadValue,
                       "security.authSchemaVersion is currently not supported in config files");

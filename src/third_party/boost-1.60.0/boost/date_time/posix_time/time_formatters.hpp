@@ -18,7 +18,7 @@
 #include <boost/date_time/time_resolution_traits.hpp> // absolute_value
 #include <boost/date_time/time_parsing.hpp>
 
-/* NOTE: The "to_*_string" code for older compilers, ones that define
+/* NOTE: The "to_*_string" code for older compilers, ones that define id:1458
  * BOOST_DATE_TIME_INCLUDE_LIMITED_HEADERS, is located in
  * formatters_limited.hpp
  */
@@ -63,7 +63,7 @@ namespace posix_time {
           << date_time::absolute_value(td.minutes()) << ":";
       ss  << std::setw(2) << std::setfill(fill_char)
           << date_time::absolute_value(td.seconds());
-      //TODO the following is totally non-generic, yelling FIXME
+      //TODO the following is totally non-generic, yelling FIXME id:2309
 #if (defined(BOOST_MSVC) && (_MSC_VER < 1300))
       boost::int64_t frac_sec =
         date_time::absolute_value(td.fractional_seconds());
@@ -132,7 +132,7 @@ namespace posix_time {
           << date_time::absolute_value(td.minutes());
       ss  << std::setw(2) << std::setfill(fill_char)
           << date_time::absolute_value(td.seconds());
-      //TODO the following is totally non-generic, yelling FIXME
+      //TODO the following is totally non-generic, yelling FIXME id:1706
 #if (defined(BOOST_MSVC) && (_MSC_VER < 1300))
       boost::int64_t frac_sec =
         date_time::absolute_value(td.fractional_seconds());

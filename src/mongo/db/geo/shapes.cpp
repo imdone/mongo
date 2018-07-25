@@ -244,7 +244,7 @@ int Polygon::contains(const Point& p, double fudge) const {
     int counter = 0;
     Point p1 = _points[0];
     for (int i = 1; i <= size(); i++) {
-        // XXX: why is there a mod here?
+        // XXX: why is there a mod here? id:820
         Point p2 = _points[i % size()];
 
         // We need to check whether or not this segment intersects our error box
@@ -311,7 +311,7 @@ int Polygon::contains(const Point& p, double fudge) const {
         }
 
         // Normal intersection test.
-        // TODO: Invert these for clearer logic?
+        // TODO: Invert these for clearer logic? id:481
         if (p.y > std::min(p1.y, p2.y)) {
             if (p.y <= std::max(p1.y, p2.y)) {
                 if (p.x <= std::max(p1.x, p2.x)) {
@@ -610,7 +610,7 @@ bool linesIntersect(const Point& pA, const Point& pB, const Point& pC, const Poi
 static bool circleContainsBoxInternal(const Circle& circle,
                                       const Box& box,
                                       bool includeCircleBoundary) {
-    // NOTE: a circle of zero radius is a point, and there are NO points contained inside a
+    // NOTE: a circle of zero radius is a point, and there are NO points contained inside a id:1370
     // zero-radius circle, not even the point itself.
 
     const Point& a = box._min;
@@ -640,7 +640,7 @@ bool circleInteriorContainsBox(const Circle& circle, const Box& box) {
 static bool circleIntersectsWithBoxInternal(const Circle& circle,
                                             const Box& box,
                                             bool includeCircleBoundary) {
-    // NOTE: a circle of zero radius is a point, and there are NO points to intersect inside a
+    // NOTE: a circle of zero radius is a point, and there are NO points to intersect inside a id:614
     // zero-radius circle, not even the point itself.
     if (circle.radius == 0.0 && !includeCircleBoundary)
         return false;

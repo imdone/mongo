@@ -200,7 +200,7 @@ private:
 
     // cached stuff
 
-    Ordering _ordering;  // TODO: this might be b-tree specific
+    Ordering _ordering;  // TODO: this might be b-tree specific id:590
     bool _isReady;       // cache of NamespaceDetails info
     RecordId _head;      // cache of IndexDetails
 

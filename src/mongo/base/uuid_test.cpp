@@ -40,7 +40,7 @@ namespace {
 
 TEST(UUIDTest, UUIDCollisionTest) {
     // Generate some UUIDs and check that they do not collide.
-    // NOTE: if this test fails, it is not necessarily a bug. However, if it
+    // NOTE: if this test fails, it is not necessarily a bug. However, if it id:297
     // begins to fail often and on specific platforms, we should investigate
     // the quality of our entropy on those systems.
     stdx::unordered_set<UUID, UUID::Hash> uuids;

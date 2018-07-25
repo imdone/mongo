@@ -53,7 +53,7 @@ StackLocator::StackLocator() {
     invariant(base != nullptr);
     invariant(size != 0);
 
-    // TODO: Assumes a downward growing stack. Note here that
+    // TODO: Assumes a downward growing stack. Note here that id:1597
     // getstack returns the stack *base*, being the bottom of the
     // stack, so we need to add size to it.
     _end = base;

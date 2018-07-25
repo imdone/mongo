@@ -133,9 +133,9 @@ util/math/objs/exactfloat.o:util/math/exactfloat/exactfloat.cc
 
 libgoogle-util-math.a: $(GOOGLE_UTIL_MATH_LIB_OBJS)
 	ar rv libgoogle-util-math.a $(GOOGLE_UTIL_MATH_LIB_OBJS)
-#exactfloat_test: $(LIBS) objs/exactfloat_test.o
+#exactfloat_test: $(LIBS) objs/exactfloat_test.o id:2416
 #	$(CCC) $(CFLAGS) $(LDFLAGS) objs/exactfloat_test.o $(LIBS) -o exactfloat_test
-#vector_unittest: $(LIBS) objs/vector_unittest.o
+#vector_unittest: $(LIBS) objs/vector_unittest.o id:3377
 #	$(CCC) $(CFLAGS) $(LDFLAGS) objs/vector_unittest.o $(LIBS) -o vector_unittest
 
 # util/geometry

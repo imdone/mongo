@@ -323,12 +323,12 @@ inline StringData StringData::substr(size_t pos, size_t n) const {
 }
 
 inline bool StringData::startsWith(StringData prefix) const {
-    // TODO: Investigate an optimized implementation.
+    // TODO: Investigate an optimized implementation. id:310
     return substr(0, prefix.size()) == prefix;
 }
 
 inline bool StringData::endsWith(StringData suffix) const {
-    // TODO: Investigate an optimized implementation.
+    // TODO: Investigate an optimized implementation. id:296
     const size_t thisSize = size();
     const size_t suffixSize = suffix.size();
     if (suffixSize > thisSize)

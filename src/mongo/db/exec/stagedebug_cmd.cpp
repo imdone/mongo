@@ -97,7 +97,7 @@ BSONObj stripFieldNames(const BSONObj& obj) {
  *                          stop: stopObj, endInclusive: true/false, direction: -1/1,
  *                          limit: int}}}
  * node -> {cscan: {filter: {filter}, args: {direction: -1/1}}}
- * TODO: language for text.
+ * TODO: language for text. id:451
  * node -> {text: {filter: {filter}, args: {search: "searchstr"}}}
  *
  * Internal Nodes:
@@ -160,7 +160,7 @@ public:
                 nss.isValid());
 
         // Need a context to get the actual Collection*
-        // TODO A write lock is currently taken here to accommodate stages that perform writes
+        // TODO A write lock is currently taken here to accommodate stages that perform writes id:1327
         //      (e.g. DeleteStage).  This should be changed to use a read lock for read-only
         //      execution trees.
         AutoGetCollection autoColl(opCtx, nss, MODE_IX);
@@ -186,7 +186,7 @@ public:
         uassert(16911, "Couldn't parse plan from " + cmdObj.toString(), NULL != userRoot);
 
         // Add a fetch at the top for the user so we can get obj back for sure.
-        // TODO: Do we want to do this for the user?  I think so.
+        // TODO: Do we want to do this for the user? I think so. id:551
         unique_ptr<PlanStage> rootFetch =
             make_unique<FetchStage>(opCtx, ws.get(), userRoot, nullptr, collection);
 
@@ -476,7 +476,7 @@ public:
             TextStageParams params(fam->getSpec());
             params.index = index;
 
-            // TODO: Deal with non-empty filters.  This is a hack to put in covering information
+            // TODO: Deal with non-empty filters. This is a hack to put in covering information id:450
             // that can only be checked for equality.  We ignore this now.
             Status s = fam->getSpec().getIndexPrefix(BSONObj(), &params.indexPrefix);
             if (!s.isOK()) {

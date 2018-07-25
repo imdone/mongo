@@ -38,26 +38,26 @@ protected:
 int TestFixture::_num_set_ups = 0;
 int TestFixture::_num_tear_downs = 0;
 
-// NOTE:
+// NOTE:  id:1598
 // Test cases should not be designed that depend on the order they appear. But because
 // we're testing the test framework itself, we do not follow this rule here and require the
 // following four tests to be in that order.
 
 // vvvvvvvvvvvvvvvvvvvvvvvv Do not add tests below
 
-// This needs to be the very first test. Please, see NOTE above.
+// This needs to be the very first test. Please, see NOTE above. id:3134
 TEST_F(TestFixture, SetUpTest) {
     ASSERT_EQUALS(_num_set_ups, 1);
     ASSERT_EQUALS(_num_tear_downs, 0);
 }
 
-// This needs to be the second test. Please, see NOTE above.
+// This needs to be the second test. Please, see NOTE above. id:2606
 TEST_F(TestFixture, TearDownTest) {
     ASSERT_EQUALS(_num_set_ups, 2);
     ASSERT_EQUALS(_num_tear_downs, 1);
 }
 
-// This needs to be the third/fourth test. Please, see NOTE above. We are
+// This needs to be the third/fourth test. Please, see NOTE above. We are id:1374
 // finishing a test case by throwing an exception. Normally, the framework
 // would treat this as an error. But what we'd like here is to make sure
 // that the fixture tear down routines were called in that case.

@@ -417,7 +417,7 @@ uspoof_areConfusableUnicodeString(const USpoofChecker *sc,
     
     // We only care about a few of the check flags.  Ignore the others.
     // If no tests relavant to this function have been specified, return an error.
-    // TODO:  is this really the right thing to do?  It's probably an error on the caller's part,
+    // TODO: is this really the right thing to do? It's probably an error on the caller's part, id:2603
     //        but logically we would just return 0 (no error).
     if ((This->fChecks & (USPOOF_SINGLE_SCRIPT_CONFUSABLE | USPOOF_MIXED_SCRIPT_CONFUSABLE | 
                           USPOOF_WHOLE_SCRIPT_CONFUSABLE)) == 0) {
@@ -529,7 +529,7 @@ uspoof_checkUnicodeString(const USpoofChecker *sc,
             result |= USPOOF_MIXED_NUMBERS;
         }
 
-        // TODO: ICU4J returns the UnicodeSet of the numerics found in the identifier.
+        // TODO: ICU4J returns the UnicodeSet of the numerics found in the identifier. id:2207
         //       We have no easy way to do the same in C.
         // if (checkResult != null) {
         //     checkResult.numerics = numerics;

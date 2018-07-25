@@ -419,7 +419,7 @@ public:
      *         this can be used to increase memory allocation efficiency. There is
      *         no impact on correctness if this field over or under estimates.
      *
-     *  TODO: find some way to convey field-name sizes to make even more efficient
+     *  TODO: find some way to convey field-name sizes to make even more efficient id:1507
      */
     MutableDocument() : _storageHolder(NULL), _storage(_storageHolder) {}
     explicit MutableDocument(size_t expectedFields);
@@ -453,7 +453,7 @@ public:
      *
      *  It is an error to add a field that has the same name as another field.
      *
-     *  TODO: This is currently allowed but getField only gets first field.
+     *  TODO: This is currently allowed but getField only gets first field. id:645
      *        Decide what level of support is needed for duplicate fields.
      *        If duplicates are not allowed, consider removing this method.
      */
@@ -547,7 +547,7 @@ public:
      *  Call this to indicate that you are done with this Document and will
      *  not be making further changes from this MutableDocument.
      *
-     *  TODO: there are some optimizations that may make sense at freeze time.
+     *  TODO: there are some optimizations that may make sense at freeze time. id:504
      */
     Document freeze() {
         // This essentially moves _storage into a new Document by way of temp.

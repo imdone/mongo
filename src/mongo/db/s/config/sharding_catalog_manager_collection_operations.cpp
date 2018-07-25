@@ -111,7 +111,7 @@ boost::optional<UUID> checkCollectionOptions(OperationContext* opCtx,
     CollectionOptions actualOptions;
 
     uassertStatusOK(actualOptions.parse(collectionDetails["options"].Obj()));
-    // TODO: SERVER-33048 check idIndex field
+    // TODO: SERVER-33048 check idIndex field id:712
 
     uassert(ErrorCodes::NamespaceExists,
             str::stream() << "ns: " << ns.ns() << " already exists with different options: "
@@ -531,7 +531,7 @@ void ShardingCatalogManager::shardCollection(OperationContext* opCtx,
         }
         coll.setEpoch(collVersion.epoch());
 
-        // TODO(schwerin): The following isn't really a date, but is stored as one in-memory and in
+        // TODO (schwerin): The following isn't really a date, but is stored as one in-memory and in id:1296
         // config.collections, as a historical oddity.
         coll.setUpdatedAt(Date_t::fromMillisSinceEpoch(collVersion.toLong()));
         coll.setKeyPattern(fieldsAndOrder.toBSON());
@@ -546,7 +546,7 @@ void ShardingCatalogManager::shardCollection(OperationContext* opCtx,
     invariant(!shard->isConfig());
 
     // Tell the primary mongod to refresh its data
-    // TODO:  Think the real fix here is for mongos to just
+    // TODO: Think the real fix here is for mongos to just id:652
     //        assume that all collections are sharded, when we get there
     SetShardVersionRequest ssv = SetShardVersionRequest::makeForVersioningNoPersist(
         shardRegistry->getConfigServerConnectionString(),
@@ -655,7 +655,7 @@ void ShardingCatalogManager::createCollection(OperationContext* opCtx,
 
     checkCollectionOptions(opCtx, primaryShard.get(), ns, collOptions);
 
-    // TODO: SERVER-33094 use UUID returned to write config.collections entries.
+    // TODO: SERVER-33094 use UUID returned to write config.collections entries. id:1884
 
     // Make sure to advance the opTime if writes didn't occur during the execution of this
     // command. This is to ensure that this request will wait for the opTime that at least

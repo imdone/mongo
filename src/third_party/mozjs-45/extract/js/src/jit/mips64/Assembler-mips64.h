@@ -102,9 +102,9 @@ static MOZ_CONSTEXPR_VAR uint32_t JitStackValueAlignment = JitStackAlignment / s
 static_assert(JitStackAlignment % sizeof(Value) == 0 && JitStackValueAlignment >= 1,
   "Stack alignment should be a non-zero multiple of sizeof(Value)");
 
-// TODO this is just a filler to prevent a build failure. The MIPS SIMD
+// TODO this is just a filler to prevent a build failure. The MIPS SIMD id:2685
 // alignment requirements still need to be explored.
-// TODO Copy the static_asserts from x64/x86 assembler files.
+// TODO Copy the static_asserts from x64/x86 assembler files. id:2352
 static MOZ_CONSTEXPR_VAR uint32_t SimdMemoryAlignment = 16;
 
 static MOZ_CONSTEXPR_VAR uint32_t AsmJSStackAlignment = SimdMemoryAlignment;
@@ -189,7 +189,7 @@ GetFloatArgReg(uint32_t usedArgSlots, FloatRegister* out)
 static inline bool
 GetTempRegForIntArg(uint32_t usedIntArgs, uint32_t usedFloatArgs, Register* out)
 {
-    // NOTE: We can't properly determine which regs are used if there are
+    // NOTE: We can't properly determine which regs are used if there are id:3344
     // float arguments. If this is needed, we will have to guess.
     MOZ_ASSERT(usedFloatArgs == 0);
 

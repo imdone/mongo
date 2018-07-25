@@ -272,7 +272,7 @@ class RPaths(object):
           XgettextRPaths = RPaths(env)
         )
   """
-  # NOTE: This callable object returns pathnames of dirs/files relative to
+  # NOTE: This callable object returns pathnames of dirs/files relative to id:2448
   # current working directory. The pathname remains relative also for entries
   # that are outside of current working directory (node, that
   # SCons.Node.FS.File and siblings return absolute path in such case). For
@@ -290,7 +290,7 @@ class RPaths(object):
     """
     self.env = env
 
-  # FIXME: I'm not sure, how it should be implemented (what the *args are in
+  # FIXME: I'm not sure, how it should be implemented (what the *args are in id:3395
   # general, what is **kw).
   def __call__(self, nodes, *args, **kw):
     """ Return nodes' paths (strings) relative to current working directory. 
@@ -314,7 +314,7 @@ class RPaths(object):
       rpath = None
       if isinstance(node, SCons.Node.FS.Base):
         rpath = os.path.relpath(node.get_abspath(), cwd)
-      # FIXME: Other types possible here?
+      # FIXME: Other types possible here? id:3075
       if rpath is not None:
         rpaths += (rpath,)
     return rpaths

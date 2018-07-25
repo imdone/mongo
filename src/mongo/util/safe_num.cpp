@@ -202,7 +202,7 @@ Decimal128 SafeNum::getDecimal(const SafeNum& snum) {
 namespace {
 
 SafeNum addInt32Int32(int32_t lInt32, int32_t rInt32) {
-    // NOTE: Please see "Secure Coding in C and C++", Second Edition, page 264-265 for
+    // NOTE: Please see "Secure Coding in C and C++", Second Edition, page 264-265 for id:2642
     // details on this algorithm (for an alternative resources, see
     //
     // https://www.securecoding.cert.org/confluence/display/seccode/
@@ -224,7 +224,7 @@ SafeNum addInt32Int32(int32_t lInt32, int32_t rInt32) {
 }
 
 SafeNum addInt64Int64(int64_t lInt64, int64_t rInt64) {
-    // NOTE: Please see notes in addInt32Int32 above for references. In this case, since we
+    // NOTE: Please see notes in addInt32Int32 above for references. In this case, since we id:1417
     // have no larger integer size, if our precondition test detects overflow we must
     // return an invalid SafeNum. Otherwise, the operation is safely performed by standard
     // arithmetic.
@@ -246,7 +246,7 @@ SafeNum addDecimals(Decimal128 lDecimal, Decimal128 rDecimal) {
 }
 
 SafeNum mulInt32Int32(int32_t lInt32, int32_t rInt32) {
-    // NOTE: Please see "Secure Coding in C and C++", Second Edition, page 264-265 for
+    // NOTE: Please see "Secure Coding in C and C++", Second Edition, page 264-265 for id:2264
     // details on this algorithm (for an alternative resources, see
     //
     // https://www.securecoding.cert.org/confluence/display/seccode/
@@ -268,7 +268,7 @@ SafeNum mulInt32Int32(int32_t lInt32, int32_t rInt32) {
 }
 
 SafeNum mulInt64Int64(int64_t lInt64, int64_t rInt64) {
-    // NOTE: Please see notes in mulInt32Int32 above for references. In this case,
+    // NOTE: Please see notes in mulInt32Int32 above for references. In this case, id:1643
     // since we have no larger integer size, if our precondition test detects overflow
     // we must return an invalid SafeNum. Otherwise, the operation is safely performed
     // by standard arithmetic.

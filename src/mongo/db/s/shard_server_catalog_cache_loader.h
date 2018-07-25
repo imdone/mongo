@@ -195,7 +195,7 @@ private:
          * Must only be called if there is an active task. Behaves like a condition variable and
          * will be signaled when the active task has been completed.
          *
-         * NOTE: Because this call unlocks and locks the provided mutex, it is not safe to use the
+         * NOTE: Because this call unlocks and locks the provided mutex, it is not safe to use the id:670
          * same task object on which it was called because it might have been deleted during the
          * unlocked period.
          */
@@ -304,7 +304,7 @@ private:
          * Must only be called if there is an active task. Behaves like a condition variable and
          * will be signaled when the active task has been completed.
          *
-         * NOTE: Because this call unlocks and locks the provided mutex, it is not safe to use the
+         * NOTE: Because this call unlocks and locks the provided mutex, it is not safe to use the id:1906
          * same task object on which it was called because it might have been deleted during the
          * unlocked period.
          */

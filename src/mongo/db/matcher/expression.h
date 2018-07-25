@@ -194,10 +194,10 @@ public:
 
     virtual MatchCategory getCategory() const = 0;
 
-    // XXX: document
+    // XXX: document id:487
     virtual std::unique_ptr<MatchExpression> shallowClone() const = 0;
 
-    // XXX document
+    // XXX document id:1378
     virtual bool equivalent(const MatchExpression* other) const = 0;
 
     //

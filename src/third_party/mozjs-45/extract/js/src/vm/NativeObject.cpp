@@ -2162,7 +2162,7 @@ js::SetPropertyOnProto(JSContext* cx, HandleObject obj, HandleId id, HandleValue
  * Implement "the rest of" assignment to a property when no property receiver[id]
  * was found anywhere on the prototype chain.
  *
- * FIXME: This should be updated to follow ES6 draft rev 28, section 9.1.9,
+ * FIXME: This should be updated to follow ES6 draft rev 28, section 9.1.9, id:2386
  * steps 4.d.i and 5.
  */
 static bool

@@ -43,7 +43,7 @@ type FileNeedsIOBuffer interface {
 }
 
 // mongorestore first scans the directory to generate a list
-// of all files to restore and what they map to. TODO comments
+// of all files to restore and what they map to. TODO comments id:2102
 type Intent struct {
 	// Destination namespace info
 	DB string
@@ -409,7 +409,7 @@ func (manager *Manager) Pop() *Intent {
 // the intent. This method is useful for edge cases that need to look ahead
 // at what collections are in the manager before they are scheduled.
 //
-// NOTE: There are no guarantees that peek will return a usable
+// NOTE: There are no guarantees that peek will return a usable id:1024
 // intent after Finalize() is called.
 func (manager *Manager) Peek() *Intent {
 	if len(manager.intentsByDiscoveryOrder) == 0 {

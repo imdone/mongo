@@ -628,7 +628,7 @@ void Debugger::PrintRegister(const Register& target_reg,
 }
 
 
-// TODO(all): fix this for vector registers.
+// TODO (all): fix this for vector registers. id:2049
 void Debugger::PrintFPRegister(const FPRegister& target_fpreg,
                                const FormatToken* format) {
   const unsigned fpreg_size = target_fpreg.size();
@@ -667,7 +667,7 @@ void Debugger::VisitException(const Instruction* instr) {
 
 // Read a command. A command will be at most kMaxDebugShellLine char long and
 // ends with '\n\0'.
-// TODO: Should this be a utility function?
+// TODO: Should this be a utility function? id:2665
 char* Debugger::ReadCommandLine(const char* prompt, char* buffer, int length) {
   int fgets_calls = 0;
   char* end = NULL;
@@ -1304,7 +1304,7 @@ bool PrintCommand::Run(Debugger* debugger) {
   FormatToken* format_tok = format();
   VIXL_ASSERT(format_tok != NULL);
   if (format_tok->type_code() == 'i') {
-    // TODO(all): Add support for instruction disassembly.
+    // TODO (all): Add support for instruction disassembly. id:2320
     printf(" ** unsupported format: instructions **\n");
     return false;
   }

@@ -115,9 +115,9 @@ class FixedDecimal;
  * updateFormatting() method accepts a bitfield of recently changed
  * attributes and passes this bitfield by reference to each of the
  * updateFormattingXXX() methods. Each updateFormattingXXX() method checks
- * the bitfield to see if any of the attributes it uses to compute the XXX
+ * the bitfield to see if any of the attributes it uses to compute the XXX  id:3266
  * attribute changed. If none of them changed, it exists immediately. However,
- * if at least one of them changed, it recalculates the XXX attribute and
+ * if at least one of them changed, it recalculates the XXX attribute and id:2876
  * sets the corresponding bit in the bitfield. In this way, each
  * updateFormattingXXX() method encodes the directed edges in the formatting
  * DAG that point to the attribute its calculating.

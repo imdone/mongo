@@ -2742,7 +2742,7 @@ jit::ExtractLinearInequality(MTest* test, BranchDirection direction,
     MDefinition* lhs = compare->getOperand(0);
     MDefinition* rhs = compare->getOperand(1);
 
-    // TODO: optimize Compare_UInt32
+    // TODO: optimize Compare_UInt32 id:2012
     if (!compare->isInt32Comparison())
         return false;
 
@@ -3887,7 +3887,7 @@ jit::AnalyzeArgumentsUsage(JSContext* cx, JSScript* scriptArg)
     // scripts (generators can be suspended when speculation fails) or when
     // direct eval is present.
     //
-    // FIXME: Don't build arguments for ES6 generator expressions.
+    // FIXME: Don't build arguments for ES6 generator expressions. id:2633
     if (scriptArg->isDebuggee() || script->isGenerator() || script->bindingsAccessedDynamically())
         return true;
 

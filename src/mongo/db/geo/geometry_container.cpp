@@ -103,7 +103,7 @@ private:
     // Not owned here
     const GeometryContainer* _geometry;
 
-    // TODO: For big complex shapes, may be better to use actual shape from above
+    // TODO: For big complex shapes, may be better to use actual shape from above id:469
     const Box _bounds;
 };
 
@@ -117,7 +117,7 @@ Box GeometryContainer::R2BoxRegion::getR2Bounds() const {
 }
 
 bool GeometryContainer::R2BoxRegion::fastContains(const Box& other) const {
-    // TODO: Add more cases here to make coverings better
+    // TODO: Add more cases here to make coverings better id:1350
     if (_geometry->_box && FLAT == _geometry->_box->crs) {
         const Box& box = _geometry->_box->box;
         if (box.contains(other))
@@ -718,7 +718,7 @@ bool GeometryContainer::intersects(const S2Cell& otherPoint) const {
 }
 
 bool polygonLineIntersection(const S2Polyline& line, const S2Polygon& poly) {
-    // TODO(hk): modify s2 library to just let us know if it intersected
+    // TODO (hk): modify s2 library to just let us know if it intersected id:569
     // rather than returning all this.
     vector<S2Polyline*> clipped;
     poly.IntersectWithPolyline(&line, &clipped);
@@ -1095,7 +1095,7 @@ string GeometryContainer::getDebugType() const {
 }
 
 CRS GeometryContainer::getNativeCRS() const {
-    // TODO: Fix geometry collection reporting when/if we support multiple CRSes
+    // TODO: Fix geometry collection reporting when/if we support multiple CRSes id:472
 
     if (NULL != _point) {
         return _point->crs;
@@ -1122,7 +1122,7 @@ CRS GeometryContainer::getNativeCRS() const {
 }
 
 bool GeometryContainer::supportsProject(CRS otherCRS) const {
-    // TODO: Fix geometry collection reporting when/if we support more CRSes
+    // TODO: Fix geometry collection reporting when/if we support more CRSes id:747
 
     if (NULL != _point) {
         return ShapeProjection::supportsProject(*_point, otherCRS);

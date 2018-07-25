@@ -94,8 +94,8 @@ public:
 
     // We don't know the full path from a node unless we keep notes as we traverse from the
     // root.  We do this once and store it.
-    // TODO: Do a FieldRef / StringData pass.
-    // TODO: We might want this inside of the MatchExpression.
+    // TODO: Do a FieldRef / StringData pass. id:675
+    // TODO: We might want this inside of the MatchExpression. id:563
     std::string path;
 
     // Points to the innermost containing $elemMatch. If this tag is

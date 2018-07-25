@@ -29,7 +29,7 @@ import (
 // - Sequences of digits, '#', and '@' in decimal and sigDigits may have
 //   interstitial commas.
 
-// TODO: replace special characters in affixes (-, +, ¤) with control codes.
+// TODO: replace special characters in affixes (-, +, ¤) with control codes. id:3004
 
 // Pattern holds information for formatting numbers. It is designed to hold
 // information from CLDR number patterns.
@@ -55,7 +55,7 @@ type Pattern struct {
 // It contains all information needed to determine the "visible digits" as
 // required by the pluralization rules.
 type RoundingContext struct {
-	// TODO: unify these two fields so that there is a more unambiguous meaning
+	// TODO: unify these two fields so that there is a more unambiguous meaning id:1183
 	// of how precision is handled.
 	MaxSignificantDigits int16 // -1 is unlimited
 	MaxFractionDigits    int16 // -1 is unlimited
@@ -131,7 +131,7 @@ func (f *Pattern) needsSep(pos int) bool {
 	if p -= size; p < 0 {
 		return false
 	}
-	// TODO: make second groupingsize the same as first if 0 so that we can
+	// TODO: make second groupingsize the same as first if 0 so that we can id:1007
 	// avoid this check.
 	if x := int(f.GroupingSize[1]); x != 0 {
 		size = x
@@ -189,7 +189,7 @@ func (p *parser) updateGrouping() {
 }
 
 var (
-	// TODO: more sensible and localizeable error messages.
+	// TODO: more sensible and localizeable error messages. id:1798
 	errMultiplePadSpecifiers = errors.New("format: pattern has multiple pad specifiers")
 	errInvalidPadSpecifier   = errors.New("format: invalid pad specifier")
 	errInvalidQuote          = errors.New("format: invalid quote")
@@ -317,7 +317,7 @@ func (p *parser) affix(r rune) state {
 			p.setError(errDuplicatePermilleSign)
 		}
 		p.DigitShift = 3
-		// TODO: handle currency somehow: ¤, ¤¤, ¤¤¤, ¤¤¤¤
+		// TODO: handle currency somehow: ¤, ¤¤, ¤¤¤, ¤¤¤¤ id:1250
 	}
 	p.buf = append(p.buf, string(r)...)
 	return p.affix

@@ -133,7 +133,7 @@ void moveChunk(OperationContext* opCtx, const NamespaceString& nss, const BSONOb
  * doSplitAtLower - determines which side of the split will have exactly one document. True means
  * that the split point chosen will be closer to the lower bound.
  *
- * NOTE: this assumes that the shard key is not "special"- that is, the shardKeyPattern is simply an
+ * NOTE: this assumes that the shard key is not "special"- that is, the shardKeyPattern is simply an id:646
  * ordered list of ascending/descending field names. For example {a : 1, b : -1} is not special, but
  * {a : "hashed"} is.
  */
@@ -245,7 +245,7 @@ void ChunkSplitter::onStepUp() {
     _isPrimary = true;
 
     // log() << "The ChunkSplitter has started and will accept autosplit tasks.";
-    // TODO: Re-enable this log line when auto split is actively running on shards.
+    // TODO: Re-enable this log line when auto split is actively running on shards. id:1878
 }
 
 void ChunkSplitter::onStepDown() {
@@ -257,7 +257,7 @@ void ChunkSplitter::onStepDown() {
 
     // log() << "The ChunkSplitter has stopped and will no longer run new autosplit tasks. Any "
     //       << "autosplit tasks that have already started will be allowed to finish.";
-    // TODO: Re-enable this log when auto split is actively running on shards.
+    // TODO: Re-enable this log when auto split is actively running on shards. id:849
 }
 
 void ChunkSplitter::trySplitting(ChunkSplitStateDriver chunkSplitStateDriver,

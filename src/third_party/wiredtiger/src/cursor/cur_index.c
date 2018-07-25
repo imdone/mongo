@@ -508,7 +508,7 @@ __wt_curindex_open(WT_SESSION_IMPL *session,
 	cursor->value_format = table->value_format;
 
 	/*
-	 * XXX
+	 * XXX  id:2836
 	 * A very odd corner case is an index with a recno key.
 	 * The only way to get here is by creating an index on a column store
 	 * using only the primary's recno as the index key.  Disallow that for

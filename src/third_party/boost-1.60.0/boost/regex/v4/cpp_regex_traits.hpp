@@ -265,7 +265,7 @@ public:
 
 private:
    string_type get_default_message(regex_constants::syntax_type);
-   // TODO: use a hash table when available!
+   // TODO: use a hash table when available! id:1482
    map_type m_char_map;
 };
 

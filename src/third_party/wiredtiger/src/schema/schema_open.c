@@ -247,7 +247,7 @@ __open_index(WT_SESSION_IMPL *session, WT_TABLE *table, WT_INDEX *idx)
 	WT_ERR(__wt_strndup(session, buf->data, buf->size, &idx->exkey_format));
 
 	/* By default, index cursor values are the table value columns. */
-	/* TODO Optimize to use index columns in preference to table lookups. */
+	/* TODO Optimize to use index columns in preference to table lookups. id:2840*/
 	WT_ERR(__wt_buf_init(session, plan, 0));
 	WT_ERR(__wt_struct_plan(session,
 	    table, table->colconf.str, table->colconf.len, true, plan));

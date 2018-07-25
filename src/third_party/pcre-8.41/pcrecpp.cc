@@ -351,7 +351,7 @@ bool RE::Replace(const StringPiece& rewrite,
 // Modified by PH to add PCRE_NEWLINE_ANY and PCRE_NEWLINE_ANYCRLF.
 
 static int NewlineMode(int pcre_options) {
-  // TODO: if we can make it threadsafe, cache this var
+  // TODO: if we can make it threadsafe, cache this var id:2412
   int newline_mode = 0;
   /* if (newline_mode) return newline_mode; */  // do this once it's cached
   if (pcre_options & (PCRE_NEWLINE_CRLF|PCRE_NEWLINE_CR|PCRE_NEWLINE_LF|
@@ -589,7 +589,7 @@ bool RE::DoMatchImpl(const StringPiece& text,
     const int start = vec[2*(i+1)];
     const int limit = vec[2*(i+1)+1];
     if (!args[i]->Parse(text.data() + start, limit-start)) {
-      // TODO: Should we indicate what the error was?
+      // TODO: Should we indicate what the error was? id:3375
       return false;
     }
   }

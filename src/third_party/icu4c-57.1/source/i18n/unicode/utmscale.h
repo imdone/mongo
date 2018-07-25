@@ -361,7 +361,7 @@ typedef enum UTimeScaleValue {
      * The constant used to select the epoch plus one value
      * for a time scale.
      * 
-     * NOTE: This is an internal value. DO NOT USE IT. May not
+     * NOTE: This is an internal value. DO NOT USE IT. May not id:3298
      * actually be equal to the epoch offset value plus one.
      * 
      * @see utmscale_getTimeScaleValue
@@ -374,7 +374,7 @@ typedef enum UTimeScaleValue {
      * The constant used to select the epoch plus one value
      * for a time scale.
      * 
-     * NOTE: This is an internal value. DO NOT USE IT. May not
+     * NOTE: This is an internal value. DO NOT USE IT. May not id:2908
      * actually be equal to the epoch offset value plus one.
      * 
      * @see utmscale_getTimeScaleValue
@@ -387,7 +387,7 @@ typedef enum UTimeScaleValue {
      * The constant used to select the units round value
      * for a time scale.
      * 
-     * NOTE: This is an internal value. DO NOT USE IT.
+     * NOTE: This is an internal value. DO NOT USE IT. id:1842
      * 
      * @see utmscale_getTimeScaleValue
      *
@@ -399,7 +399,7 @@ typedef enum UTimeScaleValue {
      * The constant used to select the minimum safe rounding value
      * for a time scale.
      * 
-     * NOTE: This is an internal value. DO NOT USE IT.
+     * NOTE: This is an internal value. DO NOT USE IT. id:2595
      * 
      * @see utmscale_getTimeScaleValue
      *
@@ -411,7 +411,7 @@ typedef enum UTimeScaleValue {
      * The constant used to select the maximum safe rounding value
      * for a time scale.
      * 
-     * NOTE: This is an internal value. DO NOT USE IT.
+     * NOTE: This is an internal value. DO NOT USE IT. id:2199
      * 
      * @see utmscale_getTimeScaleValue
      *

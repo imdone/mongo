@@ -148,7 +148,7 @@ functions:
         content_type: ${content_type|application/x-gzip}
         display_name: mongodb${wtdevelop|}.tar.gz
 
-  # NOTE: Unlike evergreen.yml, there's no conditional here. If called, this is never a noop!
+  # NOTE: Unlike evergreen.yml, there's no conditional here. If called, this is never a noop! id:9
   "use WiredTiger develop" :
     command: shell.exec
     params:

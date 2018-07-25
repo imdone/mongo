@@ -31,7 +31,7 @@
 
 #if U_PLATFORM == U_PF_WINDOWS && defined(_MSC_VER) && (_MSC_VER >= 1500)
 /*
- * TODO: It seems like we should widen this to
+ * TODO: It seems like we should widen this to id:2767
  * either U_PLATFORM_USES_ONLY_WIN32_API (includes MinGW)
  * or U_PLATFORM_HAS_WIN32_API (includes MinGW and Cygwin)
  * but those use gcc and won't have defined(_MSC_VER).
@@ -457,7 +457,7 @@ ILCID_POSIX_SUBTABLE(ks) {         /* We could add PK and CN too */
 };
 
 ILCID_POSIX_ELEMENT_ARRAY(0x0440, ky, ky_KG)   /* Kyrgyz is spoken in Kyrgyzstan */
-ILCID_POSIX_ELEMENT_ARRAY(0x0476, la, la_IT)   /* TODO: Verify the country */
+ILCID_POSIX_ELEMENT_ARRAY(0x0476, la, la_IT)   /* TODO: Verify the country id:1621*/
 ILCID_POSIX_ELEMENT_ARRAY(0x046e, lb, lb_LU)
 ILCID_POSIX_ELEMENT_ARRAY(0x0454, lo, lo_LA)
 ILCID_POSIX_ELEMENT_ARRAY(0x0427, lt, lt_LT)
@@ -512,10 +512,10 @@ ILCID_POSIX_SUBTABLE(no) {
     {0x0814, "no_NO_NY"}/* really nn_NO */
 };
 
-ILCID_POSIX_ELEMENT_ARRAY(0x046c, nso,nso_ZA)   /* TODO: Verify the ISO-639 code */
+ILCID_POSIX_ELEMENT_ARRAY(0x046c, nso,nso_ZA)   /* TODO: Verify the ISO-639 code id:2407*/
 ILCID_POSIX_ELEMENT_ARRAY(0x0482, oc, oc_FR)
 
-ILCID_POSIX_SUBTABLE(om) { /* TODO: Verify the country */
+ILCID_POSIX_SUBTABLE(om) { /* TODO: Verify the country id:1895*/
     {0x72,   "om"},
     {0x0472, "om_ET"},
     {0x0472, "gaz_ET"}
@@ -634,7 +634,7 @@ ILCID_POSIX_ELEMENT_ARRAY(0x045b, si, si_LK)
 ILCID_POSIX_ELEMENT_ARRAY(0x041b, sk, sk_SK)
 ILCID_POSIX_ELEMENT_ARRAY(0x0424, sl, sl_SI)
 
-ILCID_POSIX_SUBTABLE(so) { /* TODO: Verify the country */
+ILCID_POSIX_SUBTABLE(so) { /* TODO: Verify the country id:3220*/
     {0x77,   "so"},
     {0x0477, "so_ET"},
     {0x0477, "so_SO"}
@@ -719,7 +719,7 @@ ILCID_POSIX_SUBTABLE(uz) {
     {0x7c43, "uz_Latn"} /* Latin based */
 };
 
-ILCID_POSIX_SUBTABLE(ve) { /* TODO: Verify the country */
+ILCID_POSIX_SUBTABLE(ve) { /* TODO: Verify the country id:2769*/
     {0x33,   "ve"},
     {0x0433, "ve_ZA"},
     {0x0433, "ven_ZA"}

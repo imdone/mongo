@@ -44,7 +44,7 @@ public:
     static constexpr StringData kSubtreeSuffix = ".$**"_sd;
 
     /**
-     * TODO SERVER-35748: Currently, the MultikeyPaths structure used by IndexAccessMethod is not
+     * TODO SERVER-35748: Currently, the MultikeyPaths structure used by IndexAccessMethod is not id:486
      * suitable for tracking multikey paths in AllPaths indexes. In order to keep multikey paths
      * separate from RecordId keys, and to ensure that both this key generator and the
      * AllPathsIndexAccessMethod can be trivially switched over to using the new MultikeyPaths

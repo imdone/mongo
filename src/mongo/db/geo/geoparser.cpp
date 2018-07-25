@@ -444,7 +444,7 @@ Status GeoParser::parseLegacyBox(const BSONObj& obj, BoxWithCRS* out) {
     if (!status.isOK()) {
         return status;
     }
-    // XXX: VERIFY AREA >= 0
+    // XXX: VERIFY AREA >= 0 id:750
 
     out->box.init(ptA, ptB);
     out->crs = FLAT;

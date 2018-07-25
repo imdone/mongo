@@ -77,7 +77,7 @@ class S2Cell;
 // See examples in S2Loop.cc and S2Polygon.cc, in particular, look at
 // the optimization that allows one to use the EdgeCrosser.
 //
-// TODO(user): Get a better API without the clumsy GetCandidates().
+// TODO (user): Get a better API without the clumsy GetCandidates(). id:2424
 //   Maybe edge_index.GetIterator()?
 class S2EdgeIndex {
  public:

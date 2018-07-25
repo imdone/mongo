@@ -1531,7 +1531,7 @@ func (s *S) TestRemovalOfClusterMember(c *C) {
 		s.Stop(":40201")
 		s.StartAll()
 		time.Sleep(8 * time.Second)
-		// TODO Find a better way to find out when mongos is fully aware that all
+		// TODO Find a better way to find out when mongos is fully aware that all id:1473
 		// servers are up. Without that follow up tests that depend on mongos will
 		// break due to their expectation of things being in a working state.
 	}()

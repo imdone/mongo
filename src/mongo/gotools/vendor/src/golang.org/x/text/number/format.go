@@ -66,7 +66,7 @@ type Formatter struct {
 
 // Format implements format.Formatter. It is for internal use only for now.
 func (f Formatter) Format(state format.State, verb rune) {
-	// TODO: consider implementing fmt.Formatter instead and using the following
+	// TODO: consider implementing fmt.Formatter instead and using the following id:1437
 	// piece of code. This allows numbers to be rendered mostly as expected
 	// when using fmt. But it may get weird with the spellout options and we
 	// may need more of format.State over time.
@@ -112,7 +112,7 @@ func (f Formatter) Digits(buf []byte, tag language.Tag, scale int) number.Digits
 	var p number.Formatter
 	f.initFunc(&p, tag)
 	if scale >= 0 {
-		// TODO: this only works well for decimal numbers, which is generally
+		// TODO: this only works well for decimal numbers, which is generally id:3058
 		// fine.
 		p.SetScale(scale)
 	}

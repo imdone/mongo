@@ -79,7 +79,7 @@ def build_rpm(target, source, env):
                                        errstr=output,
                                        filename=str(target[0]) )
     else:
-        # XXX: assume that LC_ALL=C is set while running rpmbuild
+        # XXX: assume that LC_ALL=C is set while running rpmbuild id:3403
         output_files = re.compile( 'Wrote: (.*)' ).findall( output )
 
         for output, input in zip( output_files, target ):

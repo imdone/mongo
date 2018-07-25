@@ -85,7 +85,7 @@ bool check_probabilities(std::vector<RealT> const& probabilities)
         sum += probabilities[i];
     }
 
-    //NOTE: the check below seems to fail on some architectures.
+    //NOTE: the check below seems to fail on some architectures. id:1746
     //      So we commented it.
     //// - We try to keep phase probabilities correctly normalized in the distribution constructors
     //// - However in practice we have to allow for a very slight divergence from a sum of exactly 1:
@@ -454,7 +454,7 @@ class hyperexponential_distribution
         /** Reads a \c param_type from a \c std::istream. */
         public: BOOST_RANDOM_DETAIL_ISTREAM_OPERATOR(is, param_type, param)
         {
-            // NOTE: if \c std::ios_base::exceptions is set, the code below may
+            // NOTE: if \c is set, the code below may std::ios_base::exceptions id:3185
             //       throw in case of a I/O failure.
             //       To prevent leaving the state of \c param inconsistent:
             //       - if an exception is thrown, the state of \c param is left
@@ -517,7 +517,7 @@ class hyperexponential_distribution
             }
 
             // Normalize probabilities
-            // NOTE: this cannot be done earlier since the probability vector
+            // NOTE: this cannot be done earlier since the probability vector id:2708
             //       can be changed due to size conformance
             hyperexp_detail::normalize(param.probs_);
 

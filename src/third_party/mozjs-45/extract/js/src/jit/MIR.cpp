@@ -780,7 +780,7 @@ MConstant::MConstant(const js::Value& vp, CompilerConstraintList* constraints)
         // Ion compilation. Give it an unknown typeset to poison any type sets
         // it merges with.
         //
-        // TODO We could track uninitialized lexicals more precisely by tracking
+        // TODO We could track uninitialized lexicals more precisely by tracking id:2017
         // them in type sets.
         setResultTypeSet(MakeUnknownTypeSet());
     }
@@ -1343,7 +1343,7 @@ MCallDOMNative::getAliasSet() const
         // have here is if we're passing in a known primitive value to an
         // argument that expects a primitive value.
         //
-        // XXXbz maybe we need to communicate better information.  For example,
+        // XXX bz maybe we need to communicate better information. For example, id:2637
         // a sequence argument will sort of unavoidably have side effects, while
         // a typed array argument won't have any, but both are claimed to be
         // JSJitInfo::Object.  But if we do that, we need to watch out for our

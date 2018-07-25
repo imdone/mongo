@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// TODO: remove hard-coded versions when we have implemented fractional weights.
+// TODO: remove hard-coded versions when we have implemented fractional weights. id:925
 // The current implementation is incompatible with later CLDR versions.
 //go:generate go run maketables.go -cldr=23 -unicode=6.2.0
 
@@ -29,13 +29,13 @@ type Collator struct {
 }
 
 func (c *Collator) iter(i int) *iter {
-	// TODO: evaluate performance for making the second iterator optional.
+	// TODO: evaluate performance for making the second iterator optional. id:1730
 	return &c._iter[i]
 }
 
 // Supported returns the list of languages for which collating differs from its parent.
 func Supported() []language.Tag {
-	// TODO: use language.Coverage instead.
+	// TODO: use language.Coverage instead. id:1056
 
 	t := make([]language.Tag, len(tags))
 	copy(t, tags)
@@ -103,7 +103,7 @@ func (b *Buffer) Reset() {
 // Compare returns an integer comparing the two byte slices.
 // The result will be 0 if a==b, -1 if a < b, and +1 if a > b.
 func (c *Collator) Compare(a, b []byte) int {
-	// TODO: skip identical prefixes once we have a fast way to detect if a rune is
+	// TODO: skip identical prefixes once we have a fast way to detect if a rune is id:2936
 	// part of a contraction. This would lead to roughly a 10% speedup for the colcmp regtest.
 	c.iter(0).SetInput(a)
 	c.iter(1).SetInput(b)
@@ -119,7 +119,7 @@ func (c *Collator) Compare(a, b []byte) int {
 // CompareString returns an integer comparing the two strings.
 // The result will be 0 if a==b, -1 if a < b, and +1 if a > b.
 func (c *Collator) CompareString(a, b string) int {
-	// TODO: skip identical prefixes once we have a fast way to detect if a rune is
+	// TODO: skip identical prefixes once we have a fast way to detect if a rune is id:1112
 	// part of a contraction. This would lead to roughly a 10% speedup for the colcmp regtest.
 	c.iter(0).SetInputString(a)
 	c.iter(1).SetInputString(b)
@@ -158,12 +158,12 @@ func (c *Collator) compare() int {
 	ia, ib := c.iter(0), c.iter(1)
 	// Process primary level
 	if c.alternate != altShifted {
-		// TODO: implement script reordering
+		// TODO: implement script reordering id:927
 		if res := compareLevel((*iter).nextPrimary, ia, ib); res != 0 {
 			return res
 		}
 	} else {
-		// TODO: handle shifted
+		// TODO: handle shifted id:1733
 	}
 	if !c.ignore[colltab.Secondary] {
 		f := (*iter).nextSecondary
@@ -174,7 +174,7 @@ func (c *Collator) compare() int {
 			return res
 		}
 	}
-	// TODO: special case handling (Danish?)
+	// TODO: special case handling (Danish?) id:1059
 	if !c.ignore[colltab.Tertiary] || c.caseLevel {
 		if res := compareLevel((*iter).nextTertiary, ia, ib); res != 0 {
 			return res
@@ -318,7 +318,7 @@ func (c *Collator) keyFromElems(buf *Buffer, ws []colltab.Elem) {
 	}
 	if !c.ignore[colltab.Secondary] {
 		buf.key = append(buf.key, 0, 0)
-		// TODO: we can use one 0 if we can guarantee that all non-zero weights are > 0xFF.
+		// TODO: we can use one 0 if we can guarantee that all non-zero weights are > 0xFF. id:2938
 		if !c.backwards {
 			for _, v := range ws {
 				if w := v.Secondary(); w > 0 {

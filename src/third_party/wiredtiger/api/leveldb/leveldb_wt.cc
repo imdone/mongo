@@ -102,7 +102,7 @@ Status WiredTigerErrorToStatus(int wiredTigerError, const char *msg) {
       wiredTigerError == EEXIST || wiredTigerError == ENOSPC)
     return Status::IOError(Slice(msg));
   else if (wiredTigerError == WT_ROLLBACK)
-    return Status::IOError("ROLLBACK"); // TODO: Is this the best translation?
+    return Status::IOError("ROLLBACK"); // TODO: Is this the best translation? id:2265
   else
     return Status::Corruption(Slice(msg));
 }
@@ -569,7 +569,7 @@ DbImpl::GetApproximateSizes(const Range* range, int n,
 {
   int i;
 
-  /* XXX Not supported */
+  /* XXX Not supported id:2827*/
   for (i = 0; i < n; i++)
     sizes[i] = 1;
 }

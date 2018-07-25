@@ -239,7 +239,7 @@ size_t WorkingSetMember::getMemUsage() const {
         memUsage += sizeof(RecordId);
     }
 
-    // XXX: Unowned objects count towards current size.
+    // XXX: Unowned objects count towards current size. id:1331
     //      See SERVER-12579
     if (hasObj()) {
         memUsage += obj.value().objsize();

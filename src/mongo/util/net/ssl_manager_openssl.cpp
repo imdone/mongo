@@ -214,7 +214,7 @@ public:
             unsigned long id;
         };
 
-        // NOTE: This logic is fully intentional. Because ERR_remove_state (called within
+        // NOTE: This logic is fully intentional. Because ERR_remove_state (called within id:2246
         // the destructor of the kRemoveStateFromThread object) re-enters this function,
         // we must have a two phase protection, otherwise we would access a thread local
         // during its destruction.
@@ -1303,7 +1303,7 @@ StatusWith<boost::optional<SSLPeerInfo>> SSLManagerOpenSSL::parseAndValidatePeer
         }
     }
 
-    // TODO: check optional cipher restriction, using cert.
+    // TODO: check optional cipher restriction, using cert. id:1624
     auto peerSubject = getCertificateSubjectX509Name(peerCert);
     LOG(2) << "Accepted TLS connection from peer: " << peerSubject;
 
@@ -1444,7 +1444,7 @@ void SSLManagerOpenSSL::_handleSSLError(SSLConnectionOpenSSL* conn, int ret) {
             break;
 
         case SSL_ERROR_ZERO_RETURN:
-            // TODO: Check if we can avoid throwing an exception for this condition
+            // TODO: Check if we can avoid throwing an exception for this condition id:3144
             LOG(3) << "SSL network connection closed";
             break;
         case SSL_ERROR_SYSCALL:

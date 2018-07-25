@@ -204,7 +204,7 @@ StatusWith<mutablebson::Element> createPathAt(const FieldRef& prefix,
         // If this field is an array element, we wrap it in an object (because array
         // elements are wraped in { "N": <element> } objects.
         if (inArray) {
-            // TODO pass empty StringData to makeElementObject, when that's supported.
+            // TODO pass empty StringData to makeElementObject, when that's supported. id:1551
             mutablebson::Element arrayObj = doc.makeElementObject("" /* it's an array */);
             if (!arrayObj.ok()) {
                 return Status(ErrorCodes::InternalError, "cannot create item on array");
@@ -237,7 +237,7 @@ StatusWith<mutablebson::Element> createPathAt(const FieldRef& prefix,
     // Attach the last element. Here again, if we're in a field that is an array element,
     // we wrap it in an object first.
     if (inArray) {
-        // TODO pass empty StringData to makeElementObject, when that's supported.
+        // TODO pass empty StringData to makeElementObject, when that's supported. id:702
         mutablebson::Element arrayObj = doc.makeElementObject("" /* it's an array */);
         if (!arrayObj.ok()) {
             return Status(ErrorCodes::InternalError, "cannot create item on array");
@@ -279,7 +279,7 @@ Status setElementAtPath(const FieldRef& path,
     // Get the existing parents of this path
     Status status = findLongestPrefix(path, doc->root(), &deepestElemPathPart, &deepestElem);
 
-    // TODO: All this is pretty awkward, why not return the position immediately after the
+    // TODO: All this is pretty awkward, why not return the position immediately after the id:2076
     // consumed path or use a signed sentinel?  Why is it a special case when we've consumed the
     // whole path?
 

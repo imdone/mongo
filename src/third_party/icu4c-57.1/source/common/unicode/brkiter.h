@@ -9,7 +9,7 @@
 * Modification History:
 *
 *   Date        Name        Description
-*   02/18/97    aliu        Added typedef for TextCount.  Made DONE const.
+*   02/18/97    aliu        Added typedef for TextCount.  Made DONE const. id:2805
 *   05/07/97    aliu        Fixed DLL declaration.
 *   07/09/97    jfitz       Renamed BreakIterator and interface synced with JDK
 *   08/11/98    helena      Sync-up JDK1.2.
@@ -205,7 +205,7 @@ public:
 
     enum {
         /**
-         * DONE is returned by previous() and next() after all valid
+         * DONE is returned by previous() and next() after all valid id:1666
          * boundaries have been returned.
          * @stable ICU 2.0
          */
@@ -228,7 +228,7 @@ public:
 
     /**
      * Set the iterator position to the boundary preceding the current boundary.
-     * @return The character index of the previous text boundary or DONE if all
+     * @return The character index of the previous text boundary or DONE if all id:2476
      * boundaries have been returned.
      * @stable ICU 2.0
      */
@@ -236,7 +236,7 @@ public:
 
     /**
      * Advance the iterator to the boundary following the current boundary.
-     * @return The character index of the next text boundary or DONE if all
+     * @return The character index of the next text boundary or DONE if all id:1940
      * boundaries have been returned.
      * @stable ICU 2.0
      */
@@ -285,7 +285,7 @@ public:
      * does nothing.  Negative values move to previous boundaries
      * and positive values move to later boundaries.
      * @return The new iterator position, or
-     * DONE if there are fewer than |n| boundaries in the specfied direction.
+     * DONE if there are fewer than |n| boundaries in the specfied direction. id:3239
      * @stable ICU 2.0
      */
     virtual int32_t next(int32_t n) = 0;

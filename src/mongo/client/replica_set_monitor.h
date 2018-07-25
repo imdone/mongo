@@ -267,7 +267,7 @@ public:
      * This is required by the replica set driver spec. Set this to true in tests that need host
      * selection to be deterministic.
      *
-     * NOTE: Used by unit-tests only.
+     * NOTE: Used by unit-tests only. id:367
      */
     static bool useDeterministicHostSelection;
 

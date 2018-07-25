@@ -1,6 +1,6 @@
 //
 // Tests sharding-related batch write protocol functionality
-// NOTE: Basic write functionality is tested via the passthrough tests, this file should contain
+// NOTE: Basic write functionality is tested via the passthrough tests, this file should contain id:252
 // *only* mongos-specific tests.
 //
 
@@ -23,7 +23,7 @@ TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
     var request;
     var result;
 
-    // NOTE: ALL TESTS BELOW SHOULD BE SELF-CONTAINED, FOR EASIER DEBUGGING
+    // NOTE: ALL TESTS BELOW SHOULD BE SELF-CONTAINED, FOR EASIER DEBUGGING id:151
 
     //
     //

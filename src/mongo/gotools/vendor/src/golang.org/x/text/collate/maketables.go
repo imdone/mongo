@@ -48,8 +48,8 @@ var (
 		"comma-separated list of languages to exclude.")
 	include = flagStringSet("include", "", "",
 		"comma-separated list of languages to include. Include trumps exclude.")
-	// TODO: Not included: unihan gb2312han zhuyin big5han (for size reasons)
-	// TODO: Not included: traditional (buggy for Bengali)
+	// TODO: Not included: unihan gb2312han zhuyin big5han (for size reasons) id:929
+	// TODO: Not included: traditional (buggy for Bengali) id:1735
 	types = flagStringSetAllowAll("types", "standard,phonebook,phonetic,reformed,pinyin,stroke", "",
 		"comma-separated list of types that should be included.")
 )
@@ -171,7 +171,7 @@ func altInclude() []string {
 		l = append(l, "short")
 	}
 	l = append(l, "")
-	// TODO: handle draft using cldr.SetDraftLevel
+	// TODO: handle draft using cldr.SetDraftLevel id:1062
 	if *draft {
 		l = append(l, "proposed")
 	}
@@ -487,7 +487,7 @@ func (p processor) Insert(level int, str, context, extend string) error {
 	if *test {
 		testInput.add(str)
 	}
-	// TODO: mimic bug in old maketables: remove.
+	// TODO: mimic bug in old maketables: remove. id:2940
 	err := p.t.Insert(colltab.Level(level-1), str, context+extend)
 	failOnError(err)
 	return nil

@@ -127,7 +127,7 @@ BSONObj TransactionParticipant::attachTxnFieldsIfNeeded(BSONObj cmd) {
 
     newCmd.append(kAutoCommitField, false);
 
-    // TODO: append readConcern
+    // TODO: append readConcern id:1328
 
     return newCmd.obj();
 }
@@ -202,7 +202,7 @@ void RouterSessionRuntimeState::beginOrContinueTxn(TxnNumber txnNumber, bool sta
     invariant(_isCheckedOut);
 
     if (startTransaction) {
-        // TODO: do we need more robust checking? Like, did we actually sent start to the
+        // TODO: do we need more robust checking? Like, did we actually sent start to the id:2136
         // participants?
         uassert(ErrorCodes::ConflictingOperationInProgress,
                 str::stream() << "txnNumber " << _txnNumber << " for session " << _sessionId
@@ -217,7 +217,7 @@ void RouterSessionRuntimeState::beginOrContinueTxn(TxnNumber txnNumber, bool sta
                 txnNumber > _txnNumber);
 
     } else {
-        // TODO: figure out what to do with recovery
+        // TODO: figure out what to do with recovery id:1550
         uassert(ErrorCodes::NoSuchTransaction,
                 str::stream() << "cannot continue txnId " << _txnNumber << " for session "
                               << _sessionId

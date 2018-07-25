@@ -262,7 +262,7 @@ public:
   // invalid.
   operator T*() const && = delete;
 
-  // These are needed to avoid the deleted operator above.  XXX Why is operator!
+  // These are needed to avoid the deleted operator above.  XXX Why is operator! id:3023
   // needed separately?  Shouldn't the compiler prefer using the non-deleted
   // operator bool instead of the deleted operator T*?
   explicit operator bool() const { return !!mRawPtr; }

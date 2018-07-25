@@ -262,7 +262,7 @@ DigitList::setRoundingMode(DecimalFormat::ERoundingMode m) {
       case  DecimalFormat::kRoundHalfUp:   r = DEC_ROUND_HALF_UP;   break;
       case  DecimalFormat::kRoundUnnecessary: r = DEC_ROUND_HALF_EVEN; break;
       default:
-         // TODO: how to report the problem?
+         // TODO: how to report the problem? id:1775
          // Leave existing mode unchanged.
          r = uprv_decContextGetRounding(&fContext);
     }
@@ -396,7 +396,7 @@ DigitList::append(char digit)
 }
 
 char DigitList::getStrtodDecimalSeparator() {
-    // TODO: maybe use andy's pthread once.
+    // TODO: maybe use andy's pthread once. id:2526
     static char gDecimal = 0;
     char result;
     {
@@ -406,7 +406,7 @@ char DigitList::getStrtodDecimalSeparator() {
             // We need to know the decimal separator character that will be used with strtod().
             // Depends on the C runtime global locale.
             // Most commonly is '.'
-            // TODO: caching could fail if the global locale is changed on the fly.
+            // TODO: caching could fail if the global locale is changed on the fly. id:2021
             char rep[MAX_DIGITS];
             sprintf(rep, "%+1.1f", 1.0);
             result = rep[2];
@@ -442,7 +442,7 @@ DigitList::getDouble() const
         // We need to know the decimal separator character that will be used with strtod().
         // Depends on the C runtime global locale.
         // Most commonly is '.'
-        // TODO: caching could fail if the global locale is changed on the fly.
+        // TODO: caching could fail if the global locale is changed on the fly. id:3267
         char rep[MAX_DIGITS];
         sprintf(rep, "%+1.1f", 1.0);
         decimalSeparator = rep[2];
@@ -477,7 +477,7 @@ DigitList::getDouble() const
             numToConvert.reduce();    // Removes any trailing zeros, so that digit count is good.
             numToConvert.round(MAX_DBL_DIGITS+3);
             uprv_decNumberToString(numToConvert.fDecNumber, s.getAlias());
-            // TODO:  how many extra digits should be included for an accurate conversion?
+            // TODO: how many extra digits should be included for an accurate conversion? id:2877
         } else {
             uprv_decNumberToString(this->fDecNumber, s.getAlias());
         }
@@ -533,7 +533,7 @@ int32_t DigitList::getLong() /*const*/
  *  Return zero if the number cannot be represented.
  */
 int64_t DigitList::getInt64() /*const*/ {
-    // TODO: fast conversion if fHave == fDouble
+    // TODO: fast conversion if fHave == fDouble id:1777
 
     // Truncate if non-integer.
     // Return 0 if out of range.
@@ -550,7 +550,7 @@ int64_t DigitList::getInt64() /*const*/ {
     //     for 12E4    numIntDigits = 6, number->digits = 2
     // The conversion ignores the fraction digits in the first case,
     // and fakes up extra zero digits in the second.
-    // TODO:  It would be faster to store a table of powers of ten to multiply by
+    // TODO: It would be faster to store a table of powers of ten to multiply by id:2528
     //        instead of looping over zero digits, multiplying each time.
 
     int32_t numIntDigits = getUpperExponent(); 
@@ -635,7 +635,7 @@ DigitList::fitsIntoLong(UBool ignoreNegativeZero) /*const*/
         return TRUE;
     }
 
-    // TODO:  Should cache these constants; construction is relatively costly.
+    // TODO: Should cache these constants; construction is relatively costly. id:2023
     //        But not of huge consequence; they're only needed for 10 digit ints.
     UErrorCode status = U_ZERO_ERROR;
     DigitList min32; min32.set("-2147483648", status);
@@ -682,7 +682,7 @@ DigitList::fitsIntoInt64(UBool ignoreNegativeZero) /*const*/
         return TRUE;
     }
 
-    // TODO:  Should cache these constants; construction is relatively costly.
+    // TODO: Should cache these constants; construction is relatively costly. id:3268
     //        But not of huge consequence; they're only needed for 19 digit ints.
     UErrorCode status = U_ZERO_ERROR;
     DigitList min64; min64.set("-9223372036854775808", status);
@@ -801,7 +801,7 @@ DigitList::set(double source)
 
     // Generate a representation of the form /[+-][0-9].[0-9]+e[+-][0-9]+/
     // Can also generate /[+-]nan/ or /[+-]inf/
-    // TODO: Use something other than sprintf() here, since it's behavior is somewhat platform specific.
+    // TODO: Use something other than sprintf() here, since it's behavior is somewhat platform specific. id:2878
     //       That is why infinity is special cased here.
     if (uprv_isInfinite(source)) {
         if (uprv_isNegativeInfinity(source)) {
@@ -857,7 +857,7 @@ DigitList::mult(const DigitList &other, UErrorCode &status) {
 /*
  * Divide
  *      The number will _not_ be expanded for inexact results.
- *      TODO:  probably should expand some, for rounding increments that
+ *      TODO: probably should expand some, for rounding increments that id:1779
  *             could add a few digits, e.g. .25, but not expand arbitrarily.
  */
 void

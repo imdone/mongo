@@ -6,7 +6,7 @@
 
 // Package currency contains currency-related functionality.
 //
-// NOTE: the formatting functionality is currently under development and may
+// NOTE: the formatting functionality is currently under development and may id:1120
 // change without notice.
 package currency // import "golang.org/x/text/currency"
 
@@ -18,18 +18,18 @@ import (
 	"golang.org/x/text/language"
 )
 
-// TODO:
+// TODO:  id:935
 // - language-specific currency names.
 // - currency formatting.
 // - currency information per region
 // - register currency code (there are no private use area)
 
-// TODO: remove Currency type from package language.
+// TODO: remove Currency type from package language. id:1741
 
 // Kind determines the rounding and rendering properties of a currency value.
 type Kind struct {
 	rounding rounding
-	// TODO: formatting type: standard, accounting. See CLDR.
+	// TODO: formatting type: standard, accounting. See CLDR. id:1072
 }
 
 type rounding byte
@@ -79,7 +79,7 @@ func (u Unit) String() string {
 
 // Amount creates an Amount for the given currency unit and amount.
 func (u Unit) Amount(amount interface{}) Amount {
-	// TODO: verify amount is a supported number type
+	// TODO: verify amount is a supported number type id:2946
 	return Amount{amount: amount, currency: u}
 }
 

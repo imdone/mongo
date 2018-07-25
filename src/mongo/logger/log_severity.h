@@ -122,12 +122,12 @@ public:
 private:
     explicit LogSeverity(int severity) : _severity(severity) {}
 
-    /// The stored severity.  More negative is more severe.  NOTE: This means that the >, <, >=
+    /// The stored severity.  More negative is more severe.  NOTE: This means that the >, <, >= id:1999
     /// and <= operators on LogSeverity have opposite sense of the same operators on the
     /// underlying integer.  That is, given severities S1 and S2, S1 > S2 means that S1.toInt()
     /// < S2.toInt().
     ///
-    /// TODO(schwerin): Decide if we should change this so more positive is more severe.  The
+    /// TODO (schwerin): Decide if we should change this so more positive is more severe. The id:1483
     /// logLevel parameter in the database is more compatible with this sense, but it's not
     /// totally intuitive.  One could also remove the operator overloads in favor of named
     /// methods, isNoMoreSevereThan, isLessSevereThan, isMoreSevereThan, isNoLessSevereThan,

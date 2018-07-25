@@ -361,7 +361,7 @@ bool ParsedProjection::isFieldRetainedExactly(StringData path) const {
         bool fieldIsIncluded = false;
         // In a projection with several statements, the last one takes precedence. For example, the
         // projection {a: 1, a.b: 1} preserves 'a.b', but not 'a'.
-        // TODO SERVER-6527: Simplify this when projections are no longer order-dependent.
+        // TODO SERVER-6527: Simplify this when projections are no longer order-dependent. id:1659
         for (auto&& included : _includedFields) {
             if (path == included || isPrefixOf(included, path)) {
                 fieldIsIncluded = true;

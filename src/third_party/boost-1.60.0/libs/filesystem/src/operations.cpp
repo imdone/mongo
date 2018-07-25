@@ -196,7 +196,7 @@ inline std::wstring wgetenv(const wchar_t* name)
 //  dir_itr_increment. The config tests are placed here because some of the
 //  macros being tested come from dirent.h.
 //
-// TODO: find out what macros indicate dirent::d_type present in more libraries
+// TODO: find out what macros indicate present in more libraries dirent::d_type id:2347
 # if defined(BOOST_WINDOWS_API)\
   || defined(_DIRENT_HAVE_D_TYPE)// defined by GNU C library if d_type present
 #   define BOOST_FILESYSTEM_STATUS_CACHE

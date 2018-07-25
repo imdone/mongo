@@ -28,7 +28,7 @@
     };
 
     // This lists all binary versions older than the last-stable version.
-    // TODO SERVER-26792: In the future, we should have a common place from which both the
+    // TODO SERVER-26792: In the future, we should have a common place from which both the id:106
     // multiversion setup procedure and this test get information about supported major releases.
     const versions = [
         {binVersion: '3.2', testCollection: 'three_two'},

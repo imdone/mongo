@@ -249,7 +249,7 @@ protected:
     // inline UObject(const UObject &other) {}
 
 #if 0
-    // TODO Sometime in the future. Implement operator==().
+    // TODO Sometime in the future. Implement operator==(). id:1950
     // (This comment inserted in 2.2)
     // some or all of the following "boilerplate" functions may be made public
     // in a future ICU4C release when all subclasses implement them

@@ -17,7 +17,7 @@ const CSV_DATE_FORMAT = "2006-01-02T15:04:05.000Z"
 func (b BinData) String() string {
 	data, err := base64.StdEncoding.DecodeString(b.Base64)
 	if err != nil {
-		return "" // XXX: panic?
+		return "" // XXX: panic? id:816
 	}
 	if b.Type == 0x02 {
 		data = data[4:] // skip the first 4 bytes

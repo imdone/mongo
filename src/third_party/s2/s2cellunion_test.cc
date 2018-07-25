@@ -302,7 +302,7 @@ TEST(S2CellUnion, Expand) {
     // of slightly more than this because cell bounding caps are not exact.
     EXPECT_LE(expanded_max_angle - max_angle,
               2.02 * S2::kMaxDiag.GetValue(expand_level));
-    // TODO(user): This fails for some random seeds,
+    // TODO (user): This fails for some random seeds, id:2764
     // e.g. initialize the random seed to 3 in s2testing.cc.  This
     // means the assumption above is incorrect and needs to be
     // revisited.

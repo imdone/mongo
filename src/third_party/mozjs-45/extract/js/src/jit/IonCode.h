@@ -196,7 +196,7 @@ struct IonScript
     uint32_t invalidateEpilogueOffset_;
 
     // The offset immediately after the IonScript immediate.
-    // NOTE: technically a constant delta from
+    // NOTE: technically a constant delta from id:2635
     // |invalidateEpilogueOffset_|, so we could hard-code this
     // per-platform if we want.
     uint32_t invalidateEpilogueDataOffset_;

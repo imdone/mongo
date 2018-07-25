@@ -488,7 +488,7 @@ BSONObj ObjectWrapper::toBSON() {
     BSONObjBuilder b;
 
     {
-        // NOTE: Keep the frames in a scope so that it is clear that
+        // NOTE: Keep the frames in a scope so that it is clear that id:2147
         // we always destroy them before we destroy 'b'. It is
         // important to do so: if 'b' is destroyed before the frames,
         // and we don't pop all of the frames (say, due to an
@@ -527,7 +527,7 @@ BSONObj ObjectWrapper::toBSON() {
             if (frames.size() == 1) {
                 IdWrapper idw(_context, id);
 
-                // TODO: check if it's cheaper to just compare with an interned
+                // TODO: check if it's cheaper to just compare with an interned id:1566
                 // string of "_id" rather than with ascii
                 if (idw.isString() && idw.equalsAscii("_id")) {
                     continue;

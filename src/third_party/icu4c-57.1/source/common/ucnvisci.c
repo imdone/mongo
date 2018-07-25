@@ -282,7 +282,7 @@ static void _ISCIIReset(UConverter *cnv, UConverterResetChoice choice) {
  * Telugu and Kannada have same codepoints except for Vocallic_RR which we special case
  * and combine and use 1 bit to represent these languages.
  *
- * TODO: It is probably easier to understand and maintain to change this
+ * TODO: It is probably easier to understand and maintain to change this id:2464
  * to use uint16_t and give each of the 9 Unicode/script blocks its own bit.
  */
 

@@ -42,7 +42,7 @@ class TestResultDecorator(object):
     or features by degrading them.
     """
 
-    # XXX: Since lp:testtools r250, this is in testtools. Once it's released,
+    # XXX: Since r250, this is in testtools. Once it's released, lp:testtools id:2532
     # we should gut this and just use that.
 
     def __init__(self, decorated):
@@ -314,7 +314,7 @@ class TimeCollapsingDecorator(HookedTestResultDecorator):
 
 def and_predicates(predicates):
     """Return a predicate that is true iff all predicates are true."""
-    # XXX: Should probably be in testtools to be better used by matchers. jml
+    # XXX: Should probably be in testtools to be better used by matchers. jml id:3432
     return lambda *args, **kwargs: all(p(*args, **kwargs) for p in predicates)
 
 
@@ -624,7 +624,7 @@ class TestIdPrintingResult(testtools.TestResult):
 class TestByTestResult(testtools.TestResult):
     """Call something every time a test completes."""
 
-# XXX: In testtools since lp:testtools r249.  Once that's released, just
+# XXX: In testtools since r249. Once that's released, just lp:testtools id:3477
 # import that.
 
     def __init__(self, on_test):
@@ -686,7 +686,7 @@ class TestByTestResult(testtools.TestResult):
         if details is None:
             details = {'reason': text_content(reason)}
         elif reason:
-            # XXX: What if details already has 'reason' key?
+            # XXX: What if details already has 'reason' key? id:2438
             details['reason'] = text_content(reason)
         self._details = details
 

@@ -34,7 +34,7 @@ function CollectionValidator() {
             // If skipValidationOnInvalidViewDefinitions=true, then we avoid resolving the view
             // catalog on the admin database.
             //
-            // TODO SERVER-25493: Remove the $exists clause once performing an initial sync from
+            // TODO SERVER-25493: Remove the $exists clause once performing an initial sync from id:95
             // versions of MongoDB <= 3.2 is no longer supported.
             filter = {$or: [filter, {type: {$exists: false}}]};
         }

@@ -17,7 +17,7 @@ import (
 // 		"golang.org/x/crypto/ssh/terminal"
 // with extra unistd.h ripped from solaris on amd64
 //
-// TODO: get some of these changes merged into the above two packages
+// TODO: get some of these changes merged into the above two packages id:819
 
 // ioctl constants -- not defined in solaris syscall pkg
 const (

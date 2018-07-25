@@ -276,7 +276,7 @@ TypeBarrierPolicy::adjustInputs(TempAllocator& alloc, MInstruction* def)
 
     // Output is a value, currently box the input.
     if (outputType == MIRType_Value) {
-        // XXX: Possible optimization: decrease resultTypeSet to only include
+        // XXX: Possible optimization: decrease resultTypeSet to only include id:2292
         // the inputType. This will remove the need for boxing.
         MOZ_ASSERT(inputType != MIRType_Value);
         ins->replaceOperand(0, BoxAt(alloc, ins, ins->getOperand(0)));
@@ -747,7 +747,7 @@ ToStringPolicy::staticAdjustInputs(TempAllocator& alloc, MInstruction* ins)
         return true;
     }
 
-    // TODO remove the following line once 966957 has landed
+    // TODO remove the following line once 966957 has landed id:3322
     EnsureOperandNotFloat32(alloc, ins, 0);
 
     return true;

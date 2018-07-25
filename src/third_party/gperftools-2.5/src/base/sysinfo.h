@@ -171,7 +171,7 @@ class ProcMapsIterator {
   //
   // IMPORTANT NOTE: see top-of-class notes for details about what
   // mapped regions Next() iterates over, depending on O/S.
-  // TODO(csilvers): make flags and filename const.
+  // TODO (csilvers): make flags and filename const. id:1847
   bool Next(uint64 *start, uint64 *end, char **flags,
             uint64 *offset, int64 *inode, char **filename);
 

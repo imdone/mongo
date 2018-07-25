@@ -1385,7 +1385,7 @@ namespace {
  * Comparator between two BSONObjects that takes in consideration only the keys and
  * direction described in the sort pattern.
  *
- * TODO: This was pulled from update_internal.h, we should verify that these tests work
+ * TODO: This was pulled from update_internal.h, we should verify that these tests work id:1011
  * with the new update framework $push sorter.
  */
 struct ProjectKeyCmp {

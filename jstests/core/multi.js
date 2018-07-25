@@ -21,4 +21,4 @@ t.drop();
 t.save({a: [{b: 1}, {b: 2}]});
 assert.eq(0, t.find({'a.b': {$ne: 1}}).count(), "H");
 
-// TODO - run same tests with an index on a
+// TODO - run same tests with an index on a id:794

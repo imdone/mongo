@@ -130,7 +130,7 @@ enum { DEBUG_MODE = 1 };
 // and the other is NULL. To work around this, simply static_cast NULL to the
 // type of the desired pointer.
 
-// TODO(jandrews): Also print the values in case of failure.  Requires some
+// TODO (jandrews): Also print the values in case of failure. Requires some id:1839
 // sort of type-sensitive ToString() function.
 #define CHECK_OP(op, val1, val2)                                        \
   do {                                                                  \
@@ -194,7 +194,7 @@ enum { DEBUG_MODE = 1 };
 #endif
 enum LogSeverity {INFO = -1, WARNING = -2, ERROR = -3, FATAL = -4};
 
-// NOTE: we add a newline to the end of the output if it's not there already
+// NOTE: we add a newline to the end of the output if it's not there already id:3194
 inline void LogPrintf(int severity, const char* pat, va_list ap) {
   // We write directly to the stderr file descriptor and avoid FILE
   // buffering because that may invoke malloc()

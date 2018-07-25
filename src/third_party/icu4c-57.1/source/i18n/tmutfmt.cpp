@@ -42,7 +42,7 @@
 #define LOW_T             ((UChar)0x0074)
 
 
-//TODO: define in compile time
+//TODO: define in compile time id:3289
 //#define TMUTFMT_DEBUG 1
 
 #ifdef TMUTFMT_DEBUG
@@ -263,7 +263,7 @@ TimeUnitFormat::parseObject(const UnicodeString& source,
             resultNumber = Formattable(2.0);
         } else {
             // should not happen.
-            // TODO: how to handle?
+            // TODO: how to handle? id:2899
             resultNumber = Formattable(3.0);
         }
     }
@@ -303,7 +303,7 @@ TimeUnitFormat::create(UTimeUnitFormatStyle style, UErrorCode& status) {
     }
     fStyle = style;
 
-    //TODO: format() and parseObj() are const member functions,
+    //TODO: format() and parseObj() are const member functions, id:1824
     //so, can not do lazy initialization in C++.
     //setup has to be done in constructors.
     //and here, the behavior is not consistent with Java.
@@ -502,7 +502,7 @@ TimeUnitFormat::checkConsistency(UTimeUnitFormatStyle style, const char* key, UE
                                     *pluralCount, pluralCountChars.data(),
                                     countToPatterns, err);
             }
-            // TODO: what to do with U_FAILURE(err) at this point.
+            // TODO: what to do with U_FAILURE(err) at this point. id:2577
             //       As is, the outer loop continues to run, but does nothing.
         }
     }

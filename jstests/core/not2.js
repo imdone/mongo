@@ -27,7 +27,7 @@
         assert.writeOK(coll.insert({i: "a"}));
         assert.writeOK(coll.insert({i: "b"}));
 
-        // TODO SERVER-12735: We currently do not handle double negatives during query
+        // TODO SERVER-12735: We currently do not handle double negatives during query id:201
         // canonicalization.
         fail({i: {$not: {$not: "a"}}});
         check({i: {$not: {$not: {$gt: "a"}}}}, "b");

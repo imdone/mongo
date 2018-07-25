@@ -92,7 +92,7 @@ __ckpt_server(void *arg)
 	for (;;) {
 		/*
 		 * Wait...
-		 * NOTE: If the user only configured logsize, then usecs
+		 * NOTE: If the user only configured logsize, then usecs id:3468
 		 * will be 0 and this wait won't return until signalled.
 		 */
 		__wt_cond_wait(session,

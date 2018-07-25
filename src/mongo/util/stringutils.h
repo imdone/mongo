@@ -96,7 +96,7 @@ private:
     bool _lexOnly;
 };
 
-// TODO: Sane-ify core std::string functionality
+// TODO: Sane-ify core functionality std::string id:2646
 // For now, this needs to be near the LexNumCmp or else
 int versionCmp(const StringData rhs, const StringData lhs);
 

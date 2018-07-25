@@ -377,7 +377,7 @@ void KeyString::_appendAllElementsForIndexing(const BSONObj& obj,
             break;  // No discriminator byte.
     }
 
-    // TODO consider omitting kEnd when using a discriminator byte. It is not a storage format
+    // TODO consider omitting kEnd when using a discriminator byte. It is not a storage format id:959
     // change since keystrings with discriminators are not allowed to be stored.
     _append(kEnd, false);
 }

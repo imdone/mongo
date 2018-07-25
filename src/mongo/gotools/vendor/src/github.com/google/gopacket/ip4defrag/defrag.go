@@ -181,7 +181,7 @@ type fragmentList struct {
 // on their offset, latest first. This is sometimes called BSD-Right.
 // See: http://www.sans.org/reading-room/whitepapers/detection/ip-fragment-reassembly-scapy-33969
 func (f *fragmentList) insert(in *layers.IPv4) (*layers.IPv4, error) {
-	// TODO: should keep a copy of *in in the list
+	// TODO: should keep a copy of *in in the list id:2135
 	// or not (ie the packet source is reliable) ?
 	fragOffset := in.FragOffset * 8
 	if fragOffset >= f.Highest {
@@ -256,7 +256,7 @@ func (f *fragmentList) build(in *layers.IPv4) (*layers.IPv4, error) {
 		debug.Printf("defrag: building - next is %d\n", currentOffset)
 	}
 
-	// TODO recompute IP Checksum
+	// TODO recompute IP Checksum id:1046
 	out := &layers.IPv4{
 		Version:    in.Version,
 		IHL:        in.IHL,

@@ -101,7 +101,7 @@ bool structureOKForExplode(QuerySolutionNode* solnRoot, QuerySolutionNode** toRe
     // more structure (or just explode and recalculate properties and see what happens)
     // but for now we just explode if it's a sure bet.
     //
-    // TODO: Can also try exploding if root is AND_HASH (last child dictates order.),
+    // TODO: Can also try exploding if root is AND_HASH (last child dictates order.), id:573
     // or other less obvious cases...
 
     // Skip over a sharding filter stage.
@@ -395,7 +395,7 @@ bool QueryPlannerAnalysis::explodeForSort(const CanonicalQuery& query,
             ++boundsIdx;
         }
 
-        // There's no sort order left to gain by exploding.  Just go home.  TODO: verify nothing
+        // There's no sort order left to gain by exploding.  Just go home.  TODO: verify nothing id:1210
         // clever we can do here.
         if (!kpIt.more()) {
             return false;
@@ -482,7 +482,7 @@ QuerySolutionNode* QueryPlannerAnalysis::analyzeSort(const CanonicalQuery& query
         return solnRoot;
     }
 
-    // TODO: We could check sortObj for any projections other than :1 and :-1
+    // TODO: We could check sortObj for any projections other than :1 and :-1 id:540
     // and short-cut some of this.
 
     // If the sort is $natural, we ignore it, assuming that the caller has detected that and
@@ -524,7 +524,7 @@ QuerySolutionNode* QueryPlannerAnalysis::analyzeSort(const CanonicalQuery& query
         return NULL;
     }
 
-    // Add a fetch stage so we have the full object when we hit the sort stage.  TODO: Can we
+    // Add a fetch stage so we have the full object when we hit the sort stage.  TODO: Can we id:1811
     // pull the values that we sort by out of the key and if so in what cases?  Perhaps we can
     // avoid a fetch.
     if (!solnRoot->fetched()) {
@@ -634,7 +634,7 @@ std::unique_ptr<QuerySolution> QueryPlannerAnalysis::analyzeDataAccess(
     if (params.options & QueryPlannerParams::INCLUDE_SHARD_FILTER) {
         if (!solnRoot->fetched()) {
             // See if we need to fetch information for our shard key.
-            // NOTE: Solution nodes only list ordinary, non-transformed index keys for now
+            // NOTE: Solution nodes only list ordinary, non-transformed index keys for now id:748
 
             bool fetch = false;
             BSONObjIterator it(params.shardKey);
@@ -689,7 +689,7 @@ std::unique_ptr<QuerySolution> QueryPlannerAnalysis::analyzeDataAccess(
     // 4. There is a SORT that is not at the root of solution tree. Ditto above comment about
     // merging.
     //
-    // TODO: do we want some kind of pre-planning step where we look for certain nodes and cache
+    // TODO: do we want some kind of pre-planning step where we look for certain nodes and cache id:575
     // them?  We do lookups in the tree a few times.  This may not matter as most trees are
     // shallow in terms of query nodes.
     const bool hasNotRootSort = hasSortStage && STAGE_SORT != solnRoot->getType();

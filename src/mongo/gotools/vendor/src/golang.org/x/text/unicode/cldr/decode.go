@@ -30,7 +30,7 @@ type Decoder struct {
 // evaluation of LDML should be limited.  It automatically calls SetDirFilter.
 func (d *Decoder) SetSectionFilter(filter ...string) {
 	d.sectionFilter = filter
-	// TODO: automatically set dir filter
+	// TODO: automatically set dir filter id:1976
 }
 
 // SetDirFilter limits the loading of LDML XML files of the specied directories.
@@ -100,7 +100,7 @@ func (d *Decoder) decode(dir, id string, r io.Reader) error {
 		if l.Identity == nil {
 			return fmt.Errorf("%s/%s: missing identity element", dir, id)
 		}
-		// TODO: verify when CLDR bug http://unicode.org/cldr/trac/ticket/8970
+		// TODO: verify when CLDR bug http://unicode.org/cldr/trac/ticket/8970 id:1463
 		// is resolved.
 		// path := strings.Split(id, "_")
 		// if lang := l.Identity.Language.Type; lang != path[0] {

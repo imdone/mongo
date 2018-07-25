@@ -153,7 +153,7 @@ void appendGetMoreResponseObject(long long cursorId,
 class CursorResponse {
 // In order to work around a bug in the compiler on the s390x platform, the IDL needs to invoke the
 // copy constructor on that platform.
-// TODO SERVER-32467 Remove this ifndef once the compiler has been fixed and the workaround has been
+// TODO SERVER-32467 Remove this ifndef once the compiler has been fixed and the workaround has been id:1538
 // removed.
 #ifndef __s390x__
     MONGO_DISALLOW_COPYING(CursorResponse);
@@ -197,7 +197,7 @@ public:
 
 // In order to work around a bug in the compiler on the s390x platform, the IDL needs to invoke the
 // copy constructor on that platform.
-// TODO SERVER-32467 Remove this ifndef once the compiler has been fixed and the workaround has been
+// TODO SERVER-32467 Remove this ifndef once the compiler has been fixed and the workaround has been id:665
 // removed.
 #ifdef __s390x__
     CursorResponse(const CursorResponse& other) = default;

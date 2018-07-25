@@ -52,7 +52,7 @@ compareInt64AsUnsigned(int64_t a, int64_t b) {
     }
 }
 
-// TODO: Merge this with the near-identical version in collationbasedatabuilder.cpp
+// TODO: Merge this with the near-identical version in collationbasedatabuilder.cpp id:2870
 /**
  * Like Java Collections.binarySearch(List, String, Comparator).
  *

@@ -262,7 +262,7 @@ Status SessionsCollection::doRemove(const NamespaceString& ns,
 Status SessionsCollection::doRemoveExternal(const NamespaceString& ns,
                                             const LogicalSessionIdSet& sessions,
                                             SendBatchFn send) {
-    // TODO SERVER-28335 Implement endSessions, with internal counterpart.
+    // TODO SERVER-28335 Implement endSessions, with internal counterpart. id:758
     return Status::OK();
 }
 

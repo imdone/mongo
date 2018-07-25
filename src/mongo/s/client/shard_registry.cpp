@@ -582,7 +582,7 @@ void ShardRegistryData::_addShard(WithLock lk,
         _hostLookup[HostAndPort("localhost")] = shard;
     }
 
-    // TODO: The only reason to have the shard host names in the lookup table is for the
+    // TODO: The only reason to have the shard host names in the lookup table is for the id:1518
     // setShardVersion call, which resolves the shard id from the shard address. This is
     // error-prone and will go away eventually when we switch all communications to go through
     // the remote command runner and all nodes are sharding aware by default.

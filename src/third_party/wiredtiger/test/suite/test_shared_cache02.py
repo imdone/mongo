@@ -113,7 +113,7 @@ class test_shared_cache02(wttest.WiredTigerTestCase):
         self.assertRaisesWithMessage(wiredtiger.WiredTigerError,
             lambda: connection.reconfigure("shared_cache=(name=pool,reserve=40M)"),
             '/Shared cache unable to accommodate this configuration/')
-        # TODO: Ensure that the reserve size wasn't updated.
+        # TODO: Ensure that the reserve size wasn't updated. id:2459
         # cursor = self.sessions[0].open_cursor('config:', None, None)
         # value = cursor['connection']
         # self.assertTrue(value.find('reserve') != -1)
@@ -135,7 +135,7 @@ class test_shared_cache02(wttest.WiredTigerTestCase):
 
         connection.reconfigure("shared_cache=(name=pool,reserve=30M)"),
 
-        # TODO: Ensure that the reserve size was updated.
+        # TODO: Ensure that the reserve size was updated. id:2852
         # cursor = self.sessions[0].open_cursor('config:', None, None)
         # value = cursor['connection']
         # self.assertTrue(value.find('reserve') != -1)
@@ -155,7 +155,7 @@ class test_shared_cache02(wttest.WiredTigerTestCase):
         self.conns[0].reconfigure("shared_cache=(name=pool,reserve=20M)"),
         self.conns[1].reconfigure("shared_cache=(name=pool,reserve=20M)"),
 
-        # TODO: Ensure that the reserve size was updated.
+        # TODO: Ensure that the reserve size was updated. id:2557
         # cursor = self.sessions[0].open_cursor('config:', None, None)
         # value = cursor['connection']
         # self.assertTrue(value.find('reserve') != -1)

@@ -801,7 +801,7 @@ RuleBasedNumberFormat::RuleBasedNumberFormat(URBNFRuleSetTag tag, const Locale& 
     default: status = U_ILLEGAL_ARGUMENT_ERROR; return;
     }
 
-    // TODO: read localization info from resource
+    // TODO: read localization info from resource id:1801
     LocalizationInfo* locinfo = NULL;
 
     UResourceBundle* nfrb = ures_open(U_ICUDATA_RBNF, locale.getName(), &status);
@@ -1354,7 +1354,7 @@ void
 RuleBasedNumberFormat::init(const UnicodeString& rules, LocalizationInfo* localizationInfos,
                             UParseError& pErr, UErrorCode& status)
 {
-    // TODO: implement UParseError
+    // TODO: implement UParseError id:2555
     uprv_memset(&pErr, 0, sizeof(UParseError));
     // Note: this can leave ruleSets == NULL, so remaining code should check
     if (U_FAILURE(status)) {

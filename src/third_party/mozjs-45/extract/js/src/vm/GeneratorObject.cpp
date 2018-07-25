@@ -25,7 +25,7 @@ GeneratorObject::create(JSContext* cx, AbstractFramePtr frame)
     if (frame.script()->isStarGenerator()) {
         RootedValue pval(cx);
         RootedObject fun(cx, frame.fun());
-        // FIXME: This would be faster if we could avoid doing a lookup to get
+        // FIXME: This would be faster if we could avoid doing a lookup to get id:2717
         // the prototype for the instance.  Bug 906600.
         if (!GetProperty(cx, fun, fun, cx->names().prototype, &pval))
             return nullptr;

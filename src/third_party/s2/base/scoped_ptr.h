@@ -16,7 +16,7 @@
 #include <cstddef>
 
 #ifdef OS_EMBEDDED_QNX
-// NOTE(user):
+// NOTE (user): id:3041
 // The C++ standard says that <stdlib.h> declares both ::foo and std::foo
 // But this isn't done in QNX version 6.3.2 200709062316.
 using std::free;

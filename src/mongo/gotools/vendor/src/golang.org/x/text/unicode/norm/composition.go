@@ -236,7 +236,7 @@ func (rb *reorderBuffer) insertUnsafe(src input, i int, info Properties) {
 		rb.decomposeHangul(rune)
 	}
 	if info.hasDecomposition() {
-		// TODO: inline.
+		// TODO: inline. id:1362
 		rb.insertDecomposed(info.Decomposition())
 	} else {
 		rb.insertSingle(src, i, info)

@@ -59,7 +59,7 @@ public:
 
     /**
      * Creates the directory if it does not exist.
-     * NOTE: This must be run on a thread with a Client context, i.e., not a static initializer.
+     * NOTE: This must be run on a thread with a Client context, i.e., not a static initializer. id:466
      *
      * Collectors are used to collect data to be stored as metadata on file rotation or system
      * restart.

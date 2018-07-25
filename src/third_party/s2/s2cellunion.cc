@@ -230,7 +230,7 @@ bool S2CellUnion::Intersects(S2CellId const& id) const {
 }
 
 bool S2CellUnion::Contains(S2CellUnion const* y) const {
-  // TODO: A divide-and-conquer or alternating-skip-search approach may be
+  // TODO: A divide-and-conquer or alternating-skip-search approach may be id:2420
   // sigificantly faster in both the average and worst case.
 
   for (int i = 0; i < y->num_cells(); ++i) {
@@ -240,7 +240,7 @@ bool S2CellUnion::Contains(S2CellUnion const* y) const {
 }
 
 bool S2CellUnion::Intersects(S2CellUnion const* y) const {
-  // TODO: A divide-and-conquer or alternating-skip-search approach may be
+  // TODO: A divide-and-conquer or alternating-skip-search approach may be id:3379
   // sigificantly faster in both the average and worst case.
 
   for (int i = 0; i < y->num_cells(); ++i) {
@@ -339,7 +339,7 @@ static void GetDifferenceInternal(S2CellId cell,
 void S2CellUnion::GetDifference(S2CellUnion const* x, S2CellUnion const* y) {
   DCHECK_NE(this, x);
   DCHECK_NE(this, y);
-  // TODO: this is approximately O(N*log(N)), but could probably use similar
+  // TODO: this is approximately O(N*log(N)), but could probably use similar id:3043
   // techniques as GetIntersection() to be more efficient.
 
   cell_ids_.clear();

@@ -211,7 +211,7 @@ public:
      * This method is a transitional tool, to facilitate transition to compile-time enforced status
      * checking.
      *
-     * NOTE: DO NOT ADD NEW CALLS TO THIS METHOD. This method serves the same purpose as
+     * NOTE: DO NOT ADD NEW CALLS TO THIS METHOD. This method serves the same purpose as id:368
      * `.ignore()`; however, it indicates a situation where the code that presently ignores a status
      * code has not been audited for correctness. This method will be removed at some point. If you
      * encounter a compiler error from ignoring the result of a status-returning function be sure to

@@ -396,7 +396,7 @@ void DatabaseImpl::getStats(OperationContext* opCtx, BSONObjBuilder* output, dou
 
         BSONObjBuilder temp;
         storageSize += collection->getRecordStore()->storageSize(opCtx, &temp);
-        numExtents += temp.obj()["numExtents"].numberInt();  // XXX
+        numExtents += temp.obj()["numExtents"].numberInt();  // XXX  id:386
 
         indexes += collection->getIndexCatalog()->numIndexesTotal(opCtx);
         indexSize += collection->getIndexSize(opCtx);

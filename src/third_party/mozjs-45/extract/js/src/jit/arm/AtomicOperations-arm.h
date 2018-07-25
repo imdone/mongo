@@ -184,26 +184,26 @@ template<typename T>
 inline T
 js::jit::AtomicOperations::loadSafeWhenRacy(T* addr)
 {
-    return *addr;               // FIXME (1208663): not yet safe
+    return *addr;               // FIXME (1208663): not yet safe id:2939
 }
 
 template<typename T>
 inline void
 js::jit::AtomicOperations::storeSafeWhenRacy(T* addr, T val)
 {
-    *addr = val;                // FIXME (1208663): not yet safe
+    *addr = val;                // FIXME (1208663): not yet safe id:2026
 }
 
 inline void
 js::jit::AtomicOperations::memcpySafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe
+    memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe id:2647
 }
 
 inline void
 js::jit::AtomicOperations::memmoveSafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    memmove(dest, src, nbytes); // FIXME (1208663): not yet safe
+    memmove(dest, src, nbytes); // FIXME (1208663): not yet safe id:2300
 }
 
 template<size_t nbytes>

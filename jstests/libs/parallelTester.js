@@ -7,7 +7,7 @@ if (typeof _threadInject != "undefined") {
     // arguments: [startFunction, startFunction args...]
     function _threadStartWrapper() {
         // Recursively evals all the Code objects present in arguments
-        // NOTE: This is a naive implementation that cannot handle cyclic objects.
+        // NOTE: This is a naive implementation that cannot handle cyclic objects. id:813
         function evalCodeArgs(arg) {
             if (arg instanceof Code) {
                 return eval("(" + arg.code + ")");
@@ -271,7 +271,7 @@ if (typeof _threadInject != "undefined") {
             // These tests can't be run in parallel because they expect an awaitData cursor to
             // return after maxTimeMS, however this doesn't work if a long running blocking
             // operation is running in parallel.
-            // TODO: Remove this restriction as part of SERVER-33942.
+            // TODO: Remove this restriction as part of SERVER-33942. id:214
             parallelFilesDir + "/compact_keeps_indexes.js",
             parallelFilesDir + "/awaitdata_getmore_cmd.js",
         ];
@@ -385,7 +385,7 @@ if (typeof CountDownLatch !== 'undefined') {
         }
         this._descriptor = CountDownLatch._new.apply(null, arguments);
 
-        // NOTE: The following methods have to be defined on the instance itself,
+        // NOTE: The following methods have to be defined on the instance itself, id:111
         //       and not on its prototype. This is because properties on the
         //       prototype are lost during the serialization to BSON that occurs
         //       when passing data to a child thread.

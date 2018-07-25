@@ -245,7 +245,7 @@ public:
     Value& getField(StringData name) {
         Position pos = findField(name);
         if (!pos.found())
-            return appendField(name);  // TODO: find a way to avoid hashing name twice
+            return appendField(name);  // TODO: find a way to avoid hashing name twice id:1148
         return getField(pos).val;
     }
 
@@ -382,7 +382,7 @@ private:
     }
 
     static unsigned hashKey(StringData name) {
-        // TODO consider FNV-1a once we have a better benchmark corpus
+        // TODO consider FNV-1a once we have a better benchmark corpus id:503
         unsigned out;
         MurmurHash3_x86_32(name.rawData(), name.size(), 0, &out);
         return out;

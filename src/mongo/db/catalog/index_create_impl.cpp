@@ -286,7 +286,7 @@ StatusWith<std::vector<BSONObj>> MultiIndexBlockImpl::init(const std::vector<BSO
 
         index.filterExpression = index.block->getEntry()->getFilterExpression();
 
-        // TODO SERVER-14888 Suppress this in cases we don't want to audit.
+        // TODO SERVER-14888 Suppress this in cases we don't want to audit. id:447
         audit::logCreateIndex(_opCtx->getClient(), &info, descriptor->indexName(), ns);
 
         _indexes.push_back(std::move(index));

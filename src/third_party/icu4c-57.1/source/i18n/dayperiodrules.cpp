@@ -35,7 +35,7 @@ struct DayPeriodRulesData : public UMemory {
 enum CutoffType {
     CUTOFF_TYPE_UNKNOWN = -1,
     CUTOFF_TYPE_BEFORE,
-    CUTOFF_TYPE_AFTER,  // TODO: AFTER is deprecated in CLDR 29. Remove.
+    CUTOFF_TYPE_AFTER,  // TODO: AFTER is deprecated in CLDR 29. Remove. id:3264
     CUTOFF_TYPE_FROM,
     CUTOFF_TYPE_AT
 };

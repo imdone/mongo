@@ -136,7 +136,7 @@
     });
 
     // Verify that applyOps commands propagate.
-    // NOTE: This section of the test depends on the oplog and roles schemas.
+    // NOTE: This section of the test depends on the oplog and roles schemas. id:46
     assert.commandWorked(rstest.getPrimary().getDB("admin").runCommand({
         applyOps: [
             {op: "c", ns: "admin.$cmd", o: {create: "system.roles"}},

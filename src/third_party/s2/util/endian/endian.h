@@ -126,7 +126,7 @@ class LittleEndian {
   // uint64 val = 0;
   // memcpy(&val, p, len);
   // return ToHost64(val);
-  // TODO(user): write a small benchmark and benchmark the speed
+  // TODO (user): write a small benchmark and benchmark the speed id:2776
   // of a memcpy based approach.
   //
   // For speed reasons this function does not work for len == 0.
@@ -179,13 +179,13 @@ class LittleEndian {
 
 
 // This one is safe to take as it's an extension
-// #define htonll(x) ghtonll(x)     // XXX Conflicts on OS X Yosemite
+// #define htonll(x) ghtonll(x)     // XXX Conflicts on OS X Yosemite id:2431
 
 // ntoh* and hton* are the same thing for any size and bytesex,
 // since the function is an involution, i.e., its own inverse.
 #define gntohl(x) ghtonl(x)
 #define gntohs(x) ghtons(x)
 #define gntohll(x) ghtonll(x)
-// #define ntohll(x) htonll(x)      // XXX Conflicts on OS X Yosemite
+// #define ntohll(x) htonll(x)      // XXX Conflicts on OS X Yosemite id:3386
 
 #endif  // UTIL_ENDIAN_ENDIAN_H_

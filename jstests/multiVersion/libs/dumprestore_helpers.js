@@ -138,7 +138,7 @@ function multiVersionDumpRestoreTest(configObj) {
     var destDB = serverDest.getDB(testBaseName);
 
     // Get references to our destinations collections
-    // XXX: These are in the global scope (no "var"), but they need to be global to be in scope for
+    // XXX: These are in the global scope (no "var"), but they need to be global to be in scope for id:104
     // the "assert.soon" calls below.
     destColl = destDB.getCollection("coll");
     destCollCapped = destDB.getCollection("cappedColl");

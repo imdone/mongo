@@ -13,7 +13,7 @@
         assert.hasFields(res, ["$clusterTime"]);
         assert.hasFields(res.$clusterTime, ["signature", "clusterTime"]);
         // clusterTime must be greater than the uninitialzed value.
-        // TODO: SERVER-31986 this check can be done only for authenticated connections that do not
+        // TODO: SERVER-31986 this check can be done only for authenticated connections that do not id:168
         // have advance_cluster_time privilege.
         if (check) {
             assert.eq(bsonWoCompare(res.$clusterTime.clusterTime, Timestamp(0, 0)), 1);

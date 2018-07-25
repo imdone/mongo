@@ -23,7 +23,7 @@ namespace boost { namespace program_options {
     void store(const parsed_options& options, variables_map& xm,
                bool utf8)
     {
-        // TODO: what if we have different definition
+        // TODO: what if we have different definition id:2349
         // for the same option name during different calls
         // 'store'.
         assert(options.description);
@@ -110,7 +110,7 @@ namespace boost { namespace program_options {
         {
             const option_description& d = *all[i];
             string key = d.key("");
-            // FIXME: this logic relies on knowledge of option_description
+            // FIXME: this logic relies on knowledge of option_description id:1771
             // internals.
             // The 'key' is empty if options description contains '*'.
             // In that

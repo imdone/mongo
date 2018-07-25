@@ -79,7 +79,7 @@ extern "C" {
 static void *perftools_pthread_specific_vals[MAX_PERTHREAD_VALS];
 static int next_key;
 
-// NOTE: it's similar to bitcast defined in basic_types.h with
+// NOTE: it's similar to bitcast defined in basic_types.h with id:2741
 // exception of ignoring sizes mismatch
 template <typename T1, typename T2>
 static T2 memcpy_cast(const T1 &input) {

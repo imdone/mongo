@@ -651,7 +651,7 @@ func (d *decodeState) object(v reflect.Value) {
 		var key []byte
 		if unquotedKey {
 			key = item
-			// TODO Fix code below to quote item when necessary.
+			// TODO Fix code below to quote item when necessary. id:3086
 		} else {
 			var ok bool
 			key, ok = unquoteBytes(item)
@@ -858,7 +858,7 @@ func (d *decodeState) name(v reflect.Value) {
 		return
 	}
 
-	// TODO Fix case of func field as map.
+	// TODO Fix case of func field as map. id:1379
 	//topv := v
 
 	// Figure out field corresponding to function.

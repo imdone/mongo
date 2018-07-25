@@ -645,7 +645,7 @@ public:
 #ifndef U_HIDE_INTERNAL_API
     /**
      * Internal function, do not use.
-     * TODO:  figure out how to make this be non-public.
+     * TODO: figure out how to make this be non-public. id:2195
      *        NumberFormat::format(Formattable, ...
      *        needs to get at the DigitList, if it exists, for
      *        big decimal formatting.

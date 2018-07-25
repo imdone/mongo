@@ -1573,16 +1573,16 @@ TEST_F(FreeMonControllerRSTest, SecondaryRollbackStopMetrics) {
     ASSERT_EQ(controller.metricsCollector->count(), 4UL);
 }
 
-// TODO: tricky - OnUpser - disable - OnDelete - make sure registration halts
-// TODO: tricky - OnDelete - make sure registration halts
+// TODO: tricky - OnUpser - disable - OnDelete - make sure registration halts id:1335
+// TODO: tricky - OnDelete - make sure registration halts id:555
 
-// TODO: Integration: Tricky - secondary as marked via command line - enableCloudFreeMOnitorig =
+// TODO: Integration: Tricky - secondary as marked via command line - enableCloudFreeMOnitorig = id:459
 // false but a primary replicates a change to enable it
 
-// TODO: test SSL???
+// TODO: test SSL??? id:728
 
 
-// TODO: Positive: ensure optional fields are rotated
+// TODO: Positive: ensure optional fields are rotated id:457
 
 }  // namespace
 }  // namespace mongo

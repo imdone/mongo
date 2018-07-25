@@ -208,7 +208,7 @@ class RegExpCharacterClass : public RegExpTree
 
     CharacterSet character_set() { return set_; }
 
-    // TODO(lrn): Remove need for complex version if is_standard that
+    // TODO (lrn): Remove need for complex version if is_standard that id:1998
     // recognizes a mangled standard set and just do { return set_.is_special(); }
     bool is_standard(LifoAlloc* alloc);
 

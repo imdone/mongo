@@ -725,7 +725,7 @@ function TypedObjectArrayTypeBuild(a,b,c) {
   var kind = DESCR_KIND(this);
   switch (kind) {
   case JS_TYPEREPR_ARRAY_KIND:
-    if (typeof a === "function") // XXX here and elsewhere: these type dispatches are fragile at best.
+    if (typeof a === "function") // XXX here and elsewhere: these type dispatches are fragile at best. id:2217
       return BuildTypedSeqImpl(this, this.length, 1, a);
     else if (typeof a === "number" && typeof b === "function")
       return BuildTypedSeqImpl(this, this.length, a, b);
@@ -1103,7 +1103,7 @@ function ReduceTypedSeqImpl(array, outputType, func, initial) {
     // RangeError("reduce requires array of length > 0")
     ThrowTypeError(JSMSG_TYPEDOBJECT_BAD_ARGS);
 
-  // FIXME bug 950106 Should reduce method supply an outptr handle?
+  // FIXME bug 950106 Should reduce method supply an outptr handle? id:3307
   // For now, reduce never supplies an outptr, regardless of outputType.
 
   if (TypeDescrIsSimpleType(outputType)) {

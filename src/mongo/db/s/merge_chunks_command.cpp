@@ -83,7 +83,7 @@ Status mergeChunks(OperationContext* opCtx,
                    const BSONObj& maxKey,
                    const OID& epoch) {
     // Get the distributed lock
-    // TODO(SERVER-25086): Remove distLock acquisition from merge chunk
+    // TODO (SERVER-25086): Remove distLock acquisition from merge chunk id:1301
     const string whyMessage = stream() << "merging chunks in " << nss.ns() << " from " << minKey
                                        << " to " << maxKey;
 

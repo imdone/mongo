@@ -145,9 +145,9 @@ GeoHashConverter::Parameters getConverterParams() {
 
 /**
  * Test region which mimics the region of a geohash cell.
- * NOTE: Technically this is not 100% correct, since geohash cells are inclusive on lower and
+ * NOTE: Technically this is not 100% correct, since geohash cells are inclusive on lower and id:611
  * exclusive on upper edges.  For now, this region is just exclusive on all edges.
- * TODO: Create an explicit HashCell which correctly encapsulates this behavior, push to the
+ * TODO: Create an explicit HashCell which correctly encapsulates this behavior, push to the id:482
  * R2Region interface.
  */
 class HashBoxRegion : public R2Region {

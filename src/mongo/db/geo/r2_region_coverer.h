@@ -65,7 +65,7 @@ public:
     // For any setting of max_cells(), an arbitrary number of cells may be
     // returned if min_level() is too high for the region being approximated.
     //
-    // TODO(sz): accuracy experiments similar to S2RegionCoverer.
+    // TODO (sz): accuracy experiments similar to S2RegionCoverer. id:1368
     void setMaxCells(int maxCells);
     int maxCells() const {
         return _maxCells;

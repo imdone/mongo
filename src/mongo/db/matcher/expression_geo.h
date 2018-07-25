@@ -121,7 +121,7 @@ private:
 };
 
 
-// TODO: Make a struct, turn parse stuff into something like
+// TODO: Make a struct, turn parse stuff into something like id:1380
 // static Status parseNearQuery(const BSONObj& obj, NearQuery** out);
 class GeoNearExpression {
     MONGO_DISALLOW_COPYING(GeoNearExpression);

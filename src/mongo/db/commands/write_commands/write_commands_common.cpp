@@ -48,7 +48,7 @@ namespace {
 
 /**
  * Extracts the namespace being indexed from a raw BSON write command.
- * TODO: Remove when we have parsing hooked before authorization.
+ * TODO: Remove when we have parsing hooked before authorization. id:413
  */
 NamespaceString _getIndexedNss(const std::vector<BSONObj>& documents) {
     uassert(ErrorCodes::FailedToParse, "index write batch is empty", !documents.empty());

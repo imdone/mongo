@@ -188,7 +188,7 @@ public:
         }
 
         BSONObjBuilder result;
-        // TODO(siyuan) Output term of OpTime
+        // TODO (siyuan) Output term of OpTime id:1862
         result.append("latestOptime", replCoord->getMyLastAppliedOpTime().getTimestamp());
 
         BSONObj o;

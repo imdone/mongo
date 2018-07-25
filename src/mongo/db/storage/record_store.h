@@ -135,7 +135,7 @@ enum ValidateCmdLevel : int {
  *     newest committed record in the collection and may skip over uncommitted records.
  *   - SeekableRecordCursor::seekExact() must ignore the visibility filter and return the requested
  *     document even if it is supposed to be invisible.
- * TODO SERVER-18934 Handle this above the storage engine layer so storage engines don't have to
+ * TODO SERVER-18934 Handle this above the storage engine layer so storage engines don't have to id:688
  * deal with capped visibility.
  */
 class RecordCursor {
@@ -213,7 +213,7 @@ public:
     //
     // Storage engines which support document-level locking need not implement this.
     //
-    // TODO see if these can be replaced by WriteConflictException.
+    // TODO see if these can be replaced by WriteConflictException. id:2055
     //
 
     /**

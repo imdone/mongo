@@ -152,7 +152,7 @@ public:
             // asynchronously with a different OperationContext. This must be done after the above
             // join, because each caller must set the opTime to wait for writeConcern for on its own
             // OperationContext.
-            // TODO (SERVER-30183): If this moveChunk joined an active moveChunk that did not have
+            // TODO (SERVER-30183): If this moveChunk joined an active moveChunk that did not have id:1322
             // waitForDelete=true, the captured opTime may not reflect all the deletes.
             repl::ReplClientInfo::forClient(opCtx->getClient()).setLastOpToSystemLastOpTime(opCtx);
         }

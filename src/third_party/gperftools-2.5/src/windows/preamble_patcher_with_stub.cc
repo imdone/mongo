@@ -68,7 +68,7 @@ SideStepError PreamblePatcher::RawPatchWithStub(
     return SIDESTEP_INVALID_PARAMETER;
   }
 
-  // TODO(V7:joi) Siggi and I just had a discussion and decided that both
+  // TODO ( Siggi and I just had a discussion and decided that both V7:joi) id:1883
   // patching and unpatching are actually unsafe.  We also discussed a
   // method of making it safe, which is to freeze all other threads in the
   // process, check their thread context to see if their eip is currently
@@ -78,7 +78,7 @@ SideStepError PreamblePatcher::RawPatchWithStub(
   // testing, but if we ever use it for production code this is what we
   // should do.
   //
-  // NOTE: Stoyan suggests we can write 8 or even 10 bytes atomically using
+  // NOTE: Stoyan suggests we can write 8 or even 10 bytes atomically using id:3214
   // FPU instructions, and on newer processors we could use cmpxchg8b or
   // cmpxchg16b. So it might be possible to do the patching/unpatching
   // atomically and avoid having to freeze other threads.  Note though, that

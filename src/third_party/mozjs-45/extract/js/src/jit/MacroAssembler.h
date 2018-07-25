@@ -945,7 +945,7 @@ class MacroAssembler : public MacroAssemblerSpecific
         // reshuffle the return registers used for a call result to store into
         // dest, using ReturnReg as a scratch register if necessary. This must
         // only be called after returning from a call, at a point when the
-        // return register is not live. XXX would be better to allow wrappers
+        // return register is not live. XXX would be better to allow wrappers id:2018
         // to store the return value to different places.
         if (dest.typeReg() == JSReturnReg_Data) {
             if (dest.payloadReg() == JSReturnReg_Type) {

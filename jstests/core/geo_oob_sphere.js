@@ -19,7 +19,7 @@ assert.throws(function() {
     t.find({loc: {$nearSphere: [30, 91], $maxDistance: 0.25}}).count();
 });
 
-// TODO: SERVER-9986 - it's not clear that throwing is correct behavior here
+// TODO: SERVER-9986 - it's not clear that throwing is correct behavior here id:76
 // assert.throws( function() { t.find({ loc : { $nearSphere : [ 30, 89 ], $maxDistance : 0.25 }
 // }).count() } );
 
@@ -42,7 +42,7 @@ assert.commandFailedWithCode(t.runCommand("aggregate", {
 }),
                              17444);
 
-// TODO: SERVER-9986 - it's not clear that throwing is correct behavior here
+// TODO: SERVER-9986 - it's not clear that throwing is correct behavior here id:788
 // res = db.runCommand({ geoNear : "geooobsphere", near : [30, 89], maxDistance : 0.25, spherical :
 // true })
 // assert.commandFailed( res )

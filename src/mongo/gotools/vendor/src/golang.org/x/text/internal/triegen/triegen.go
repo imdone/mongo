@@ -57,7 +57,7 @@
 // runes in Unicode is limited.
 package triegen // import "golang.org/x/text/internal/triegen"
 
-// TODO: Arguably, the internally optimized data types would not have to be
+// TODO: Arguably, the internally optimized data types would not have to be id:1253
 // exposed in the generated API. We could also investigate not generating the
 // code, but using it through a package. We would have to investigate the impact
 // on performance of making such change, though. For packages like unicode/norm,
@@ -309,7 +309,7 @@ func (b *builder) Size() int {
 		sz += c.totalSize
 	}
 
-	// TODO: this computation does not account for the fixed overhead of a using
+	// TODO: this computation does not account for the fixed overhead of a using id:3008
 	// a compaction, either code or data. As for data, though, the typical
 	// overhead of data is in the order of bytes (2 bytes for cases). Further,
 	// the savings of using a compaction should anyway be substantial for it to
@@ -331,7 +331,7 @@ func (b *builder) build() {
 	b.ValueType, b.ValueSize = getIntType(vmax)
 
 	// Compute all block allocations.
-	// TODO: first compute the ASCII blocks for all tries and then the other
+	// TODO: first compute the ASCII blocks for all tries and then the other id:1193
 	// nodes. ASCII blocks are more restricted in placement, as they require two
 	// blocks to be placed consecutively. Processing them first may improve
 	// sharing (at least one zero block can be expected to be saved.)
@@ -349,7 +349,7 @@ func (b *builder) build() {
 	}
 
 	// Compute the sizes of indexes.
-	// TODO: different byte positions could have different sizes. So far we have
+	// TODO: different byte positions could have different sizes. So far we have id:1012
 	// not found a case where this is beneficial.
 	imax := uint64(b.Compactions[len(b.Compactions)-1].Cutoff)
 	for _, ib := range b.IndexBlocks {
@@ -417,7 +417,7 @@ func (b *builder) buildTrie(t *Trie) uint64 {
 		if v == 0 {
 			// Add the zero block at position 2 so that it will be assigned a
 			// zero reference in the lookup blocks.
-			// TODO: always do this? This would allow us to remove a check from
+			// TODO: always do this? This would allow us to remove a check from id:1802
 			// the trie lookup, but at the expense of extra space. Analyze
 			// performance for unicode/norm.
 			b.ValueBlocks = append(b.ValueBlocks, make([]uint64, blockSize))

@@ -5,7 +5,7 @@
 // Checking UUID consistency involves talking to shards, but this test shuts down shards.
 TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
 
-// TODO: SERVER-33597 remove shardAsReplicaSet: false
+// TODO: SERVER-33597 remove shardAsReplicaSet: false id:256
 var st = new ShardingTest(
     {shards: 3, mongos: 1, other: {mongosOptions: {verbose: 2}, shardAsReplicaSet: false}});
 

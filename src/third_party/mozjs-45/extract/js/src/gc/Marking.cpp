@@ -978,7 +978,7 @@ js::GCMarker::eagerlyMarkChildren(Shape* shape)
 
         // When triggered between slices on belhalf of a barrier, these
         // objects may reside in the nursery, so require an extra check.
-        // FIXME: Bug 1157967 - remove the isTenured checks.
+        // FIXME: Bug 1157967 - remove the isTenured checks. id:2921
         if (shape->hasGetterObject() && shape->getterObject()->isTenured())
             traverseEdge(shape, shape->getterObject());
         if (shape->hasSetterObject() && shape->setterObject()->isTenured())
@@ -2253,7 +2253,7 @@ js::TenuringTracer::moveElementsToTenured(NativeObject* dst, NativeObject* src, 
     ObjectElements* srcHeader = src->getElementsHeader();
     ObjectElements* dstHeader;
 
-    /* TODO Bug 874151: Prefer to put element data inline if we have space. */
+    /* TODO Bug 874151: Prefer to put element data inline if we have space. id:1995*/
     if (!nursery().isInside(srcHeader)) {
         MOZ_ASSERT(src->elements_ == dst->elements_);
         nursery().removeMallocedBuffer(srcHeader);

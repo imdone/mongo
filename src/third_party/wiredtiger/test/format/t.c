@@ -213,7 +213,7 @@ main(int argc, char *argv[])
 				 * Copy out the run's statistics after the last
 				 * set of operations.
 				 *
-				 * XXX
+				 * XXX  id:3436
 				 * Verify closes the underlying handle and
 				 * discards the statistics, read them first.
 				 */

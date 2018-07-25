@@ -82,7 +82,7 @@ typedef boost::function<void (dbg_startup_info const&)> dbg_starter;
 /// Boost.Test identifies each configuration with unique string.
 /// Also different debuggers configurations require different routines which is specifically tailored to start that debugger configuration.
 /// Boost.Test comes with set of predefined configuration names and corresponding routines for these configurations:
-///   - TODO
+///   - TODO  id:1753
 ///
 /// You can use this routine to select which one of the predefined debugger configurations to use in which case you do not need to provide starter
 /// routine (the one provided by Boost.Test will be used). You can also use this routine to select your own debugger by providing unique configuration

@@ -216,7 +216,7 @@ public:
      * throw an exception whenever it would have been possible to grant the lock with LOCK_OK. This
      * behavior can be disabled with an UninterruptibleLockGuard.
      *
-     * NOTE: These methods are not public and should only be used inside the class
+     * NOTE: These methods are not public and should only be used inside the class id:1293
      * implementation and for unit-tests and not called directly.
      */
     LockResult lockBegin(OperationContext* opCtx, ResourceId resId, LockMode mode);

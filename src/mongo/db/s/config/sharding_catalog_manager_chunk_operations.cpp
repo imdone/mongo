@@ -273,7 +273,7 @@ Status ShardingCatalogManager::commitChunkSplit(OperationContext* opCtx,
                                                 const std::string& shardName) {
     // Take _kChunkOpLock in exclusive mode to prevent concurrent chunk splits, merges, and
     // migrations
-    // TODO(SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/
+    // TODO (SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/ id:1292
     // move chunks on different collections to proceed in parallel
     Lock::ExclusiveLock lk(opCtx->lockState(), _kChunkOpLock);
 
@@ -492,7 +492,7 @@ Status ShardingCatalogManager::commitChunkMerge(OperationContext* opCtx,
 
     // Take _kChunkOpLock in exclusive mode to prevent concurrent chunk splits, merges, and
     // migrations
-    // TODO(SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/
+    // TODO (SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/ id:650
     // move chunks on different collections to proceed in parallel
     Lock::ExclusiveLock lk(opCtx->lockState(), _kChunkOpLock);
 
@@ -612,7 +612,7 @@ StatusWith<BSONObj> ShardingCatalogManager::commitChunkMigration(
     // for migrated chunks are generated within the command and must be committed to the database
     // before another chunk commit generates new ChunkVersions in the same manner.
     //
-    // TODO(SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/
+    // TODO (SERVER-25359): Replace with a collection-specific lock map to allow splits/merges/ id:1882
     // move chunks on different collections to proceed in parallel.
     // (Note: This is not needed while we have a global lock, taken here only for consistency.)
     Lock::ExclusiveLock lk(opCtx->lockState(), _kChunkOpLock);
@@ -701,7 +701,7 @@ StatusWith<BSONObj> ShardingCatalogManager::commitChunkMigration(
 
     // Update the history of the migrated chunk.
     // Drop the history that is too old (10 seconds of history for now).
-    // TODO SERVER-33831 to update the old history removal policy.
+    // TODO SERVER-33831 to update the old history removal policy. id:881
     while (!newHistory.empty() &&
            newHistory.back().getValidAfter().getSecs() + kHistorySecs <
                validAfter.get().getSecs()) {

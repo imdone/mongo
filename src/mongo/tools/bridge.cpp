@@ -354,7 +354,7 @@ DbResponse ServiceEntryPointBridge::handleRequest(OperationContext* opCtx, const
     if (!isFireAndForgetCommand &&
         (request.operation() == dbQuery || request.operation() == dbGetMore ||
          request.operation() == dbCommand || request.operation() == dbMsg)) {
-        // TODO dbMsg moreToCome
+        // TODO dbMsg moreToCome id:1366
         // Forward the message to 'dest' and receive its reply in 'response'.
         auto response = uassertStatusOK(dest->sourceMessage());
         uassert(50765,
@@ -394,7 +394,7 @@ DbResponse ServiceEntryPointBridge::handleRequest(OperationContext* opCtx, const
 int bridgeMain(int argc, char** argv, char** envp) {
 
     registerShutdownTask([&] {
-        // NOTE: This function may be called at any time. It must not
+        // NOTE: This function may be called at any time. It must not id:2208
         // depend on the prior execution of mongo initializers or the
         // existence of threads.
         if (hasGlobalServiceContext()) {

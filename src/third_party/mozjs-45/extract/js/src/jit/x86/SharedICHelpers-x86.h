@@ -335,7 +335,7 @@ EmitPreBarrier(MacroAssembler& masm, const AddrType& addr, MIRType type)
 inline void
 EmitStubGuardFailure(MacroAssembler& masm)
 {
-    // NOTE: This routine assumes that the stub guard code left the stack in the
+    // NOTE: This routine assumes that the stub guard code left the stack in the id:2089
     // same state it was in when it was entered.
 
     // BaselineStubEntry points to the current stub.

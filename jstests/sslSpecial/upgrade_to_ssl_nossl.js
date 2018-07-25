@@ -2,7 +2,7 @@
  * This test checks the upgrade path for mixed mode ssl
  * from disabled up to preferSSL
  *
- * NOTE: This test is similar to upgrade_to_ssl.js in the
+ * NOTE: This test is similar to upgrade_to_ssl.js in the id:279
  * ssl test suite. This test cannot use ssl communication
  * and therefore cannot test modes that only allow ssl.
  */

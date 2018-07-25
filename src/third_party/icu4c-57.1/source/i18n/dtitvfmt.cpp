@@ -14,7 +14,7 @@
 
 #if !UCONFIG_NO_FORMATTING
 
-//TODO: put in compilation
+//TODO: put in compilation id:1781
 //#define DTITVFMT_DEBUG 1
 
 #include "unicode/calendar.h"
@@ -218,7 +218,7 @@ DateIntervalFormat::operator==(const Format& other) const {
         if (fDateFormat != fmt->fDateFormat && (fDateFormat == NULL || fmt->fDateFormat == NULL)) {return FALSE;}
         if (fDateFormat && fmt->fDateFormat && (*fDateFormat != *fmt->fDateFormat)) {return FALSE;}
 
-        // TODO: should operator == ignore the From and ToCalendar? They hold transient values during
+        // TODO: should operator == ignore the From and ToCalendar? They hold transient values during id:2533
         //       formatting of a DateInterval.
         if (fFromCalendar != fmt->fFromCalendar && (fFromCalendar == NULL || fmt->fFromCalendar == NULL)) {return FALSE;}
         if (fFromCalendar && fmt->fFromCalendar && !fFromCalendar->isEquivalentTo(*fmt->fFromCalendar)) {return FALSE;}
@@ -686,7 +686,7 @@ DateIntervalFormat::initializePattern(UErrorCode& status) {
     // for skeletons with seconds, found is false and we enter this block
     if ( found == false ) {
         // use fallback
-        // TODO: if user asks "m"(minute), but "d"(day) differ
+        // TODO: if user asks "m"(minute), but "d"(day) differ id:2027
         if ( timeSkeleton.length() != 0 ) {
             if ( dateSkeleton.length() == 0 ) {
                 // prefix with yMd
@@ -704,10 +704,10 @@ DateIntervalFormat::initializePattern(UErrorCode& status) {
                 setPatternInfo(UCAL_MONTH, NULL, &pattern, fInfo->getDefaultOrder()); 
                 setPatternInfo(UCAL_YEAR, NULL, &pattern, fInfo->getDefaultOrder()); 
             } else {
-                // TODO: fall back
+                // TODO: fall back id:3270
             }
         } else {
-            // TODO: fall back
+            // TODO: fall back id:2880
         }
         return;
     } // end of skeleton not found

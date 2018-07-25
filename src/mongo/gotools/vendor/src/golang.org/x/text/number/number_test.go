@@ -73,7 +73,7 @@ func TestFormatter(t *testing.T) {
 	}, {
 		desc: "min fraction overflow",
 		f:    Decimal(0, MinFractionDigits(1e6)),
-		want: "0." + strings.Repeat("0", 255), // TODO: fraction separators
+		want: "0." + strings.Repeat("0", 255), // TODO: fraction separators id:1314
 	}, {
 		desc: "format width",
 		f:    Decimal(123, FormatWidth(10)),

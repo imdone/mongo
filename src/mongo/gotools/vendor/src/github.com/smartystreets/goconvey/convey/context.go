@@ -178,7 +178,7 @@ func (ctx *context) So(actual interface{}, assert assertion, expected ...interfa
 }
 
 func (ctx *context) Reset(action func()) {
-	/* TODO: Failure mode configuration */
+	/* TODO: Failure mode configuration id:880*/
 	ctx.resets = append(ctx.resets, action)
 }
 

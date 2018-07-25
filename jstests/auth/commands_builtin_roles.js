@@ -9,7 +9,7 @@ in jstests/auth/commands.js.
 
 */
 
-// TODO SERVER-35447: This test involves killing all sessions, which will not work as expected if
+// TODO SERVER-35447: This test involves killing all sessions, which will not work as expected if id:145
 // the kill command is sent with an implicit session.
 TestData.disableImplicitSessions = true;
 
@@ -159,7 +159,7 @@ authCommandsLib.runTests(conn, impls);
 MongoRunner.stopMongod(conn);
 
 // run all tests sharded
-// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:48
 conn = new ShardingTest({
     shards: 2,
     mongos: 1,

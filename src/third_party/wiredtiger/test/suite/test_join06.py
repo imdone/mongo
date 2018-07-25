@@ -78,7 +78,7 @@ class test_join06(wttest.WiredTigerTestCase):
 
         self.populate(self.session, self.gen_values)
 
-        # TODO: needed?
+        # TODO: needed? id:2850
         #self.reopen_conn()
 
         if self.isolation != '':

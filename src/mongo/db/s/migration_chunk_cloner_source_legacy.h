@@ -127,7 +127,7 @@ public:
      * give a chance to the caller to perform some form of yielding. It does not free or acquire any
      * locks on its own.
      *
-     * NOTE: Must be called with the collection lock held in at least IS mode.
+     * NOTE: Must be called with the collection lock held in at least IS mode. id:662
      */
     Status nextCloneBatch(OperationContext* opCtx,
                           Collection* collection,
@@ -138,7 +138,7 @@ public:
      * destination. Must not be called before all cloned objects have been fetched through calls to
      * nextCloneBatch.
      *
-     * NOTE: Must be called with the collection lock held in at least IS mode.
+     * NOTE: Must be called with the collection lock held in at least IS mode. id:1894
      */
     Status nextModsBatch(OperationContext* opCtx, Database* db, BSONObjBuilder* builder);
 

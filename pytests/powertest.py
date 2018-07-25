@@ -609,7 +609,7 @@ def install_mongod(bin_dir=None, tarball_url="latest", root_dir=None):
         return
 
     if tarball_url == "latest":
-        # TODO SERVER-31021: Support all platforms.
+        # TODO SERVER-31021: Support all platforms. id:268
         if _IS_WINDOWS:
             # MSI default:
             # https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-latest-signed.msi
@@ -1513,7 +1513,7 @@ def mongod_wait_for_primary(mongo, timeout=60, sleep_interval=3):
 def mongo_reconfig_replication(mongo, host_port, repl_set):
     """Reconfigure the mongod replica set. Return 0 if successful."""
 
-    # TODO: Rework reconfig logic as follows:
+    # TODO: Rework reconfig logic as follows: id:928
     # 1. Start up mongod in standalone
     # 2. Delete the config doc
     # 3. Stop mongod

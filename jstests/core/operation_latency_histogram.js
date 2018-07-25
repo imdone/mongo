@@ -11,7 +11,7 @@
 //     incompatible_with_embedded,
 // ]
 //
-// TODO (SERVER-36055): Correct error code reported when run on mobile, and then we can remove the
+// TODO (SERVER-36055): Correct error code reported when run on mobile, and then we can remove the id:94
 // tag incompatible_with_embedded.
 
 (function() {
@@ -121,7 +121,7 @@
 
     // CreateIndex
     assert.commandWorked(testColl.createIndex({pt: "2dsphere"}));
-    // TODO SERVER-24705: createIndex is not currently counted in Top.
+    // TODO SERVER-24705: createIndex is not currently counted in Top. id:118
     lastHistogram = assertHistogramDiffEq(testColl, lastHistogram, 0, 0, 0);
 
     // $geoNear aggregation stage

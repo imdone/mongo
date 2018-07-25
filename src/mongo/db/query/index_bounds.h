@@ -137,7 +137,7 @@ struct IndexBounds {
      */
     BSONObj toBSON() const;
 
-    // TODO: we use this for max/min scan.  Consider migrating that.
+    // TODO: we use this for max/min scan. Consider migrating that. id:671
     bool isSimpleRange;
     BSONObj startKey;
     BSONObj endKey;
@@ -196,7 +196,7 @@ public:
      * Returns MUST_ADVANCE.  Caller must advance to the query provided in the out parameters
      * and call checkKey again.
      *
-     * 3. The key is past our bounds.  Returns DONE.  No further keys will satisfy the bounds
+     * 3. The key is past our bounds.  Returns DONE . No further keys will satisfy the bounds id:533
      * and the caller should stop.
      *
      * keyEltsToUse, movePastKeyElts, out, and incOut must all be non-NULL.
@@ -230,7 +230,7 @@ public:
      *
      * Exposed for testing only.
      *
-     * TODO(efficiency): Start search from a given index.
+     * TODO (efficiency): Start search from a given index. id:1192
      */
     static Location findIntervalForField(const BSONElement& elt,
                                          const OrderedIntervalList& oil,

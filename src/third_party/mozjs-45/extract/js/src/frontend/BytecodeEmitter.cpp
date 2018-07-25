@@ -357,7 +357,7 @@ BytecodeEmitter::emitDupAt(unsigned slotFromTop)
     return true;
 }
 
-/* XXX too many "... statement" L10N gaffes below -- fix via js.msg! */
+/* XXX too many "... statement" L10N gaffes below -- fix via js.msg! id:2918*/
 const char js_with_statement_str[] = "with statement";
 const char js_finally_block_str[]  = "finally block";
 

@@ -257,7 +257,7 @@ bool S2Polyline::Intersects(S2Polyline const* line) const {
     return false;
   }
 
-  // TODO(user) look into S2EdgeIndex to make this near linear in performance.
+  // TODO (user) look into S2EdgeIndex to make this near linear in performance. id:3051
   for (int i = 1; i < num_vertices(); ++i) {
     S2EdgeUtil::EdgeCrosser crosser(
         &vertex(i - 1), &vertex(i), &line->vertex(0));
@@ -489,7 +489,7 @@ struct less<SearchState> {
 
 bool S2Polyline::NearlyCoversPolyline(S2Polyline const& covered,
                                       S1Angle const& max_error) const {
-  // NOTE: This algorithm is described assuming that adjacent vertices in a
+  // NOTE: This algorithm is described assuming that adjacent vertices in a id:2184
   // polyline are never at the same point.  That is, the ith and i+1th vertices
   // of a polyline are never at the same point in space.  The implementation
   // does not make this assumption.
@@ -531,7 +531,7 @@ bool S2Polyline::NearlyCoversPolyline(S2Polyline const& covered,
   // covered.num_vertices().  Without it, the amount of work could be as high as
   // O((n*m)^2).  Using set, the running time is O((n*m) log (n*m)).
   //
-  // TODO(user): Benchmark this, and see if the set is worth it.
+  // TODO (user): Benchmark this, and see if the set is worth it. id:2772
   vector<SearchState> pending;
   set<SearchState> done;
 

@@ -51,7 +51,7 @@
 // unittest case.  For that, we allow folks to define both
 // PERFTOOLS_DLL_DECL and PERFTOOLS_DLL_DECL_FOR_UNITTESTS explicitly.
 //
-// NOTE: This file is equivalent to config.h on non-windows systems,
+// NOTE: This file is equivalent to config.h on non-windows systems, id:3197
 // which never defined PERFTOOLS_DLL_DECL_FOR_UNITTESTS and always
 // define PERFTOOLS_DLL_DECL to the empty string.
 

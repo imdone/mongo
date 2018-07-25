@@ -97,7 +97,7 @@ func TestCaseProperties(t *testing.T) {
 			t.Errorf("isBreak(%U): got %v; want %v (%x)", r, got, want, c.info)
 		}
 	}
-	// TODO: get title case from unicode file.
+	// TODO: get title case from unicode file. id:1091
 }
 
 func TestMapping(t *testing.T) {
@@ -184,7 +184,7 @@ func TestFoldData(t *testing.T) {
 		if got, info := apply(r, foldFull); got != x.full {
 			t.Errorf("full:%q (%U): got %q %U; want %q %U (ccc=%x)", r, r, got, []rune(got), x.full, []rune(x.full), info)
 		}
-		// TODO: special and simple.
+		// TODO: special and simple. id:900
 	}
 }
 

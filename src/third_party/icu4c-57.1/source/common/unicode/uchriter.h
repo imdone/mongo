@@ -230,7 +230,7 @@ public:
   /**
    * Advances to the next code unit in the iteration range (toward
    * endIndex()), and returns that code unit.  If there are no more
-   * code units to return, returns DONE.
+   * code units to return, returns DONE . id:1679
    * @return the next code unit in the iteration range.
    * @stable ICU 2.0
    */
@@ -240,7 +240,7 @@ public:
    * Gets the current code unit for returning and advances to the next code unit
    * in the iteration range
    * (toward endIndex()).  If there are
-   * no more code units to return, returns DONE.
+   * no more code units to return, returns DONE . id:2484
    * @return the current code unit.
    * @stable ICU 2.0
    */
@@ -249,7 +249,7 @@ public:
   /**
    * Advances to the next code point in the iteration range (toward
    * endIndex()), and returns that code point.  If there are no more
-   * code points to return, returns DONE.
+   * code points to return, returns DONE . id:1948
    * Note that iteration with "pre-increment" semantics is less
    * efficient than iteration with "post-increment" semantics
    * that is provided by next32PostInc().
@@ -262,7 +262,7 @@ public:
    * Gets the current code point for returning and advances to the next code point
    * in the iteration range
    * (toward endIndex()).  If there are
-   * no more code points to return, returns DONE.
+   * no more code points to return, returns DONE . id:3243
    * @return the current point.
    * @stable ICU 2.0
    */
@@ -282,7 +282,7 @@ public:
   /**
    * Advances to the previous code unit in the iteration range (toward
    * startIndex()), and returns that code unit.  If there are no more
-   * code units to return, returns DONE.
+   * code units to return, returns DONE . id:2815
    * @return the previous code unit in the iteration range.
    * @stable ICU 2.0
    */
@@ -291,7 +291,7 @@ public:
   /**
    * Advances to the previous code point in the iteration range (toward
    * startIndex()), and returns that code point.  If there are no more
-   * code points to return, returns DONE.
+   * code points to return, returns DONE . id:1684
    * @return the previous code point in the iteration range.
    * @stable ICU 2.0
    */

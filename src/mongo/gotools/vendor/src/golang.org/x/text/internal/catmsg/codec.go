@@ -30,7 +30,7 @@ type Dictionary interface {
 	// such a message could not be found.
 	Lookup(key string) (data string, ok bool)
 
-	// TODO: consider returning an interface, instead of a string. This will
+	// TODO: consider returning an interface, instead of a string. This will id:1219
 	// allow implementations to do their own message type decoding.
 }
 
@@ -199,7 +199,7 @@ const (
 // time.
 func (e *Encoder) EncodeSubstitution(name string, arguments ...int) {
 	if arity := len(arguments); arity > 0 {
-		// TODO: also resolve macros.
+		// TODO: also resolve macros. id:2973
 		e.EncodeUint(substituteMacro)
 		e.EncodeString(name)
 		for _, a := range arguments {
@@ -212,12 +212,12 @@ func (e *Encoder) EncodeSubstitution(name string, arguments ...int) {
 			if v.key != name {
 				continue
 			}
-			e.EncodeUint(substituteVar) // TODO: support arity > 0
+			e.EncodeUint(substituteVar) // TODO: support arity > 0 id:1149
 			e.EncodeUint(uint64(v.offset))
 			return
 		}
 	}
-	// TODO: refer to dictionary-wide scoped variables.
+	// TODO: refer to dictionary-wide scoped variables. id:963
 	e.EncodeUint(substituteError)
 	e.EncodeString(name)
 	e.setError(fmt.Errorf("catmsg: unknown var %q", name))
@@ -233,7 +233,7 @@ type Decoder struct {
 	vars string
 	data string
 
-	macroArg int // TODO: allow more than one argument
+	macroArg int // TODO: allow more than one argument id:1768
 }
 
 // NewDecoder returns a new Decoder.
@@ -388,11 +388,11 @@ func (d *Decoder) ExecuteSubstitution() {
 		name := d.DecodeString()
 		data, ok := d.macros.Lookup(name)
 		old := d.macroArg
-		// TODO: support macros of arity other than 1.
+		// TODO: support macros of arity other than 1. id:1221
 		d.macroArg = int(d.DecodeUint())
 		switch {
 		case !ok:
-			// TODO: detect this at creation time.
+			// TODO: detect this at creation time. id:2975
 			d.setError(fmt.Errorf("catmsg: undefined macro %q", name))
 			fallthrough
 		case !d.execute(data):

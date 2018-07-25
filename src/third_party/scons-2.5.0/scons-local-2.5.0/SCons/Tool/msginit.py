@@ -70,7 +70,7 @@ def _POInitBuilderWrapper(env, target=None, source=_null, **kw):
       domain = env['POTDOMAIN']
     else:
       domain = 'messages'
-    source = [ domain ] # NOTE: Suffix shall be appended automatically
+    source = [ domain ] # NOTE: Suffix shall be appended automatically id:2806
   return env._POInitBuilder(target, source, **kw)
 #############################################################################
 
@@ -85,7 +85,7 @@ def generate(env,**kw):
     env['MSGINIT'] = 'msginit'
   msginitcom = '$MSGINIT ${_MSGNoTranslator(__env__)} -l ${_MSGINITLOCALE}' \
              + ' $MSGINITFLAGS -i $SOURCE -o $TARGET'
-  # NOTE: We set POTSUFFIX here, in case the 'xgettext' is not loaded
+  # NOTE: We set POTSUFFIX here, in case the 'xgettext' is not loaded id:2460
   #       (sometimes we really don't need it)
   env.SetDefault(
     POSUFFIX = ['.po'],

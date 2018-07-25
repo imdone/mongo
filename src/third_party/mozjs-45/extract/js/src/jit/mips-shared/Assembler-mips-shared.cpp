@@ -288,7 +288,7 @@ AssemblerMIPSShared::WriteInstStatic(uint32_t x, uint32_t* dest)
 BufferOffset
 AssemblerMIPSShared::haltingAlign(int alignment)
 {
-    // TODO: Implement a proper halting align.
+    // TODO: Implement a proper halting align. id:3341
     return nopAlign(alignment);
 }
 

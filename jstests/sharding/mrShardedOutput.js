@@ -129,7 +129,7 @@ assert.gt(
 
 st.printShardingStatus(true);
 
-// TODO: fix SERVER-12581
+// TODO: fix SERVER-12581 id:173
 /*
 config.chunks.find({ ns: testDB.mrShardedOut.getFullName() }).forEach(function(chunkDoc) {
     var count = testDB.mrShardedOut.find({ _id: { $gte: chunkDoc.min._id,

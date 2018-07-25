@@ -124,7 +124,7 @@ PlanStage::StageState MultiPlanStage::doWork(WorkingSetID* out) {
         // Uncache the bad solution if we fall back
         // on the backup solution.
         //
-        // XXX: Instead of uncaching we should find a way for the
+        // XXX: Instead of uncaching we should find a way for the id:710
         // cached plan runner to fall back on a different solution
         // if the best solution fails. Alternatively we could try to
         // defer cache insertion to be after the first produced result.
@@ -257,7 +257,7 @@ Status MultiPlanStage::pickBestPlan(PlanYieldPolicy* yieldPolicy) {
     // Even if the query is of a cacheable shape, the caller might have indicated that we shouldn't
     // write to the plan cache.
     //
-    // TODO: We can remove this if we introduce replanning logic to the SubplanStage.
+    // TODO: We can remove this if we introduce replanning logic to the SubplanStage. id:442
     bool canCache = (_cachingMode == CachingMode::AlwaysCache);
     if (_cachingMode == CachingMode::SometimesCache) {
         // In "sometimes cache" mode, we cache unless we hit one of the special cases below.
@@ -312,7 +312,7 @@ Status MultiPlanStage::pickBestPlan(PlanYieldPolicy* yieldPolicy) {
 
         // Check solution cache data. Do not add to cache if
         // we have any invalid SolutionCacheData data.
-        // XXX: One known example is 2D queries
+        // XXX: One known example is 2D queries id:1315
         bool validSolutions = true;
         for (size_t ix = 0; ix < solutions.size(); ++ix) {
             if (NULL == solutions[ix]->cacheData.get()) {

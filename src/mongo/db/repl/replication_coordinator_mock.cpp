@@ -66,11 +66,11 @@ ReplicationCoordinatorMock::ReplicationCoordinatorMock(ServiceContext* service)
 ReplicationCoordinatorMock::~ReplicationCoordinatorMock() {}
 
 void ReplicationCoordinatorMock::startup(OperationContext* opCtx) {
-    // TODO
+    // TODO  id:624
 }
 
 void ReplicationCoordinatorMock::shutdown(OperationContext*) {
-    // TODO
+    // TODO  id:1261
 }
 
 const ReplSettings& ReplicationCoordinatorMock::getSettings() const {
@@ -126,7 +126,7 @@ Status ReplicationCoordinatorMock::stepDown(OperationContext* opCtx,
 }
 
 bool ReplicationCoordinatorMock::isMasterForReportingPurposes() {
-    // TODO
+    // TODO  id:628
     return true;
 }
 
@@ -148,7 +148,7 @@ bool ReplicationCoordinatorMock::canAcceptWritesForDatabase_UNSAFE(OperationCont
 
 bool ReplicationCoordinatorMock::canAcceptWritesFor(OperationContext* opCtx,
                                                     const NamespaceString& ns) {
-    // TODO
+    // TODO  id:1858
     return canAcceptWritesForDatabase(opCtx, ns.db());
 }
 
@@ -160,7 +160,7 @@ bool ReplicationCoordinatorMock::canAcceptWritesFor_UNSAFE(OperationContext* opC
 Status ReplicationCoordinatorMock::checkCanServeReadsFor(OperationContext* opCtx,
                                                          const NamespaceString& ns,
                                                          bool slaveOk) {
-    // TODO
+    // TODO  id:809
     return Status::OK();
 }
 
@@ -176,7 +176,7 @@ bool ReplicationCoordinatorMock::shouldRelaxIndexConstraints(OperationContext* o
 }
 
 void ReplicationCoordinatorMock::setMyHeartbeatMessage(const std::string& msg) {
-    // TODO
+    // TODO  id:627
 }
 
 void ReplicationCoordinatorMock::setMyLastAppliedOpTime(const OpTime& opTime) {
@@ -224,7 +224,7 @@ Status ReplicationCoordinatorMock::waitUntilOpTimeForReadUntil(OperationContext*
 }
 
 OID ReplicationCoordinatorMock::getElectionId() {
-    // TODO
+    // TODO  id:1264
     return OID();
 }
 
@@ -273,7 +273,7 @@ void ReplicationCoordinatorMock::setGetConfigReturnValue(ReplSetConfig returnVal
 }
 
 void ReplicationCoordinatorMock::processReplSetGetConfig(BSONObjBuilder* result) {
-    // TODO
+    // TODO  id:631
 }
 
 void ReplicationCoordinatorMock::processReplSetMetadata(const rpc::ReplSetMetadata& replMetadata) {}
@@ -311,12 +311,12 @@ bool ReplicationCoordinatorMock::getMaintenanceMode() {
 Status ReplicationCoordinatorMock::processReplSetSyncFrom(OperationContext* opCtx,
                                                           const HostAndPort& target,
                                                           BSONObjBuilder* resultObj) {
-    // TODO
+    // TODO  id:1860
     return Status::OK();
 }
 
 Status ReplicationCoordinatorMock::processReplSetFreeze(int secs, BSONObjBuilder* resultObj) {
-    // TODO
+    // TODO  id:812
     return Status::OK();
 }
 
@@ -334,12 +334,12 @@ Status ReplicationCoordinatorMock::processReplSetInitiate(OperationContext* opCt
 
 Status ReplicationCoordinatorMock::processReplSetUpdatePosition(const UpdatePositionArgs& updates,
                                                                 long long* configVersion) {
-    // TODO
+    // TODO  id:630
     return Status::OK();
 }
 
 bool ReplicationCoordinatorMock::buildsIndexes() {
-    // TODO
+    // TODO  id:1266
     return true;
 }
 
@@ -362,7 +362,7 @@ WriteConcernOptions ReplicationCoordinatorMock::getGetLastErrorDefault() {
 }
 
 Status ReplicationCoordinatorMock::checkReplEnabledForCommand(BSONObjBuilder* result) {
-    // TODO
+    // TODO  id:634
     return Status::OK();
 }
 

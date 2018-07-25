@@ -311,7 +311,7 @@
     _(notEqual)                      \
     _(greaterThan)                   \
     _(greaterThanOrEqual)
-// TODO: remove when all SIMD calls are inlined (bug 1112155)
+// TODO: remove when all SIMD calls are inlined (bug 1112155) id:2611
 #define ION_COMMONX4_SIMD_OP(_)      \
     ARITH_COMMONX4_SIMD_OP(_)        \
     BITWISE_COMMONX4_SIMD_OP(_)      \

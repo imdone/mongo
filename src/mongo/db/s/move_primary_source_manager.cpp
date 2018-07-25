@@ -359,7 +359,7 @@ void MovePrimarySourceManager::_cleanup(OperationContext* opCtx) {
 
     if (_state == kCriticalSection || _state == kCloneCompleted) {
 
-        // TODO SERVER-32608
+        // TODO SERVER-32608 id:667
         // Wait for writes to 'config.cache.databases' to flush before removing the 'minOpTime
         // 'recovery' document.
 

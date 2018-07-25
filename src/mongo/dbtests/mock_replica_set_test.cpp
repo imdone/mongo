@@ -259,7 +259,7 @@ TEST(MockReplicaSetTest, ReplSetGetStatusNode2) {
 namespace {
 /**
  * Takes a ReplSetConfig and a node to remove and returns a new config with equivalent
- * members minus the one specified to be removed.  NOTE: Does not copy over properties of the
+ * members minus the one specified to be removed.  NOTE: Does not copy over properties of the id:800
  * members other than their id and host.
  */
 ReplSetConfig _getConfigWithMemberRemoved(const ReplSetConfig& oldConfig,

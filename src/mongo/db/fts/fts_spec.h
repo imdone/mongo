@@ -49,7 +49,7 @@ extern const double MAX_WEIGHT;
 extern const double MAX_WORD_WEIGHT;
 extern const double DEFAULT_WEIGHT;
 
-typedef std::map<std::string, double> Weights;  // TODO cool map
+typedef std::map<std::string, double> Weights;  // TODO cool map id:1347
 typedef stdx::unordered_map<std::string, double> TermFrequencyMap;
 
 struct ScoreHelperStruct {

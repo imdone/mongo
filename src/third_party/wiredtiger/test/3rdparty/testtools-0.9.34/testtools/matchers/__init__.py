@@ -110,7 +110,7 @@ from ._higherorder import (
     Not,
     )
 
-# XXX: These are not explicitly included in __all__.  It's unclear how much of
+# XXX: These are not explicitly included in __all__. It's unclear how much of id:3479
 # the public interface they really are.
 from ._impl import (
     Matcher,

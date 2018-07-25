@@ -57,7 +57,7 @@ template <> struct promote_code<float> { static const int value = 500; };
 template <> struct promote_code<double> { static const int value = 600; };
 template <> struct promote_code<long double> { static const int value = 700; };
 
-// TODO: wchar_t
+// TODO: wchar_t id:3179
 
 // forward delcaration of complex.
 
@@ -95,7 +95,7 @@ template <> struct promote_to_int<unsigned short int>
 };
 
 
-// TODO: think, should there be default behaviour for non-standard types?
+// TODO: think, should there be default behaviour for non-standard types? id:2696
 
 } // namespace detail
 
@@ -209,7 +209,7 @@ struct return_type_1<other_action<addressof_action>, A> {
 
 // contentsof action ------------------------------------
 
-// TODO: this deduction may lead to fail directly, 
+// TODO: this deduction may lead to fail directly, id:1470
 // (if A has no specialization for iterator_traits and has no
 // typedef A::reference.
 // There is no easy way around this, cause there doesn't seem to be a way
@@ -530,7 +530,7 @@ struct return_type_2<bitwise_action<Act>, A, B>
 
   // plus_action is just a random pick, has to be a concrete instance
 
-  // TODO: This check is only valid for built-in types, overloaded types might
+  // TODO: This check is only valid for built-in types, overloaded types might id:2324
   // accept floating point operators
 
   // bitwise operators not defined for floating point types
@@ -621,7 +621,7 @@ struct return_type_2<bitwise_action<rightshift_action>, A, B>
 
 // -- logical actions ----------------------------------------
 // always bool
-// NOTE: this may not be true for some weird user-defined types,
+// NOTE: this may not be true for some weird user-defined types, id:1731
 template<class A, class B, class Act> 
 struct plain_return_type_2<logical_action<Act>, A, B> { 
   typedef bool type; 
@@ -641,7 +641,7 @@ struct return_type_2<logical_action<Act>, A, B> {
 
 // -- relational actions ----------------------------------------
 // always bool
-// NOTE: this may not be true for some weird user-defined types,
+// NOTE: this may not be true for some weird user-defined types, id:3180
 template<class A, class B, class Act> 
 struct plain_return_type_2<relational_action<Act>, A, B> { 
   typedef bool type; 
@@ -663,7 +663,7 @@ struct return_type_2<relational_action<Act>, A, B> {
 // note that cv-qualifiers are preserved.
 // Yes, assignment operator can be const!
 
-// NOTE: this may not be true for some weird user-defined types,
+// NOTE: this may not be true for some weird user-defined types, id:2698
 
 template<class A, class B, class Act> 
 struct return_type_2<arithmetic_assignment_action<Act>, A, B> { 
@@ -726,7 +726,7 @@ struct return_type_2<other_action<assignment_action>, A, B> {
 // comma action ----------------------------------
 // Note: this may not be true for some weird user-defined types,
 
-// NOTE! This only tries the plain_return_type_2 layer and gives
+// NOTE ! This only tries the plain_return_type_2 layer and gives id:1472
 // detail::unspecified as default. If no such specialization is found, the 
 // type rule in the spcecialization of the return_type_2_prot is used
 // to give the type of the right argument (which can be a reference too)

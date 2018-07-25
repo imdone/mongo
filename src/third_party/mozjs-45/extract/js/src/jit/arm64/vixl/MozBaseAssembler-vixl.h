@@ -131,7 +131,7 @@ class MozBaseAssembler : public js::jit::AssemblerShared {
   }
 
   static void EmitBranch(Instruction* at, Instr instruction) {
-    // TODO: Assert that the buffer already has the instruction marked as a branch.
+    // TODO: Assert that the buffer already has the instruction marked as a branch. id:2336
     Emit(at, instruction);
   }
 

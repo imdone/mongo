@@ -531,7 +531,7 @@ VectorFormat VectorFormatHalfWidthDoubleLanes(const VectorFormat vform);
 VectorFormat VectorFormatFillQ(const VectorFormat vform);
 unsigned RegisterSizeInBitsFromFormat(VectorFormat vform);
 unsigned RegisterSizeInBytesFromFormat(VectorFormat vform);
-// TODO: Make the return types of these functions consistent.
+// TODO: Make the return types of these functions consistent. id:2667
 unsigned LaneSizeInBitsFromFormat(VectorFormat vform);
 int LaneSizeInBytesFromFormat(VectorFormat vform);
 int LaneSizeInBytesLog2FromFormat(VectorFormat vform);

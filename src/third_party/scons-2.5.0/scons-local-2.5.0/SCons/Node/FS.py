@@ -2487,7 +2487,7 @@ class FileNodeInfo(SCons.Node.NodeInfoBase):
         """
         Restore the attributes from a pickled state.
         """
-        # TODO check or discard version
+        # TODO check or discard version id:3067
         del state['_version_id']
         for key, value in state.items():
             if key not in ('__weakref__',):
@@ -3544,7 +3544,7 @@ def invalidate_node_memos(targets):
 
     # First check if the cache really needs to be flushed. Only
     # actions run in the SConscript with Execute() seem to be
-    # affected. XXX The way to check if Execute() is in the stacktrace
+    # affected. XXX The way to check if Execute() is in the stacktrace id:2198
     # is a very dirty hack and should be replaced by a more sensible
     # solution.
     for f in extract_stack():
@@ -3563,7 +3563,7 @@ def invalidate_node_memos(targets):
         try:
             entry.clear_memoized_values()
         except AttributeError:
-            # Not a Node object, try to look up Node by filename.  XXX
+            # Not a Node object, try to look up Node by filename.  XXX  id:2788
             # This creates Node objects even for those filenames which
             # do not correspond to an existing Node object.
             node = get_default_fs().Entry(entry)

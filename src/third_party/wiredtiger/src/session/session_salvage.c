@@ -22,7 +22,7 @@ __wt_salvage(WT_SESSION_IMPL *session, const char *cfg[])
 	dhandle = session->dhandle;
 
 	/*
-	 * XXX
+	 * XXX  id:2527
 	 * The salvage process reads and discards previous checkpoints, so the
 	 * underlying block manager has to ignore any previous checkpoint
 	 * entries when creating a new checkpoint, in other words, we can't use

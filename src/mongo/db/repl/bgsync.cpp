@@ -244,7 +244,7 @@ void BackgroundSync::_produce() {
         log() << "bgsync - stopReplProducer fail point "
                  "enabled. Blocking until fail point is disabled.";
 
-        // TODO(SERVER-27120): Remove the return statement and uncomment the while loop.
+        // TODO (SERVER-27120): Remove the return statement and uncomment the while loop. id:1829
         // Currently we cannot block here or we prevent primaries from being fully elected since
         // we'll never call _signalNoNewDataForApplier.
         //        while (MONGO_FAIL_POINT(stopReplProducer) && !inShutdown()) {
@@ -583,7 +583,7 @@ void BackgroundSync::_runRollback(OperationContext* opCtx,
     log() << "Starting rollback due to " << redact(fetcherReturnStatus);
     log() << "Replication commit point: " << _replCoord->getLastCommittedOpTime();
 
-    // TODO: change this to call into the Applier directly to block until the applier is
+    // TODO: change this to call into the Applier directly to block until the applier is id:778
     // drained.
     //
     // Wait till all buffered oplog entries have drained and been applied.

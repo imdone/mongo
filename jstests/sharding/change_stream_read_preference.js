@@ -72,7 +72,7 @@
         const primaryDB = rs.getPrimary().getDB(dbName);
         // Test that the change stream itself goes to the primary. There might be more than one if
         // we needed multiple getMores to retrieve the changes.
-        // TODO SERVER-31650 We have to use 'originatingCommand' here and look for the getMore
+        // TODO SERVER-31650 We have to use 'originatingCommand' here and look for the getMore id:254
         // because the initial aggregate will not show up.
         profilerHasAtLeastOneMatchingEntryOrThrow(
             {profileDB: primaryDB, filter: {'originatingCommand.comment': changeStreamComment}});
@@ -107,7 +107,7 @@
         const secondaryDB = rs.getSecondary().getDB(dbName);
         // Test that the change stream itself goes to the secondary. There might be more than one if
         // we needed multiple getMores to retrieve the changes.
-        // TODO SERVER-31650 We have to use 'originatingCommand' here and look for the getMore
+        // TODO SERVER-31650 We have to use 'originatingCommand' here and look for the getMore id:154
         // because the initial aggregate will not show up.
         profilerHasAtLeastOneMatchingEntryOrThrow(
             {profileDB: secondaryDB, filter: {'originatingCommand.comment': changeStreamComment}});

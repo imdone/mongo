@@ -75,7 +75,7 @@ void QueryPlannerCommon::reverseScans(QuerySolutionNode* node) {
             MONGO_UNREACHABLE;
         }
 
-        // TODO: we can just negate every value in the already computed properties.
+        // TODO: we can just negate every value in the already computed properties. id:1222
         isn->computeProperties();
     } else if (STAGE_SORT_MERGE == type) {
         // reverse direction of comparison for merge

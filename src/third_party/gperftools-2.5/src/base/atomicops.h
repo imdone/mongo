@@ -94,7 +94,7 @@
 // #else
 // # define AtomicWordCastType Atomic32
 // #endif
-// TODO(csilvers): figure out ARCH_PIII/ARCH_K8 (perhaps via ./configure?)
+// TODO (csilvers): figure out ARCH_PIII/ARCH_K8 (perhaps via ./configure?) id:2353
 // ------------------------------------------------------------------------
 
 #include "base/arm_instruction_set_select.h"

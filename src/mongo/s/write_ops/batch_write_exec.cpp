@@ -56,7 +56,7 @@ const ReadPreferenceSetting kPrimaryOnlyReadPreference(ReadPreference::PrimaryOn
 // This is needed since the dispatcher only returns hosts with responses.
 //
 
-// TODO: Unordered map?
+// TODO: Unordered map? id:3118
 typedef OwnedPointerMap<ShardId, TargetedWriteBatch> OwnedShardBatchMap;
 
 WriteErrorDetail errorFromStatus(const Status& status) {
@@ -235,7 +235,7 @@ void BatchWriteExec::executeBatch(OperationContext* opCtx,
                     batchOp.noteBatchError(*batch,
                                            errorFromStatus(response.swResponse.getStatus()));
 
-                    // TODO: It may be necessary to refresh the cache if stale, or maybe just cancel
+                    // TODO: It may be necessary to refresh the cache if stale, or maybe just cancel id:2574
                     // and retarget the batch
                     LOG(4) << "Unable to send write batch to " << batch->getEndpoint().shardName
                            << causedBy(response.swResponse.getStatus());
@@ -290,7 +290,7 @@ void BatchWriteExec::executeBatch(OperationContext* opCtx,
                     }
 
                     // Remember that we successfully wrote to this shard
-                    // NOTE: This will record lastOps for shards where we actually didn't update
+                    // NOTE: This will record lastOps for shards where we actually didn't update id:1334
                     // or delete any documents, which preserves old behavior but is conservative
                     stats->noteWriteAt(shardHost,
                                        batchedCommandResponse.isLastOpSet()

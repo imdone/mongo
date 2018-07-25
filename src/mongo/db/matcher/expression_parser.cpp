@@ -1522,7 +1522,7 @@ StatusWithMatchExpression parseSubField(const BSONObj& context,
             return parseMOD(name, e);
 
         case PathAcceptingKeyword::OPTIONS: {
-            // TODO: try to optimize this
+            // TODO: try to optimize this id:1132
             // we have to do this since $options can be before or after a $regex
             // but we validate here
             for (auto temp : context) {
@@ -1842,7 +1842,7 @@ std::unique_ptr<StringMap<PathAcceptingKeyword>> queryOperatorMap;
 MONGO_INITIALIZER(MatchExpressionParser)(InitializerContext* context) {
     queryOperatorMap =
         stdx::make_unique<StringMap<PathAcceptingKeyword>>(StringMap<PathAcceptingKeyword>{
-            // TODO: SERVER-19565 Add $eq after auditing callers.
+            // TODO: SERVER-19565 Add $eq after auditing callers. id:493
             {"_internalExprEq", PathAcceptingKeyword::INTERNAL_EXPR_EQ},
             {"_internalSchemaAllElemMatchFromIndex",
              PathAcceptingKeyword::INTERNAL_SCHEMA_ALL_ELEM_MATCH_FROM_INDEX},

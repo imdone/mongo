@@ -1530,7 +1530,7 @@ UnicodeString* loadDayPeriodStrings(CalendarData &calData, const char *tag, UBoo
     stringCount = UPRV_LENGTHOF(dayPeriodKeys);
     UnicodeString *strings = new UnicodeString[stringCount];
     for (int32_t i = 0; i < stringCount; ++i) {
-        //TODO: Check if there are fallbacks/aliases defined in the data; e.g., if there
+        //TODO: Check if there are fallbacks/aliases defined in the data; e.g., if there id:3269
         //is no wide string, then use the narrow one?
         strings[i].fastCopyFrom(ures_getUnicodeStringByKey(dayPeriodData, dayPeriodKeys[i], &status));
         if (U_FAILURE(status)) {
@@ -1903,7 +1903,7 @@ DateFormatSymbols::initializeData(const Locale& locale, const char *type, UError
     resStr = ures_getStringByKey(fResourceBundle, gLocalPatternCharsTag, &len, &status);
     fLocalPatternChars.setTo(TRUE, resStr, len);
     // If the locale data does not include new pattern chars, use the defaults
-    // TODO: Consider making this an error, since this may add conflicting characters.
+    // TODO: Consider making this an error, since this may add conflicting characters. id:2879
     if (len < PATTERN_CHARS_LEN) {
         fLocalPatternChars.append(UnicodeString(TRUE, &gPatternChars[len], PATTERN_CHARS_LEN-len));
     }

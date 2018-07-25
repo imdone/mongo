@@ -107,7 +107,7 @@ public:
         for (auto i = results.begin(); i != results.end(); ++i) {
             const Strategy::CommandResult& cmdResult = *i;
 
-            // XXX: In absence of sensible aggregation strategy,
+            // XXX: In absence of sensible aggregation strategy, id:1527
             //      promote first shard's result to top level.
             if (i == results.begin()) {
                 CommandHelpers::filterCommandReplyForPassthrough(cmdResult.result, &result);

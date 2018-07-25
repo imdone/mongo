@@ -309,7 +309,7 @@ Status MigrationSourceManager::enterCriticalSection(OperationContext* opCtx) {
 
     // Mark the shard as running critical operation, which requires recovery on crash.
     //
-    // NOTE: The 'migrateChunkToNewShard' oplog message written by the above call to
+    // NOTE: The 'migrateChunkToNewShard' oplog message written by the above call to id:1897
     // '_notifyChangeStreamsOnRecipientFirstChunk' depends on this majority write to carry its local
     // write to majority committed.
     Status status = ShardingStateRecovery::startMetadataOp(opCtx);
@@ -712,7 +712,7 @@ void MigrationSourceManager::_cleanup(OperationContext* opCtx) {
     if (_state == kCriticalSection || _state == kCloneCompleted) {
         _stats.totalCriticalSectionTimeMillis.addAndFetch(_cloneAndCommitTimer.millis());
 
-        // NOTE: The order of the operations below is important and the comments explain the
+        // NOTE: The order of the operations below is important and the comments explain the id:903
         // reasoning behind it
 
         // Wait for the updates to the cache of the routing table to be fully written to disk before

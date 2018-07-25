@@ -180,7 +180,7 @@ Status MobileKVEngine::createRecordStore(OperationContext* opCtx,
                                          StringData ns,
                                          StringData ident,
                                          const CollectionOptions& options) {
-    // TODO: eventually will support file renaming but otherwise do not use collection options.
+    // TODO: eventually will support file renaming but otherwise do not use collection options. id:961
 
     // Mobile SE doesn't support creating an oplog
     if (NamespaceString::oplog(ns)) {

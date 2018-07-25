@@ -24,7 +24,7 @@ var (
 		`Minimal draft requirements (approved, contributed, provisional, unconfirmed).`)
 )
 
-// TODO:
+// TODO:  id:2950
 // - Compile format patterns.
 // - Compress the large amount of redundancy in metazones.
 // - Split trees (with shared buckets) with data that is enough for default
@@ -239,13 +239,13 @@ func buildCLDRTree(data *cldr.CLDR, dates *cldrtree.Builder) {
 							}
 						}
 					}
-					// TODO:
+					// TODO:  id:1126
 					// - appendItems
 					// - intervalFormats
 				}
 			}
 		}
-		// TODO: this is a lot of data and is probably relatively little used.
+		// TODO: this is a lot of data and is probably relatively little used. id:941
 		// Store this somewhere else.
 		if x := x.Index(ldml.Dates.Fields); x != nil {
 			for _, f := range ldml.Dates.Fields.Field {

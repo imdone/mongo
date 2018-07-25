@@ -3228,7 +3228,7 @@ IonBuilder::inlineConstructSimdObject(CallInfo& callInfo, SimdTypeDescr* descr)
     // Generic constructor of SIMD valuesX4.
     MIRType simdType = SimdTypeDescrToMIRType(descr->type());
 
-    // TODO Happens for Float64x2 (Bug 1124205) and Int8x16/Int16x8 (Bug 1136226)
+    // TODO Happens for Float64x2 (Bug 1124205) and Int8x16/Int16x8 (Bug 1136226) id:2929
     if (simdType == MIRType_Undefined)
         return InliningStatus_NotInlined;
 

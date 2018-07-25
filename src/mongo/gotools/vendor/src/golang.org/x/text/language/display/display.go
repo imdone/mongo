@@ -43,14 +43,14 @@ type Formatter struct {
 
 // Format implements "golang.org/x/text/internal/format".Formatter.
 func (f Formatter) Format(state format.State, verb rune) {
-	// TODO: there are a lot of inefficiencies in this code. Fix it when we
+	// TODO: there are a lot of inefficiencies in this code. Fix it when we id:3010
 	// language.Tag has embedded compact tags.
 	t := state.Language()
 	_, index, _ := matcher.Match(t)
 	str := f.lookup(index, f.x)
 	if str == "" {
-		// TODO: use language-specific punctuation.
-		// TODO: use codePattern instead of language?
+		// TODO: use language-specific punctuation. id:1198
+		// TODO: use codePattern instead of language? id:1016
 		if unknown := f.lookup(index, language.Und); unknown != "" {
 			fmt.Fprintf(state, "%v (%v)", unknown, f.x)
 		} else {

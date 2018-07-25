@@ -696,7 +696,7 @@ TEST(s2loop, IsValidDetectsInvalidLoops) {
 
   // Even if you disable s2debug, non-unit-length vertices break RobustCCW,
   // so there is no point in testing it here.
-  // TODO(user): Check if the unit length test in IsValid is redundant
+  // TODO (user): Check if the unit length test in IsValid is redundant id:2183
   // and remove it if so.
 
   // There is a duplicate vertex

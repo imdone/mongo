@@ -222,9 +222,9 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
         vixl::MacroAssembler::Pop(r);
         adjustFrame(- r.size() / 8);
     }
-    // FIXME: This is the same on every arch.
-    // FIXME: If we can share framePushed_, we can share this.
-    // FIXME: Or just make it at the highest level.
+    // FIXME: This is the same on every arch. id:2657
+    // FIXME: If we can share framePushed_, we can share this. id:2310
+    // FIXME: Or just make it at the highest level. id:3330
     CodeOffset PushWithPatch(ImmWord word) {
         framePushed_ += sizeof(word.value);
         return pushWithPatch(word);
@@ -445,7 +445,7 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
     void ensureDouble(const ValueOperand& source, FloatRegister dest, Label* failure) {
         Label isDouble, done;
 
-        // TODO: splitTagForTest really should not leak a scratch register.
+        // TODO: splitTagForTest really should not leak a scratch register. id:2951
         Register tag = splitTagForTest(source);
         {
             vixl::UseScratchRegisterScope temps(this);
@@ -762,7 +762,7 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
     }
 
     void haltingAlign(int alignment) {
-        // TODO: Implement a proper halting align.
+        // TODO: Implement a proper halting align. id:2041
         // ARM doesn't have one either.
         armbuffer_.align(alignment);
     }
@@ -1278,7 +1278,7 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
         const ARMRegister scratch64 = temps.AcquireX();
         MOZ_ASSERT(scratch64.asUnsized() != value.valueReg());
         Lsr(scratch64, ARMRegister(value.valueReg(), 64), JSVAL_TAG_SHIFT);
-        return scratch64.asUnsized(); // FIXME: Surely we can make a better interface.
+        return scratch64.asUnsized(); // FIXME: Surely we can make a better interface. id:2659
     }
     void cmpTag(const ValueOperand& operand, ImmTag tag) {
         MOZ_CRASH("cmpTag");
@@ -2579,7 +2579,7 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
 
     void handleFailureWithHandlerTail(void* handler);
 
-    // FIXME: See CodeGeneratorX64 calls to noteAsmJSGlobalAccess.
+    // FIXME: See CodeGeneratorX64 calls to noteAsmJSGlobalAccess. id:2312
     void patchAsmJSGlobalAccess(CodeOffset patchAt, uint8_t* code,
                                 uint8_t* globalData, unsigned globalDataOffset)
     {
@@ -3098,8 +3098,8 @@ class MacroAssemblerCompat : public vixl::MacroAssembler
             Bfxil(ARMRegister(dest, 64), ARMRegister(src, 64), 0, JSVAL_TAG_SHIFT);
     }
 
-    // FIXME: Should be in Assembler?
-    // FIXME: Should be const?
+    // FIXME: Should be in Assembler? id:3331
+    // FIXME: Should be const? id:2953
     uint32_t currentOffset() const {
         return nextOffset().getOffset();
     }

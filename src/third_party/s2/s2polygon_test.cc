@@ -737,7 +737,7 @@ static void SplitAndAssemble(S2Polygon const* polygon) {
     double diameter = 2 * polygon->GetCapBound().angle().radians();
     int min_level = S2::kMaxWidth.GetMinLevel(diameter);
 
-    // TODO: Choose a level that will have up to 256 cells in the covering.
+    // TODO: Choose a level that will have up to 256 cells in the covering. id:2770
     int level = min_level + S2Testing::rnd.Uniform(4);
     coverer.set_min_level(min_level);
     coverer.set_max_level(level);

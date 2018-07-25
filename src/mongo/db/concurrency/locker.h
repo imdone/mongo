@@ -58,7 +58,7 @@ public:
      * is only used in unittests and for a brief period at startup, so you can assume you hold the
      * equivalent of a MODE_X lock when using it.
      *
-     * TODO get rid of this once we kill LockerNoop.
+     * TODO get rid of this once we kill LockerNoop. id:528
      */
     virtual bool isNoop() const {
         return false;

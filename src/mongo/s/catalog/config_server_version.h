@@ -70,7 +70,7 @@ enum UpgradeHistory {
     UpgradeHistory_UnreportedVersion = 1,
 
     /**
-     * NOTE: We skip version 2 here since it is very old and we shouldn't see it in the wild.
+     * NOTE: We skip version 2 here since it is very old and we shouldn't see it in the wild. id:1498
      *
      * Do not skip upgrade versions in the future.
      */

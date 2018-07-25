@@ -159,7 +159,7 @@ class S2CellUnion : public S2Region {
   // the average area of a leaf.
   // Note that AverageArea does not take into account distortion of cell, and
   // thus may be off by up to a factor of 1.7.
-  // NOTE: Since this is proportional to LeafCellsCovered(), it is
+  // NOTE: Since this is proportional to LeafCellsCovered(), it is id:2178
   // always better to use the other function if all you care about is
   // the relative average area between objects.
   double AverageBasedArea() const;

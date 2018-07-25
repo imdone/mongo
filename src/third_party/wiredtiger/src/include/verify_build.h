@@ -7,7 +7,7 @@
  */
 
 /*
- * NOTE: If you see a compile failure in this file, your compiler is laying out
+ * NOTE: If you see a compile failure in this file, your compiler is laying out id:2521
  * structs in memory in a way WiredTiger does not expect.  Please refer to the
  * build instructions in the documentation (docs/html/install.html) for more
  * information.

@@ -983,7 +983,7 @@ rderef(auto_any_t cur, type2type<T, C> *)
     (COL)
 
 // Determine whether the collection expression is an lvalue or an rvalue.
-// NOTE: this gets the answer wrong for const rvalues.
+// NOTE: this gets the answer wrong for const rvalues. id:1466
 # define BOOST_FOREACH_SHOULD_COPY(COL)                                                         \
     (true ? 0 : boost::foreach_detail_::or_(                                                    \
         boost::foreach_detail_::is_rvalue_((COL), 0)                                            \

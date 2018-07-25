@@ -17,7 +17,7 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
-// TODO: optimizations:
+// TODO: optimizations: id:923
 // - expandElem is currently 20K. By putting unique colElems in a separate
 //   table and having a byte array of indexes into this table, we can reduce
 //   the total size to about 7K. By also factoring out the length bytes, we
@@ -350,7 +350,7 @@ func (o *ordering) verifyWeights(a, b *entry, level colltab.Level) error {
 	if a.elems[0].w[level] >= b.elems[0].w[level] {
 		err := fmt.Errorf("%s:overflow: collation elements of %q (%X) overflows those of %q (%X) at level %d (%X >= %X)", o.id, a.str, a.runes, b.str, b.runes, level, a.elems, b.elems)
 		log.Println(err)
-		// TODO: return the error instead, or better, fix the conflicting entry by making room.
+		// TODO: return the error instead, or better, fix the conflicting entry by making room. id:1727
 	}
 	return nil
 }
@@ -482,7 +482,7 @@ func (b *Builder) Build() (colltab.Weighter, error) {
 
 // Build builds a Collator for Tailoring t.
 func (t *Tailoring) Build() (colltab.Weighter, error) {
-	// TODO: implement.
+	// TODO: implement. id:1053
 	return nil, nil
 }
 
@@ -536,7 +536,7 @@ func reproducibleFromNFKD(e *entry, exp, nfkd []rawCE) bool {
 			return false
 		}
 		// Tertiary values should be equal to maxTertiary for third element onwards.
-		// TODO: there seem to be a lot of cases in CLDR (e.g. ㏭ in zh.xml) that can
+		// TODO: there seem to be a lot of cases in CLDR (e.g. ㏭ in zh.xml) that can id:2934
 		// simply be dropped.  Try this out by dropping the following code.
 		if i >= 2 && ce.w[2] != maxTertiary {
 			return false

@@ -88,7 +88,7 @@ void validateLSID(OperationContext* opCtx, const GetMoreRequest& request, Client
                           << ", without an lsid",
             opCtx->getLogicalSessionId() || !cursor->getSessionId());
 
-    // TODO: SERVER-35323 - compare logicalSessionId that include userId.
+    // TODO: SERVER-35323 - compare logicalSessionId that include userId. id:601
     uassert(50738,
             str::stream() << "Cannot run getMore on cursor " << request.cursorid
                           << ", which was created in session "

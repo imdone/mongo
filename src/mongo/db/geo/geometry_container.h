@@ -67,7 +67,7 @@ public:
 
     /**
      * Reports the CRS of the contained geometry.
-     * TODO: Rework once we have collections of multiple CRSes
+     * TODO: Rework once we have collections of multiple CRSes id:471
      */
     CRS getNativeCRS() const;
 
@@ -84,7 +84,7 @@ public:
 
     /**
      * Minimum distance between this geometry and the supplied point.
-     * TODO: Rework and generalize to full GeometryContainer distance
+     * TODO: Rework and generalize to full GeometryContainer distance id:1355
      */
     double minDistance(const PointWithCRS& point) const;
 
@@ -120,7 +120,7 @@ public:
     std::string getDebugType() const;
 
     // Needed for 2D wrapping check (for now)
-    // TODO: Remove these hacks
+    // TODO: Remove these hacks id:572
     const CapWithCRS* getCapGeometryHack() const;
 
 private:
@@ -157,7 +157,7 @@ private:
     std::unique_ptr<GeometryCollection> _geometryCollection;
 
     // Cached for use during covering calculations
-    // TODO: _s2Region is currently generated immediately - don't necessarily need to do this
+    // TODO: _s2Region is currently generated immediately - don't necessarily need to do this id:474
     std::unique_ptr<S2RegionUnion> _s2Region;
     std::unique_ptr<R2Region> _r2Region;
 };

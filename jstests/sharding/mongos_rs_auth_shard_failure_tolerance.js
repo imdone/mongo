@@ -21,10 +21,10 @@ TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
 // authenticates as __system and recieves clusterTime metadata then will fail trying to gossip that
 // time later in setup.
 //
-// TODO SERVER-32672: remove this flag.
+// TODO SERVER-32672: remove this flag. id:171
 TestData.skipGossipingClusterTime = true;
 
-// TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+// TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:253
 TestData.disableImplicitSessions = true;
 
 var options = {rs: true, rsOptions: {nodes: 2}, keyFile: "jstests/libs/key1"};
@@ -87,7 +87,7 @@ function authDBUsers(conn) {
 // is received, and refreshing requires communication with the primary to obtain the newest version.
 // Read from the secondaries once before taking down primaries to ensure they have loaded the
 // routing table into memory.
-// TODO SERVER-30148: replace this with calls to awaitReplication() on each shard owning data for
+// TODO SERVER-30148: replace this with calls to awaitReplication() on each shard owning data for id:899
 // the sharded collection once secondaries refresh proactively.
 var mongosSetupConn = new Mongo(mongos.host);
 authDBUsers(mongosSetupConn);

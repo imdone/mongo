@@ -174,7 +174,7 @@ void ShardingState::setGlobalInitMethodForTest(GlobalInitFunc func) {
     _globalInit = func;
 }
 
-// NOTE: This method will be called inside a database lock so it should never take any database
+// NOTE: This method will be called inside a database lock so it should never take any database id:1909
 // locks, perform I/O, or any long running operations.
 Status ShardingState::initializeFromShardIdentity(OperationContext* opCtx,
                                                   const ShardIdentityType& shardIdentity) {

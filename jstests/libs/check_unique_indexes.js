@@ -8,7 +8,7 @@ function checkUniqueIndexFormatVersion(adminDB, currentFCV) {
     let getParameterResult =
         adminDB.runCommand({getParameter: 1, createTimestampSafeUniqueIndex: 1});
     assert.commandWorked(getParameterResult);
-    // TODO(SERVER-34489) Remove this check when upgrade/downgrade is ready.
+    // TODO (SERVER-34489) Remove this check when upgrade/downgrade is ready. id:804
     if (!getParameterResult.createTimestampSafeUniqueIndex)
         return;
 

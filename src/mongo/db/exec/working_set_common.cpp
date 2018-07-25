@@ -110,7 +110,7 @@ bool WorkingSetCommon::fetch(OperationContext* opCtx,
     if (member->isSuspicious) {
         // Make sure that all of the keyData is still valid for this copy of the document.
         // This ensures both that index-provided filters and sort orders still hold.
-        // TODO provide a way for the query planner to opt out of this checking if it is
+        // TODO provide a way for the query planner to opt out of this checking if it is id:456
         // unneeded due to the structure of the plan.
         invariant(!member->keyData.empty());
         for (size_t i = 0; i < member->keyData.size(); i++) {

@@ -23,7 +23,7 @@ type Amount struct {
 // Currency reports the currency unit of this amount.
 func (a Amount) Currency() Unit { return a.currency }
 
-// TODO: based on decimal type, but may make sense to customize a bit.
+// TODO: based on decimal type, but may make sense to customize a bit. id:1122
 // func (a Amount) Decimal()
 // func (a Amount) Int() (int64, error)
 // func (a Amount) Fraction() (int64, error)
@@ -74,12 +74,12 @@ func (v formattedValue) Format(s fmt.State, verb rune) {
 		cur = opt.currency
 	}
 
-	// TODO: use pattern.
+	// TODO: use pattern. id:937
 	io.WriteString(s, opt.symbol(lang, cur))
 	if v.amount != nil {
 		s.Write(space)
 
-		// TODO: apply currency-specific rounding
+		// TODO: apply currency-specific rounding id:1743
 		scale, _ := opt.kind.Rounding(cur)
 		if _, ok := s.Precision(); !ok {
 			fmt.Fprintf(s, "%.*f", scale, v.amount)
@@ -94,7 +94,7 @@ type Formatter func(amount interface{}) formattedValue
 
 // func (f Formatter) Options(opts ...Option) Formatter
 
-// TODO: call this a Formatter or FormatFunc?
+// TODO: call this a Formatter or FormatFunc? id:1076
 
 var dummy = USD.Amount(0)
 
@@ -128,7 +128,7 @@ var (
 	// Use ISO code as symbol.
 	ISO Formatter = Formatter(formISO)
 
-	// TODO:
+	// TODO:  id:2948
 	// // Use full name as symbol.
 	// Name Formatter
 )
@@ -158,7 +158,7 @@ func (o *options) format(amount interface{}) formattedValue {
 		if o.currency.index == 0 {
 			panic("cannot format number without a currency being set")
 		}
-		// TODO: Must be a number.
+		// TODO: Must be a number. id:1124
 		v.amount = x
 		v.currency = o.currency
 	}

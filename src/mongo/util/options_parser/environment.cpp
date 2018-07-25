@@ -235,7 +235,7 @@ Status valueMapToBSON(const std::map<Key, Value>& params,
         Value value = it->second;
 
         // 1. Check for dotted field names and call valueMapToBSON recursively.
-        // NOTE: this code depends on the fact that std::map is sorted
+        // NOTE: this code depends on the fact that is sorted std::map id:2628
         //
         // EXAMPLE:
         // The map:
@@ -324,7 +324,7 @@ Status valueMapToBSON(const std::map<Key, Value>& params,
         if (type == typeid(string)) {
             if (value.as<string>().empty()) {
                 // boost po uses empty string for flags like --quiet
-                // TODO: Remove this when we remove boost::program_options
+                // TODO: Remove this when we remove boost::program_options id:1403
                 builder->appendBool(key, true);
             } else {
                 builder->append(key, value.as<string>());

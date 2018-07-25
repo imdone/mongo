@@ -48,7 +48,7 @@ func ServerListenAndServeTLS(srv *http.Server,
 	return srv.Serve(l)
 }
 
-// TODO: http client integration
+// TODO: http client integration id:1662
 // holy crap, getting this integrated nicely with the Go stdlib HTTP client
 // stack so that it does proxying, connection pooling, and most importantly
 // hostname verification is really hard. So much stuff is hardcoded to just use
@@ -57,5 +57,5 @@ func ServerListenAndServeTLS(srv *http.Server,
 // serious stdlib internal refactoring is necessary.
 // even more so, good luck getting openssl to use the operating system default
 // root certificates if the user doesn't provide any. sadlol
-// NOTE: if you're going to try and write your own round tripper, at least use
+// NOTE: if you're going to try and write your own round tripper, at least use id:854
 //  openssl.Dial, or equivalent logic

@@ -46,7 +46,7 @@ namespace {
  *
  * It is not safe to call this optimization multiple times.
  *
- * NOTE: looks for NeedsMergerDocumentSources and uses that API
+ * NOTE: looks for NeedsMergerDocumentSources and uses that API id:501
  */
 void findSplitPoint(Pipeline* shardPipe, Pipeline* mergePipe) {
     while (!mergePipe->getSources().empty()) {

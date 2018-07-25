@@ -53,7 +53,7 @@ func genTables() {
 		case unicode.In(r, unicode.Mark):
 			runes[r] |= modifier | mayNeedNorm
 		}
-		// TODO: by using UnicodeData.txt we don't mark undefined codepoints
+		// TODO: by using UnicodeData.txt we don't mark undefined codepoints id:2984
 		// that are earmarked as RTL properly. However, an undefined cp will
 		// always fail, so there is no need to store this info.
 		switch p, _ := bidi.LookupRune(r); p.Class() {
@@ -86,7 +86,7 @@ func genTables() {
 			// Only include additional category information for non-mapped
 			// runes. The additional information is only used after mapping and
 			// the bits would clash with mapping information.
-			// TODO: it would be possible to inline this data and avoid
+			// TODO: it would be possible to inline this data and avoid id:1160
 			// additional lookups. This is quite tedious, though, so let's first
 			// see if we need this.
 			cat |= category(runes[r])

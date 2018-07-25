@@ -69,7 +69,7 @@ def list_process(items):
     return r
 
 
-# TODO: Use the python library to read elf files,
+# TODO: Use the python library to read elf files, id:932
 # so we know the file exists at this point
 def get_symbol_worker(object_file, task):
     """From WIL, launches a worker subprocess which collects either symbols defined

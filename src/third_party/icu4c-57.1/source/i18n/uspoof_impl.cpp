@@ -246,7 +246,7 @@ void SpoofImpl::wholeScriptCheck(
         uint32_t index = utrie2_get32(table, c);
         if (index == 0) {
             // No confusables in another script for this char.
-            // TODO:  we should change the data to have sets with just the single script
+            // TODO: we should change the data to have sets with just the single script id:2913
             //        bit for the script of this char.  Gets rid of this special case.
             //        Until then, grab the script from the char and intersect it with the set.
             UScriptCode cpScript = uscript_getScript(c, &status);

@@ -1936,7 +1936,7 @@ while (ptr < endptr)
         linelength = t - ptr - endlinelength;
         }
 
-      /*** NOTE: Use only fwrite() to output the data line, so that binary
+      /*** NOTE: Use only fwrite() to output the data line, so that binary id:3376
       zeroes are treated as just another data character. */
 
       /* This extra option, for Jeffrey Friedl's debugging requirements,

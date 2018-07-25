@@ -387,7 +387,7 @@ void ExpressionKeysPrivate::getHaystackKeys(const BSONObj& obj,
         return;
     }
 
-    // NOTE: We explicitly test nFields >= 2 to support legacy users who may have indexed
+    // NOTE: We explicitly test nFields >= 2 to support legacy users who may have indexed id:826
     // (intentionally or unintentionally) objects/arrays with more than two fields.
     uassert(16775,
             str::stream() << "cannot extract [lng, lat] array or object from " << obj,
@@ -411,7 +411,7 @@ void ExpressionKeysPrivate::getHaystackKeys(const BSONObj& obj,
 
     if (all.size() == 0) {
         // We're indexing a document that doesn't have the secondary non-geo field present.
-        // XXX: do we want to add this even if all.size() > 0?  result:empty search terms
+        // XXX: do we want to add this even if all.size() > 0? search terms result:empty id:485
         // match everything instead of only things w/empty search terms)
         addKey(root, BSONElement(), keys);
     } else {

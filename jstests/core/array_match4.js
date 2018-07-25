@@ -25,6 +25,6 @@ print('explain for ' + tojson(query_gte, '', true) + ' = ' + tojson(explain));
 
 // number of documents returned by indexes query should be consistent
 // with non-indexed case.
-// XXX: The following assertion documents current behavior.
-// XXX: 2.4 and 2.6 both return 0 documents.
+// XXX: The following assertion documents current behavior. id:72
+// XXX: 2.4 and 2.6 both return 0 documents. id:97
 assert.eq(0, t.find(query_gte).itcount(), '$gte (with index)');

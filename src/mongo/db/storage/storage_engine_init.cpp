@@ -319,7 +319,7 @@ public:
     void onCreateOperationContext(OperationContext* opCtx) {
         auto service = opCtx->getServiceContext();
         auto storageEngine = service->getStorageEngine();
-        // NOTE(schwerin): The following uassert would be more desirable than the early return when
+        // NOTE (schwerin): The following uassert would be more desirable than the early return when id:777
         // no storage engine is set, but to achieve that we would have to ensure that this file was
         // never linked into a test binary that didn't actually need/use the storage engine.
         //

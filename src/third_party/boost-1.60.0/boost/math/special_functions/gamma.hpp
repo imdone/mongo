@@ -50,7 +50,7 @@
 // Several variables made comments,
 // but some difficulty as whether referenced on not may depend on macro values.
 // So to be safe, 4100 warnings suppressed.
-// TODO - revisit this?
+// TODO - revisit this? id:2328
 #endif
 
 namespace boost{ namespace math{
@@ -803,7 +803,7 @@ T regularised_gamma_prefix(T a, T z, const Policy& pol, const Lanczos& l)
       // very small values of a can give rather eroneous results for gamma
       // unless we do this:
       //
-      // TODO: is this still required?  Lanczos approx should be better now?
+      // TODO: is this still required? Lanczos approx should be better now? id:1736
       //
       if(z <= tools::log_min_value<T>())
       {

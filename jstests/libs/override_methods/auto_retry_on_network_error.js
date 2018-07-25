@@ -142,7 +142,7 @@
     // Several commands that use the plan executor swallow the actual error code from a failed plan
     // into their error message and instead return OperationFailed.
     //
-    // TODO SERVER-32208: Remove this function once it is no longer needed.
+    // TODO SERVER-32208: Remove this function once it is no longer needed. id:210
     function isRetryableExecutorCodeAndMessage(code, msg) {
         return code === ErrorCodes.OperationFailed && typeof msg !== "undefined" &&
             msg.indexOf("InterruptedDueToStepDown") >= 0;
@@ -288,7 +288,7 @@
                         // OperationFailed if the request to establish a cursor on the targeted
                         // shard fails with a network error.
                         //
-                        // TODO SERVER-30949: Remove this check once those two commands retry on
+                        // TODO SERVER-30949: Remove this check once those two commands retry on id:105
                         // retryable errors automatically.
                         if ((cmdName === "listCollections" || cmdName === "listIndexes") &&
                             res.code === ErrorCodes.OperationFailed &&

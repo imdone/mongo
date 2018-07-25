@@ -263,9 +263,9 @@ func TestAppendDecimal(t *testing.T) {
 			"-Inf":  "-∞",
 		},
 
-		// TODO: rounding
+		// TODO: rounding id:3002
 		// {"@@@@": "23456": "23460"}, // rounding up
-		// TODO: padding
+		// TODO: padding id:1180
 
 		// Scientific and Engineering notation
 	}, {
@@ -438,7 +438,7 @@ func TestAppendDecimal(t *testing.T) {
 		},
 	}}
 
-	// TODO:
+	// TODO:  id:1003
 	// 	"#,##0.00¤",
 	// 	"#,##0.00 ¤;(#,##0.00 ¤)",
 

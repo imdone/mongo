@@ -379,7 +379,7 @@ variables:
   - command: manifest.load
   - func: "git get project"
   - func: "get modified patch files"
-  # NOTE: To disable the compile bypass feature, comment out the next line.
+  # NOTE: To disable the compile bypass feature, comment out the next line. id:3
   #
   - func: "bypass compile and fetch binaries"
   - func: "update bypass expansions"
@@ -2294,7 +2294,7 @@ functions:
             cmds="$cmds; $sudo ufw reload"
             cmds="$cmds; $sudo ufw status"
           # SuSE firewall rules
-          # TODO: Add firewall rules using SuSEfirewall2
+          # TODO: Add firewall rules using SuSEfirewall2 id:4
           elif [ ! -z "$($sudo /sbin/SuSEfirewall2 help 2> /dev/null)" ]; then
             cmds="$sudo /sbin/SuSEfirewall2 stop"
             cmds="$cmds; $sudo /sbin/SuSEfirewall2 off"
@@ -3655,7 +3655,7 @@ tasks:
           set -o errexit
           set -o verbose
 
-          ### TODO: Remove python3 when mypy 0.580 is installed in the toolchain.
+          ### TODO: Remove python3 when mypy 0.580 is installed in the toolchain. id:6
           # Since mypy requires python3, we need to activate the venv_3
           ${activate_virtualenv_3}
           pip install -r buildscripts/requirements.txt
@@ -3663,7 +3663,7 @@ tasks:
           deactivate
           ###
           ${activate_virtualenv}
-          # TODO: Remove once the linters have been updated on the variants.
+          # TODO: Remove once the linters have been updated on the variants. id:5
           pip install -r buildscripts/requirements.txt
           # The linters require the modules be installed.
           pip install -r pytests/requirements.txt
@@ -12976,7 +12976,7 @@ buildvariants:
   - name: change_streams_whole_cluster_secondary_reads_passthrough
   - name: change_streams_whole_cluster_sharded_collections_passthrough
   - name: concurrency
-  # TODO: SERVER-35964 revert the addition of UBSAN concurrency_replication suites.
+  # TODO: SERVER-35964 revert the addition of UBSAN concurrency_replication suites. id:7
   - name: concurrency_replication_ubsan
   - name: concurrency_replication_causal_consistency_ubsan
   - name: concurrency_sharded_replication

@@ -130,7 +130,7 @@ namespace date_time {
                                const facet_type& facet) const
       {
         facet.put(next, a_ios, a_fill, pd.day());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:1448
         facet.put(next, a_ios, a_fill, pd.month());
         return next;
       }
@@ -142,11 +142,11 @@ namespace date_time {
                            const facet_type& facet) const
       {
         put_string(next, phrase_strings[nkd.nth_week() -1]);
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:2299
         facet.put(next, a_ios, a_fill, nkd.day_of_week());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:1692
         put_string(next, string_type(of_string));
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:3169
         facet.put(next, a_ios, a_fill, nkd.month());
         return next;
       }
@@ -158,11 +158,11 @@ namespace date_time {
                              const facet_type& facet) const
       {
         put_string(next, phrase_strings[first]);
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:2676
         facet.put(next, a_ios, a_fill, fkd.day_of_week());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:1450
         put_string(next, string_type(of_string));
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:2301
         facet.put(next, a_ios, a_fill, fkd.month());
         return next;
       }
@@ -174,11 +174,11 @@ namespace date_time {
                            const facet_type& facet) const
       {
         put_string(next, phrase_strings[last]);
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:1694
         facet.put(next, a_ios, a_fill, lkd.day_of_week());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:3170
         put_string(next, string_type(of_string));
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:2678
         facet.put(next, a_ios, a_fill, lkd.month());
         return next;
       }
@@ -190,7 +190,7 @@ namespace date_time {
                               const facet_type& facet) const
       {
         facet.put(next, a_ios, a_fill, fkb.day_of_week());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:1452
         put_string(next, phrase_strings[before]);
         return next;
       }
@@ -202,7 +202,7 @@ namespace date_time {
                              const facet_type& facet) const
       {
         facet.put(next, a_ios, a_fill, fka.day_of_week());
-        next = a_fill; //TODO change this ???
+        next = a_fill; //TODO change this ??? id:2303
         put_string(next, phrase_strings[after]);
         return next;
       }

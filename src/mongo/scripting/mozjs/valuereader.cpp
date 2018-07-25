@@ -118,7 +118,7 @@ void ValueReader::fromBSONElement(const BSONElement& elem, const BSONObj& parent
             _value.setUndefined();
             return;
         case mongo::RegEx: {
-            // TODO parse into a custom type that can support any patterns and flags SERVER-9803
+            // TODO parse into a custom type that can support any patterns and flags SERVER-9803 id:3123
 
             JS::AutoValueArray<2> args(_context);
 
@@ -253,7 +253,7 @@ void ValueReader::fromBSONArray(const BSONObj& obj, const BSONObj* parent, bool 
 void ValueReader::fromStringData(StringData sd) {
     size_t utf16Len;
 
-    // TODO: we have tests that involve dropping garbage in. Do we want to
+    // TODO: we have tests that involve dropping garbage in. Do we want to id:2584
     //       throw, or to take the lossy conversion?
     auto utf16 = JS::LossyUTF8CharsToNewTwoByteCharsZ(
         _context, JS::UTF8Chars(sd.rawData(), sd.size()), &utf16Len);

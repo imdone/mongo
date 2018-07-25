@@ -24,7 +24,7 @@ import (
 // Panics matches zero-arg functions which, when invoked, panic with an error
 // that matches the supplied matcher.
 //
-// NOTE(jacobsa): This matcher cannot detect the case where the function panics
+// NOTE (jacobsa): This matcher cannot detect the case where the function panics id:1060
 // using panic(nil), by design of the language. See here for more info:
 //
 //     http://goo.gl/9aIQL

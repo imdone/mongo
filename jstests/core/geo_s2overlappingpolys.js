@@ -101,7 +101,7 @@ assert.eq(result.itcount(), 1);
 
 // Case (f): If we increase the error a little, it should no longer act
 // as though it's intersecting.
-// NOTE: I think this error bound seems odd. Going to 0.000152297 will break this test.
+// NOTE: I think this error bound seems odd. Going to 0.000152297 will break this test. id:195
 // I've confirmed there is an error bound, but it's a lot larger than we experienced above.
 var errorBound = 0.000152298;
 var notCloseEnoughSharedPointPoly = {
@@ -141,7 +141,7 @@ assert.eq(result.itcount(), 1);
 
 // Case 2a: same as Case 2, except pulled slightly away from the polygon.
 // Result: Intersection.
-// NOTE: Scales of errors?
+// NOTE: Scales of errors? id:89
 var closebyCoveringEdgePoly = {
     type: "Polygon",
     coordinates: [[
@@ -159,7 +159,7 @@ assert.eq(result.itcount(), 1);
 // Case 2b: same as Case 4, except pulled slightly away from the polygon, so that it's not
 // intersecting.
 // Result: No Intersection.
-// NOTE: Scales of errors?
+// NOTE: Scales of errors? id:114
 var notCloseEnoughCoveringEdgePoly = {
     type: "Polygon",
     coordinates: [[

@@ -65,7 +65,7 @@ PERFTOOLS_DLL_DECL int MallocExtension_MallocMemoryStats(int* blocks, size_t* to
                                       int histogram[kMallocExtensionHistogramSize]);
 PERFTOOLS_DLL_DECL void MallocExtension_GetStats(char* buffer, int buffer_length);
 
-/* TODO(csilvers): write a C version of these routines, that perhaps
+/* TODO (csilvers): write a C version of these routines, that perhaps id:1855
  * takes a function ptr and a void *.
  */
 /* void MallocExtension_GetHeapSample(string* result); */
@@ -83,7 +83,7 @@ PERFTOOLS_DLL_DECL size_t MallocExtension_GetThreadCacheSize(void);
 PERFTOOLS_DLL_DECL void MallocExtension_MarkThreadTemporarilyIdle(void);
 
 /*
- * NOTE: These enum values MUST be kept in sync with the version in
+ * NOTE: These enum values MUST be kept in sync with the version in id:3200
  *       malloc_extension.h
  */
 typedef enum {

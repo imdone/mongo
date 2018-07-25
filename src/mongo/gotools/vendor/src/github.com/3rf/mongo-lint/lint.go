@@ -119,7 +119,7 @@ func (f *file) scanSortable() {
 		if !ok || fn.Recv == nil {
 			return true
 		}
-		// TODO(dsymonds): We could check the signature to be more precise.
+		// TODO (dsymonds): We could check the signature to be more precise. id:848
 		recv := receiverType(fn)
 		if i, ok := nmap[fn.Name.Name]; ok {
 			has[recv] |= i
@@ -651,7 +651,7 @@ func (f *file) lintVarDecls() {
 			// concrete type on the RHS. Note that our feeble lexical check here
 			// will only pick up interface{} and other literal interface types;
 			// that covers most of the cases we care to exclude right now.
-			// TODO(dsymonds): Use typechecker to make this heuristic more accurate.
+			// TODO (dsymonds): Use typechecker to make this heuristic more accurate. id:1665
 			if _, ok := v.Type.(*ast.InterfaceType); ok {
 				return false
 			}

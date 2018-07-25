@@ -164,7 +164,7 @@ TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
 
     //
     // Failed insert on two hosts, first host dead
-    // NOTE: This is DIFFERENT from 2.4, since we don't need to contact a host we didn't get
+    // NOTE: This is DIFFERENT from 2.4, since we don't need to contact a host we didn't get id:122
     // successful writes from.
     coll.remove({_id: 1});
     coll.insert([{_id: 1}, {_id: -1}]);

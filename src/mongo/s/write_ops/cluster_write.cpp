@@ -69,7 +69,7 @@ void toBatchError(const Status& status, BatchedCommandResponse* response) {
  * doSplitAtLower - determines which side of the split will have exactly one document. True means
  * that the split point chosen will be closer to the lower bound.
  *
- * NOTE: this assumes that the shard key is not "special"- that is, the shardKeyPattern is simply an
+ * NOTE: this assumes that the shard key is not "special"- that is, the shardKeyPattern is simply an id:3120
  * ordered list of ascending/descending field names. For example {a : 1, b : -1} is not special, but
  * {a : "hashed"} is.
  */
@@ -84,7 +84,7 @@ BSONObj findExtremeKeyForShard(OperationContext* opCtx,
         q.sort(shardKeyPattern.toBSON());
     } else {
         // need to invert shard key pattern to sort backwards
-        // TODO: make a helper in ShardKeyPattern?
+        // TODO: make a helper in ShardKeyPattern? id:2578
         BSONObjBuilder r;
 
         BSONObjIterator i(shardKeyPattern.toBSON());

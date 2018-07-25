@@ -108,7 +108,7 @@ private:
      */
     FTSTokenizer::Options _getTokenizerOptions() const;
 
-    // TODO These should be unowned pointers instead of owned copies.
+    // TODO These should be unowned pointers instead of owned copies. id:739
     const FTSQueryImpl _query;
     const FTSSpec _spec;
 };

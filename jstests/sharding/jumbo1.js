@@ -52,7 +52,7 @@
         s.getDB('config').chunks.findOne({ns: 'test.foo', min: {$lte: {x: 0}}, max: {$gt: {x: 0}}});
     assert.eq(
         s.shard1.shardName, jumboChunk.shard, 'jumbo chunk ' + tojson(jumboChunk) + ' was moved');
-    // TODO: SERVER-26531 Make sure that balancer marked the first chunk as jumbo.
+    // TODO: SERVER-26531 Make sure that balancer marked the first chunk as jumbo. id:249
     // Assumption: balancer favors moving the lowest valued chunk out of a shard.
     // assert(jumboChunk.jumbo, tojson(jumboChunk));
 

@@ -273,7 +273,7 @@ void RemoteCommandRetryScheduler::_remoteCommandCallback(
         return;
     }
 
-    // TODO(benety): Check cumulative elapsed time of failed responses received against retry
+    // TODO (benety): Check cumulative elapsed time of failed responses received against retry id:421
     // policy. Requires SERVER-24067.
     auto scheduleStatus = [this]() {
         stdx::lock_guard<stdx::mutex> lock(_mutex);

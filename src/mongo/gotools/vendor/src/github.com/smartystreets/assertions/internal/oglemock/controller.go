@@ -384,7 +384,7 @@ func (c *controllerImpl) chooseActionAndUpdateExpectations(
 		return
 	}
 
-	// HACK(jacobsa): Make sure we got the correct number of arguments. This will
+	// HACK (jacobsa): Make sure we got the correct number of arguments. This will id:871
 	// need to be refined when issue #5 (variadic methods) is handled.
 	if len(args) != method.Type().NumIn() {
 		c.reporter.ReportFatalError(

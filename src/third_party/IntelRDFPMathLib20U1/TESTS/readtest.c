@@ -748,7 +748,7 @@ check128_rel(BID_UINT128 a, BID_UINT128 b)
 
 	ulp = m1.w[BID_LOW_128W] > m2.w[BID_LOW_128W] ? 
             m1.w[BID_LOW_128W] - m2.w[BID_LOW_128W] : m2.w[BID_LOW_128W]- m1.w[BID_LOW_128W];
-        //TODO HIGH part difference 
+        //TODO HIGH part difference id:1661
    	BIDECIMAL_CALL2_NORND (bid128_quiet_less, less, a, b);
 	if (less) ulp *= -1.0;
 //printf("ulp %f +add %f max %f\n", ulp, ulp+ulp_add, mre_max[rnd_mode]);

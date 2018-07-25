@@ -269,7 +269,7 @@ void Decoder::DecodeLoadStore(const Instruction* instr) {
               (instr->Bits(27, 24) == 0x9) ||
               (instr->Bits(27, 24) == 0xC) ||
               (instr->Bits(27, 24) == 0xD) );
-  // TODO(all): rearrange the tree to integrate this branch.
+  // TODO (all): rearrange the tree to integrate this branch. id:3334
   if ((instr->Bit(28) == 0) && (instr->Bit(29) == 0) && (instr->Bit(26) == 1)) {
     DecodeNEONLoadStore(instr);
     return;
@@ -327,7 +327,7 @@ void Decoder::DecodeLoadStore(const Instruction* instr) {
                 break;
               }
               case 2: {
-                // TODO: VisitLoadStoreRegisterOffsetUnpriv.
+                // TODO: VisitLoadStoreRegisterOffsetUnpriv. id:2958
                 VisitUnimplemented(instr);
                 break;
               }

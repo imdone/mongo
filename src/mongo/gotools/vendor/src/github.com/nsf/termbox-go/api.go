@@ -250,7 +250,7 @@ func CellBuffer() []Cell {
 // IMPORTANT: EventNone may contain a non-zero N, which means you should skip
 // these bytes, because termbox cannot recognize them.
 //
-// NOTE: This API is experimental and may change in future.
+// NOTE: This API is experimental and may change in future. id:1681
 func ParseEvent(data []byte) Event {
 	event := Event{Type: EventKey}
 	ok := extract_event(data, &event)
@@ -266,7 +266,7 @@ func ParseEvent(data []byte) Event {
 // The minimum required length of the 'data' slice is 1. This requirement may
 // vary on different platforms.
 //
-// NOTE: This API is experimental and may change in future.
+// NOTE: This API is experimental and may change in future. id:874
 func PollRawEvent(data []byte) Event {
 	if len(data) == 0 {
 		panic("len(data) >= 1 is a requirement")

@@ -166,7 +166,7 @@ public:
     };
 
     /**
-     * NOTE: DollarInDbNameBehavior::allow is deprecated.
+     * NOTE: is deprecated. DollarInDbNameBehavior::allow id:639
      *
      * Please use DollarInDbNameBehavior::disallow and check explicitly for any DB names that must
      * contain a $.
@@ -506,7 +506,7 @@ inline StringData nsToDatabaseSubstring(StringData ns) {
 /**
  * "database.a.b.c" -> "database"
  *
- * TODO: make this return a StringData
+ * TODO: make this return a StringData id:498
  */
 inline std::string nsToDatabase(StringData ns) {
     return nsToDatabaseSubstring(ns).toString();

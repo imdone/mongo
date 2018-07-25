@@ -70,7 +70,7 @@
 /* include system headers */
 #if U_PLATFORM_USES_ONLY_WIN32_API
     /*
-     * TODO: U_PLATFORM_USES_ONLY_WIN32_API includes MinGW.
+     * TODO: U_PLATFORM_USES_ONLY_WIN32_API includes MinGW. id:2771
      * Should Cygwin be included as well (U_PLATFORM_HAS_WIN32_API)
      * to use native APIs as much as possible?
      */
@@ -1441,7 +1441,7 @@ static const char *uprv_getPOSIXIDForDefaultCodepage(void)
 #endif
 #endif
 
-/* NOTE: The caller should handle thread safety */
+/* NOTE: The caller should handle thread safety id:1625*/
 U_CAPI const char* U_EXPORT2
 uprv_getDefaultLocaleID()
 {

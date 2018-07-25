@@ -213,7 +213,7 @@ public:
      * will not be able to receive writes to a database other than local (it will not be
      * treated as standalone node).
      *
-     * NOTE: This function can only be meaningfully called while the caller holds the global
+     * NOTE: This function can only be meaningfully called while the caller holds the global id:615
      * lock in some mode other than MODE_NONE.
      */
     virtual bool canAcceptWritesForDatabase(OperationContext* opCtx, StringData dbName) = 0;
@@ -373,7 +373,7 @@ public:
     /**
      * Retrieves and returns the current election id, which is a unique id that is local to
      * this node and changes every time we become primary.
-     * TODO(spencer): Use term instead.
+     * TODO (spencer): Use term instead. id:1251
      */
     virtual OID getElectionId() = 0;
 

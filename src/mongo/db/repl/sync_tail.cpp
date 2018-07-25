@@ -250,7 +250,7 @@ Status SyncTail::syncApply(OperationContext* opCtx,
         // errors. In initial sync we simply ignore these update errors so there is no reason to
         // upsert.
         //
-        // TODO (SERVER-21700): Never upsert during oplog application unless an external applyOps
+        // TODO (SERVER-21700): Never upsert during oplog application unless an external applyOps id:1274
         // wants to. We should ignore these errors intelligently while in RECOVERING and STARTUP
         // mode (similar to initial sync) instead so we do not accidentally ignore real errors.
         bool shouldAlwaysUpsert = (oplogApplicationMode != OplogApplication::Mode::kInitialSync);
@@ -540,7 +540,7 @@ void fillWriterVectors(OperationContext* opCtx,
         // function.
         if (op.isCommand() && op.getCommandType() == OplogEntry::CommandType::kApplyOps) {
             if (op.shouldPrepare()) {
-                // TODO (SERVER-35307) mark operations as needing prepare.
+                // TODO (SERVER-35307) mark operations as needing prepare. id:637
                 continue;
             }
             try {
@@ -723,7 +723,7 @@ private:
     OpQueue _ops;
 
     // This only exists so the destructor invariants rather than deadlocking.
-    // TODO remove once we trust noexcept enough to mark oplogApplication() as noexcept.
+    // TODO remove once we trust noexcept enough to mark oplogApplication() as noexcept. id:1868
     bool _isDead = false;
 
     stdx::thread _thread;  // Must be last so all other members are initialized before starting.
@@ -1101,7 +1101,7 @@ void SyncTail::fetchAndInsertMissingDocument(OperationContext* opCtx,
             auto& catalog = UUIDCatalog::get(opCtx);
             coll = catalog.lookupCollectionByUUID(*uuid);
             if (!coll) {
-                // TODO(SERVER-30819) insert this UUID into the missing UUIDs set.
+                // TODO (SERVER-30819) insert this UUID into the missing UUIDs set. id:828
                 return;
             }
         }

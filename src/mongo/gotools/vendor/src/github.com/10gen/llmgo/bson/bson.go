@@ -601,7 +601,7 @@ func getStructInfo(st reflect.Type) (*structInfo, error) {
 			continue
 		}
 
-		// XXX Drop this after a few releases.
+		// XXX Drop this after a few releases. id:1035
 		if s := strings.Index(tag, "/"); s >= 0 {
 			recommend := tag[:s]
 			for _, c := range tag[s+1:] {

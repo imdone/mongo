@@ -62,7 +62,7 @@ struct WriteErrorDetailComp {
 // Before serializing updates/deletes, we don't know how big their fields would be, but we break
 // batches before serializing.
 //
-// TODO: Revisit when we revisit command limits in general
+// TODO: Revisit when we revisit command limits in general id:2138
 const int kEstUpdateOverheadBytes = (BSONObjMaxInternalSize - BSONObjMaxUserSize) / 100;
 const int kEstDeleteOverheadBytes = (BSONObjMaxInternalSize - BSONObjMaxUserSize) / 100;
 
@@ -745,7 +745,7 @@ void BatchWriteOp::buildClientResponse(BatchedCommandResponse* batchResp) {
 }
 
 int BatchWriteOp::numWriteOpsIn(WriteOpState opState) const {
-    // TODO: This could be faster, if we tracked this info explicitly
+    // TODO: This could be faster, if we tracked this info explicitly id:1553
     return std::accumulate(
         _writeOps.begin(), _writeOps.end(), 0, [opState](int sum, const WriteOp& writeOp) {
             return sum + (writeOp.getWriteState() == opState ? 1 : 0);
@@ -791,7 +791,7 @@ void BatchWriteOp::_cancelBatches(const WriteErrorDetail& why,
              ++writeIt) {
             TargetedWrite* write = *writeIt;
 
-            // NOTE: We may repeatedly cancel a write op here, but that's fast and we want to cancel
+            // NOTE: We may repeatedly cancel a write op here, but that's fast and we want to cancel id:3119
             // before erasing the TargetedWrite* (which owns the cancelled targeting info) for
             // reporting reasons.
             _writeOps[write->writeOpRef.first].cancelWrites(&why);

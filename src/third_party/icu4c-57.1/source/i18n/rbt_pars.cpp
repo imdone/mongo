@@ -1169,7 +1169,7 @@ UBool TransliteratorParser::checkVariableRange(UChar32 ch) const {
  * statement.
  */
 void TransliteratorParser::pragmaMaximumBackup(int32_t /*backup*/) {
-    //TODO Finish
+    //TODO Finish id:2890
 }
 
 /**
@@ -1177,7 +1177,7 @@ void TransliteratorParser::pragmaMaximumBackup(int32_t /*backup*/) {
  * to a pragma statement.
  */
 void TransliteratorParser::pragmaNormalizeRules(UNormalizationMode /*mode*/) {
-    //TODO Finish
+    //TODO Finish id:1803
 }
 
 static const UChar PRAGMA_USE[] = {0x75,0x73,0x65,0x20,0}; // "use "

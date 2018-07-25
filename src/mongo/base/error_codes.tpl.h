@@ -75,7 +75,7 @@ public:
     /**
      * Parses an Error from its "name".  Returns UnknownError if "name" is unrecognized.
      *
-     * NOTE: Also returns UnknownError for the string "UnknownError".
+     * NOTE: Also returns UnknownError for the string "UnknownError". id:236
      */
     static Error fromString(StringData name);
 

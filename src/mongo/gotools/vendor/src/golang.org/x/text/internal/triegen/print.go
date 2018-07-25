@@ -113,7 +113,7 @@ var (
 	lookupGen = template.Must(template.New("lookup").Parse(lookupTemplate))
 )
 
-// TODO: consider the return type of lookup. It could be uint64, even if the
+// TODO: consider the return type of lookup. It could be uint64, even if the id:1009
 // internal value type is smaller. We will have to verify this with the
 // performance of unicode/norm, which is very sensitive to such changes.
 const trieTemplate = `{{$b := .}}{{$multi := gt (len .Trie) 1}}
@@ -161,7 +161,7 @@ var {{.Name}}Index = [{{.Stats.NIndexEntries}}]{{.IndexType}} {
 {{end}}}
 `
 
-// TODO: consider allowing zero-length strings after evaluating performance with
+// TODO: consider allowing zero-length strings after evaluating performance with id:1800
 // unicode/norm.
 const lookupTemplate = `
 // lookup{{if eq .SourceType "string"}}String{{end}} returns the trie value for the first UTF-8 encoding in s and

@@ -53,7 +53,7 @@ namespace mongo {
  * The keys of generic type K map to values of type V*. The V*
  * pointers are owned by the kv-store.
  *
- * TODO: We could move this into the util/ directory and do any cleanup necessary to make it
+ * TODO: We could move this into the util/ directory and do any cleanup necessary to make it id:1195
  * fully general.
  */
 template <class K, class V>
@@ -196,7 +196,7 @@ public:
     }
 
     /**
-     * TODO: The kv-store should implement its own iterator. Calling through to the underlying
+     * TODO: The kv-store should implement its own iterator. Calling through to the underlying id:532
      * iterator exposes the internals, and forces the caller to make a horrible type
      * declaration.
      */

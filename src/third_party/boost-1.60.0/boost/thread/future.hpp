@@ -5357,7 +5357,7 @@ namespace detail
     static void run(shared_ptr<boost::detail::shared_state_base> that_) {
       future_when_all_tuple_shared_state* that = static_cast<future_when_all_tuple_shared_state*>(that_.get());
       try {
-        // TODO make use of apply(that->tup_, boost::detail::wait_for_all_fctor());
+        // TODO make use of apply(that->tup_, boost::detail::wait_for_all_fctor()); id:3187
         that->wait_for_all(Index());
 
         that->mark_finished_with_result(boost::move(that->tup_));
@@ -5430,7 +5430,7 @@ namespace detail
     {
       future_when_any_tuple_shared_state* that = static_cast<future_when_any_tuple_shared_state*>(that_.get());
       try {
-        // TODO make use of apply(that->tup_, wait_for_any_fctr);
+        // TODO make use of apply(that->tup_, wait_for_any_fctr); id:2712
         that->wait_for_any(Index());
 
         that->mark_finished_with_result(boost::move(that->tup_));

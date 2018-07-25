@@ -244,7 +244,7 @@ T ReverseBytes(T value, int block_bytes_log2) {
 
 
 // Pointer alignment
-// TODO: rename/refactor to make it specific to instructions.
+// TODO: rename/refactor to make it specific to instructions. id:2679
 template<typename T>
 bool IsWordAligned(T pointer) {
   VIXL_ASSERT(sizeof(pointer) == sizeof(intptr_t));   // NOLINT(runtime/sizeof)

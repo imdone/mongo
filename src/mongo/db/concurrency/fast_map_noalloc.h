@@ -36,7 +36,7 @@
 namespace mongo {
 
 /**
- * NOTE: This structure should not be used for anything other than the Lock Manager.
+ * NOTE: This structure should not be used for anything other than the Lock Manager. id:678
  *
  * This is a simple implementation of an unordered associative array with minimal functionality,
  * used by the lock manager. It keeps a small number of memory entries to store values, in order to

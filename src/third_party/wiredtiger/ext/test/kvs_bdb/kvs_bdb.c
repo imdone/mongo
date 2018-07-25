@@ -104,7 +104,7 @@ struct __data_source {
 	 * We single thread all WT_SESSION methods and return EBUSY if a
 	 * WT_SESSION method is called and there's an open cursor.
 	 *
-	 * XXX
+	 * XXX  id:3466
 	 * This only works for a single object: if there were more than one
 	 * object in test/format, cursor open would use the passed-in uri to
 	 * find a { lock, cursor-count } pair to reference from each cursor

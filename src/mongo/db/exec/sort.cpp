@@ -152,7 +152,7 @@ PlanStage::StageState SortStage::doWork(WorkingSetID* out) {
 
             return PlanStage::NEED_TIME;
         } else if (PlanStage::IS_EOF == code) {
-            // TODO: We don't need the lock for this.  We could ask for a yield and do this work
+            // TODO: We don't need the lock for this. We could ask for a yield and do this work id:721
             // unlocked.  Also, this is performing a lot of work for one call to work(...)
             sortBuffer();
             _resultIterator = _data.begin();

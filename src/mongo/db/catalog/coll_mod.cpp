@@ -283,7 +283,7 @@ void setCollectionOptionFlag(OperationContext* opCtx,
     const int newFlags = newSetting ? (oldFlags | flag)    // set flag
                                     : (oldFlags & ~flag);  // clear flag
 
-    // NOTE we do this unconditionally to ensure that we note that the user has
+    // NOTE we do this unconditionally to ensure that we note that the user has id:379
     // explicitly set flags, even if they are just setting the default.
     cce->updateFlags(opCtx, newFlags);
 

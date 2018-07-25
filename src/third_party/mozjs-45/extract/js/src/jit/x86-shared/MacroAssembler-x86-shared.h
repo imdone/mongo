@@ -968,7 +968,7 @@ class MacroAssemblerX86Shared : public Assembler
     }
 
     void bitwiseAndX4(const Operand& src, FloatRegister dest) {
-        // TODO Using the "ps" variant for all types incurs a domain crossing
+        // TODO Using the "ps" variant for all types incurs a domain crossing id:2362
         // penalty for integer types and double.
         vandps(src, dest, dest);
     }
@@ -1111,11 +1111,11 @@ class MacroAssemblerX86Shared : public Assembler
     void packedRcpApproximationFloat32x4(const Operand& src, FloatRegister dest) {
         // This function is an approximation of the result, this might need
         // fix up if the spec requires a given precision for this operation.
-        // TODO See also bug 1068028.
+        // TODO See also bug 1068028. id:3349
         vrcpps(src, dest);
     }
     void packedRcpSqrtApproximationFloat32x4(const Operand& src, FloatRegister dest) {
-        // TODO See comment above. See also bug 1068028.
+        // TODO See comment above. See also bug 1068028. id:2985
         vrsqrtps(src, dest);
     }
     void packedSqrtFloat32x4(const Operand& src, FloatRegister dest) {

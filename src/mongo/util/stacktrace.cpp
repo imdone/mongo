@@ -38,7 +38,7 @@
 namespace mongo {
 
 void printStackTrace() {
-    // NOTE: We disable long-line truncation for the stack trace, because the JSON representation of
+    // NOTE: We disable long-line truncation for the stack trace, because the JSON representation of id:3154
     // the stack trace can sometimes exceed the long line limit.
     printStackTrace(log().setIsTruncatable(false).stream());
 }

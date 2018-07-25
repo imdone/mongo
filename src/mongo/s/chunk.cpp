@@ -73,7 +73,7 @@ ChunkInfo::ChunkInfo(const ChunkType& from)
 const ShardId& ChunkInfo::getShardIdAt(const boost::optional<Timestamp>& ts) const {
     // This chunk was refreshed from FCV 3.6 config server so it doesn't have history
     if (_history.empty()) {
-        // TODO: SERVER-34619 - add uassert
+        // TODO: SERVER-34619 - add uassert id:1508
         return _shardId;
     }
 

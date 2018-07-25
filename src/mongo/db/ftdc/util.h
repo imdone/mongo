@@ -46,7 +46,7 @@ namespace FTDCBSONUtil {
 /**
 * Type of FTDC document.
 *
-* NOTE: Persisted to disk via BSON Objects.
+* NOTE: Persisted to disk via BSON Objects. id:468
 */
 enum class FTDCType : std::int32_t {
     /**

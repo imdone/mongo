@@ -150,7 +150,7 @@
     runTest(conn, "setYieldAllLocksHang");
     MongoRunner.stopMongod(conn);
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:153
     var st = new ShardingTest(
         {shards: 1, keyFile: 'jstests/libs/key1', other: {shardAsReplicaSet: false}});
     // Use a different failpoint in the sharded version, since the mongos does not have a

@@ -229,7 +229,7 @@ void FTDCController::doLoop() {
                 }
             }
 
-            // TODO: consider only running this thread if we are enabled
+            // TODO: consider only running this thread if we are enabled id:559
             // for now, we just keep an idle thread as it is simpler
             if (_config.enabled) {
                 // Delay initialization of FTDCFileManager until we are sure the user has enabled

@@ -162,7 +162,7 @@ static void ShowSymbolInfo(HANDLE process, ULONG64 module_base) {
 
   MaybePrint("Image name", module_info.ImageName);
   MaybePrint("Loaded image name", module_info.LoadedImageName);
-#ifdef VC8_OR_ABOVE   /* TODO(csilvers): figure out how to tell */
+#ifdef VC8_OR_ABOVE   /* TODO (csilvers): figure out how to tell id:2750*/
   MaybePrint("PDB file name", module_info.LoadedPdbName);
   if (module_info.PdbUnmatched || module_info.DbgUnmatched)  {
     /* This can only happen if the debug information is contained in a
@@ -173,7 +173,7 @@ static void ShowSymbolInfo(HANDLE process, ULONG64 module_base) {
 #endif
 
   /* Contents */
-#ifdef VC8_OR_ABOVE   /* TODO(csilvers): figure out how to tell */
+#ifdef VC8_OR_ABOVE   /* TODO (csilvers): figure out how to tell id:1599*/
   PrintAvailability("Line numbers", module_info.LineNumbers);
   PrintAvailability("Global symbols", module_info.GlobalSymbols);
   PrintAvailability("Type information", module_info.TypeInfo);

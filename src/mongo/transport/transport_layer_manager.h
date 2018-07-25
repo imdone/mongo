@@ -70,7 +70,7 @@ public:
 
     ReactorHandle getReactor(WhichReactor which) override;
 
-    // TODO This method is not called anymore, but may be useful to add new TransportLayers
+    // TODO This method is not called anymore, but may be useful to add new TransportLayers id:1372
     // to the manager after it's been created.
     Status addAndStartTransportLayer(std::unique_ptr<TransportLayer> tl);
 
@@ -90,7 +90,7 @@ public:
 
     BatonHandle makeBaton(OperationContext* opCtx) override {
         stdx::lock_guard<stdx::mutex> lk(_tlsMutex);
-        // TODO: figure out what to do about managers with more than one transport layer.
+        // TODO: figure out what to do about managers with more than one transport layer. id:2213
         invariant(_tls.size() == 1);
         return _tls[0]->makeBaton(opCtx);
     }

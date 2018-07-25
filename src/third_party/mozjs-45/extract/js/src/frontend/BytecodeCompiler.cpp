@@ -845,7 +845,7 @@ CompileFunctionBody(JSContext* cx, MutableHandleFunction fun, const ReadOnlyComp
 {
     MOZ_ASSERT(!options.isRunOnce);
 
-    // FIXME: make Function pass in two strings and parse them as arguments and
+    // FIXME: make Function pass in two strings and parse them as arguments and id:3308
     // ProgramElements respectively.
 
     BytecodeCompiler compiler(cx, &cx->tempLifoAlloc(), options, srcBuf, enclosingStaticScope,

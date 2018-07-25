@@ -283,7 +283,7 @@ public:
 
                 // Step 6
 
-                // TODO: Refactor all of this
+                // TODO: Refactor all of this id:735
                 if (requestedVersion < connectionVersion &&
                     requestedVersion.epoch() == connectionVersion.epoch()) {
                     errmsg = str::stream() << "this connection already had a newer version "
@@ -294,7 +294,7 @@ public:
                     return false;
                 }
 
-                // TODO: Refactor all of this
+                // TODO: Refactor all of this id:1326
                 if (requestedVersion < collectionShardVersion &&
                     requestedVersion.epoch() == collectionShardVersion.epoch()) {
                     auto critSecSignal =
@@ -392,7 +392,7 @@ public:
                 if (currVersion.epoch() != requestedVersion.epoch() || !currVersion.isSet()) {
                     result.appendBool("reloadConfig", true);
                     // Zero-version also needed to trigger full mongos reload, sadly
-                    // TODO: Make this saner, and less impactful (full reload on last chunk is bad)
+                    // TODO: Make this saner, and less impactful (full reload on last chunk is bad) id:669
                     ChunkVersion(0, 0, OID()).appendLegacyWithField(&result, "version");
                     // For debugging
                     requestedVersion.appendLegacyWithField(&result, "origVersion");

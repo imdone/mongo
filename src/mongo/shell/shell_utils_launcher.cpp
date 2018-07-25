@@ -379,7 +379,7 @@ void ProgramRunner::start() {
     int pipeEnds[2];
 
     {
-        // NOTE(JCAREY):
+        // NOTE (JCAREY): id:1363
         //
         // We take this lock from before our call to pipe until after we close the write side (in
         // the parent) to avoid leaking fds from threads racing around fork().  I.e.
@@ -856,7 +856,7 @@ void copyDir(const boost::filesystem::path& from, const boost::filesystem::path&
     }
 }
 
-// NOTE target dbpath will be cleared first
+// NOTE target dbpath will be cleared first id:2204
 BSONObj CopyDbpath(const BSONObj& a, void* data) {
     verify(a.nFields() == 2);
     BSONObjIterator i(a);

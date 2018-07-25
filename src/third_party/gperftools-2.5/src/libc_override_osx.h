@@ -109,7 +109,7 @@ size_t mz_size(malloc_zone_t* zone, const void* ptr) {
   if (MallocExtension::instance()->GetOwnership(ptr) != MallocExtension::kOwned)
     return 0;  // malloc_zone semantics: return 0 if we don't own the memory
 
-  // TODO(csilvers): change this method to take a const void*, one day.
+  // TODO (csilvers): change this method to take a const void*, one day. id:2740
   return MallocExtension::instance()->GetAllocatedSize(const_cast<void*>(ptr));
 }
 
@@ -182,7 +182,7 @@ void mi_force_unlock(malloc_zone_t *zone) {
 }
 
 void mi_statistics(malloc_zone_t *zone, malloc_statistics_t *stats) {
-  // TODO(csilvers): figure out how to fill these out
+  // TODO (csilvers): figure out how to fill these out id:1575
   stats->blocks_in_use = 0;
   stats->size_in_use = 0;
   stats->max_size_in_use = 0;

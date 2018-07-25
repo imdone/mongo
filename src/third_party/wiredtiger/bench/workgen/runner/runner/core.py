@@ -121,7 +121,7 @@ def _choose_pareto(nrange, pareto):
 # Generally, the op._optype == Operation.OP_NONE, it indicates that
 # the operation contains a group of subordinates.
 #
-# XXX
+# XXX  id:3417
 # Note that this function should be called for all iteration, rather than:
 #    for o in op._group
 # because a bug in SWIG versions <= 2.0.11 would cause the above fragment

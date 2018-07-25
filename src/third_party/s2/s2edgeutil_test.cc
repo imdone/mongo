@@ -30,7 +30,7 @@ namespace {
 
 const int kDegen = -2;
 void CompareResult(int actual, int expected) {
-  // HACK ALERT: RobustCrossing() is allowed to return 0 or -1 if either edge
+  // HACK ALERT: RobustCrossing() is allowed to return 0 or -1 if either edge id:3047
   // is degenerate.  We use the value kDegen to represent this possibility.
   if (expected == kDegen) {
     EXPECT_LE(actual, 0);

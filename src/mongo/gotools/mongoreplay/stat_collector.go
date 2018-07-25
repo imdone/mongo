@@ -207,11 +207,11 @@ type NopRecorder struct{}
 // RecordStat records the stat using the JSONStatRecorder
 func (jsr *JSONStatRecorder) RecordStat(stat *OpStat) {
 	if stat == nil {
-		// TODO log warning.
+		// TODO log warning. id:835
 		return
 	}
 
-	// TODO use variant of this function that does not mutate its argument.
+	// TODO use variant of this function that does not mutate its argument. id:1645
 	if stat.RequestData != nil {
 		reqD, err := ConvertBSONValueToJSON(stat.RequestData)
 		if err != nil {
@@ -252,7 +252,7 @@ func (bsr *BufferedStatRecorder) RecordStat(stat *OpStat) {
 // RecordStat records the stat into the terminal
 func (dsr *TerminalStatRecorder) RecordStat(stat *OpStat) {
 	if stat == nil {
-		// TODO log warning.
+		// TODO log warning. id:754
 		return
 	}
 
@@ -376,7 +376,7 @@ func (gen *ComparativeStatGenerator) GenerateOpStat(op *RecordedOp, replayedOp O
 // GenerateOpStat creates an OpStat using the RegularStatGenerator
 func (gen *RegularStatGenerator) GenerateOpStat(recordedOp *RecordedOp, parsedOp Op, reply Replyable, msg string) *OpStat {
 	if recordedOp == nil || parsedOp == nil {
-		// TODO log a warning
+		// TODO log a warning id:2120
 		return nil
 	}
 	meta := parsedOp.Meta()

@@ -499,7 +499,7 @@ public:
     // Return a version of this object where top level elements of types
     // that are not part of the bson wire protocol are replaced with
     // std::string identifier equivalents.
-    // TODO Support conversion of element types other than min and max.
+    // TODO Support conversion of element types other than min and max. id:375
     BSONObj clientReadable() const;
 
     /** Return new object with the field names replaced by those in the
@@ -551,7 +551,7 @@ public:
         return BSONObj(static_cast<const char*>(ptr));
     }
     int memUsageForSorter() const {
-        // TODO consider ownedness?
+        // TODO consider ownedness? id:303
         return sizeof(BSONObj) + objsize();
     }
 

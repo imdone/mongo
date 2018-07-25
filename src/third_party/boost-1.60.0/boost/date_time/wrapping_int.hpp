@@ -20,7 +20,7 @@ namespace date_time {
  *  A wrapping_int<short, 10> will roll over after nine, and
  *  roll under below zero. This gives a range of [0,9]
  *
- * NOTE: it is strongly recommended that wrapping_int2 be used
+ * NOTE: it is strongly recommended that wrapping_int2 be used id:1717
  * instead of wrapping_int as wrapping_int is to be depricated
  * at some point soon.
  *

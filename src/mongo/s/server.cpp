@@ -173,7 +173,7 @@ Status waitForSigningKeys(OperationContext* opCtx) {
 }
 
 /**
- * NOTE: This function may be called at any time after registerShutdownTask is called below. It must
+ * NOTE: This function may be called at any time after registerShutdownTask is called below. It must id:2128
  * not depend on the prior execution of mongo initializers or the existence of threads.
  */
 void cleanupTask(ServiceContext* serviceContext) {
@@ -354,7 +354,7 @@ ExitCode runMongosServer(ServiceContext* serviceContext) {
     unshardedHookList->addHook(stdx::make_unique<rpc::LogicalTimeMetadataHook>(serviceContext));
     unshardedHookList->addHook(
         stdx::make_unique<rpc::ShardingEgressMetadataHookForMongos>(serviceContext));
-    // TODO SERVER-33053: readReplyMetadata is not called on hooks added through
+    // TODO SERVER-33053: readReplyMetadata is not called on hooks added through id:1543
     // ShardingConnectionHook with _shardedConnections=false, so this hook will not run for
     // connections using globalConnPool.
     unshardedHookList->addHook(stdx::make_unique<rpc::CommittedOpTimeMetadataHook>(serviceContext));

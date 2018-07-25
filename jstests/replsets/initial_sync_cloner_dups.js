@@ -94,7 +94,7 @@
         {configureFailPoint: 'failInitSyncWithBufferedEntriesLeft', mode: {times: 1}})));
     printjson(assert.commandWorked(secondary.getDB("admin").adminCommand({resync: true})));
 
-    // NOTE: This is here to prevent false negatives, but it is racy and dependent on magic numbers.
+    // NOTE: This is here to prevent false negatives, but it is racy and dependent on magic numbers. id:228
     // Removed the assertion because it was too flaky.  Printing a warning instead (dan)
     jsTestLog("making sure we dropped some dups");
     var res = secondary.adminCommand({getLog: "global"});

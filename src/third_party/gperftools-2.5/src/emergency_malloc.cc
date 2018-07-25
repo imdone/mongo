@@ -139,7 +139,7 @@ namespace tcmalloc {
     CHECK_CONDITION(old_ptr <= emergency_arena_end);
     CHECK_CONDITION(emergency_arena_start <= old_ptr);
 
-    // NOTE: we don't know previous size of old_ptr chunk. So instead
+    // NOTE: we don't know previous size of old_ptr chunk. So instead id:2365
     // of trying to figure out right size of copied memory, we just
     // copy largest possible size. We don't care about being slow.
     size_t old_ptr_size = emergency_arena_end - old_ptr;

@@ -92,7 +92,7 @@ U_NAMESPACE_BEGIN
 
 //  Build the Whole Script Confusable data
 //
-//     TODO:  Reorganize.  Either get rid of the WSConfusableDataBuilder class,
+//     TODO: Reorganize. Either get rid of the WSConfusableDataBuilder class, id:2605
 //                         because everything is local to this one build function anyhow,
 //                           OR
 //                         break this function into more reasonably sized pieces, with

@@ -132,7 +132,7 @@ var ignoreFunctions = {
     "PR_ExplodeTime" : true,
     "PR_ErrorInstallTable" : true,
     "PR_SetThreadPrivate" : true,
-    "JSObject* js::GetWeakmapKeyDelegate(JSObject*)" : true, // FIXME: mark with AutoSuppressGCAnalysis instead
+    "JSObject* js::GetWeakmapKeyDelegate(JSObject*)" : true, // FIXME: mark with AutoSuppressGCAnalysis instead id:2917
     "uint8 NS_IsMainThread()" : true,
 
     // Has an indirect call under it by the name "__f", which seemed too
@@ -142,7 +142,7 @@ var ignoreFunctions = {
     // Bug 1056410 - devirtualization prevents the standard nsISupports::Release heuristic from working
     "uint32 nsXPConnect::Release()" : true,
 
-    // FIXME!
+    // FIXME ! id:1981
     "NS_LogInit": true,
     "NS_LogTerm": true,
     "NS_LogAddRef": true,
@@ -152,7 +152,7 @@ var ignoreFunctions = {
     "NS_LogCOMPtrAddRef": true,
     "NS_LogCOMPtrRelease": true,
 
-    // FIXME!
+    // FIXME ! id:2613
     "NS_DebugBreak": true,
 
     // These are a little overzealous -- these destructors *can* GC if they end
@@ -239,7 +239,7 @@ function ignoreGCFunction(mangled)
     if (fun.indexOf("js::WeakMap<Key, Value, HashPolicy>::getDelegate(") >= 0)
         return true;
 
-    // XXX modify refillFreeList<NoGC> to not need data flow analysis to understand it cannot GC.
+    // XXX modify refillFreeList<NoGC> to not need data flow analysis to understand it cannot GC. id:2219
     if (/refillFreeList/.test(fun) && /\(js::AllowGC\)0u/.test(fun))
         return true;
     return false;

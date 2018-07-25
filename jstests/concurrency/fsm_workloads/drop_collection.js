@@ -24,7 +24,7 @@ var $config = (function() {
         }
 
         function createAndDrop(db, collName) {
-            // TODO: should we ever do something different?
+            // TODO: should we ever do something different? id:90
             var myCollName = uniqueCollectionName(this.prefix, this.tid, this.num++);
             assertAlways.commandWorked(db.createCollection(myCollName));
             assertAlways(db[myCollName].drop());

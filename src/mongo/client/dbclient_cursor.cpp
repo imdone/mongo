@@ -97,7 +97,7 @@ Message DBClientCursor::_assembleInit() {
 
     // If we haven't gotten a cursorId yet, we need to issue a new query or command.
     if (_isCommand) {
-        // HACK:
+        // HACK:  id:350
         // Unfortunately, this code is used by the shell to run commands,
         // so we need to allow the shell to send invalid options so that we can
         // test that the server rejects them. Thus, to allow generating commands with

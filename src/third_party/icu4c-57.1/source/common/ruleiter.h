@@ -28,10 +28,10 @@ class SymbolTable;
  */
 class RuleCharacterIterator : public UMemory {
 
-    // TODO: Ideas for later.  (Do not implement if not needed, lest the
+    // TODO: Ideas for later. (Do not implement if not needed, lest the id:1920
     // code coverage numbers go down due to unused methods.)
     // 1. Add a copy constructor, operator==() method.
-    // 2. Rather than return DONE, throw an exception if the end
+    // 2. Rather than return DONE , throw an exception if the end id:3229
     // is reached -- this is an alternate usage model, probably not useful.
 
 private:
@@ -107,7 +107,7 @@ public:
     UBool atEnd() const;
 
     /**
-     * Returns the next character using the given options, or DONE if there
+     * Returns the next character using the given options, or DONE if there id:2787
      * are no more characters, and advance the position to the next
      * character.
      * @param options one or more of the following options, bitwise-OR-ed
@@ -118,7 +118,7 @@ public:
      * this routing if options includes PARSE_VARIABLES and an unknown
      * variable name is seen, or if options includes PARSE_ESCAPES and
      * an invalid escape sequence is seen.
-     * @return the current 32-bit code point, or DONE
+     * @return the current 32-bit code point, or DONE  id:1642
      */
     UChar32 next(int32_t options, UBool& isEscaped, UErrorCode& ec);
 

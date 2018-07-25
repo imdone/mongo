@@ -47,7 +47,7 @@ public:
   uint128 operator>>(int amount) const;
 
   // Arithmetic operators.
-  // TODO: multiplication, division, etc.
+  // TODO: multiplication, division, etc. id:2760
   uint128 operator+(const uint128& b) const;
   uint128 operator-(const uint128& b) const;
   uint128 operator+=(const uint128& b);
@@ -87,7 +87,7 @@ extern ostream& operator<<(ostream& o, const uint128& b);
 inline uint64 Uint128Low64(const uint128& v) { return v.lo_; }
 inline uint64 Uint128High64(const uint128& v) { return v.hi_; }
 
-// TODO: perhaps it would be nice to have int128, a signed 128-bit type?
+// TODO: perhaps it would be nice to have int128, a signed 128-bit type? id:2418
 
 // --------------------------------------------------------------------------
 //                      Implementation details follow

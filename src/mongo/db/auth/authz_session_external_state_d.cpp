@@ -52,7 +52,7 @@ void AuthzSessionExternalStateMongod::startRequest(OperationContext* opCtx) {
 }
 
 bool AuthzSessionExternalStateMongod::shouldIgnoreAuthChecks() const {
-    // TODO(spencer): get "isInDirectClient" from OperationContext
+    // TODO (spencer): get "isInDirectClient" from OperationContext id:374
     return cc().isInDirectClient() ||
         AuthzSessionExternalStateServerCommon::shouldIgnoreAuthChecks();
 }

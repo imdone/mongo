@@ -54,7 +54,7 @@ public:
 
     /**
      * Construct a RecordId from two halves.
-     * TODO consider removing.
+     * TODO consider removing. id:556
      */
     RecordId(int high, int low) : _repr((uint64_t(high) << 32) | uint32_t(low)) {}
 
@@ -99,7 +99,7 @@ public:
     struct Hasher {
         size_t operator()(RecordId rid) const {
             size_t hash = 0;
-            // TODO consider better hashes
+            // TODO consider better hashes id:1827
             boost::hash_combine(hash, rid.repr());
             return hash;
         }

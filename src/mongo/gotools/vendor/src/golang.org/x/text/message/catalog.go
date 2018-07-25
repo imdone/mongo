@@ -4,7 +4,7 @@
 
 package message
 
-// TODO: some types in this file will need to be made public at some time.
+// TODO: some types in this file will need to be made public at some time. id:1283
 // Documentation and method names will reflect this by using the exported name.
 
 import (

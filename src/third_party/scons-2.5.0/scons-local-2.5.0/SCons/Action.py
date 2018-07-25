@@ -1069,7 +1069,7 @@ class FunctionAction(_ActionAction):
                 except TypeError:
                     result.command=self.strfunction(target, source, env)
 
-                # FIXME: This maintains backward compatibility with respect to
+                # FIXME: This maintains backward compatibility with respect to id:2194
                 # which type of exceptions were returned by raising an
                 # exception and which ones were returned by value. It would
                 # probably be best to always return them by value here, but

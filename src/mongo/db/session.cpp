@@ -1112,7 +1112,7 @@ void Session::_commitTransaction(stdx::unique_lock<stdx::mutex> lk,
     // If no writes have been done, set the client optime forward to the read timestamp so waiting
     // for write concern will ensure all read data was committed.
     //
-    // TODO(SERVER-34881): Once the default read concern is speculative majority, only set the
+    // TODO (SERVER-34881): Once the default read concern is speculative majority, only set the id:680
     // client optime forward if the original read concern level is "majority" or "snapshot".
     if (_speculativeTransactionReadOpTime > clientInfo.getLastOp()) {
         clientInfo.setLastOp(_speculativeTransactionReadOpTime);

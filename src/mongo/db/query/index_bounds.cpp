@@ -328,7 +328,7 @@ bool OrderedIntervalList::isValidFor(int expectedOrientation) const {
     for (size_t j = 1; j < intervals.size(); ++j) {
         int cmp = sgn(intervals[j].start.woCompare(intervals[j - 1].end, false));
 
-        // TODO: We could care if the end of one interval is the start of another.  The bounds
+        // TODO: We could care if the end of one interval is the start of another. The bounds id:527
         // are still valid but they're a bit sloppy; they could have been combined to form one
         // interval if either of them is inclusive.
         if (0 == cmp) {
@@ -480,7 +480,7 @@ IndexBoundsChecker::KeyState IndexBoundsChecker::checkKey(const BSONObj& key, In
     out->suffixInclusive.resize(_curInterval.size());
 
     // It's useful later to go from a field number to the value for that field.  Store these.
-    // TODO: on optimization pass, populate the vector as-needed and keep the vector around as a
+    // TODO: on optimization pass, populate the vector as-needed and keep the vector around as a id:1545
     // member variable
     vector<BSONElement> keyValues;
     BSONObjIterator keyIt(key);

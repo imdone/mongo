@@ -526,7 +526,7 @@ def msvs_setup_env(env):
     if msvs is None:
         return
 
-    # XXX: I think this is broken. This will silently set a bogus tool instead
+    # XXX: I think this is broken. This will silently set a bogus tool instead id:2452
     # of failing, but there is no other way with the current scons tool
     # framework
     if batfilename is not None:

@@ -251,11 +251,11 @@ var appendNextTests = []tableTest{
 			// repeating CCC blocks last modifier
 			{"a\u302E\u302F\u0301", 1, ColElems{w(100)}},
 			// The trailing combining characters (with lower CCC) should block the first one.
-			// TODO: make the following pass.
+			// TODO: make the following pass. id:2942
 			// {"a\u035E\u0316\u0316", 1, ColElems{w(100)}},
 			{"a\u035F\u035Eb", 5, ColElems{w(110), w(0, 233)}},
 			// Last combiner should match after normalization.
-			// TODO: make the following pass.
+			// TODO: make the following pass. id:1118
 			// {"a\u035D\u0301", 3, ColElems{w(102), w(0, 234)}},
 			// The first combiner is blocking the second one as they have the same CCC.
 			{"a\u035D\u035Eb", 1, ColElems{w(100)}},

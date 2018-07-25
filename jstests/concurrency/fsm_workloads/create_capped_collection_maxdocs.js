@@ -28,7 +28,7 @@ var $config = extendWorkload($config, function($config, $super) {
         return prefix + tid + '_' + num;
     }
 
-    // TODO: how to avoid having too many files open?
+    // TODO: how to avoid having too many files open? id:766
     function create(db, collName) {
         var myCollName = uniqueCollectionName(this.prefix, this.tid, this.num++);
         assertAlways.commandWorked(db.createCollection(myCollName, options));

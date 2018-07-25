@@ -91,7 +91,7 @@ struct Helpers {
                          bool* nsFound = 0,
                          bool* indexFound = 0);
 
-    /* TODO: should this move into Collection?
+    /* TODO: should this move into Collection? id:425
      * uasserts if no _id index.
      * @return null loc if not found */
     static RecordId findById(OperationContext* opCtx, Collection* collection, const BSONObj& query);
@@ -128,7 +128,7 @@ struct Helpers {
                        const BSONObj& o,
                        bool fromMigrate = false);
 
-    // TODO: this should be somewhere else probably
+    // TODO: this should be somewhere else probably id:1298
     /* Takes object o, and returns a new object with the
      * same field elements but the names stripped out.
      * Example:

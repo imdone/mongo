@@ -45,7 +45,7 @@ class RefCountable {
 public:
     /// If false you have exclusive access to this object. This is useful for implementing COW.
     bool isShared() const {
-        // TODO: switch to unfenced read method after SERVER-6973
+        // TODO: switch to unfenced read method after SERVER-6973 id:2238
         return reinterpret_cast<unsigned&>(_count) > 1;
     }
 

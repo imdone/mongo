@@ -186,7 +186,7 @@ CollectionImpl::~CollectionImpl() {
             auto& uuidCatalog = UUIDCatalog::get(opCtx);
             invariant(uuidCatalog.lookupCollectionByUUID(_uuid.get()) != _this);
             auto& cache = NamespaceUUIDCache::get(opCtx);
-            // TODO(geert): cache.verifyNotCached(ns(), uuid().get());
+            // TODO (geert): cache.verifyNotCached(ns(), uuid().get()); id:381
             cache.evictNamespace(ns());
         }
         LOG(2) << "destructed collection " << ns() << " with UUID " << uuid()->toString();
@@ -403,7 +403,7 @@ Status CollectionImpl::insertDocument(OperationContext* opCtx,
 
     dassert(opCtx->lockState()->isCollectionLockedForMode(ns().toString(), MODE_IX));
 
-    // TODO SERVER-30638: using timestamp 0 for these inserts, which are non-oplog so we don't yet
+    // TODO SERVER-30638: using timestamp 0 for these inserts, which are non-oplog so we don't yet id:586
     // care about their correct timestamps.
     StatusWith<RecordId> loc =
         _recordStore->insertRecord(opCtx, doc.objdata(), doc.objsize(), Timestamp());
@@ -448,7 +448,7 @@ Status CollectionImpl::_insertDocuments(OperationContext* opCtx,
         // We require that inserts to indexed capped collections be done one-at-a-time to avoid the
         // possibility that a later document causes an earlier document to be deleted before it can
         // be indexed.
-        // TODO SERVER-21512 It would be better to handle this here by just doing single inserts.
+        // TODO SERVER-21512 It would be better to handle this here by just doing single inserts. id:383
         return {ErrorCodes::OperationCannotBeBatched,
                 "Can't batch inserts into indexed capped collections"};
     }

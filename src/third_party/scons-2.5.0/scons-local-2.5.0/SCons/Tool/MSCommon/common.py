@@ -139,7 +139,7 @@ def get_output(vcbat, args = None, env = None):
         # Create a blank environment, for use in launching the tools
         env = SCons.Environment.Environment(tools=[])
 
-    # TODO:  This is a hard-coded list of the variables that (may) need
+    # TODO: This is a hard-coded list of the variables that (may) need id:2209
     # to be imported from os.environ[] for v[sc]*vars*.bat file
     # execution to work.  This list should really be either directly
     # controlled by vc.py, or else derived from the common_tools_var
@@ -185,7 +185,7 @@ def get_output(vcbat, args = None, env = None):
 #     debug('get_output():stderr:%s'%stderr)
 
     if stderr:
-        # TODO: find something better to do with stderr;
+        # TODO: find something better to do with stderr; id:2796
         # this at least prevents errors from getting swallowed.
         import sys
         sys.stderr.write(stderr)
@@ -212,7 +212,7 @@ def parse_output(output, keep = ("INCLUDE", "LIB", "LIBPATH", "PATH")):
             # Do not add empty paths (when a var ends with ;)
             if p:
                 p = p.encode('mbcs')
-                # XXX: For some reason, VC98 .bat file adds "" around the PATH
+                # XXX: For some reason, VC98 .bat file adds "" around the PATH id:2450
                 # values, and it screws up the environment later, so we strip
                 # it.
                 p = p.strip('"')

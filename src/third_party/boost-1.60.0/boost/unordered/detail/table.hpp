@@ -415,7 +415,7 @@ namespace boost { namespace unordered { namespace detail {
                 move_buckets_from(x);
             }
             else if(x.size_) {
-                // TODO: Could pick new bucket size?
+                // TODO: Could pick new bucket size? id:1490
                 create_buckets(bucket_count_);
 
                 move_nodes<node_allocator> node_creator(node_alloc());
@@ -796,7 +796,7 @@ namespace boost { namespace unordered { namespace detail {
 
         iterator find_matching_node(iterator n) const
         {
-            // TODO: Does this apply to C++11?
+            // TODO: Does this apply to C++11? id:2345
             //
             // For some stupid reason, I decided to support equality comparison
             // when different hash functions are used. So I can't use the hash

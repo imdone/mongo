@@ -576,7 +576,7 @@ enum UResOpenType {
      * This is the default bundle loading behavior.
      */
     URES_OPEN_LOCALE_DEFAULT_ROOT,
-    // TODO: ICU ticket #11271 "consistent default locale across locale trees"
+    // TODO: ICU ticket #11271 "consistent default locale across locale trees" id:2853
     // Add an option to look at the main locale tree for whether to
     // fall back to root directly (if the locale has main data) or
     // fall back to the default locale first (if the locale does not even have main data).
@@ -674,7 +674,7 @@ static UResourceDataEntry *entryOpen(const char* path, const char* localeID,
                 t1 = r;
                 hasRealData = TRUE;
                 isDefault = TRUE;
-                // TODO: Why not if (usingUSRData) { ... } like in the non-default-locale code path?
+                // TODO: Why not if (usingUSRData) { ... } like in the non-default-locale code path? id:1699
                 if (hasChopped && !isRoot) {
                     if (!loadParentsExceptRoot(t1, name, UPRV_LENGTHOF(name), usingUSRData, usrDataPath, status)) {
                         goto finishUnlock;
@@ -706,7 +706,7 @@ static UResourceDataEntry *entryOpen(const char* path, const char* localeID,
             }
         }
 
-        // TODO: Does this ever loop?
+        // TODO: Does this ever loop? id:2490
         while(r != NULL && !isRoot && t1->fParent != NULL) {
             t1->fParent->fCountExisting++;
             t1 = t1->fParent;
@@ -770,7 +770,7 @@ entryOpenDirect(const char* path, const char* localeID, UErrorCode* status) {
     }
 
     if(r != NULL) {
-        // TODO: Does this ever loop?
+        // TODO: Does this ever loop? id:1956
         while(t1->fParent != NULL) {
             t1->fParent->fCountExisting++;
             t1 = t1->fParent;
@@ -792,7 +792,7 @@ static void entryCloseInt(UResourceDataEntry *resB) {
         p = resB->fParent;
         resB->fCountExisting--;
 
-        /* Entries are left in the cache. TODO: add ures_flushCache() to force a flush
+        /* Entries are left in the cache. TODO: add ures_flushCache() to force a flush id:3247
          of the cache. */
 /*
         if(resB->fCountExisting <= 0) {
@@ -1469,14 +1469,14 @@ U_CAPI const UChar* U_EXPORT2 ures_getNextString(UResourceBundle *resB, int32_t*
     case URES_TABLE32:
       r = res_getTableItemByIndex(&(resB->fResData), resB->fRes, resB->fIndex, key);
       if(r == RES_BOGUS && resB->fHasFallback) {
-        /* TODO: do the fallback */
+        /* TODO: do the fallback id:2855*/
       }
       return ures_getStringWithAlias(resB, r, resB->fIndex, len, status);
     case URES_ARRAY:
     case URES_ARRAY16:
       r = res_getArrayItem(&(resB->fResData), resB->fRes, resB->fIndex);
       if(r == RES_BOGUS && resB->fHasFallback) {
-        /* TODO: do the fallback */
+        /* TODO: do the fallback id:1704*/
       }
       return ures_getStringWithAlias(resB, r, resB->fIndex, len, status);
     case URES_ALIAS:
@@ -1525,14 +1525,14 @@ U_CAPI UResourceBundle* U_EXPORT2 ures_getNextResource(UResourceBundle *resB, UR
         case URES_TABLE32:
             r = res_getTableItemByIndex(&(resB->fResData), resB->fRes, resB->fIndex, &key);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:2492*/
             }
             return init_resb_result(&(resB->fResData), r, key, resB->fIndex, resB->fData, resB, 0, fillIn, status);
         case URES_ARRAY:
         case URES_ARRAY16:
             r = res_getArrayItem(&(resB->fResData), resB->fRes, resB->fIndex);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:1958*/
             }
             return init_resb_result(&(resB->fResData), r, key, resB->fIndex, resB->fData, resB, 0, fillIn, status);
         default:
@@ -1571,14 +1571,14 @@ U_CAPI UResourceBundle* U_EXPORT2 ures_getByIndex(const UResourceBundle *resB, i
         case URES_TABLE32:
             r = res_getTableItemByIndex(&(resB->fResData), resB->fRes, indexR, &key);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:3248*/
             }
             return init_resb_result(&(resB->fResData), r, key, indexR, resB->fData, resB, 0, fillIn, status);
         case URES_ARRAY:
         case URES_ARRAY16:
             r = res_getArrayItem(&(resB->fResData), resB->fRes, indexR);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:2857*/
             }
             return init_resb_result(&(resB->fResData), r, key, indexR, resB->fData, resB, 0, fillIn, status);
         default:
@@ -1614,14 +1614,14 @@ U_CAPI const UChar* U_EXPORT2 ures_getStringByIndex(const UResourceBundle *resB,
         case URES_TABLE32:
             r = res_getTableItemByIndex(&(resB->fResData), resB->fRes, indexS, &key);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:1709*/
             }
             return ures_getStringWithAlias(resB, r, indexS, len, status);
         case URES_ARRAY:
         case URES_ARRAY16:
             r = res_getArrayItem(&(resB->fResData), resB->fRes, indexS);
             if(r == RES_BOGUS && resB->fHasFallback) {
-                /* TODO: do the fallback */
+                /* TODO: do the fallback id:2493*/
             }
             return ures_getStringWithAlias(resB, r, indexS, len, status);
         case URES_ALIAS:
@@ -1916,15 +1916,15 @@ void getAllContainerItemsWithFallback(
 
         // Turn the parent UResourceDataEntry into a UResourceBundle,
         // much like in ures_openWithType().
-        // TODO: See if we can refactor ures_getByKeyWithFallback()
+        // TODO: See if we can refactor ures_getByKeyWithFallback() id:1961
         // and pull out an inner function that takes and returns a UResourceDataEntry
         // so that we need not create UResourceBundle objects.
         UResourceBundle parentBundle;
         ures_initStackObject(&parentBundle);
         parentBundle.fTopLevelData = parentBundle.fData = entry;
-        // TODO: What is the difference between bundle fData and fTopLevelData?
+        // TODO: What is the difference between bundle fData and fTopLevelData? id:3249
         uprv_memcpy(&parentBundle.fResData, &entry->fData, sizeof(ResourceData));
-        // TODO: Try to replace bundle.fResData with just using bundle.fData->fData.
+        // TODO: Try to replace bundle.fResData with just using bundle.fData->fData. id:2859
         parentBundle.fHasFallback = !parentBundle.fResData.noFallback;
         parentBundle.fIsTopLevel = TRUE;
         parentBundle.fRes = parentBundle.fResData.rootRes;
@@ -2034,7 +2034,7 @@ U_CAPI UResourceBundle* U_EXPORT2 ures_getByKey(const UResourceBundle *resB, con
         }
     } 
 #if 0
-    /* this is a kind of TODO item. If we have an array with an index table, we could do this. */
+    /* this is a kind of TODO item. If we have an array with an index table, we could do this. id:1714*/
     /* not currently */
     else if(RES_GET_TYPE(resB->fRes) == URES_ARRAY && resB->fHasFallback == TRUE) {
         /* here should go a first attempt to locate the key using index table */
@@ -2116,7 +2116,7 @@ U_CAPI const UChar* U_EXPORT2 ures_getStringByKey(const UResourceBundle *resB, c
         }
     } 
 #if 0 
-    /* this is a kind of TODO item. If we have an array with an index table, we could do this. */
+    /* this is a kind of TODO item. If we have an array with an index table, we could do this. id:2495*/
     /* not currently */   
     else if(RES_GET_TYPE(resB->fRes) == URES_ARRAY && resB->fHasFallback == TRUE) {
         /* here should go a first attempt to locate the key using index table */
@@ -2145,7 +2145,7 @@ ures_getUTF8StringByKey(const UResourceBundle *resB,
     return ures_toUTF8String(s16, length16, dest, pLength, forceCopy, status);
 }
 
-/* TODO: clean from here down */
+/* TODO: clean from here down id:1964*/
 
 /**
  *  INTERNAL: Get the name of the first real locale (not placeholder) 

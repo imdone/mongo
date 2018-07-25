@@ -1607,7 +1607,7 @@ private:
     }
 };
 
-// TODO Test optimize(), difficult because a CoerceToBool cannot be output as
+// TODO Test optimize(), difficult because a CoerceToBool cannot be output as id:514
 // BSON.
 
 }  // namespace CoerceToBool
@@ -3576,7 +3576,7 @@ public:
                         << " but got: " << result.toString();
                     FAIL(errMsg);
                 }
-                // TODO test optimize here
+                // TODO test optimize here id:1169
             }
         }
         if (!spec["error"].missing()) {
@@ -3587,7 +3587,7 @@ public:
                 VariablesParseState vps = expCtx->variablesParseState;
                 ASSERT_THROWS(
                     {
-                        // NOTE: parse and evaluatation failures are treated the
+                        // NOTE: parse and evaluatation failures are treated the id:513
                         // same
                         const intrusive_ptr<Expression> expr =
                             Expression::parseExpression(expCtx, obj, vps);
@@ -5236,7 +5236,7 @@ public:
                         << " but got: " << result.toString();
                     FAIL(errMsg);
                 }
-                // TODO test optimize here
+                // TODO test optimize here id:1524
             }
         }
         if (!spec["error"].missing()) {
@@ -5247,7 +5247,7 @@ public:
                 VariablesParseState vps = expCtx->variablesParseState;
                 ASSERT_THROWS(
                     {
-                        // NOTE: parse and evaluatation failures are treated the
+                        // NOTE: parse and evaluatation failures are treated the id:657
                         // same
                         const intrusive_ptr<Expression> expr =
                             Expression::parseExpression(expCtx, obj, vps);

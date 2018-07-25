@@ -130,7 +130,7 @@ void MemberData::setLastDurableOpTime(OpTime opTime, Date_t now) {
     _lastUpdate = now;
     _lastUpdateStale = false;
     if (_lastAppliedOpTime < opTime) {
-        // TODO(russotto): We think this should never happen, rollback or no rollback.  Make this an
+        // TODO (russotto): We think this should never happen, rollback or no rollback. Make this an id:607
         // invariant and see what happens.
         log() << "Durable progress (" << opTime << ") is ahead of the applied progress ("
               << _lastAppliedOpTime << ". This is likely due to a "

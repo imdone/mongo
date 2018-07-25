@@ -38,7 +38,7 @@ const (
 // Demultiplexer implements Parser.
 type Demultiplexer struct {
 	In io.Reader
-	//TODO wrap up these three into a structure
+	//TODO wrap up these three into a structure id:729
 	outs               map[string]DemuxOut
 	lengths            map[string]int64
 	currentNamespace   string
@@ -305,7 +305,7 @@ func (receiver *RegularCollectionReceiver) Pos() int64 {
 // RegularCollectionReceiver and adds the RegularCollectionReceiver to the set of
 // RegularCollectonReceivers in the demultiplexer
 func (receiver *RegularCollectionReceiver) Open() error {
-	// TODO move this implementation to some non intents.file method, to be called from prioritizer.Get
+	// TODO move this implementation to some non intents.file method, to be called from prioritizer.Get id:2099
 	// So that we don't have to enable this double open stuff.
 	// Currently the open needs to finish before the prioritizer.Get finishes, so we open the intents.file
 	// in prioritizer.Get even though it's going to get opened again in DumpIntent.

@@ -3426,7 +3426,7 @@ CreateNonSyntacticScopeChain(JSContext* cx, AutoObjectVector& scopeChain,
         // the final unwrapped dynamic scope object (the scope that stores the
         // 'var' bindings) and the lexical scope.
         //
-        // TODOshu: disallow the subscript loader from using non-distinguished
+        // TODO shu: disallow the subscript loader from using non-distinguished id:3350
         // objects as dynamic scopes.
         dynamicScopeObj.set(
             cx->compartment()->getOrCreateNonSyntacticLexicalScope(cx, staticScopeObj,
@@ -5135,7 +5135,7 @@ JS_EncodeStringToBuffer(JSContext* cx, JSString* str, char* buffer, size_t lengt
     CHECK_REQUEST(cx);
 
     /*
-     * FIXME bug 612141 - fix DeflateStringToBuffer interface so the result
+     * FIXME bug 612141 - fix DeflateStringToBuffer interface so the result id:2987
      * would allow to distinguish between insufficient buffer and encoding
      * error.
      */

@@ -177,7 +177,7 @@ QuerySettings* CollectionInfoCacheImpl::getQuerySettings() const {
 void CollectionInfoCacheImpl::updatePlanCacheIndexEntries(OperationContext* opCtx) {
     std::vector<IndexEntry> indexEntries;
 
-    // TODO We shouldn't need to include unfinished indexes, but we must here because the index
+    // TODO We shouldn't need to include unfinished indexes, but we must here because the index id:443
     // catalog may be in an inconsistent state.  SERVER-18346.
     const bool includeUnfinishedIndexes = true;
     IndexCatalog::IndexIterator ii =

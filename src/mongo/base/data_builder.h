@@ -110,7 +110,7 @@ public:
     Status writeAndAdvance(const T& value) {
         _ensureStorage();
 
-        // TODO: We should offer:
+        // TODO: We should offer: id:304
         //
         // 1. A way to check if the type has a constant size
         // 2. A way to perform a runtime write which can fail with "too little

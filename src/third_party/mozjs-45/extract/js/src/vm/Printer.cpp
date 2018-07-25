@@ -61,7 +61,7 @@ GenericPrinter::vprintf(const char* fmt, va_list ap)
         return put(fmt);
 
     char* bp;
-    bp = JS_vsmprintf(fmt, ap);      /* XXX vsaprintf */
+    bp = JS_vsmprintf(fmt, ap);      /* XXX vsaprintf id:2721*/
     if (!bp) {
         reportOutOfMemory();
         return -1;
@@ -270,7 +270,7 @@ Sprint(Sprinter* sp, const char* format, ...)
     ptrdiff_t offset;
 
     va_start(ap, format);
-    bp = JS_vsmprintf(format, ap);      /* XXX vsaprintf */
+    bp = JS_vsmprintf(format, ap);      /* XXX vsaprintf id:2388*/
     va_end(ap);
     if (!bp) {
         sp->reportOutOfMemory();
@@ -585,7 +585,7 @@ LSprinter::vprintf(const char* fmt, va_list ap)
         return put(fmt);
 
     char* bp;
-    bp = JS_vsmprintf(fmt, ap);      /* XXX vsaprintf */
+    bp = JS_vsmprintf(fmt, ap);      /* XXX vsaprintf id:3363*/
     if (!bp) {
         reportOutOfMemory();
         return -1;

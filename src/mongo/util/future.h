@@ -61,7 +61,7 @@ class Future<void>;
 
 // Using extern constexpr to prevent the compiler from allocating storage as a poor man's c++17
 // inline constexpr variable.
-// TODO delete extern in c++17 because inline is the default for constexper variables.
+// TODO delete extern in c++17 because inline is the default for constexper variables. id:3138
 template <typename T>
 extern constexpr bool isFuture = false;
 template <typename T>
@@ -92,7 +92,7 @@ struct is_invocable
 // call(func, FakeVoid) -> func(Status::OK())
 // This simulates the implicit Status/T overloading you get by taking a StatusWith<T> that doesn't
 // work for Status/void and Status.
-// TODO replace this dispatch with constexpr if in c++17
+// TODO replace this dispatch with constexpr if in c++17 id:2614
 template <typename Func>
 inline auto callVoidOrStatus(Func&& func, std::true_type useStatus) {
     return func(Status::OK());
@@ -256,7 +256,7 @@ struct FutureContinuationResultImpl<Status> {
  * This is taken from RefCountable which is used for the aggregation types, adding in a way to set
  * the refcount non-atomically during initialization. Also using explicit memory orderings for all
  * operations on the count.
- * TODO look into merging back.
+ * TODO look into merging back. id:1387
  */
 class FutureRefCountable {
     MONGO_DISALLOW_COPYING(FutureRefCountable);
@@ -559,7 +559,7 @@ public:
         setImpl([&] { sharedState->setError(std::move(status)); });
     }
 
-    // TODO rename to not XXXWith and handle void
+    // TODO rename to not XXXWith and handle void id:2231
     void setFromStatusWith(StatusWith<T> sw) noexcept {
         setImpl([&] { sharedState->setFromStatusWith(std::move(sw)); });
     }
@@ -634,13 +634,13 @@ public:
 
 private:
     // Only Promise<T> needs to be a friend, but MSVC2015 doesn't respect that friendship.
-    // TODO see if this is still needed on MSVC2017+
+    // TODO see if this is still needed on MSVC2017+ id:1613
     template <typename T2>
     friend class Promise;
 
     explicit SharedPromise(std::shared_ptr<Promise<T>>&& promise) : _promise(std::move(promise)) {}
 
-    // TODO consider adding a SharedPromise refcount to SharedStateBase to avoid the extra
+    // TODO consider adding a SharedPromise refcount to SharedStateBase to avoid the extra id:3139
     // allocation. The tricky part will be ensuring that BrokenPromise is set when the last copy is
     // destroyed.
     std::shared_ptr<Promise<T>> _promise;
@@ -653,7 +653,7 @@ private:
  *
  * A future may be passed between threads, but only one thread may use it at a time.
  *
- * TODO decide if destroying a Future before extracting the result should cancel work or should
+ * TODO decide if destroying a Future before extracting the result should cancel work or should id:2616
  * cancellation be explicit. For now avoid unnecessarily throwing away active Futures since the
  * behavior may change. End all Future chains with either a blocking call to get()/getNoThrow() or a
  * non-blocking call to getAsync().
@@ -697,7 +697,7 @@ public:
      * result while you have a batch, then use a Promise to return a not-ready Future when you need
      * to get another batch.
      */
-    static Future<T> makeReady(T val) {  // TODO emplace?
+    static Future<T> makeReady(T val) {  // TODO emplace? id:1390
         Future out;
         out.immediate = std::move(val);
         return out;
@@ -775,7 +775,7 @@ public:
      * escape back into a callback-based API.
      *
      * For now, the callback must not fail, since there is nowhere to propagate the error to.
-     * TODO decide how to handle func throwing.
+     * TODO decide how to handle func throwing. id:2234
      */
     template <typename Func>  // StatusWith<T> -> void
         void getAsync(Func&& func) && noexcept {
@@ -813,7 +813,7 @@ public:
     // Additionally, avoid acquiring any locks or mutexes that the caller already holds, otherwise
     // you risk a deadlock. If either of these concerns apply to your callback, it should schedule
     // itself on an executor, rather than doing work in the callback.
-    // TODO make this easier to do by having executor APIs return Futures.
+    // TODO make this easier to do by having executor APIs return Futures. id:1616
     //
     // Error handling in callbacks: all exceptions thrown propagate to the returned Future
     // automatically. Callbacks that return Status or StatusWith<T> behave as-if they were wrapped
@@ -977,7 +977,7 @@ public:
         if (immediate || (isReady() && shared->status.isOK()))
             return std::move(*this);  // Avoid copy/moving func if we know we won't call it.
 
-        // TODO in C++17 with constexpr if this can be done cleaner and more efficiently by not
+        // TODO in C++17 with constexpr if this can be done cleaner and more efficiently by not id:3140
         // throwing.
         return std::move(*this).onError([func =
                                              std::forward<Func>(func)](Status && status) mutable {
@@ -988,7 +988,7 @@ public:
     }
 
     /**
-     * TODO do we need a version of then/onError like onCompletion() that handles both success and
+     * TODO do we need a version of then/onError like onCompletion() that handles both success and id:2618
      * Failure, but doesn't end the chain like getAsync()? Right now we don't, and we can add one if
      * we do.
      */
@@ -1000,7 +1000,7 @@ public:
     // conversation between two parties (the promise-producer and future-consumer) without adding
     // messages of your own. This is why all callbacks are required to return void.
     //
-    // TODO decide what to do if callback throws:
+    // TODO decide what to do if callback throws: id:1393
     //  - transition the future chain to failure
     //  - ignore
     //  - fatal (current impl)

@@ -163,7 +163,7 @@ RangeAnalysis::addBetaNodes()
             continue;
         }
 
-        // TODO: support unsigned comparisons
+        // TODO: support unsigned comparisons id:2639
         if (compare->compareType() == MCompare::Compare_UInt32)
             continue;
 

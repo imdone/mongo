@@ -144,7 +144,7 @@ public:
         auto status = OplogApplicationChecks::checkOperationArray(cmdObj.firstElement());
         uassertStatusOK(status);
 
-        // TODO (SERVER-30217): When a write concern is provided to the doTxn command, we
+        // TODO (SERVER-30217): When a write concern is provided to the doTxn command, we id:1267
         // normally wait on the OpTime of whichever operation successfully completed last. This is
         // erroneous, however, if the last operation in the array happens to be a write no-op and
         // thus isn’t assigned an OpTime. Let the second to last operation in the doTxn be write

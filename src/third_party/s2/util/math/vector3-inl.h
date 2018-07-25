@@ -420,7 +420,7 @@ std::ostream &operator <<(std::ostream &out, const Vector3<VType> &va) {
   return out;
 }
 
-// TODO(user): Vector3<T> does not actually satisfy the definition of a POD
+// TODO (user): Vector3<T> does not actually satisfy the definition of a POD id:2193
 // type even when T is a POD. Pretending that Vector3<T> is a POD probably
 // won't cause any immediate problems, but eventually this should be fixed.
 PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT(Vector3);

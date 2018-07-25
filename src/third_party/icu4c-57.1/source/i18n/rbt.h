@@ -291,7 +291,7 @@ private:
     /**
      * The data object is immutable, so we can freely share it with
      * other instances of RBT, as long as we do NOT own this object.
-     *  TODO:  data is no longer immutable.  See bugs #1866, 2155
+     *  TODO: data is no longer immutable. See bugs #1866, 2155 id:3280
      */
     TransliterationRuleData* fData;
 

@@ -39,7 +39,7 @@ namespace optionenvironment {
 /**
  * An OptionType is an enum of all the types we support in the OptionsParser
  *
- * NOTE(sverch): The semantics of "Switch" options are completely identical to "Bool" options,
+ * NOTE (sverch): The semantics of "Switch" options are completely identical to "Bool" options, id:1405
  * except that on the command line they do not take a value.
  */
 enum OptionType {
@@ -149,7 +149,7 @@ public:
      * .positional(4,-1) // Can repeat this positional option forever after position 4
      *
      *
-     * (sverch) TODO: When we can support it (i.e. when we can get rid of boost) add a
+     * (sverch) TODO: When we can support it (i.e. when we can get rid of boost) add a id:2252
      * "positionalOnly" attribute that specifies that it is not also a command line flag.  In
      * boost program options, the only way to have a positional argument is to register a flag
      * and mark it as also being positional.
@@ -174,7 +174,7 @@ public:
      * must be the dottedName, which is the name used to access the option in the result
      * Environment.
      *
-     * TODO: Find a way to check that that option actually exists in our section somewhere.
+     * TODO: Find a way to check that that option actually exists in our section somewhere. id:1630
      */
     OptionDescription& incompatibleWith(const std::string& otherDottedName);
 
@@ -215,7 +215,7 @@ public:
     int _positionalStart;  // The starting position if this is a positional option. -1 otherwise.
     int _positionalEnd;    // The ending position if this is a positional option.  -1 if unlimited.
 
-    // TODO(sverch): We have to use pointers to keep track of the Constrants because we rely on
+    // TODO (sverch): We have to use pointers to keep track of the Constrants because we rely on id:3147
     // inheritance to make Constraints work.  We have to use shared_ptrs because the
     // OptionDescription is sometimes copied and because it is stored in a std::list in the
     // OptionSection.  We should think about a better solution for the ownership semantics of

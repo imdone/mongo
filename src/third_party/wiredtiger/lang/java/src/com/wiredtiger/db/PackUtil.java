@@ -50,7 +50,7 @@ class PackUtil {
 
     // See: http://docs.python.org/2/library/struct.html for an explanation
     // of what these special characters mean.
-    // TODO: Care about byte ordering and padding in packed formats.
+    // TODO: Care about byte ordering and padding in packed formats. id:2276
     final static String PackSpecialCharacters = "@=<>!x";
 
     final static int SIZEOF_LONG = 8;

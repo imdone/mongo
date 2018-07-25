@@ -1256,8 +1256,8 @@ BOffImm::BOffImm(Instruction& inst)
 Instruction*
 BOffImm::getDest(Instruction* src) const
 {
-    // TODO: It is probably worthwhile to verify that src is actually a branch.
-    // NOTE: This does not explicitly shift the offset of the destination left by 2,
+    // TODO: It is probably worthwhile to verify that src is actually a branch. id:2295
+    // NOTE: This does not explicitly shift the offset of the destination left by 2, id:3323
     // since it is indexing into an array of instruction sized objects.
     return &src[(((int32_t)data << 8) >> 8) + 2];
 }
@@ -1652,7 +1652,7 @@ Assembler::WriteInstStatic(uint32_t x, uint32_t* dest)
 void
 Assembler::haltingAlign(int alignment)
 {
-    // TODO: Implement a proper halting align.
+    // TODO: Implement a proper halting align. id:2937
     nopAlign(alignment);
 }
 
@@ -3355,7 +3355,7 @@ void Assembler::UpdateBoundsCheck(uint32_t heapSize, Instruction* inst)
     MOZ_ASSERT(!imm8.invalid);
 
     *inst = InstALU(InvalidReg, index, imm8, OpCmp, SetCC, Always);
-    // NOTE: we don't update the Auto Flush Cache!  this function is currently
+    // NOTE: we don't update the Auto Flush Cache! this function is currently id:2024
     // only called from within AsmJSModule::patchHeapAccesses, which does that
     // for us. Don't call this!
 }

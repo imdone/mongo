@@ -3510,7 +3510,7 @@ CASE(JSOP_RETSUB)
         /*
          * Exception was pending during finally, throw it *before* we adjust
          * pc, because pc indexes into script->trynotes.  This turns out not to
-         * be necessary, but it seems clearer.  And it points out a FIXME:
+         * be necessary, but it seems clearer.  And it points out a FIXME:  id:3007
          * 350509, due to Igor Bukanov.
          */
         cx->setPendingException(rval);
@@ -3624,7 +3624,7 @@ CASE(JSOP_DEBUGLEAVEBLOCK)
     MOZ_ASSERT(script->getStaticBlockScope(REGS.pc)->is<StaticBlockObject>());
     MOZ_ASSERT(!script->getStaticBlockScope(REGS.pc)->as<StaticBlockObject>().needsClone());
 
-    // FIXME: This opcode should not be necessary.  The debugger shouldn't need
+    // FIXME: This opcode should not be necessary. The debugger shouldn't need id:2121
     // help from bytecode to do its job.  See bug 927782.
 
     if (MOZ_UNLIKELY(cx->compartment()->isDebuggee()))

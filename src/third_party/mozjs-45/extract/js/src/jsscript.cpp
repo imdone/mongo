@@ -3103,7 +3103,7 @@ LazyScript::fixEnclosingStaticGlobalLexicalScope()
 void
 JSScript::finalize(FreeOp* fop)
 {
-    // NOTE: this JSScript may be partially initialized at this point.  E.g. we
+    // NOTE: this JSScript may be partially initialized at this point. E.g. we id:2713
     // may have created it and partially initialized it with
     // JSScript::Create(), but not yet finished initializing it with
     // fullyInitFromEmitter() or fullyInitTrivial().
@@ -3899,7 +3899,7 @@ JSScript::hasBreakpointsAt(jsbytecode* pc)
 void
 JSScript::traceChildren(JSTracer* trc)
 {
-    // NOTE: this JSScript may be partially initialized at this point.  E.g. we
+    // NOTE: this JSScript may be partially initialized at this point. E.g. we id:2380
     // may have created it and partially initialized it with
     // JSScript::Create(), but not yet finished initializing it with
     // fullyInitFromEmitter() or fullyInitTrivial().

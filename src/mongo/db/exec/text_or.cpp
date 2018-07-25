@@ -304,7 +304,7 @@ PlanStage::StageState TextOrStage::addTerm(WorkingSetID wsid, WorkingSetID* out)
         // We already have a working set member for this RecordId. Free the new WSM and retrieve the
         // old one. Note that since we don't keep all index keys, we could get a score that doesn't
         // match the document, but this has always been a problem.
-        // TODO something to improve the situation.
+        // TODO something to improve the situation. id:724
         invariant(wsid != textRecordData->wsid);
         _ws->free(wsid);
         wsm = _ws->get(textRecordData->wsid);

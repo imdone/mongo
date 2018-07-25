@@ -912,7 +912,7 @@ js::GetIteratorObject(JSContext* cx, HandleObject obj, uint32_t flags)
 JSObject*
 js::CreateItrResultObject(JSContext* cx, HandleValue value, bool done)
 {
-    // FIXME: We can cache the iterator result object shape somewhere.
+    // FIXME: We can cache the iterator result object shape somewhere. id:3354
     AssertHeapIsIdle(cx);
 
     RootedObject proto(cx, cx->global()->getOrCreateObjectPrototype(cx));

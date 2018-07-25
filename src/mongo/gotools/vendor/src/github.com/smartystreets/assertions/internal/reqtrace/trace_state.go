@@ -121,7 +121,7 @@ func (ts *traceState) Log() {
 
 	// Bail out if something weird happened.
 	//
-	// TODO(jacobsa): Be more graceful.
+	// TODO (jacobsa): Be more graceful. id:1686
 	totalDuration := maxEnd.Sub(minStart)
 	if minStart.IsZero() || maxEnd.IsZero() || totalDuration <= 0 {
 		gLogger.Println("(Weird trace)")

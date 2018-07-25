@@ -148,10 +148,10 @@ testSkipLimit([{$limit: 10}, {$skip: 5}, {$skip: 3}], 10 - 3 - 5);
 // test sort + limit (using random to pull from both shards)
 function testSortLimit(limit, direction) {
     jsTestLog('testSortLimit(' + limit + ', ' + direction + ')');
-    shardedAggTest.stopBalancer();  // TODO: remove after fixing SERVER-9622
+    shardedAggTest.stopBalancer();  // TODO: remove after fixing SERVER-9622 id:82
     var from_cursor =
         db.ts1.find({}, {random: 1, _id: 0}).sort({random: direction}).limit(limit).toArray();
-    shardedAggTest.startBalancer();  // TODO: remove after fixing SERVER-9622
+    shardedAggTest.startBalancer();  // TODO: remove after fixing SERVER-9622 id:36
     var from_agg =
         db.ts1
             .aggregate(
@@ -201,10 +201,10 @@ testSample();
 jsTestLog('test $out by copying source collection verbatim to output');
 var outCollection = db.ts1_out;
 var res = db.ts1.aggregate([{$out: outCollection.getName()}]).toArray();
-shardedAggTest.stopBalancer();  // TODO: remove after fixing SERVER-9622
+shardedAggTest.stopBalancer();  // TODO: remove after fixing SERVER-9622 id:18
 assert.eq(db.ts1.find().itcount(), outCollection.find().itcount());
 assert.eq(db.ts1.find().sort({_id: 1}).toArray(), outCollection.find().sort({_id: 1}).toArray());
-shardedAggTest.startBalancer();  // TODO: remove after fixing SERVER-9622
+shardedAggTest.startBalancer();  // TODO: remove after fixing SERVER-9622 id:20
 
 // Make sure we error out if $out collection is sharded
 assert.commandFailed(

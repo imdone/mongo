@@ -607,7 +607,7 @@ class CPURegList {
   static CPURegList GetCalleeSavedV(unsigned size = kDRegSize);
 
   // AAPCS64 caller-saved registers. Note that this includes lr.
-  // TODO(all): Determine how we handle d8-d15 being callee-saved, but the top
+  // TODO (all): Determine how we handle d8-d15 being callee-saved, but the top id:3332
   // 64-bits being caller-saved.
   static CPURegList GetCallerSaved(unsigned size = kXRegSize);
   static CPURegList GetCallerSavedV(unsigned size = kDRegSize);
@@ -690,9 +690,9 @@ class Operand {
   //       <shift_amount> is uint2_t.
   explicit Operand(Register reg, Extend extend, unsigned shift_amount = 0);
 
-  // FIXME: Temporary constructors for compilation.
-  // FIXME: These should be removed -- Operand should not leak into shared code.
-  // FIXME: Something like an LAllocationUnion for {gpreg, fpreg, Address} is wanted.
+  // FIXME: Temporary constructors for compilation. id:2955
+  // FIXME: These should be removed -- Operand should not leak into shared code. id:2046
+  // FIXME: Something like an LAllocationUnion for {gpreg, fpreg, Address} is wanted. id:2663
   explicit Operand(js::jit::Register) {
     MOZ_CRASH("Operand with Register");
   }
@@ -771,7 +771,7 @@ class MemOperand {
              AddrMode addrmode = Offset);
 
   // Adapter constructors using C++11 delegating.
-  // TODO: If sp == kSPRegInternalCode, the xzr check isn't necessary.
+  // TODO: If sp == kSPRegInternalCode, the xzr check isn't necessary. id:2317
   explicit MemOperand(js::jit::Address addr)
     : MemOperand(addr.base.code() == 31 ? sp : Register(addr.base, 64),
                  (ptrdiff_t)addr.offset) {
@@ -4014,7 +4014,7 @@ class Assembler : public MozBaseAssembler {
                 const MemOperand& addr,
                 LoadStoreScalingOption option = PreferScaledOffset);
 
-  // TODO(all): The third parameter should be passed by reference but gcc 4.8.2
+  // TODO (all): The third parameter should be passed by reference but gcc 4.8.2 id:3333
   // reports a bogus uninitialised warning then.
   BufferOffset Logical(const Register& rd,
                        const Register& rn,

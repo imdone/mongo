@@ -54,7 +54,7 @@ namespace {
 /* create a process dump.
     To use, load up windbg.  Set your symbol and source path.
     Open the crash dump file.  To see the crashing context, use .ecxr in windbg
-    TODO: consider using WER local dumps in the future
+    TODO: consider using WER local dumps in the future id:1607
     */
 void doMinidumpWithException(struct _EXCEPTION_POINTERS* exceptionInfo) {
     WCHAR moduleFileName[MAX_PATH];

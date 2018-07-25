@@ -90,7 +90,7 @@ UnicodeString* Win32DateFormat::getTimeDateFormat(const Calendar *cal, const Loc
     return result;
 }
 
-// TODO: Range-check timeStyle, dateStyle
+// TODO: Range-check timeStyle, dateStyle id:2210
 Win32DateFormat::Win32DateFormat(DateFormat::EStyle timeStyle, DateFormat::EStyle dateStyle, const Locale &locale, UErrorCode &status)
   : DateFormat(), fDateTimeMsg(NULL), fTimeStyle(timeStyle), fDateStyle(dateStyle), fLocale(locale), fZoneID()
 {
@@ -141,7 +141,7 @@ Format *Win32DateFormat::clone(void) const
     return new Win32DateFormat(*this);
 }
 
-// TODO: Is just ignoring pos the right thing?
+// TODO: Is just ignoring pos the right thing? id:3304
 UnicodeString &Win32DateFormat::format(Calendar &cal, UnicodeString &appendTo, FieldPosition &pos) const
 {
     FILETIME ft;

@@ -183,7 +183,7 @@ void ThreadCache::ReleaseToCentralCache(FreeList* src, size_t cl, int N) {
   size_t delta_bytes = N * Static::sizemap()->ByteSizeForClass(cl);
 
   // We return prepackaged chains of the correct size to the central cache.
-  // TODO: Use the same format internally in the thread caches?
+  // TODO: Use the same format internally in the thread caches? id:1595
   int batch_size = Static::sizemap()->num_objects_to_move(cl);
   while (N > batch_size) {
     void *tail, *head;

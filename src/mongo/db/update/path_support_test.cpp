@@ -616,7 +616,7 @@ static void assertContains(const EqualityMatches& equalities, StringData path, i
     assertContains(equalities, BSON(path << value));
 }
 
-// NOTE: For tests below, BSONObj expr must exist for lifetime of MatchExpression
+// NOTE: For tests below, BSONObj expr must exist for lifetime of MatchExpression id:997
 
 TEST(ExtractEqualities, Basic) {
     BSONObj exprBSON = fromjson("{a:1}");

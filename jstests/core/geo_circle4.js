@@ -19,7 +19,7 @@ function test(index) {
     }
     r = db.server848.find({"loc": {"$within": {"$center": [center, radius]}}}, {_id: 1});
     assert.eq(5, r.count(), "A1");
-    // FIXME: surely code like this belongs in utils.js.
+    // FIXME: surely code like this belongs in utils.js. id:112
     a = r.toArray();
     x = [];
     for (k in a) {

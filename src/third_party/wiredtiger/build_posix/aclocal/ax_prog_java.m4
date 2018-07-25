@@ -43,7 +43,7 @@
 #   *Warning*: its success or failure can depend on a proper setting of the
 #   CLASSPATH env. variable.
 #
-#   TODO: allow to exclude virtual machines (rationale: most Java programs
+#   TODO: allow to exclude virtual machines (rationale: most Java programs id:3419
 #   cannot run with some VM like kaffe).
 #
 #   Note: This is part of the set of autoconf M4 macros for Java programs.

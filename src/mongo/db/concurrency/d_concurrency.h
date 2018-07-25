@@ -42,7 +42,7 @@ class NamespaceString;
 class Lock {
 public:
     /**
-     * NOTE: DO NOT add any new usages of TempRelease. It is being deprecated/removed.
+     * NOTE: DO NOT add any new usages of TempRelease. It is being deprecated/removed. id:1287
      */
     class TempRelease {
         MONGO_DISALLOW_COPYING(TempRelease);

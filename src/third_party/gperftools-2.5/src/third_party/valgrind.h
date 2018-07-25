@@ -578,7 +578,7 @@ typedef
    no result.
 */
 
-/* Use these to write the name of your wrapper.  NOTE: duplicates
+/* Use these to write the name of your wrapper.  NOTE: duplicates id:2748
    VG_WRAP_FUNCTION_Z{U,Z} in pub_tool_redir.h. */
 
 #define I_WRAP_SONAME_FNNAME_ZU(soname,fnname)                    \

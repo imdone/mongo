@@ -319,7 +319,7 @@ var lastBoundaryTests = []PositionTest{
 	// illegal runes
 	{"\xff", 1, ""},
 	{"aa\xff", 3, ""},
-	{"a\xff\u0300", 1, ""}, // TODO: should probably be 2.
+	{"a\xff\u0300", 1, ""}, // TODO: should probably be 2. id:1980
 	{"\xc0\x80\x80", 3, ""},
 	{"\xc0\x80\x80\u0300", 3, ""},
 	// ends with incomplete UTF-8 encoding
@@ -388,7 +388,7 @@ var quickSpanTests = []spanTest{
 	{"\xCC", true, 1, nil},
 	{"\xCC", false, 0, transform.ErrShortSrc},
 	{"a\xCC", true, 2, nil},
-	{"a\xCC", false, 0, transform.ErrShortSrc}, // TODO: could be 1 for NFD
+	{"a\xCC", false, 0, transform.ErrShortSrc}, // TODO: could be 1 for NFD id:1467
 	// incorrectly ordered combining characters
 	{"\u0300\u0316", true, 0, transform.ErrEndOfSpan},
 	{"\u0300\u0316", false, 0, transform.ErrEndOfSpan},
@@ -425,7 +425,7 @@ var quickSpanNFDTests = []spanTest{
 	{"\u0316\u0300cd", true, 6, nil},
 	{"\u043E\u0308b", true, 5, nil},
 	// incorrectly ordered combining characters
-	{"ab\u0300\u0316", true, 1, transform.ErrEndOfSpan}, // TODO: we could skip 'b' as well.
+	{"ab\u0300\u0316", true, 1, transform.ErrEndOfSpan}, // TODO: we could skip 'b' as well. id:3083
 	{"ab\u0300\u0316cd", true, 1, transform.ErrEndOfSpan},
 	// Hangul
 	{"같은", true, 0, transform.ErrEndOfSpan},
@@ -436,7 +436,7 @@ var quickSpanNFCTests = []spanTest{
 	{"\u00C0", true, 2, nil},
 	{"abc\u00C0", true, 5, nil},
 	// correctly ordered combining characters
-	// TODO: b may combine with modifiers, which is why this fails. We could
+	// TODO: b may combine with modifiers, which is why this fails. We could id:1367
 	// make a more precise test that that actually checks whether last
 	// characters combines. Probably not worth it.
 	{"ab\u0300", true, 1, transform.ErrEndOfSpan},
@@ -688,7 +688,7 @@ var appendTestsNFC = []AppendTest{
 	},
 
 	{ // Split combining characters.
-		// TODO: don't insert CGJ before starters.
+		// TODO: don't insert CGJ before starters. id:1131
 		"",
 		"\u0d46" + strings.Repeat("\u0d3e", 31),
 		"\u0d4a" + strings.Repeat("\u0d3e", 29) + cgj + "\u0d3e",
@@ -720,7 +720,7 @@ var appendTestsNFC = []AppendTest{
 }
 
 var appendTestsNFD = []AppendTest{
-	// TODO: Move some of the tests here.
+	// TODO: Move some of the tests here. id:1982
 }
 
 var appendTestsNFKC = []AppendTest{

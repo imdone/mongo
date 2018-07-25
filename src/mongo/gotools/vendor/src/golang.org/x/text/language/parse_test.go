@@ -183,7 +183,7 @@ func parseTests() []parseTest {
 		{in: "en-u-cu-co-phonebk", lang: "en", extList: []string{"u-co-phonebk"}, invalid: true, changed: true},
 		{in: "en-u-cu-xau-co", lang: "en", extList: []string{"u-cu-xau"}, invalid: true},
 		// We allow duplicate keys as the LDML spec does not explicitly prohibit it.
-		// TODO: Consider eliminating duplicates and returning an error.
+		// TODO: Consider eliminating duplicates and returning an error. id:1280
 		{in: "en-u-cu-xau-co-phonebk-cu-xau", lang: "en", ext: "u-co-phonebk-cu-xau-cu-xau", changed: true},
 		{in: "en-t-en-Cyrl-NL-fonipa", lang: "en", ext: "t-en-cyrl-nl-fonipa", changed: true},
 		{in: "en-t-en-Cyrl-NL-fonipa-t0-abc-def", lang: "en", ext: "t-en-cyrl-nl-fonipa-t0-abc-def", changed: true},
@@ -206,7 +206,7 @@ func parseTests() []parseTest {
 		{in: "en.-en", lang: "en", invalid: true},
 		{in: "x-a-tooManyChars-c-d", ext: "x-a-c-d", invalid: true, changed: true},
 		{in: "a-tooManyChars-c-d", lang: "und", invalid: true},
-		// TODO: check key-value validity
+		// TODO: check key-value validity id:1064
 		// { in: "en-u-cu-xd", lang: "en", ext: "u-cu-xd", invalid: true },
 		{in: "en-t-abcd", lang: "en", invalid: true},
 		{in: "en-Latn-US-en", lang: "en", script: "Latn", region: "US", invalid: true},

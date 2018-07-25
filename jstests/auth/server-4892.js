@@ -74,7 +74,7 @@ withMongod({auth: ""}, function runTest(mongod) {
 
     cursor.close();
 
-    // NOTE(schwerin): dbKillCursors gets piggybacked on subsequent messages on the
+    // NOTE (schwerin): dbKillCursors gets piggybacked on subsequent messages on the id:47
     // connection, so we
     // have to force a message to the server.
     somedb.data.findOne();

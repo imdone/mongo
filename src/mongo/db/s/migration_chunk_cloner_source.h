@@ -67,7 +67,7 @@ public:
      * the recipient shard to start cloning. Before calling this method, this chunk cloner must be
      * registered for notifications from the replication subsystem (not checked here).
      *
-     * NOTE: Must be called without any locks and must succeed, before any other methods are called
+     * NOTE: Must be called without any locks and must succeed, before any other methods are called id:658
      * (except for cancelClone and [insert/update/delete]Op).
      */
     virtual Status startClone(OperationContext* opCtx) = 0;
@@ -80,7 +80,7 @@ public:
      * entering critical section). On failure it may return any error. Known errors are:
      *  ExceededTimeLimit - if the maxTimeToWait was exceeded
      *
-     * NOTE: Must be called without any locks.
+     * NOTE: Must be called without any locks. id:1890
      */
     virtual Status awaitUntilCriticalSectionIsAppropriate(OperationContext* opCtx,
                                                           Milliseconds maxTimeToWait) = 0;
@@ -96,7 +96,7 @@ public:
      * Returns statistics about the move. These are informational only and should not be
      * interpreted by the caller for any means other than reporting.
      *
-     * NOTE: Must be called without any locks.
+     * NOTE: Must be called without any locks. id:896
      */
     virtual StatusWith<BSONObj> commitClone(OperationContext* opCtx) = 0;
 
@@ -104,7 +104,7 @@ public:
      * Tells the recipient to abort the clone and cleanup any unused data. This method's
      * implementation should be idempotent and never throw.
      *
-     * NOTE: Must be called without any locks.
+     * NOTE: Must be called without any locks. id:723
      */
     virtual void cancelClone(OperationContext* opCtx) = 0;
 
@@ -115,7 +115,7 @@ public:
      * Checks whether the specified document is within the bounds of the chunk, which this cloner
      * is responsible for.
      *
-     * NOTE: Must be called with at least IS lock held on the collection.
+     * NOTE: Must be called with at least IS lock held on the collection. id:1307
      */
     virtual bool isDocumentInMigratingChunk(const BSONObj& doc) = 0;
 
@@ -124,7 +124,7 @@ public:
      * the cloner's implementation to decide what to do with this information and it is valid for
      * the implementation to ignore it.
      *
-     * NOTE: Must be called with at least IX lock held on the collection.
+     * NOTE: Must be called with at least IX lock held on the collection. id:660
      */
     virtual void onInsertOp(OperationContext* opCtx,
                             const BSONObj& insertedDoc,
@@ -135,7 +135,7 @@ public:
      * the cloner's implementation to decide what to do with this information and it is valid for
      * the implementation to ignore it.
      *
-     * NOTE: Must be called with at least IX lock held on the collection.
+     * NOTE: Must be called with at least IX lock held on the collection. id:1892
      */
     virtual void onUpdateOp(OperationContext* opCtx,
                             const BSONObj& updatedDoc,
@@ -147,7 +147,7 @@ public:
      * cloner's implementation to decide what to do with this information and it is valid for the
      * implementation to ignore it.
      *
-     * NOTE: Must be called with at least IX lock held on the collection.
+     * NOTE: Must be called with at least IX lock held on the collection. id:898
      */
     virtual void onDeleteOp(OperationContext* opCtx,
                             const BSONObj& deletedDocId,

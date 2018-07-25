@@ -13,4 +13,4 @@ delete x._id;
 assert.eq(2, t.find(x).count(), "B");
 
 t.ensureIndex({a: 1});
-assert.eq(2, t.find(x).count(), "C");  // TODO SERVER-146
+assert.eq(2, t.find(x).count(), "C");  // TODO SERVER-146 id:183

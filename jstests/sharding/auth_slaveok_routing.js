@@ -19,7 +19,7 @@
     // briefly authenticates as __system and recieves clusterTime metadata then will fail trying to
     // gossip that time later in setup.
     //
-    // TODO SERVER-32672: remove this flag.
+    // TODO SERVER-32672: remove this flag. id:146
     TestData.skipGossipingClusterTime = true;
 
     /**
@@ -39,7 +39,7 @@
     }
 
     var rsOpts = {oplogSize: 50};
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:159
     var st = new ShardingTest(
         {shards: 1, rs: rsOpts, other: {keyFile: 'jstests/libs/key1', shardAsReplicaSet: false}});
 

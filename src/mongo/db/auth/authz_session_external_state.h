@@ -65,7 +65,7 @@ public:
     // Returns true if this connection should be treated as a localhost connection with no
     // admin authentication users created. This condition is used to allow the creation of
     // the first user on a server with authorization enabled.
-    // NOTE: _checkShouldAllowLocalhost MUST be called at least once before any call to
+    // NOTE: _checkShouldAllowLocalhost MUST be called at least once before any call to id:1010
     // shouldAllowLocalhost or we could ignore auth checks incorrectly.
     virtual bool shouldAllowLocalhost() const = 0;
 
@@ -85,7 +85,7 @@ protected:
     // Pointer to the authorization manager associated with the authorization session
     // that owns this object.
     //
-    // TODO(schwerin): Eliminate this back pointer.
+    // TODO (schwerin): Eliminate this back pointer. id:436
     AuthorizationManager* _authzManager;
 };
 

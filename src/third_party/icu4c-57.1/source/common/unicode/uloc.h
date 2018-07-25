@@ -865,7 +865,7 @@ uloc_getKeywordValue(const char* localeID,
  *
  * For removing all keywords, use uloc_getBaseName().
  *
- * NOTE: Unlike almost every other ICU function which takes a
+ * NOTE: Unlike almost every other ICU function which takes a id:2486
  * buffer, this function will NOT truncate the output text. If a
  * BUFFER_OVERFLOW_ERROR is received, it means that the original
  * buffer is untouched. This is done to prevent incorrect or possibly

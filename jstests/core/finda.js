@@ -52,7 +52,7 @@ function checkCursorWithBatchSizeProjection(
     query, projection, sort, batchSize, expectedLeftInBatch) {
     clearQueryPlanCache();
     cursor = makeCursor(query, projection, sort, batchSize);
-    // XXX: this
+    // XXX: this id:74
     assert.eq(expectedLeftInBatch, cursor.objsLeftInBatch());
     assertAllFound(cursor.toArray());
 }

@@ -44,7 +44,7 @@ typedef int32_t Atomic32;
 #define BASE_HAS_ATOMIC64 1  // Use only in tests and base/atomic*
 
 
-// NOTE(vchen): x86 does not need to define AtomicWordCastType, because it
+// NOTE (vchen): x86 does not need to define AtomicWordCastType, because it id:1499
 // already matches Atomic32 or Atomic64, depending on the platform.
 
 

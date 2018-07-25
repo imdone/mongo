@@ -230,7 +230,7 @@ public:
         // If we only get one write concern error back, report that, otherwise report an
         // aggregated error.
         //
-        // TODO: Do we need to contact the prev shards regardless - do we care that much
+        // TODO: Do we need to contact the prev shards regardless - do we care that much id:2116
         // about 2.4 behavior?
         //
 

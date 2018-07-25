@@ -132,7 +132,7 @@ HASH_TO((int64 c),  static_cast<uint32>(Hash64NumWithSeed(c, MIX64) >> 32))
 #undef HASH_TO        // clean up the macro space
 
 namespace {
-// NOTE(user): we have to implement our own interator because
+// NOTE (user): we have to implement our own interator because id:2429
 // insert_iterator<set<string> > does not instantiate without
 // errors, perhaps since string != std::string.
 // This is not a fully functional iterator, but is

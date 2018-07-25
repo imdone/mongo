@@ -30,7 +30,7 @@ template <class T>
 inline T sgn(const T x) {
   return (x == 0 ? 0 : (x < 0 ? -1 : 1));
 }
-// HACK ALERT
+// HACK ALERT id:2433
 // So here's the deal: There's a ton of junk defined in mathlimits.h that should be moved into
 // mathlimits.cc.  But the only thing that uses mathlimits.cc/h is this, mathutil.cc/h.
 // So I moved a class definition into this .h file before the stuff that references it and stuck
@@ -88,7 +88,7 @@ template<typename T> struct MathLimits {
   // Present only if !kIsInteger.
   static const Type kNegInf;
 
-  // NOTE: Special floating point values behave
+  // NOTE: Special floating point values behave id:3387
   // in a special (but mathematically-logical) way
   // in terms of (in)equalty comparison and mathematical operations
   // -- see out unittest for examples.
@@ -474,7 +474,7 @@ class MathUtil {
     if (lowbits > (1 << (bits - 1)) ||
         (lowbits == (1 << (bits - 1)) && (f_rep & (1 << bits)))) {
       g_rep += (1 << bits);
-      // NOTE: overflow does a really nice thing here - if all the
+      // NOTE: overflow does a really nice thing here - if all the id:3059
       // rest of the mantissa bits are 1, the carry carries over into
       // the exponent and increments it by 1, which is exactly what we
       // want.  It even gets to +/-INF properly.
@@ -559,7 +559,7 @@ class MathUtil {
 
   // If two (usually floating point) numbers are within a certain
   // absolute margin of error.
-  // NOTE: this "misbehaves" is one is trying to capture provisons for errors
+  // NOTE: this "misbehaves" is one is trying to capture provisons for errors id:2191
   // that are relative, i.e. larger if the numbers involved are larger.
   // Consider using WithinFraction or WithinFractionOrMargin below.
   //

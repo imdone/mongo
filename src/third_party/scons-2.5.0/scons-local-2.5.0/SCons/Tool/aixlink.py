@@ -61,7 +61,7 @@ def generate(env):
     env['SHLIBSUFFIX']    = '.a'
 
 def exists(env):
-    # TODO: sync with link.smart_link() to choose a linker
+    # TODO: sync with link.smart_link() to choose a linker id:3398
     linkers = { 'CXX': ['aixc++'], 'CC': ['aixcc'] }
     alltools = []
     for langvar, linktools in linkers.items():

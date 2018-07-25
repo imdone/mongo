@@ -98,7 +98,7 @@ generic_write(SprintfState* ss, const char16_t* src, size_t srclen)
     size_t j = 0;
     size_t i = 0;
     while (i < srclen) {
-        // FIXME: truncates characters to 8 bits
+        // FIXME: truncates characters to 8 bits id:2110
         chunk[j++] = char(src[i++]);
 
         if (j == CHUNK_SIZE || i == srclen) {
@@ -455,7 +455,7 @@ BuildArgArray(const char* fmt, va_list ap, NumArgStateVector& nas)
             nas[cn].type = TYPE_INT16;
             c = *p++;
         } else if (c == 'L') {
-            // XXX not quite sure here
+            // XXX not quite sure here id:2711
             nas[cn].type = TYPE_INT64;
             c = *p++;
         } else if (c == 'l') {
@@ -490,7 +490,7 @@ BuildArgArray(const char* fmt, va_list ap, NumArgStateVector& nas)
             break;
 
         case 'p':
-            // XXX should use cpp
+            // XXX should use cpp id:2378
             if (sizeof(void*) == sizeof(int32_t)) {
                 nas[cn].type = TYPE_UINT32;
             } else if (sizeof(void*) == sizeof(int64_t)) {
@@ -506,7 +506,7 @@ BuildArgArray(const char* fmt, va_list ap, NumArgStateVector& nas)
         case 'S':
         case 'E':
         case 'G':
-            // XXX not supported I suppose
+            // XXX not supported I suppose id:3357
             MOZ_ASSERT(0);
             nas[cn].type = TYPE_UNKNOWN;
             break;
@@ -688,7 +688,7 @@ dosprintf(SprintfState* ss, const char* fmt, va_list ap)
             type = TYPE_INT16;
             c = *fmt++;
         } else if (c == 'L') {
-            // XXX not quite sure here
+            // XXX not quite sure here id:3001
             type = TYPE_INT64;
             c = *fmt++;
         } else if (c == 'l') {
@@ -850,7 +850,7 @@ dosprintf(SprintfState* ss, const char* fmt, va_list ap)
           case 'S':
           case 'E':
           case 'G':
-            // XXX not supported I suppose
+            // XXX not supported I suppose id:2113
             MOZ_ASSERT(0);
             break;
 #endif

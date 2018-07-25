@@ -217,7 +217,7 @@ class TempFileMunge(object):
         args = list(map(SCons.Subst.quote_spaces, cmd[1:]))
         os.write(fd, " ".join(args) + "\n")
         os.close(fd)
-        # XXX Using the SCons.Action.print_actions value directly
+        # XXX Using the SCons.Action.print_actions value directly id:2790
         # like this is bogus, but expedient.  This class should
         # really be rewritten as an Action that defines the
         # __call__() and strfunction() methods and lets the

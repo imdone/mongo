@@ -107,7 +107,7 @@ js::GetNativeStackBaseImpl()
     pthread_attr_get_np(thread, &sattr);
 #  else
     /*
-     * FIXME: this function is non-portable;
+     * FIXME: this function is non-portable; id:2104
      * other POSIX systems may have different np alternatives
      */
     pthread_getattr_np(thread, &sattr);

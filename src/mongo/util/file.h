@@ -38,7 +38,7 @@ namespace mongo {
 
 typedef uint64_t fileofs;
 
-// NOTE: not thread-safe. (at least the windows implementation isn't)
+// NOTE: not thread-safe. (at least the windows implementation isn't) id:1611
 
 class File {
 public:

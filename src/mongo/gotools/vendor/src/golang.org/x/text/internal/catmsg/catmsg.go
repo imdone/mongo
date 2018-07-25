@@ -201,7 +201,7 @@ type Message interface {
 // The resulting string can subsequently be decoded by passing to the Execute
 // method of a Decoder.
 func Compile(tag language.Tag, macros Dictionary, m Message) (data string, err error) {
-	// TODO: pass macros so they can be used for validation.
+	// TODO: pass macros so they can be used for validation. id:1217
 	v := &Encoder{inBody: true} // encoder for variables
 	v.root = v
 	e := &Encoder{root: v, parent: v, tag: tag} // encoder for messages
@@ -347,11 +347,11 @@ func (s String) Compile(e *Encoder) (err error) {
 			e.EncodeSubstitution(name)
 			b = b[:0]
 		} else if j := strings.IndexByte(name[q:], ')'); j == -1 {
-			// TODO: what should the error be?
+			// TODO: what should the error be? id:2971
 			b = append(b, "$!(MISSINGPAREN)"...)
 			err = fmt.Errorf("catmsg: missing ')'")
 		} else if x, sErr := strconv.ParseUint(strings.TrimSpace(name[q+1:q+j]), 10, 32); sErr != nil {
-			// TODO: handle more than one argument
+			// TODO: handle more than one argument id:1146
 			b = append(b, "$!(BADNUM)"...)
 			err = fmt.Errorf("catmsg: invalid number %q", strings.TrimSpace(name[q+1:q+j]))
 		} else {

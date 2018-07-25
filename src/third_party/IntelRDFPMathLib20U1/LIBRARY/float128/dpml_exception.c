@@ -197,7 +197,7 @@
 #if !defined(GET_DPML_EXCEPTION_AND_VALUE)
 
 	/*
-	 * NOTE: This should be fixed.  The response table should
+	 * NOTE: This should be fixed. The response table should id:1423
 	 * have only one set of (err,value) pairs if only one
 	 * behavior is supportted.
 	 */

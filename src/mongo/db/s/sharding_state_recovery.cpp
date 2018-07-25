@@ -60,8 +60,8 @@ namespace {
 const char kRecoveryDocumentId[] = "minOpTimeRecovery";
 const char kMinOpTime[] = "minOpTime";
 const char kMinOpTimeUpdaters[] = "minOpTimeUpdaters";
-const char kConfigsvrConnString[] = "configsvrConnectionString";  // TODO SERVER-34166: Remove.
-const char kShardName[] = "shardName";                            // TODO SERVER-34166: Remove.
+const char kConfigsvrConnString[] = "configsvrConnectionString";  // TODO SERVER-34166: Remove. id:911
+const char kShardName[] = "shardName";                            // TODO SERVER-34166: Remove. id:743
 
 const WriteConcernOptions kMajorityWriteConcern(WriteConcernOptions::kMajority,
                                                 WriteConcernOptions::SyncMode::UNSET,
@@ -158,7 +158,7 @@ Status modifyRecoveryDocument(OperationContext* opCtx,
         // The config server connection string and shard name are no longer parsed in 4.0, but 3.6
         // nodes still expect to find them, so we must include them until after 4.0 ships.
         //
-        // TODO SERVER-34166: Stop writing config server connection string and shard name.
+        // TODO SERVER-34166: Stop writing config server connection string and shard name. id:1336
         BSONObj updateObj = RecoveryDocument::createChangeObj(
             Grid::get(opCtx)->shardRegistry()->getConfigServerConnectionString(),
             ShardingState::get(opCtx)->getShardName(),

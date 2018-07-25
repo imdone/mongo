@@ -258,7 +258,7 @@ static ECalType getCalendarTypeForLocale(const char *locid) {
     UErrorCode status = U_ZERO_ERROR;
     ECalType calType = CALTYPE_UNKNOWN;
 
-    //TODO: ULOC_FULL_NAME is out of date and too small..
+    //TODO: ULOC_FULL_NAME is out of date and too small.. id:2868
     char canonicalName[256];
 
     // canonicalize, so grandfathered variant will be transformed to keywords
@@ -894,7 +894,7 @@ Calendar::makeInstance(const Locale& aLocale, UErrorCode& success) {
         u = NULL;
 
         // Don't overwrite actualLoc, since the actual loc from this call
-        // may be something like "@calendar=gregorian" -- TODO investigate
+        // may be something like "@calendar=gregorian" -- TODO investigate id:1747
         // further...
         c = (Calendar*)getCalendarService(success)->get(l, LocaleKey::KIND_ANY, &actualLoc2, success);
 
@@ -3069,7 +3069,7 @@ UBool Calendar::getImmediatePreviousZoneTransition(UDate base, UDate *transition
         }
     } else {
         // If not BasicTimeZone, return unsupported error for now.
-        // TODO: We may support non-BasicTimeZone in future.
+        // TODO: We may support non-BasicTimeZone in future. id:2510
         status = U_UNSUPPORTED_ERROR;
     }
     return FALSE;

@@ -11,7 +11,7 @@ load('jstests/concurrency/fsm_libs/fsm.js');
 
     var doc = {a: 0.25, b: 0.5, c: 0.25};
 
-    // NOTE: getWeightedRandomChoice calls assert internally, so it will print stack traces
+    // NOTE: getWeightedRandomChoice calls assert internally, so it will print stack traces id:763
     // when assert.throws executes
     assert.throws(function() {
         getWeightedRandomChoice(doc, -1);

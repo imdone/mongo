@@ -104,13 +104,13 @@ struct SecureAllocatorDomain {
         MONGO_STATIC_ASSERT_MSG(std::is_trivially_copyable<T>::value,
                                 "SecureAllocator can only be used with trivially copyable types");
 
-        // NOTE: The standard doesn't seem to require these, but libstdc++
+        // NOTE: The standard doesn't seem to require these, but libstdc++ id:291
         // definitly wants them.
         using reference = T&;
         using const_reference = const T&;
 
 
-        // NOTE: These members are defined in the same order as specified
+        // NOTE: These members are defined in the same order as specified id:950
         // in the "Allocator Requirements" section of the standard. Please
         // retain this ordering.
 
@@ -223,7 +223,7 @@ struct SecureAllocatorDomain {
     template <typename T>
     class SecureHandle {
     public:
-        // NOTE: (jcarey)
+        // NOTE: (jcarey) id:308
         //
         // We have the default ctor and the perfect forwarding ctor because msvc 2013 ice's on some
         // default constructed types without it (sfinae was falling over for some reason).

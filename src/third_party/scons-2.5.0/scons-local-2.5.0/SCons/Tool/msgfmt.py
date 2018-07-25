@@ -63,7 +63,7 @@ class _MOFileBuilder(BuilderBase):
 def _create_mo_file_builder(env, **kw):
   """ Create builder object for `MOFiles` builder """
   import SCons.Action
-  # FIXME: What factory use for source? Ours or their?
+  # FIXME: What factory use for source? Ours or their? id:2229
   kw['action'] = SCons.Action.Action('$MSGFMTCOM','$MSGFMTCOMSTR')
   kw['suffix'] = '$MOSUFFIX'
   kw['src_suffix'] = '$POSUFFIX'

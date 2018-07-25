@@ -55,7 +55,7 @@ static int inc = 0;
 class MobileHarnessHelper final : public RecordStoreHarnessHelper {
 public:
     MobileHarnessHelper() : _dbPath("mobile_record_store_harness") {
-        // TODO: Determine if this should be util function.
+        // TODO: Determine if this should be util function. id:768
         boost::system::error_code err;
         boost::filesystem::path dir(_dbPath.path());
 

@@ -46,7 +46,7 @@ class Document;
 class DocumentStorage;
 class Value;
 
-// TODO: a MutableVector, similar to MutableDocument
+// TODO: a MutableVector, similar to MutableDocument id:520
 /// A heap-allocated reference-counted std::vector
 class RCVector : public RefCountable {
 public:
@@ -169,7 +169,7 @@ public:
 
     ValueStorage(ValueStorage&& rhs) noexcept {
         memcpy(this, &rhs, sizeof(*this));
-        rhs.zero();  // Reset rhs to the missing state. TODO consider only doing this if refCounter.
+        rhs.zero();  // Reset rhs to the missing state. TODO consider only doing this if refCounter. id:1182
     }
 
     ~ValueStorage() {
@@ -201,7 +201,7 @@ public:
             intrusive_ptr_release(genericRCPtr);
 
         memmove(this, &rhs, sizeof(*this));
-        rhs.zero();  // Reset rhs to the missing state. TODO consider only doing this if refCounter.
+        rhs.zero();  // Reset rhs to the missing state. TODO consider only doing this if refCounter. id:519
         return *this;
     }
 
@@ -326,7 +326,7 @@ public:
                 unsigned char oid[12];
 
                 struct {
-                    char shortStrSize;  // TODO Consider moving into flags union (4 bits)
+                    char shortStrSize;  // TODO Consider moving into flags union (4 bits) id:1534
                     char shortStrStorage[16 /*total bytes*/ - 3 /*offset*/ - 1 /*NUL byte*/];
                     union {
                         char nulTerminator;
@@ -337,7 +337,7 @@ public:
                     union {
                         unsigned char binSubType;
                         char pad[6];
-                        char stringCache[6];  // TODO copy first few bytes of strings in here
+                        char stringCache[6];  // TODO copy first few bytes of strings in here id:663
                     };
                     union {  // 8 bytes long and 8-byte aligned
                         // There should be no pointers to non-const data

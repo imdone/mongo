@@ -305,7 +305,7 @@ def _node_errors(builder, env, tlist, slist):
                 if t.builder != builder:
                     msg = "Two different builders (%s and %s) were specified for the same target: %s" % (t.builder.get_name(env), builder.get_name(env), t)
                     raise UserError(msg)
-                # TODO(batch):  list constructed each time!
+                # TODO (batch): list constructed each time! id:2784
                 if t.get_executor().get_all_targets() != tlist:
                     msg = "Two different target lists have a target in common: %s  (from %s and from %s)" % (t, list(map(str, t.get_executor().get_all_targets())), list(map(str, tlist)))
                     raise UserError(msg)

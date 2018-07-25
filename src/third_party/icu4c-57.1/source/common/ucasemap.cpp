@@ -115,7 +115,7 @@ ucasemap_setOptions(UCaseMap *csm, uint32_t options, UErrorCode * /*pErrorCode*/
 
 /* UTF-8 string case mappings ----------------------------------------------- */
 
-/* TODO(markus): Move to a new, separate utf8case.c file. */
+/* TODO (markus): Move to a new, separate utf8case.c file. id:2449*/
 
 /* append a full case mapping result, see UCASE_MAX_STRING_LENGTH */
 static inline int32_t
@@ -269,7 +269,7 @@ ucasemap_internalUTF8ToTitle(const UCaseMap *csm,
     }
 
     // Use the C++ abstract base class to minimize dependencies.
-    // TODO: Change UCaseMap.iter to store a BreakIterator directly.
+    // TODO: Change UCaseMap.iter to store a BreakIterator directly. id:1922
     BreakIterator *bi=reinterpret_cast<BreakIterator *>(csm->iter);
 
     /* set up local variables */

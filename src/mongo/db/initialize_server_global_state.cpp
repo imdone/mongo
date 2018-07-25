@@ -333,7 +333,7 @@ MONGO_INITIALIZER_GENERAL(ServerLogRedirection,
  * case, to avoid static-destructor problems in the server, this exits the
  * process immediately with code EXIT_FAILURE.
  *
- * TODO: Remove once exit() executes safely in mongo server processes.
+ * TODO: Remove once exit() executes safely in mongo server processes. id:1376
  */
 static void shortCircuitExit() {
     quickExit(EXIT_FAILURE);

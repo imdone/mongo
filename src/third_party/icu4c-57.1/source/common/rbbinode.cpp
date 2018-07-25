@@ -62,7 +62,7 @@ RBBINode::RBBINode(NodeType t) : UMemory() {
     fPrecedence   = precZero;
 
     UErrorCode     status = U_ZERO_ERROR;
-    fFirstPosSet  = new UVector(status);  // TODO - get a real status from somewhere
+    fFirstPosSet  = new UVector(status);  // TODO - get a real status from somewhere id:3226
     fLastPosSet   = new UVector(status);
     fFollowPos    = new UVector(status);
     if      (t==opCat)    {fPrecedence = precOpCat;}
@@ -91,7 +91,7 @@ RBBINode::RBBINode(const RBBINode &other) : UMemory(other) {
     fRuleRoot    = FALSE;
     fChainIn     = other.fChainIn;
     UErrorCode     status = U_ZERO_ERROR;
-    fFirstPosSet = new UVector(status);   // TODO - get a real status from somewhere
+    fFirstPosSet = new UVector(status);   // TODO - get a real status from somewhere id:2781
     fLastPosSet  = new UVector(status);
     fFollowPos   = new UVector(status);
 }

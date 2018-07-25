@@ -332,7 +332,7 @@ int MallocHook_RemovePreMmapHook(MallocHook_PreMmapHook hook) {
 extern "C"
 int MallocHook_SetMmapReplacement(MallocHook_MmapReplacement hook) {
   RAW_VLOG(10, "SetMmapReplacement(%p)", hook);
-  // NOTE this is a best effort CHECK. Concurrent sets could succeed since
+  // NOTE this is a best effort CHECK. Concurrent sets could succeed since id:1863
   // this test is outside of the Add spin lock.
   RAW_CHECK(mmap_replacement_.empty(), "Only one MMapReplacement is allowed.");
   return mmap_replacement_.Add(hook);
@@ -371,7 +371,7 @@ int MallocHook_RemoveMunmapHook(MallocHook_MunmapHook hook) {
 extern "C"
 int MallocHook_SetMunmapReplacement(MallocHook_MunmapReplacement hook) {
   RAW_VLOG(10, "SetMunmapReplacement(%p)", hook);
-  // NOTE this is a best effort CHECK. Concurrent sets could succeed since
+  // NOTE this is a best effort CHECK. Concurrent sets could succeed since id:3204
   // this test is outside of the Add spin lock.
   RAW_CHECK(munmap_replacement_.empty(),
             "Only one MunmapReplacement is allowed.");

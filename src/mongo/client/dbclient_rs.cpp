@@ -415,7 +415,7 @@ void DBClientReplicaSet::_auth(const BSONObj& params) {
 
     LOG(3) << "dbclient_rs authentication of " << _getMonitor()->getName() << endl;
 
-    // NOTE that we retry MAX_RETRY + 1 times, since we're always primary preferred we don't
+    // NOTE that we retry MAX_RETRY + 1 times, since we're always primary preferred we don't id:349
     // fallback to the primary.
     Status lastNodeStatus = Status::OK();
     for (size_t retry = 0; retry < MAX_RETRY + 1; retry++) {
@@ -433,7 +433,7 @@ void DBClientReplicaSet::_auth(const BSONObj& params) {
 
             // Ensure the only child connection open is the one we authenticated against - other
             // child connections may not have full authentication information.
-            // NOTE: _lastSlaveOkConn may or may not be the same as _master
+            // NOTE: _lastSlaveOkConn may or may not be the same as _master id:987
             dassert(_lastSlaveOkConn.get() == conn || _master.get() == conn);
             if (conn != _lastSlaveOkConn.get()) {
                 resetSlaveOkConn();
@@ -738,7 +738,7 @@ void DBClientReplicaSet::say(Message& toSend, bool isRetry, string* actualServer
     const int lastOp = toSend.operation();
 
     if (lastOp == dbQuery) {
-        // TODO: might be possible to do this faster by changing api
+        // TODO: might be possible to do this faster by changing api id:418
         DbMessage dm(toSend);
         QueryMessage qm(dm);
 
@@ -815,7 +815,7 @@ void DBClientReplicaSet::say(Message& toSend, bool isRetry, string* actualServer
 bool DBClientReplicaSet::recv(Message& m, int lastRequestId) {
     verify(_lazyState._lastClient);
 
-    // TODO: It would be nice if we could easily wrap a conn error as a result error
+    // TODO: It would be nice if we could easily wrap a conn error as a result error id:353
     try {
         return _lazyState._lastClient->recv(m, lastRequestId);
     } catch (DBException& e) {
@@ -906,7 +906,7 @@ std::pair<rpc::UniqueReply, DBClientBase*> DBClientReplicaSet::runCommandWithTar
     // This overload exists so we can parse out the read preference and then use server
     // selection directly without having to re-parse the raw message.
 
-    // TODO: eventually we will want to pass the metadata before serializing it to BSON
+    // TODO: eventually we will want to pass the metadata before serializing it to BSON id:564
     // so we don't have to re-parse it, however, that will come with its own set of
     // complications (e.g. some kind of base class or concept for MetadataSerializable
     // objects). For now we do it the stupid way.
@@ -968,7 +968,7 @@ bool DBClientReplicaSet::call(Message& toSend,
     const char* ns = 0;
 
     if (toSend.operation() == dbQuery) {
-        // TODO: might be possible to do this faster by changing api
+        // TODO: might be possible to do this faster by changing api id:352
         DbMessage dm(toSend);
         QueryMessage qm(dm);
         ns = qm.ns;

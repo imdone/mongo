@@ -99,7 +99,7 @@ var $config = (function() {
             this.num = 0;
         }
 
-        // TODO: how to avoid having too many files open?
+        // TODO: how to avoid having too many files open? id:59
         function create(db, collName) {
             var myCollName = uniqueCollectionName(this.prefix, this.tid, this.num++);
             assertAlways.commandWorked(db.createCollection(myCollName, options));

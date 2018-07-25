@@ -107,7 +107,7 @@ config_setup(void)
 			 * Configuring truncation or timestamps results in LSM
 			 * cache problems, don't configure LSM if those set.
 			 *
-			 * XXX
+			 * XXX  id:2846
 			 * Remove the timestamp test when WT-4067 resolved.
 			 */
 			if (g.type != ROW || g.c_in_memory)

@@ -121,7 +121,7 @@ PlanStage::StageState OrStage::doWork(WorkingSetID* out) {
 }
 
 void OrStage::doInvalidate(OperationContext* opCtx, const RecordId& dl, InvalidationType type) {
-    // TODO remove this since calling isEOF is illegal inside of doInvalidate().
+    // TODO remove this since calling isEOF is illegal inside of doInvalidate(). id:715
     if (isEOF()) {
         return;
     }

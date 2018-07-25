@@ -1039,7 +1039,7 @@ bool turnIxscanIntoCount(QuerySolution* soln) {
         ? static_cast<IndexScanNode*>(root->children[0])
         : static_cast<IndexScanNode*>(root);
 
-    // No filters allowed and side-stepping isSimpleRange for now.  TODO: do we ever see
+    // No filters allowed and side-stepping isSimpleRange for now.  TODO: do we ever see id:531
     // isSimpleRange here?  because we could well use it.  I just don't think we ever do see
     // it.
 
@@ -1425,7 +1425,7 @@ StatusWith<unique_ptr<PlanExecutor, PlanExecutor::Deleter>> getExecutorDistinct(
                                   yieldPolicy);
     }
 
-    // TODO: check for idhack here?
+    // TODO: check for idhack here? id:1190
 
     // When can we do a fast distinct hack?
     // 1. There is a plan with just one leaf and that leaf is an ixscan.

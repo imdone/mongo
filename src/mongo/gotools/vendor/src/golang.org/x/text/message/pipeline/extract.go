@@ -22,7 +22,7 @@ import (
 	"golang.org/x/tools/go/loader"
 )
 
-// TODO:
+// TODO:  id:1425
 // - merge information into existing files
 // - handle different file formats (PO, XLIFF)
 // - handle features (gender, plural)
@@ -74,7 +74,7 @@ func Extract(c *Config) (*Locale, error) {
 				if meth == nil || meth.Kind() != types.MethodVal {
 					return true
 				}
-				// TODO: remove cheap hack and check if the type either
+				// TODO: remove cheap hack and check if the type either id:3046
 				// implements some interface or is specifically of type
 				// "golang.org/x/text/message".Printer.
 				m, ok := extractFuncs[path.Base(meth.Recv().String())]
@@ -96,7 +96,7 @@ func Extract(c *Config) (*Locale, error) {
 
 				fmtMsg, ok := msgStr(info, args[0])
 				if !ok {
-					// TODO: identify the type of the format argument. If it
+					// TODO: identify the type of the format argument. If it id:1294
 					// is not a string, multiple keys may be defined.
 					return true
 				}
@@ -105,7 +105,7 @@ func Extract(c *Config) (*Locale, error) {
 				if ident, ok := args[0].(*ast.Ident); ok {
 					key = append(key, ident.Name)
 					if v, ok := ident.Obj.Decl.(*ast.ValueSpec); ok && v.Comment != nil {
-						// TODO: get comment above ValueSpec as well
+						// TODO: get comment above ValueSpec as well id:1080
 						comment = v.Comment.Text()
 					}
 				}
@@ -132,7 +132,7 @@ func Extract(c *Config) (*Locale, error) {
 						Value:          val,
 						Comment:        getComment(arg),
 						Position:       posString(conf, info, arg.Pos()),
-						// TODO report whether it implements
+						// TODO report whether it implements id:1933
 						// interfaces plural.Interface,
 						// gender.Interface.
 					})
@@ -179,7 +179,7 @@ func Extract(c *Config) (*Locale, error) {
 					ID:      key,
 					Key:     fmtMsg,
 					Message: Text{Msg: msg},
-					// TODO(fix): this doesn't get the before comment.
+					// TODO (fix): this doesn't get the before comment. id:1427
 					Comment:      comment,
 					Placeholders: ph.slice,
 					Position:     posString(conf, info, call.Lparen),
@@ -204,10 +204,10 @@ func posString(conf loader.Config, info *loader.PackageInfo, pos token.Pos) stri
 
 // extractFuncs indicates the types and methods for which to extract strings,
 // and which argument to extract.
-// TODO: use the types in conf.Import("golang.org/x/text/message") to extract
+// TODO: use the types in conf.Import("golang.org/x/text/message") to extract id:3048
 // the correct instances.
 var extractFuncs = map[string]map[string]extractType{
-	// TODO: Printer -> *golang.org/x/text/message.Printer
+	// TODO: Printer -> *golang.org/x/text/message.Printer id:1300
 	"message.Printer": {
 		"Printf":  extractType{arg: 0, format: true},
 		"Sprintf": extractType{arg: 0, format: true},

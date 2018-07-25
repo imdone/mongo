@@ -348,8 +348,8 @@ namespace {
 /**
  * CLDR string value (three empty-set symbols)=={2205, 2205, 2205}
  * prevents fallback to the parent bundle.
- * TODO: combine with other code that handles this marker, use EMPTY_SET constant.
- * TODO: maybe move to uresbund.cpp?
+ * TODO: combine with other code that handles this marker, use EMPTY_SET constant. id:3250
+ * TODO: maybe move to uresbund.cpp? id:2860
  */
 UBool isNoInheritanceMarker(const ResourceData *pResData, Resource res) {
     uint32_t offset=RES_GET_OFFSET(res);
@@ -691,7 +691,7 @@ res_getResource(const ResourceData *pResData, const char *key) {
     return res_getTableItemByKey(pResData, pResData->rootRes, &idx, &realKey);
 }
 
-// TODO: Ported from Java, but enumerating at this low level may prevent us
+// TODO: Ported from Java, but enumerating at this low level may prevent us id:1718
 // from doing necessary things, like resolving aliases,
 // which need access to higher-level UResourceBundle code.
 // Consider porting the low-level Container/Array/Table classes from Java,
@@ -762,7 +762,7 @@ ures_getAllTableItems(const ResourceData *pResData, Resource table,
             if (subSink != NULL) {
                 ures_getAllTableItems(pResData, res, value, *subSink, errorCode);
             }
-        /* TODO: settle on how to deal with aliases, port to Java
+        /* TODO: settle on how to deal with aliases, port to Java id:2496
         } else if (type == URES_ALIAS) {
             // aliases not handled in resource enumeration
             errorCode = U_UNSUPPORTED_ERROR;
@@ -852,7 +852,7 @@ ures_getAllArrayItems(const ResourceData *pResData, Resource array,
             if (subSink != NULL) {
                 ures_getAllTableItems(pResData, res, value, *subSink, errorCode);
             }
-        /* TODO: settle on how to deal with aliases, port to Java
+        /* TODO: settle on how to deal with aliases, port to Java id:1967
         } else if (type == URES_ALIAS) {
             // aliases not handled in resource enumeration
             errorCode = U_UNSUPPORTED_ERROR;

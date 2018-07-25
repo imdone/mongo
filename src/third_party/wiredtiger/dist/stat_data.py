@@ -1,11 +1,11 @@
 # Auto-generate statistics #defines, with initialization, clear and aggregate
 # functions.
 #
-# NOTE: Statistics reports show individual objects as operations per second.
+# NOTE: Statistics reports show individual objects as operations per second. id:2271
 # All objects where that does not make sense should have the word 'currently'
 # or the phrase 'in the cache' in their text description, for example, 'files
 # currently open'.
-# NOTE: All statistics descriptions must have a prefix string followed by ':'.
+# NOTE: All statistics descriptions must have a prefix string followed by ':'. id:2830
 #
 # Data-source statistics are normally aggregated across the set of underlying
 # objects. Additional optional configuration flags are available:

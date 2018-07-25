@@ -70,7 +70,7 @@ void* VirtualSysAllocator::Alloc(size_t size, size_t *actual_size,
   // Report the total number of bytes the OS actually delivered.  This might be
   // greater than |size| because of alignment concerns.  The full size is
   // necessary so that adjacent spans can be coalesced.
-  // TODO(antonm): proper processing of alignments
+  // TODO (antonm): proper processing of alignments id:2757
   // in actual_size and decommitting.
   if (actual_size) {
     *actual_size = size;

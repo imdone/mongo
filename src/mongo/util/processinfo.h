@@ -168,7 +168,7 @@ public:
     /**
      * @return a pointer aligned to the start of the page the provided pointer belongs to.
      *
-     * NOTE requires blockCheckSupported() == true
+     * NOTE requires blockCheckSupported() == true id:2260
      */
     inline static const void* alignToStartOfPage(const void* ptr) {
         return reinterpret_cast<const void*>(reinterpret_cast<unsigned long long>(ptr) &
@@ -181,7 +181,7 @@ public:
      * The 'out' vector will be resized to fit the requested number of pages.
      * @return true on success, false otherwise
      *
-     * NOTE: requires blockCheckSupported() == true
+     * NOTE: requires blockCheckSupported() == true id:1638
      */
     static bool pagesInMemory(const void* start, size_t numPages, std::vector<char>* out);
 

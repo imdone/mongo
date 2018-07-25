@@ -75,7 +75,7 @@ typedef std::set<IndexKeyEntry, IndexEntryComparison> IndexSet;
 Status dupKeyError(const BSONObj& key) {
     StringBuilder sb;
     sb << "E11000 duplicate key error ";
-    // sb << "index: " << _indexName << " "; // TODO
+    // sb << "index: " << _indexName << " "; // TODO  id:922
     sb << "dup key: " << key;
     return Status(ErrorCodes::DuplicateKey, sb.str());
 }
@@ -160,7 +160,7 @@ public:
             return Status(ErrorCodes::KeyTooLong, msg);
         }
 
-        // TODO optimization: save the iterator from the dup-check to speed up insert
+        // TODO optimization: save the iterator from the dup-check to speed up insert id:761
         if (!dupsAllowed && isDup(*_data, key, loc))
             return dupKeyError(key);
 
@@ -191,7 +191,7 @@ public:
     virtual void fullValidate(OperationContext* opCtx,
                               long long* numKeysOut,
                               ValidateResults* fullResults) const {
-        // TODO check invariants?
+        // TODO check invariants? id:1522
         *numKeysOut = _data->size();
     }
 
@@ -252,7 +252,7 @@ public:
                 return;
             }
 
-            // NOTE: this uses the opposite min/max rules as a normal seek because a forward
+            // NOTE: this uses the opposite min/max rules as a normal seek because a forward id:684
             // scan should land after the key if inclusive and before if exclusive.
             _endState = EndState(stripFieldNames(key),
                                  _forward == inclusive ? RecordId::max() : RecordId::min());

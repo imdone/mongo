@@ -3447,7 +3447,7 @@ OplogEntry InitialSyncerTest::doInitialSyncWithOneBatch(bool shouldSetFCV) {
         net->blackHole(noi);
 
         // Last rollback ID check. Before this check, set fCV to 4.2 if required by the test.
-        // TODO(SERVER-34489) Update below statement to setFCV=4.2 when upgrade/downgrade is ready.
+        // TODO (SERVER-34489) Update below statement to setFCV=4.2 when upgrade/downgrade is ready. id:787
         if (shouldSetFCV) {
             createTimestampSafeUniqueIndex = true;
         }
@@ -3469,7 +3469,7 @@ OplogEntry InitialSyncerTest::doInitialSyncWithOneBatch(bool shouldSetFCV) {
 
 void InitialSyncerTest::doSuccessfulInitialSyncWithOneBatch(bool shouldSetFCV) {
     auto lastOp = doInitialSyncWithOneBatch(shouldSetFCV);
-    // TODO(SERVER-34489) Replace this by fCV reset when upgrade/downgrade is ready.
+    // TODO (SERVER-34489) Replace this by fCV reset when upgrade/downgrade is ready. id:600
     createTimestampSafeUniqueIndex = false;
     ASSERT_EQUALS(lastOp.getOpTime(), unittest::assertGet(_lastApplied).opTime);
     ASSERT_EQUALS(lastOp.getHash(), unittest::assertGet(_lastApplied).value);
@@ -4089,7 +4089,7 @@ TEST_F(InitialSyncerTest, InitialSyncerDoesNotCallUpgradeNonReplicatedUniqueInde
     // In MongoDB 4.2, upgradeNonReplicatedUniqueIndexes will only be called if fCV is 4.2.
     doSuccessfulInitialSyncWithOneBatch(false);
 
-    // TODO(SERVER-34489) Ensure that upgradeNonReplicatedUniqueIndexes is not called if fCV
+    // TODO (SERVER-34489) Ensure that upgradeNonReplicatedUniqueIndexes is not called if fCV id:1243
     // is not 4.2.
     LockGuard lock(_storageInterfaceWorkDoneMutex);
     ASSERT_FALSE(_storageInterfaceWorkDone.uniqueIndexUpdated);

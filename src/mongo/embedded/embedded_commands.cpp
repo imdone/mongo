@@ -63,7 +63,7 @@ public:
              const BSONObj& jsobj,
              BSONObjBuilder& result) override {
 
-        // TODO: Implement trimMemory https://jira.mongodb.org/browse/SERVER-34131
+        // TODO: Implement trimMemory https://jira.mongodb.org/browse/SERVER-34131 id:1560
 
         std::string mode = jsobj[getName()].String();
         if (mode == "aggressive") {
@@ -112,7 +112,7 @@ public:
              const BSONObj& jsobj,
              BSONObjBuilder& result) override {
 
-        // TODO: Implement setBatteryLevel https://jira.mongodb.org/browse/SERVER-34132
+        // TODO: Implement setBatteryLevel https://jira.mongodb.org/browse/SERVER-34132 id:719
 
         std::string mode = jsobj[getName()].String();
         if (mode == "low") {

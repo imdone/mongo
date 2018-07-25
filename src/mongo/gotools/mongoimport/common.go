@@ -417,16 +417,16 @@ func validateFields(fields []string) error {
 		if strings.Contains(field, "..") {
 			return fmt.Errorf("field '%v' cannot contain consecutive '.' characters", field)
 		}
-		// NOTE: since fields is sorted, this check ensures that no field
+		// NOTE: since fields is sorted, this check ensures that no field id:830
 		// is incompatible with another one that occurs further down the list.
 		// meant to prevent cases where we have fields like "a" and "a.c"
 		for _, latterField := range fieldsCopy[index+1:] {
-			// NOTE: this means we will not support imports that have fields that
+			// NOTE: this means we will not support imports that have fields that id:1581
 			// include e.g. a, a.b
 			if strings.HasPrefix(latterField, field+".") {
 				return fmt.Errorf("fields '%v' and '%v' are incompatible", field, latterField)
 			}
-			// NOTE: this means we will not support imports that have fields like
+			// NOTE: this means we will not support imports that have fields like id:746
 			// a, a - since this is invalid in MongoDB
 			if field == latterField {
 				return fmt.Errorf("fields cannot be identical: '%v' and '%v'", field, latterField)

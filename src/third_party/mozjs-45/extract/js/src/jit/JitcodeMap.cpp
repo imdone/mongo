@@ -165,7 +165,7 @@ JitcodeGlobalEntry::IonEntry::destroy()
 void*
 JitcodeGlobalEntry::BaselineEntry::canonicalNativeAddrFor(JSRuntime* rt, void* ptr) const
 {
-    // TODO: We can't yet normalize Baseline addresses until we unify
+    // TODO: We can't yet normalize Baseline addresses until we unify id:2282
     // BaselineScript's PCMappingEntries with JitcodeGlobalMap.
     return ptr;
 }

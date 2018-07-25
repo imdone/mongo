@@ -116,7 +116,7 @@ def exists(env):
     # doesn't always work during initialization. For now, we
     # stop trying to detect an executable (analogous to the
     # javac Builder).
-    # TODO: Come up with a proper detect() routine...and enable it.
+    # TODO: Come up with a proper detect() routine...and enable it. id:2466
     return 1
 
 # Local Variables:

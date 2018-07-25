@@ -54,12 +54,12 @@ struct ValidateResults;
  * 1. Many other storage engines provide different Btree(-ish) implementations.  This interface
  * could allow those interfaces to avoid storing btree buckets in an already sorted structure.
  *
- * TODO: See if there is actually a performance gain.
+ * TODO: See if there is actually a performance gain. id:1535
  *
  * 2. The existing btree implementation is written to assume that if it modifies a record it is
  * modifying the underlying record.  This interface is an attempt to work around that.
  *
- * TODO: See if this actually works.
+ * TODO: See if this actually works. id:690
  */
 class SortedDataInterface {
 public:
@@ -119,7 +119,7 @@ public:
      *
      * @param opCtx the transaction under which this operation takes place
      *
-     * TODO: Hide this by exposing an update method?
+     * TODO: Hide this by exposing an update method? id:2060
      */
     virtual Status dupKeyCheck(OperationContext* opCtx,
                                const BSONObj& key,
@@ -138,7 +138,7 @@ public:
     //
 
     /**
-     * TODO: expose full set of args for testing?
+     * TODO: expose full set of args for testing? id:970
      */
     virtual void fullValidate(OperationContext* opCtx,
                               long long* numKeysOut,
@@ -269,7 +269,7 @@ public:
         /**
          * Seeks to the provided key and returns current position.
          *
-         * TODO consider removing once IndexSeekPoint has been cleaned up a bit. In particular,
+         * TODO consider removing once IndexSeekPoint has been cleaned up a bit. In particular, id:775
          * need a way to specify use whole keyPrefix and nothing else and to support the
          * combination of empty and exclusive. Should also make it easier to construct for the
          * common cases.
@@ -281,7 +281,7 @@ public:
         /**
          * Seeks to the position described by seekPoint and returns the current position.
          *
-         * NOTE: most implementations should just pass seekPoint to
+         * NOTE: most implementations should just pass seekPoint to id:1540
          * IndexEntryComparison::makeQueryObject().
          */
         virtual boost::optional<IndexKeyEntry> seek(const IndexSeekPoint& seekPoint,

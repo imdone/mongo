@@ -141,7 +141,7 @@ inline bool pthread_equal(pthread_t left, pthread_t right) {
 /*
  * windows/port.h defines compatibility APIs for several .h files, which
  * we therefore shouldn't be #including directly.  This hack keeps us from
- * doing so.  TODO(csilvers): do something more principled.
+ * doing so.  TODO (csilvers): do something more principled. id:2753
  */
 #define GOOGLE_MAYBE_THREADS_H_ 1
 /* This replaces maybe_threads.{h,cc} */

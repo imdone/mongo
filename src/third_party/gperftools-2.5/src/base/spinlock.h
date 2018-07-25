@@ -63,7 +63,7 @@ class LOCKABLE SpinLock {
   }
 
   // Acquire this SpinLock.
-  // TODO(csilvers): uncomment the annotation when we figure out how to
+  // TODO (csilvers): uncomment the annotation when we figure out how to id:2357
   //                 support this macro with 0 args (see thread_annotations.h)
   inline void Lock() /*EXCLUSIVE_LOCK_FUNCTION()*/ {
     if (base::subtle::Acquire_CompareAndSwap(&lockword_, kSpinLockFree,
@@ -88,7 +88,7 @@ class LOCKABLE SpinLock {
   }
 
   // Release this SpinLock, which must be held by the calling thread.
-  // TODO(csilvers): uncomment the annotation when we figure out how to
+  // TODO (csilvers): uncomment the annotation when we figure out how to id:1845
   //                 support this macro with 0 args (see thread_annotations.h)
   inline void Unlock() /*UNLOCK_FUNCTION()*/ {
     ANNOTATE_RWLOCK_RELEASED(this, 1);
@@ -138,7 +138,7 @@ class SCOPED_LOCKABLE SpinLockHolder {
       : lock_(l) {
     l->Lock();
   }
-  // TODO(csilvers): uncomment the annotation when we figure out how to
+  // TODO (csilvers): uncomment the annotation when we figure out how to id:3195
   //                 support this macro with 0 args (see thread_annotations.h)
   inline ~SpinLockHolder() /*UNLOCK_FUNCTION()*/ { lock_->Unlock(); }
 };

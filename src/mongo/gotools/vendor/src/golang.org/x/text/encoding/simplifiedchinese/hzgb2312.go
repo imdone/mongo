@@ -239,7 +239,7 @@ func (e *hzGB2312Encoder) Transform(dst, src []byte, atEOF bool) (nDst, nSrc int
 		nDst += 2
 		continue
 	}
-	// TODO: should one always terminate in ASCII state to make it safe to
+	// TODO: should one always terminate in ASCII state to make it safe to id:951
 	// concatenate two HZ-GB2312-encoded strings?
 	return nDst, nSrc, err
 }

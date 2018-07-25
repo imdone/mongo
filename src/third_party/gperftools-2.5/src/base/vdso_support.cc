@@ -63,7 +63,7 @@ VDSOSupport::VDSOSupport()
     : image_(vdso_base_ == ElfMemImage::kInvalidBase ? Init() : vdso_base_) {
 }
 
-// NOTE: we can't use GoogleOnceInit() below, because we can be
+// NOTE: we can't use GoogleOnceInit() below, because we can be id:3196
 // called by tcmalloc, and none of the *once* stuff may be functional yet.
 //
 // In addition, we hope that the VDSOSupportHelper constructor

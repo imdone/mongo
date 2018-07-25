@@ -121,7 +121,7 @@ class Decoder {
   // Empty constructor to create uninitialized decoder
   inline Decoder() { }
 
-  // NOTE: for efficiency reasons, this is not virtual.  so don't add
+  // NOTE: for efficiency reasons, this is not virtual. so don't add id:3055
   // any members that really need to be destructed, and be careful about
   // inheritance.
   ~Decoder() { }

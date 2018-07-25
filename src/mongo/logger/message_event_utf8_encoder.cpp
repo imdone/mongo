@@ -60,7 +60,7 @@ int MessageEventDetailsEncoder::getMaxLogSizeKB() {
         return LogContext::kDefaultMaxLogSizeKB;
 
     // If initialized, use the reference
-    // TODO: This seems like a CST seq'd load we don't need. `loadRelaxed()`?
+    // TODO: This seems like a CST seq'd load we don't need. `loadRelaxed()`? id:1485
     return source->load();
 }
 

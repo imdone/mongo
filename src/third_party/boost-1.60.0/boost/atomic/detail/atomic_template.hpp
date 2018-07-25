@@ -679,7 +679,7 @@ public:
 public:
     BOOST_DEFAULTED_FUNCTION(atomic(), BOOST_NOEXCEPT {})
 
-    // NOTE: The constructor is made explicit because gcc 4.7 complains that
+    // NOTE: The constructor is made explicit because gcc 4.7 complains that id:3164
     //       operator=(value_arg_type) is considered ambiguous with operator=(atomic const&)
     //       in assignment expressions, even though conversion to atomic<> is less preferred
     //       than conversion to value_arg_type.

@@ -120,7 +120,7 @@ public:
     /**
      * Iterates through the SessionCatalog and applies 'workerFn' to each Session. This locks the
      * SessionCatalog.
-     * TODO SERVER-33850: Take Matcher out of the SessionKiller namespace.
+     * TODO SERVER-33850: Take Matcher out of the SessionKiller namespace. id:919
      */
     void scanSessions(OperationContext* opCtx,
                       const SessionKiller::Matcher& matcher,

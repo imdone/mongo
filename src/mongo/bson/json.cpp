@@ -733,10 +733,10 @@ Status JParse::array(StringData fieldName, BSONObjBuilder& builder, bool subObje
     return Status::OK();
 }
 
-/* NOTE: this could be easily modified to allow "new" before other
+/* NOTE: this could be easily modified to allow "new" before other id:316
  * constructors, but for now it only allows "new" before Date().
  * Also note that unlike the interactive shell "Date(x)" and "new Date(x)"
- * have the same behavior.  XXX: this may not be desired. */
+ * have the same behavior.  XXX: this may not be desired. id:305*/
 Status JParse::constructor(StringData fieldName, BSONObjBuilder& builder) {
     if (readToken("Date")) {
         date(fieldName, builder).transitional_ignore();
@@ -1046,7 +1046,7 @@ Status JParse::field(std::string* result) {
     MONGO_JSON_DEBUG("");
     if (peekToken(DOUBLEQUOTE) || peekToken(SINGLEQUOTE)) {
         // Quoted key
-        // TODO: make sure quoted field names cannot contain null characters
+        // TODO: make sure quoted field names cannot contain null characters id:377
         return quotedString(result);
     } else {
         // Unquoted key
@@ -1142,7 +1142,7 @@ Status JParse::chars(std::string* result, const char* terminalSet, const char* a
                     result->push_back('\t');
                     break;
                 case 'u': {  // expect 4 hexdigits
-                    // TODO: handle UTF-16 surrogate characters
+                    // TODO: handle UTF-16 surrogate characters id:307
                     ++q;
                     if (q + 4 >= _input_end) {
                         return parseError("Expecting 4 hex digits");
@@ -1180,7 +1180,7 @@ Status JParse::chars(std::string* result, const char* terminalSet, const char* a
                 default:
                     result->push_back(*q);
                     break;
-                    // TODO: check for escaped control characters
+                    // TODO: check for escaped control characters id:962
             }
             ++q;
         } else {

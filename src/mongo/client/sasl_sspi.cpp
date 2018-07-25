@@ -436,7 +436,7 @@ void sspiClientMechFree(void* glob_context, const sasl_utils_t* utils) {}
 
 sasl_client_plug_t sspiClientPlugin[] = {
     {sspiPluginName, /* mechanism name */
-     112, /* TODO: (taken from gssapi) best mech additional security layer strength factor */
+     112, /* TODO: (taken from gssapi) best mech additional security layer strength factor id:370*/
      SASL_SEC_NOPLAINTEXT /* eam: copied from gssapi */
          |
          SASL_SEC_NOACTIVE | SASL_SEC_NOANONYMOUS | SASL_SEC_MUTUAL_AUTH |

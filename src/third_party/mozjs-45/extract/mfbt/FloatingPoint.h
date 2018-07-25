@@ -284,7 +284,7 @@ static MOZ_ALWAYS_INLINE bool
 NumberEqualsInt32(T aValue, int32_t* aInt32)
 {
   /*
-   * XXX Casting a floating-point value that doesn't truncate to int32_t, to
+   * XXX Casting a floating-point value that doesn't truncate to int32_t, to id:3015
    *     int32_t, induces undefined behavior.  We should definitely fix this
    *     (bug 744965), but as apparently it "works" in practice, it's not a
    *     pressing concern now.

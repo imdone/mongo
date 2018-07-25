@@ -70,7 +70,7 @@ public:
      * Called at startup time so the global sharding services can be set. This method must be called
      * once and once only for the lifetime of the service.
      *
-     * NOTE: Unit-tests are allowed to call it more than once, provided they reset the object's
+     * NOTE: Unit-tests are allowed to call it more than once, provided they reset the object's id:3113
      *       state using clearForUnitTests.
      */
     void init(std::unique_ptr<ShardingCatalogClient> catalogClient,
@@ -146,14 +146,14 @@ public:
     /**
      * Returns the the last optime that a shard or config server has reported as the current
      * committed optime on the config server.
-     * NOTE: This is not valid to call on a config server instance.
+     * NOTE: This is not valid to call on a config server instance. id:2564
      */
     repl::OpTime configOpTime() const;
 
     /**
      * Called whenever a mongos or shard gets a response from a config server or shard and updates
      * what we've seen as the last config server optime.
-     * NOTE: This is not valid to call on a config server instance.
+     * NOTE: This is not valid to call on a config server instance. id:1311
      */
     void advanceConfigOpTime(repl::OpTime opTime);
 
@@ -164,7 +164,7 @@ public:
      *
      * Note: shardRegistry()->shutdown() must be called before this method is called.
      *
-     * NOTE: Do not use this outside of unit-tests.
+     * NOTE: Do not use this outside of unit-tests. id:2126
      */
     void clearForUnitTests();
 

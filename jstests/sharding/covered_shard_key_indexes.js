@@ -141,7 +141,7 @@ load("jstests/libs/analyze_plan.js");
 
     // Index with shard key query - covered and succeeds and returns result
     //
-    // NOTE: This is weird and only a result of the fact that we don't have a dedicated "does not
+    // NOTE: This is weird and only a result of the fact that we don't have a dedicated "does not id:259
     // exist" value for indexes
     assert.commandWorked(coll.ensureIndex({c: 1, a: 1}));
     var explain = coll.find({c: true}, {_id: 0, a: 1, c: 1}).explain(true).executionStats;

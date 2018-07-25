@@ -64,7 +64,7 @@ def generate(env):
     env['SHLIBVERSIONFLAGS'] = SCons.Util.CLVar('-Wl,-Bsymbolic')
     
 def exists(env):
-    # TODO: sync with link.smart_link() to choose a linker
+    # TODO: sync with link.smart_link() to choose a linker id:3399
     linkers = { 'CXX': ['g++'], 'CC': ['gcc'] }
     alltools = []
     for langvar, linktools in linkers.items():

@@ -64,7 +64,7 @@
 
 #define MONGO_COMPILER_ALIGN_VARIABLE(ALIGNMENT) __attribute__((__aligned__(ALIGNMENT)))
 
-// NOTE(schwerin): These visibility and calling-convention macro definitions assume we're not using
+// NOTE (schwerin): These visibility and calling-convention macro definitions assume we're not using id:1590
 // GCC/CLANG to target native Windows. If/when we decide to do such targeting, we'll need to change
 // compiler flags on Windows to make sure we use an appropriate calling convention, and configure
 // MONGO_COMPILER_API_EXPORT, MONGO_COMPILER_API_IMPORT and MONGO_COMPILER_API_CALLING_CONVENTION

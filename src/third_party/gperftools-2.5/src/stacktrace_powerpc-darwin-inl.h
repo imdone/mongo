@@ -96,7 +96,7 @@ int GET_STACK_TRACE_OR_FRAMES {
   // and Darwin 8.8.1 (Tiger) use as 1.38.  This means we have to use a
   // different asm syntax.  I don't know quite the best way to discriminate
   // systems using the old as from the new one; I've gone with __APPLE__.
-  // TODO(csilvers): use autoconf instead, to look for 'as --version' == 1 or 2
+  // TODO (csilvers): use autoconf instead, to look for 'as --version' == 1 or 2 id:1584
   __asm__ volatile ("mr %0,r1" : "=r" (sp));
 
   // On PowerPC, the "Link Register" or "Link Record" (LR), is a stack

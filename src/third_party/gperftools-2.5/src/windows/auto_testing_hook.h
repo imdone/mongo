@@ -53,7 +53,7 @@ class AutoTestingHookBase {
 //
 // The 'hook' variable will then be destroyed when it goes out of scope.
 //
-// NOTE: You must not hold this type as a member of another class.  Its
+// NOTE: You must not hold this type as a member of another class. Its id:2387
 // destructor will not get called.
 typedef const AutoTestingHookBase& AutoTestingHook;
 
@@ -81,7 +81,7 @@ class AutoTestingHookHolder {
 // common/scope_cleanup.h) uses, so to create a hook you use the MakeHook
 // function rather than a constructor.
 //
-// NOTE:  This function is only safe for e.g. unit tests and _not_ for
+// NOTE: This function is only safe for e.g. unit tests and _not_ for id:1875
 // production code.  See PreamblePatcher class for details.
 template <typename T>
 class AutoTestingHookImpl : public AutoTestingHookBase {

@@ -45,9 +45,9 @@ results = t.find({$text: {$search: "textual content -irrelevant"}})
 assert.eq(results.length, 1);
 assert.eq(results[0]._id, 0);
 
-// TODO Test basic text query with sort, once sort is enabled in the new query framework.
+// TODO Test basic text query with sort, once sort is enabled in the new query framework. id:67
 
-// TODO Test basic text query with projection, once projection is enabled in the new query
+// TODO Test basic text query with projection, once projection is enabled in the new query id:776
 // framework.
 
 // Test $and of basic text query with indexed expression.
@@ -65,7 +65,7 @@ results = t.find({$text: {$search: "content -irrelevant"}, unindexedField: 1}).t
 assert.eq(results.length, 1);
 assert.eq(results[0]._id, 1);
 
-// TODO Test invalid inputs for $text, $search, $language.
+// TODO Test invalid inputs for $text, $search, $language. id:187
 
 // Test $language.
 cursor = t.find({$text: {$search: "contents", $language: "none"}});
@@ -79,26 +79,26 @@ assert.throws(function() {
     cursor.next();
 });
 
-// TODO Test $and of basic text query with geo expression.
+// TODO Test $and of basic text query with geo expression. id:77
 
 // Test update with $text.
 t.update({$text: {$search: "textual content -irrelevant"}}, {$set: {b: 1}}, {multi: true});
 assert.eq(2, t.find({b: 1}).itcount(), 'incorrect number of documents updated');
 
-// TODO Test remove with $text, once it is enabled with the new query framework.
+// TODO Test remove with $text, once it is enabled with the new query framework. id:103
 
-// TODO Test count with $text, once it is enabled with the new query framework.
+// TODO Test count with $text, once it is enabled with the new query framework. id:69
 
-// TODO Test findAndModify with $text, once it is enabled with the new query framework.
+// TODO Test findAndModify with $text, once it is enabled with the new query framework. id:779
 
-// TODO Test aggregate with $text, once it is enabled with the new query framework.
+// TODO Test aggregate with $text, once it is enabled with the new query framework. id:189
 
-// TODO Test that old query framework rejects $text queries.
+// TODO Test that old query framework rejects $text queries. id:81
 
-// TODO Test that $text fails without a text index.
+// TODO Test that $text fails without a text index. id:107
 
-// TODO Test that $text accepts a hint of the text index.
+// TODO Test that $text accepts a hint of the text index. id:71
 
-// TODO Test that $text fails if a different index is hinted.
+// TODO Test that $text fails if a different index is hinted. id:782
 
-// TODO Test $text with {$natural:1} sort, {$natural:1} hint.
+// TODO Test $text with {$ sort, {$ hint. natural:1} id:191

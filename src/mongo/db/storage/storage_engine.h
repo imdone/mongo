@@ -161,7 +161,7 @@ public:
     /**
      * List the databases stored in this storage engine.
      *
-     * XXX: why doesn't this take OpCtx?
+     * XXX: why doesn't this take OpCtx? id:2064
      */
     virtual void listDatabases(std::vector<std::string>* out) const = 0;
 
@@ -273,7 +273,7 @@ public:
      * Generally, this method should not be called directly except by the repairDatabase()
      * free function.
      *
-     * NOTE: MMAPv1 does not support this method and has its own repairDatabase() method.
+     * NOTE: MMAPv1 does not support this method and has its own repairDatabase() method. id:974
      */
     virtual Status repairRecordStore(OperationContext* opCtx, const std::string& ns) = 0;
 

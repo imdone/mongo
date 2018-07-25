@@ -921,7 +921,7 @@ var ReplSetTest = function(opts) {
      * Ensures that a primary is elected (not necessarily node 0).
      * initiate() should be preferred instead of this, but this is useful when the connections
      * aren't authorized to run replSetGetStatus.
-     * TODO(SERVER-14017): remove this in favor of using initiate() everywhere.
+     * TODO (SERVER-14017): remove this in favor of using initiate() everywhere. id:2592
      */
     this.initiateWithAnyNodeAsPrimary = function(
         cfg, initCmd, {doNotWaitForStableCheckpoint: doNotWaitForStableCheckpoint = false} = {}) {
@@ -1017,7 +1017,7 @@ var ReplSetTest = function(opts) {
             // in certain configurations due to being unauthorized.  In that case we proceed
             // even though we aren't guaranteed that the highest priority node is the one that
             // became primary.
-            // TODO(SERVER-14017): Unconditionally expect awaitHighestPriorityNodeIsPrimary to pass.
+            // TODO (SERVER-14017): Unconditionally expect awaitHighestPriorityNodeIsPrimary to pass. id:1356
             assert.eq(ErrorCodes.Unauthorized, e.code, tojson(e));
             print("Running awaitHighestPriorityNodeIsPrimary() during ReplSetTest initialization " +
                   "failed with Unauthorized error, proceeding even though we aren't guaranteed " +
@@ -1244,7 +1244,7 @@ var ReplSetTest = function(opts) {
         // 2) Perform a second write. This will guarantee that all nodes will update their commit
         //    point to a time that is >= the previous write. That will trigger a stable checkpoint
         //    on all nodes.
-        // TODO(SERVER-33248): Remove this block. We should not need to prod the replica set to
+        // TODO (SERVER-33248): Remove this block. We should not need to prod the replica set to id:2162
         // advance the commit point if the commit point being lagged is sufficient to choose a
         // sync source.
         function advanceCommitPoint(master) {
@@ -1260,7 +1260,7 @@ var ReplSetTest = function(opts) {
                     {"appendOplogNote": 1, "data": {"awaitLastStableCheckpointTimestamp": 2}}));
             };
 
-            // TODO(SERVER-14017): Remove this extra sub-shell in favor of a cleaner authentication
+            // TODO (SERVER-14017): Remove this extra sub-shell in favor of a cleaner authentication id:1583
             // solution.
             const masterId = "n" + rst.getNodeId(master);
             const masterOptions = rst.nodeOptions[masterId] || {};
@@ -1493,7 +1493,7 @@ var ReplSetTest = function(opts) {
                 // If a map-reduce operation is interrupted by the server stepping down, then an
                 // unreplicated "tmp.mr." collection may be left behind. We remove it from the
                 // dbHash command response to avoid an already known case of a mismatch.
-                // TODO SERVER-27147: Stop filtering out "tmp.mr." collections.
+                // TODO SERVER-27147: Stop filtering out "tmp.mr." collections. id:3128
                 if (cappedCollections.has(collName) ||
                     (filterMapReduce && collName.startsWith("tmp.mr."))) {
                     delete res.collections[collName];
@@ -2121,7 +2121,7 @@ var ReplSetTest = function(opts) {
                 print("First 10 documents in collection: " +
                       tojson(coll.find().limit(10).toArray()));
 
-                // TODO (SERVER-35483): Remove this block and enable fastcount checks.
+                // TODO (SERVER-35483): Remove this block and enable fastcount checks. id:2594
                 if (coll.getFullName() == "config.transactions") {
                     print(`Ignoring fastcount error for ${coll.getFullName()} on ` +
                           `${coll.getMongo().host}. itcount: ${itCount}, fast count: ${fastCount}`);
@@ -2180,7 +2180,7 @@ var ReplSetTest = function(opts) {
             return started;
         }
 
-        // TODO: should we do something special if we don't currently know about this node?
+        // TODO: should we do something special if we don't currently know about this node? id:1358
         n = this.getNodeId(n);
 
         print("ReplSetTest n is : " + n);
