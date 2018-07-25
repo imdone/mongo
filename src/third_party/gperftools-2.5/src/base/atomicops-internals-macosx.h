@@ -67,7 +67,7 @@ namespace subtle {
 // time ONLY IF they are called.  So it is safe to use this header if user
 // code only calls AtomicWord and Atomic32 operations.
 //
-// NOTE(vchen): Implementation notes to implement the atomic ops below may
+// NOTE (vchen): Implementation notes to implement the atomic ops below may id:1831
 // be found in "PowerPC Virtual Environment Architecture, Book II,
 // Version 2.02", January 28, 2005, Appendix B, page 46.  Unfortunately,
 // extra care must be taken to ensure data are properly 8-byte aligned, and

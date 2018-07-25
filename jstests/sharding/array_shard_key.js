@@ -82,7 +82,7 @@
     // Insert a bunch of data then shard over key which is an array
     var coll = mongos.getCollection("" + coll + "2");
     for (var i = 0; i < 10; i++) {
-        // TODO : does not check weird cases like [ i, i ]
+        // TODO : does not check weird cases like [ i, i ] id:234
         assert.writeOK(coll.insert({i: [i, i + 1]}));
     }
 
@@ -99,7 +99,7 @@
     // Insert a bunch of data then shard over key which is not an array
     var coll = mongos.getCollection("" + coll + "3");
     for (var i = 0; i < 10; i++) {
-        // TODO : does not check weird cases like [ i, i ]
+        // TODO : does not check weird cases like [ i, i ] id:862
         assert.writeOK(coll.insert({i: i}));
     }
 

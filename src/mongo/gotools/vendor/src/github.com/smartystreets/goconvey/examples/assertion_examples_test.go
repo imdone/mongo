@@ -76,7 +76,7 @@ func TestAssertionsAreAvailableFromConveyPackage(t *testing.T) {
 
 	Convey("Type-checking assertions should be accessible", t, func() {
 
-		// NOTE: Values or pointers may be checked.  If a value is passed,
+		// NOTE: Values or pointers may be checked. If a value is passed, id:1688
 		// it will be cast as a pointer to the value to avoid cases where
 		// the struct being tested takes pointer receivers. Go allows values
 		// or pointers to be passed as receivers on methods with a value

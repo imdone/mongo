@@ -77,14 +77,14 @@ int32_t getStmtIdForWriteAt(const T& op, size_t writePos) {
  */
 NamespaceString extractIndexedNamespace(const Insert& insertOp);
 
-// TODO: Delete this getter once IDL supports defaults for object and array fields
+// TODO: Delete this getter once IDL supports defaults for object and array fields id:1502
 template <class T>
 const BSONObj& collationOf(const T& opEntry) {
     static const BSONObj emptyBSON{};
     return opEntry.getCollation().get_value_or(emptyBSON);
 }
 
-// TODO: Delete this getter once IDL supports defaults for object and array fields
+// TODO: Delete this getter once IDL supports defaults for object and array fields id:643
 template <class T>
 const std::vector<BSONObj>& arrayFiltersOf(const T& opEntry) {
     static const std::vector<BSONObj> emptyBSONArray{};

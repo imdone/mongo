@@ -217,7 +217,7 @@ __wt_connection_workers(WT_SESSION_IMPL *session, const char *cfg[])
 
 	/*
 	 * Run recovery.
-	 * NOTE: This call will start (and stop) eviction if recovery is
+	 * NOTE: This call will start (and stop) eviction if recovery is id:2834
 	 * required.  Recovery must run before the lookaside table is created
 	 * (because recovery will update the metadata), and before eviction is
 	 * started for real.
@@ -226,7 +226,7 @@ __wt_connection_workers(WT_SESSION_IMPL *session, const char *cfg[])
 
 	/*
 	 * Start the optional logging/archive threads.
-	 * NOTE: The log manager must be started before checkpoints so that the
+	 * NOTE: The log manager must be started before checkpoints so that the id:2515
 	 * checkpoint server knows if logging is enabled.  It must also be
 	 * started before any operation that can commit, or the commit can
 	 * block.
@@ -241,7 +241,7 @@ __wt_connection_workers(WT_SESSION_IMPL *session, const char *cfg[])
 
 	/*
 	 * Start eviction threads.
-	 * NOTE: Eviction must be started after the lookaside table is created.
+	 * NOTE: Eviction must be started after the lookaside table is created. id:3424
 	 */
 	WT_RET(__wt_evict_create(session));
 

@@ -128,7 +128,7 @@ StatusWith<TaskExecutor::CallbackHandle> ShardingTaskExecutor::scheduleRemoteCom
 
         BSONObjBuilder bob(std::move(newRequest->cmdObj));
         {
-            // TODO SERVER-33702.
+            // TODO SERVER-33702. id:2134
             BSONObjBuilder subbob(bob.subobjStart("lsid"));
             request.opCtx->getLogicalSessionId()->serialize(&subbob);
         }
@@ -169,7 +169,7 @@ StatusWith<TaskExecutor::CallbackHandle> ShardingTaskExecutor::scheduleRemoteCom
         if (!shard) {
             LOG(1) << "Could not find shard containing host: " << args.request.target.toString();
         } else if (routerSession) {
-            // TODO: SERVER-35707 only mark as sent for non-network error?
+            // TODO: SERVER-35707 only mark as sent for non-network error? id:1548
             auto& participant = routerSession->getOrCreateParticipant(shard->getId());
             participant.markAsCommandSent();
         }

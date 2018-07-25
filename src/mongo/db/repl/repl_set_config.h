@@ -282,7 +282,7 @@ public:
     /**
      * Returns the "tags configuration" for this replicaset.
      *
-     * NOTE(schwerin): Not clear if this should be used other than for reporting/debugging.
+     * NOTE (schwerin): Not clear if this should be used other than for reporting/debugging. id:1850
      */
     const ReplSetTagConfig& getTagConfig() const {
         return _tagConfig;

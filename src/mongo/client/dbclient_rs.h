@@ -294,7 +294,7 @@ private:
      */
     void resetSlaveOkConn();
 
-    // TODO: remove this when processes other than mongos uses the driver version.
+    // TODO: remove this when processes other than mongos uses the driver version. id:989
     static bool _authPooledSecondaryConn;
 
     // Throws a DBException if the monitor doesn't exist and there isn't a cached seed to use.

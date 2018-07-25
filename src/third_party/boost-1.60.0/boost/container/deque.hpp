@@ -90,10 +90,10 @@ namespace container_detail {
 //      contents of i.node is a pointer to the beginning of a node.
 //    i.first == //(i.node)
 //    i.last  == i.first + node_size
-//    i.cur is a pointer in the range [i.first, i.last).  NOTE:
+//    i.cur is a pointer in the range [i.first, i.last).  NOTE:  id:3167
 //      the implication of this is that i.cur is always a dereferenceable
 //      pointer, even if i is a past-the-end iterator.
-//  Start and Finish are always nonsingular iterators.  NOTE: this means
+//  Start and Finish are always nonsingular iterators.  NOTE: this means id:2672
 //    that an empty deque must have one node, and that a deque
 //    with N elements, where N is the buffer size, must have two nodes.
 //  For every node other than start.node and finish.node, every element

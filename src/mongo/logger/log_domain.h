@@ -43,7 +43,7 @@ namespace logger {
  *
  * A logging domain consists of a set of Appenders.
  *
- * TODO: The severity doesn't seem to apply for auditing, maybe it only belongs on the
+ * TODO: The severity doesn't seem to apply for auditing, maybe it only belongs on the id:1155
  * MessageLogManager?  We don't really have multiple tunable logging domains, right now.  Other
  * than the global domain, shouldLog doesn't matter.
  *

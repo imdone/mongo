@@ -314,7 +314,7 @@ namespace boost { namespace fusion
         // base: vector(T const&...) doesn't work with trailing void_ and
         // vector(U const&...) cannot forward any arguments to base.
         template <typename... U>
-        // XXX: constexpr become error due to pull-request #79, booooo!!
+        // XXX: constexpr become error due to pull-request #79, booooo!! id:3178
         //      In the (near) future release, should be fixed.
         /* BOOST_CONSTEXPR */ BOOST_FUSION_GPU_ENABLED
         vector(U&&... u)

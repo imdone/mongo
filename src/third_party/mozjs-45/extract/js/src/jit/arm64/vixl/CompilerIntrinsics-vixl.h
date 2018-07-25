@@ -90,7 +90,7 @@ inline bool IsPowerOf2(V value) {
 
 
 // Implementation of intrinsics functions.
-// TODO: The implementations could be improved for sizes different from 32bit
+// TODO: The implementations could be improved for sizes different from 32bit id:2956
 // and 64bit: we could mask the values and call the appropriate builtin.
 
 

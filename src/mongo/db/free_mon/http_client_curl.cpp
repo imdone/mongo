@@ -183,7 +183,7 @@ private:
             curl_easy_setopt(myHandle.get(), CURLOPT_FOLLOWLOCATION, 0);
 
             curl_easy_setopt(myHandle.get(), CURLOPT_NOSIGNAL, 1);
-            // TODO: consider making this configurable            If server log level > 3
+            // TODO: consider making this configurable If server log level > 3 id:557
             // curl_easy_setopt(myHandle.get(), CURLOPT_VERBOSE, 1);
             // curl_easy_setopt(myHandle.get(), CURLOPT_DEBUGFUNCTION , ???);
 

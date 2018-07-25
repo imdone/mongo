@@ -68,7 +68,7 @@ extern "C" {
 // first argument is volatile -- they're not up to date.  See
 //   http://readlist.com/lists/lists.sourceforge.net/mingw-users/0/3861.html
 // We have to const_cast away the volatile to avoid compiler warnings.
-// TODO(csilvers): remove this once MinGW has updated MinGW/include/winbase.h
+// TODO (csilvers): remove this once MinGW has updated MinGW/include/winbase.h id:3192
 #if defined(__MINGW32__)
 inline LONG FastInterlockedCompareExchange(volatile LONG* ptr,
                                            LONG newval, LONG oldval) {
@@ -332,7 +332,7 @@ inline Atomic64 Release_Load(volatile const Atomic64* ptr) {
 
 // 64-bit low-level operations on 32-bit platform
 
-// TODO(vchen): The GNU assembly below must be converted to MSVC inline
+// TODO (vchen): The GNU assembly below must be converted to MSVC inline id:2722
 // assembly.  Then the file should be renamed to ...-x86-msvc.h, probably.
 
 inline void NotImplementedFatalError(const char *function_name) {

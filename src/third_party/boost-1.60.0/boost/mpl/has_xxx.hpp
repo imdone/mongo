@@ -312,7 +312,7 @@ struct trait \
 #     endif
 #   endif
 
-// NOTE: Many internal implementation macros take a Boost.Preprocessor
+// NOTE: Many internal implementation macros take a Boost.Preprocessor id:2702
 // array argument called args which is of the following form.
 //           ( 4, ( trait, name, max_arity, default_ ) )
 

@@ -44,7 +44,7 @@ StackLocator::StackLocator() {
     const auto size = pthread_get_stacksize_np(self);
     invariant(size);
 
-    // TODO: Assumes stack grows downward on OS X.
+    // TODO: Assumes stack grows downward on OS X. id:3096
     _end = static_cast<char*>(_begin) - size;
 }
 

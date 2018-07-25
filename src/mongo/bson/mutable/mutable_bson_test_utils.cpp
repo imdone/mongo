@@ -89,7 +89,7 @@ bool checkDocNoOrderingImpl(ConstElement lhs, ConstElement rhs) {
         if (lhsChildren.size() != rhsChildren.size())
             return false;
 
-        // NOTE: if you have repeated field names, this is not necessarily going to
+        // NOTE: if you have repeated field names, this is not necessarily going to id:338
         // work. This is unlikely to be a problem in practice, but we could write a
         // more sophisticated comparator if we need to: perhaps one that ordered first
         // by field name, then by type, then by woCompare. Performance isn't important
@@ -148,7 +148,7 @@ bool checkDocNoOrderingImpl(ConstElement lhs, ConstElement rhs) {
 
 }  // namespace
 
-// TODO: We should really update this to be an ASSERT_ something, so that we can print out
+// TODO: We should really update this to be an ASSERT_ something, so that we can print out id:400
 // the expected and actual documents.
 bool checkDoc(const Document& lhs, const BSONObj& rhs) {
     // Get the fundamental result via BSONObj's woCompare path. This is the best starting

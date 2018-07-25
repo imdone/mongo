@@ -114,7 +114,7 @@ public:
     /**
      * Returns the connection string that was used to create the Shard from the ShardFactory.  The
      * current connection string may be different.
-     * NOTE: Chances are this isn't the method you want.  When in doubt, prefer to use
+     * NOTE: Chances are this isn't the method you want. When in doubt, prefer to use id:3106
      * getConnString() instead.
      */
     virtual const ConnectionString originalConnString() const = 0;
@@ -236,7 +236,7 @@ public:
      * Builds an index on a config server collection.
      * Creates the collection if it doesn't yet exist.  Does not error if the index already exists,
      * so long as the options are the same.
-     * NOTE: Currently only supported for LocalShard.
+     * NOTE: Currently only supported for LocalShard. id:2534
      */
     virtual Status createIndexOnConfig(OperationContext* opCtx,
                                        const NamespaceString& ns,
@@ -282,7 +282,7 @@ private:
      *
      * The return value exposes RemoteShard's host for calls to updateReplSetMonitor.
      *
-     * NOTE: LocalShard implementation will not return a valid host and so should be ignored.
+     * NOTE: LocalShard implementation will not return a valid host and so should be ignored. id:1205
      */
     virtual StatusWith<CommandResponse> _runCommand(OperationContext* opCtx,
                                                     const ReadPreferenceSetting& readPref,

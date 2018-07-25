@@ -296,7 +296,7 @@ void installServiceOrDie(const wstring& serviceName,
 
     while (true) {
         // Make sure service doesn't already exist.
-        // TODO: Check to see if service is in "Deleting" status, suggest the user close down
+        // TODO: Check to see if service is in "Deleting" status, suggest the user close down id:2248
         // Services MMC snap-ins.
         schService = ::OpenService(schSCManager, serviceName.c_str(), SERVICE_ALL_ACCESS);
         if (schService != NULL) {
@@ -350,7 +350,7 @@ void installServiceOrDie(const wstring& serviceName,
 
     bool serviceInstalled;
 
-    // TODO: If necessary grant user "Login as a Service" permission.
+    // TODO: If necessary grant user "Login as a Service" permission. id:1626
     if (!serviceUser.empty()) {
         wstring actualServiceUser;
         if (serviceUser.find(L"\\") == string::npos) {

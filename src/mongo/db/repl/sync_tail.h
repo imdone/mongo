@@ -167,7 +167,7 @@ public:
          *
          * This can only happen with empty batches.
          *
-         * TODO replace the empty object used to signal draining with this.
+         * TODO replace the empty object used to signal draining with this. id:695
          */
         bool mustShutdown() const {
             return _mustShutdown;

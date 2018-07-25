@@ -181,7 +181,7 @@ Status stringToValue(const std::string& stringVal,
             }
             *value = Value(unsignedVal);
             return Status::OK();
-        default: /* XXX: should not get here */
+        default: /* XXX: should not get here id:1632*/
             return Status(ErrorCodes::InternalError, "Unrecognized option type");
     }
 }
@@ -917,7 +917,7 @@ Status OptionsParser::readConfigFile(const std::string& filename, std::string* c
     // Get length of config file by seeking to the end and getting the cursor position
     if (fseek(config, 0L, SEEK_END) != 0) {
         const int current_errno = errno;
-        // TODO: Make sure errno is the correct way to do this
+        // TODO: Make sure errno is the correct way to do this id:3148
         // Confirmed that errno gets set in Mac OSX, but not documented
         StringBuilder sb;
         sb << "Error seeking in config file: " << strerror(current_errno);
@@ -928,7 +928,7 @@ Status OptionsParser::readConfigFile(const std::string& filename, std::string* c
     // Seek back to the beginning of the file for reading
     if (fseek(config, 0L, SEEK_SET) != 0) {
         const int current_errno = errno;
-        // TODO: Make sure errno is the correct way to do this
+        // TODO: Make sure errno is the correct way to do this id:2634
         // Confirmed that errno gets set in Mac OSX, but not documented
         StringBuilder sb;
         sb << "Error seeking in config file: " << strerror(current_errno);
@@ -945,7 +945,7 @@ Status OptionsParser::readConfigFile(const std::string& filename, std::string* c
             nread = nread + fread(&configVector[nread], sizeof(char), configSize - nread, config);
             if (ferror(config)) {
                 const int current_errno = errno;
-                // TODO: Make sure errno is the correct way to do this
+                // TODO: Make sure errno is the correct way to do this id:1409
                 StringBuilder sb;
                 sb << "Error reading in config file: " << strerror(current_errno);
                 return Status(ErrorCodes::InternalError, sb.str());
@@ -1165,7 +1165,7 @@ StatusWith<std::vector<std::string>> transformImplictOptions(
  */
 Status OptionsParser::run(const OptionSection& options,
                           const std::vector<std::string>& argvOriginal,
-                          const std::map<std::string, std::string>& env,  // XXX: Currently unused
+                          const std::map<std::string, std::string>& env,  // XXX: Currently unused id:2256
                           Environment* environment) {
     Environment commandLineEnvironment;
     Environment configEnvironment;
@@ -1213,7 +1213,7 @@ Status OptionsParser::run(const OptionSection& options,
     // Adds the values for all our options that were registered as composable to the composed
     // environment.  addCompositions doesn't override the values like "setAll" on our
     // environment.  Instead it aggregates the values in the result environment.
-    // NOTE: We must add our configEnvironment compositions first since we have a StringMap type
+    // NOTE: We must add our configEnvironment compositions first since we have a StringMap type id:1634
     // in which some options can be overridden by the command line.
     ret = addCompositions(options, configEnvironment, &composedEnvironment);
     if (!ret.isOK()) {
@@ -1232,7 +1232,7 @@ Status OptionsParser::run(const OptionSection& options,
     }
 
     // Add the values to our result in the order of override
-    // NOTE: This should not fail validation as we haven't called environment->validate() yet
+    // NOTE: This should not fail validation as we haven't called environment->validate() yet id:3149
     ret = environment->setAll(configEnvironment);
     if (!ret.isOK()) {
         return ret;

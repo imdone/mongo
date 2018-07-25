@@ -282,7 +282,7 @@ public:
     std::vector<IndexKeyDatum> keyData;
 
     // True if this WSM has survived a yield in RID_AND_IDX state.
-    // TODO consider replacing by tracking SnapshotIds for IndexKeyDatums.
+    // TODO consider replacing by tracking SnapshotIds for IndexKeyDatums. id:553
     bool isSuspicious = false;
 
     bool hasRecordId() const;

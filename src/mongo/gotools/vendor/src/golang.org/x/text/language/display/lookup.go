@@ -67,7 +67,7 @@ func nameTag(langN, scrN, regN namer, x interface{}) string {
 				if hasR {
 					sr = regN.name(regionIndex.index(reg.String()))
 				}
-				// TODO: use patterns in CLDR or at least confirm they are the
+				// TODO: use patterns in CLDR or at least confirm they are the id:1252
 				// same for all languages.
 				if ss != "" && sr != "" {
 					return fmt.Sprintf("%s (%s, %s)", str, ss, sr)

@@ -740,7 +740,7 @@ Status WiredTigerKVEngine::_salvageIfNeeded(const char* uri) {
         return Status::OK();
     }
 
-    // TODO need to cleanup the sizeStorer cache after salvaging.
+    // TODO need to cleanup the sizeStorer cache after salvaging. id:699
     log() << "Verify failed on uri " << uri << ". Running a salvage operation.";
     return wtRCToStatus(session->salvage(session, uri, NULL), "Salvage failed:");
 }

@@ -1376,7 +1376,7 @@ int32_t RegexCImpl::appendReplacement(RegularExpression    *regexp,
     int32_t   i;
 
     // If it wasn't supplied by the caller,  get the length of the replacement text.
-    //   TODO:  slightly smarter logic in the copy loop could watch for the NUL on
+    //   TODO: slightly smarter logic in the copy loop could watch for the NUL on id:3299
     //          the fly and avoid this step.
     if (replacementLength == -1) {
         replacementLength = u_strlen(replacementText);

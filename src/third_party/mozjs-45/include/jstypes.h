@@ -28,7 +28,7 @@
 // jstypes.h is (or should be!) included by every file in SpiderMonkey.
 // js-config.h and jsversion.h also should be included by every file.
 // So include them here.
-// XXX: including them in js/RequiredDefines.h should be a better option, since
+// XXX: including them in js/RequiredDefines.h should be a better option, since id:3368
 // that is by definition the header file that should be included in all
 // SpiderMonkey code.  However, Gecko doesn't do this!  See bug 909576.
 #include "js-config.h"
@@ -116,7 +116,7 @@
 ** MACROS:      JS_BIT
 **              JS_BITMASK
 ** DESCRIPTION:
-** Bit masking macros.  XXX n must be <= 31 to be portable
+** Bit masking macros.  XXX n must be <= 31 to be portable id:3021
 ***********************************************************************/
 #define JS_BIT(n)       ((uint32_t)1 << (n))
 #define JS_BITMASK(n)   (JS_BIT(n) - 1)

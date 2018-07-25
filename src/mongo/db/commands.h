@@ -615,7 +615,7 @@ private:
      * Checks if the given client is authorized to run this command on database "dbname"
      * with the invocation described by "cmdObj".
      *
-     * NOTE: Implement checkAuthForOperation that takes an OperationContext* instead.
+     * NOTE: Implement checkAuthForOperation that takes an OperationContext* instead. id:1259
      */
     virtual Status checkAuthForCommand(Client* client,
                                        const std::string& dbname,

@@ -5,7 +5,7 @@ var RetryableWritesUtil = (function() {
     /**
      * Returns true if the error code is retryable, assuming the command is idempotent.
      *
-     * TODO SERVER-34666: Expose the isRetryableCode() function that's defined in
+     * TODO SERVER-34666: Expose the isRetryableCode() function that's defined in id:128
      * src/mongo/shell/session.js and use it here.
      */
     function isRetryableCode(code) {

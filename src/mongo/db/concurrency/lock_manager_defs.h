@@ -269,7 +269,7 @@ extern const ResourceId resourceIdAdminDB;
 // must stop all other accesses globally. This resource must be locked before all other
 // resources (including resourceIdGlobal). Replication applier threads don't take this
 // lock.
-// TODO: Merge this with resourceIdGlobal
+// TODO: Merge this with resourceIdGlobal id:414
 extern const ResourceId resourceIdParallelBatchWriterMode;
 
 /**

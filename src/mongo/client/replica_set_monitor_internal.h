@@ -190,7 +190,7 @@ public:
     // than WAIT, or a new host is available for consideration by getMatchingHost. Essentially,
     // this will be hit whenever the _refreshUntilMatches loop has the potential to make
     // progress.
-    // TODO consider splitting cv into two: one for when looking for a master, one for all other
+    // TODO consider splitting cv into two: one for when looking for a master, one for all other id:999
     // cases.
     stdx::condition_variable cv;
 

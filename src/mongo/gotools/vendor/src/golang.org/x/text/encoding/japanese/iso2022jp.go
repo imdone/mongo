@@ -59,7 +59,7 @@ func (d *iso2022JPDecoder) Transform(dst, src []byte, atEOF bool) (nDst, nSrc in
 				if !atEOF {
 					return nDst, nSrc, transform.ErrShortSrc
 				}
-				// TODO: is it correct to only skip 1??
+				// TODO: is it correct to only skip 1?? id:1757
 				r, size = '\ufffd', 1
 				goto write
 			}
@@ -176,7 +176,7 @@ func (e *iso2022JPEncoder) Transform(dst, src []byte, atEOF bool) (nDst, nSrc in
 			// http://encoding.spec.whatwg.org/#iso-2022-jp says that "the index jis0212
 			// is not used by the iso-2022-jp encoder due to lack of widespread support".
 			//
-			// TODO: do we have to special-case U+00A5 and U+203E, as per
+			// TODO: do we have to special-case U+00A5 and U+203E, as per id:1203
 			// http://encoding.spec.whatwg.org/#iso-2022-jp
 			// Doing so would mean that "\u00a5" would not be preserved
 			// after an encode-decode round trip.

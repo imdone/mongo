@@ -136,7 +136,7 @@ public:
 
     // Should be called at the beginning of every new request.  This performs the checks
     // necessary to determine if localhost connections should be given full access.
-    // TODO: try to eliminate the need for this call.
+    // TODO: try to eliminate the need for this call. id:580
     virtual void startRequest(OperationContext* opCtx) = 0;
 
     /**
@@ -282,7 +282,7 @@ public:
     virtual bool isAuthorizedToChangeOwnCustomDataAsUser(const UserName& userName) = 0;
 
     // Returns true if any of the authenticated users on this session have the given role.
-    // NOTE: this does not refresh any of the users even if they are marked as invalid.
+    // NOTE: this does not refresh any of the users even if they are marked as invalid. id:372
     virtual bool isAuthenticatedAsUserWithRole(const RoleName& roleName) = 0;
 
     // Returns true if this session is authorized for the given Privilege.

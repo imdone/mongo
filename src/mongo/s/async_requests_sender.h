@@ -217,7 +217,7 @@ private:
      * that lives longer than this type (because it can end up in callbacks that won't actually
      * modify it).
      *
-     * TODO: work out actual lifetime semantics for a baton.  For now, leaving this as a wort in ARS
+     * TODO: work out actual lifetime semantics for a baton. For now, leaving this as a wort in ARS id:2085
      */
     class BatonDetacher {
     public:

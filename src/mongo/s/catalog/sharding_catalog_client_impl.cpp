@@ -724,7 +724,7 @@ bool ShardingCatalogClientImpl::runUserManagementReadCommand(OperationContext* o
         return resultStatus.getValue().commandStatus.isOK();
     }
 
-    return CommandHelpers::appendCommandStatusNoThrow(*result, resultStatus.getStatus());  // XXX
+    return CommandHelpers::appendCommandStatusNoThrow(*result, resultStatus.getStatus());  // XXX  id:1189
 }
 
 Status ShardingCatalogClientImpl::applyChunkOpsDeprecated(OperationContext* opCtx,
@@ -757,7 +757,7 @@ Status ShardingCatalogClientImpl::applyChunkOpsDeprecated(OperationContext* opCt
         ? std::move(response.getValue().writeConcernStatus)
         : std::move(response.getValue().commandStatus);
 
-    // TODO (Dianna) This fail point needs to be reexamined when CommitChunkMigration is in:
+    // TODO (Dianna) This fail point needs to be reexamined when CommitChunkMigration is in: id:2091
     // migrations will no longer be able to exercise it, so split or merge will need to do so.
     // SERVER-22659.
     if (MONGO_FAIL_POINT(failApplyChunkOps)) {

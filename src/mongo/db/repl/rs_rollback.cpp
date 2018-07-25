@@ -992,7 +992,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
         try {
             LOG(2) << "Refetching document, collection: " << nss << ", UUID: " << uuid << ", "
                    << redact(doc._id);
-            // TODO : Slow. Lots of round trips.
+            // TODO : Slow. Lots of round trips. id:633
             numFetched++;
 
             BSONObj good;
@@ -1186,7 +1186,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
                                                          << ": "
                                                          << status.toString());
                 }
-                // TODO(SERVER-27992): Set options.uuid.
+                // TODO (SERVER-27992): Set options.uuid. id:1269
 
             } else {
                 // Use default options.
@@ -1275,7 +1275,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
             BSONObj pattern = doc._id.wrap();  // { _id : ... }
             try {
 
-                // TODO: Lots of overhead in context. This can be faster.
+                // TODO: Lots of overhead in context. This can be faster. id:635
                 const NamespaceString docNss(doc.ns);
                 Lock::DBLock docDbLock(opCtx, docNss.db(), MODE_X);
                 OldClientContext ctx(opCtx, doc.ns.toString());
@@ -1310,7 +1310,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
                     LOG(2) << "Deleting document with: " << redact(doc._id)
                            << ", from collection: " << doc.ns << ", with UUID: " << uuid;
                     // If the document could not be found on the primary, deletes the document.
-                    // TODO 1.6 : can't delete from a capped collection. Need to handle that
+                    // TODO 1.6 : can't delete from a capped collection. Need to handle that id:1864
                     // here.
                     deletes++;
 
@@ -1320,7 +1320,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
                             // if this item must go, so must all successors.
 
                             try {
-                                // TODO: IIRC cappedTruncateAfter does not handle completely
+                                // TODO: IIRC cappedTruncateAfter does not handle completely id:822
                                 // empty. This will be slow if there is no _id index in
                                 // the collection.
 
@@ -1381,7 +1381,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
                     LOG(2) << "Updating document with: " << redact(doc._id)
                            << ", from collection: " << doc.ns << ", UUID: " << uuid
                            << ", to: " << redact(idAndDoc.second);
-                    // TODO faster...
+                    // TODO faster... id:689
                     updates++;
 
                     UpdateRequest request(nss);
@@ -1422,7 +1422,7 @@ void rollback_internal::syncFixUp(OperationContext* opCtx,
                 Status(ErrorCodes::UnrecoverableRollbackError,
                        str::stream() << "Can't find " << NamespaceString::kRsOplogNamespace.ns()));
         }
-        // TODO: fatal error if this throws?
+        // TODO: fatal error if this throws? id:1271
         oplogCollection->cappedTruncateAfter(opCtx, fixUpInfo.commonPointOurDiskloc, false);
     }
 

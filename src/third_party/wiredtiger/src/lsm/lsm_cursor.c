@@ -658,7 +658,7 @@ retry:	if (F_ISSET(clsm, WT_CLSM_MERGE)) {
 			ckpt_cfg : NULL, &clsm->chunks[i]->cursor);
 
 		/*
-		 * XXX kludge: we may have an empty chunk where no checkpoint
+		 * XXX kludge: we may have an empty chunk where no checkpoint id:2523
 		 * was written.  If so, try to open the ordinary handle on that
 		 * chunk instead.
 		 */

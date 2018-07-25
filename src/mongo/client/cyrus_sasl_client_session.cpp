@@ -140,7 +140,7 @@ MONGO_INITIALIZER_WITH_PREREQUISITES(CyrusSaslClientContext,
     // If the client application has previously called sasl_client_init(), the callbacks passed
     // in here are ignored.
     //
-    // TODO: Call sasl_client_done() at shutdown when we have a story for orderly shutdown.
+    // TODO: Call sasl_client_done() at shutdown when we have a story for orderly shutdown. id:982
     int result = sasl_client_init(saslClientGlobalCallbacks);
     if (result != SASL_OK) {
         return Status(ErrorCodes::UnknownError,

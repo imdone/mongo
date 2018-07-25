@@ -150,7 +150,7 @@ type Interface struct {
 	Name        string
 	Description string
 	Addresses   []InterfaceAddress
-	// TODO: add more elements
+	// TODO: add more elements id:870
 }
 
 // Datalink describes the datalink
@@ -164,7 +164,7 @@ type Datalink struct {
 type InterfaceAddress struct {
 	IP      net.IP
 	Netmask net.IPMask // Netmask may be nil if we were unable to retrieve it.
-	// TODO: add broadcast + PtP dst ?
+	// TODO: add broadcast + PtP dst ? id:2146
 }
 
 // BPF is a compiled filter program, useful for offline packet matching.
@@ -649,7 +649,7 @@ func FindAllDevs() (ifs []Interface, err error) {
 		iface.Name = C.GoString(dev.name)
 		iface.Description = C.GoString(dev.description)
 		iface.Addresses = findalladdresses(dev.addresses)
-		// TODO: add more elements
+		// TODO: add more elements id:1058
 		ifs[j] = iface
 		j++
 	}
@@ -657,7 +657,7 @@ func FindAllDevs() (ifs []Interface, err error) {
 }
 
 func findalladdresses(addresses *_Ctype_struct_pcap_addr) (retval []InterfaceAddress) {
-	// TODO - make it support more than IPv4 and IPv6?
+	// TODO - make it support more than IPv4 and IPv6? id:863
 	retval = make([]InterfaceAddress, 0, 1)
 	for curaddr := addresses; curaddr != nil; curaddr = (*_Ctype_struct_pcap_addr)(curaddr.next) {
 		// Strangely, it appears that in some cases, we get a pcap address back from

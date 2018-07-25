@@ -90,7 +90,7 @@ void addEqualityFieldSorts(const BSONObj& sortPattern,
                            const std::set<string>& equalityFields,
                            BSONObjSet* sortsOut) {
     invariant(sortsOut);
-    // TODO: Each field in equalityFields could be dropped from the sort order since it is
+    // TODO: Each field in equalityFields could be dropped from the sort order since it is id:585
     // a point interval.  The full set of sort orders is as follows:
     // For each sort in sortsOut:
     //    For each drop in powerset(equalityFields):
@@ -106,7 +106,7 @@ void addEqualityFieldSorts(const BSONObj& sortPattern,
     BSONObjBuilder suffixBob;
     while (it.more()) {
         BSONElement elt = it.next();
-        // TODO: string slowness.  fix when bounds are stringdata not string.
+        // TODO: string slowness. fix when bounds are stringdata not string. id:1229
         if (equalityFields.end() == equalityFields.find(string(elt.fieldName()))) {
             suffixBob.append(elt);
             // This field isn't a point interval, can't drop.

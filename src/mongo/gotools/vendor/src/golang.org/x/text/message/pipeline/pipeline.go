@@ -4,7 +4,7 @@
 
 // Package pipeline provides tools for creating translation pipelines.
 //
-// NOTE: UNDER DEVELOPMENT. API MAY CHANGE.
+// NOTE: UNDER DEVELOPMENT. API MAY CHANGE. id:1089
 package pipeline
 
 import (
@@ -22,7 +22,7 @@ const (
 	gotextSuffix = ".gotext.json"
 )
 
-// NOTE: The command line tool already prefixes with "gotext:".
+// NOTE: The command line tool already prefixes with " gotext:". id:1939
 var (
 	wrap = func(err error, msg string) error {
 		return fmt.Errorf("%s: %v", msg, err)
@@ -33,7 +33,7 @@ var (
 	errorf = fmt.Errorf
 )
 
-// TODO: don't log.
+// TODO: don't log. id:1433
 func logf(format string, args ...interface{}) {
 	log.Printf(format, args...)
 }

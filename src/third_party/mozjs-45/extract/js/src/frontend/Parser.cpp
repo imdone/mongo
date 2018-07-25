@@ -1347,7 +1347,7 @@ Parser<ParseHandler>::functionBody(InHandling inHandling, YieldHandling yieldHan
         break;
 
       case LegacyGenerator:
-        // FIXME: Catch these errors eagerly, in Parser::yieldExpression.
+        // FIXME: Catch these errors eagerly, in Parser::yieldExpression. id:2222
         MOZ_ASSERT(pc->lastYieldOffset != startYieldOffset);
         if (kind == Arrow) {
             reportWithOffset(ParseError, false, pc->lastYieldOffset,
@@ -2135,7 +2135,7 @@ Parser<ParseHandler>::functionArguments(YieldHandling yieldHandling, FunctionSyn
                 *hasRest = true;
                 if (!tokenStream.getToken(&tt))
                     return false;
-                // FIXME: This fails to handle a rest parameter named |yield|
+                // FIXME: This fails to handle a rest parameter named |yield| id:3309
                 //        correctly outside of generators: that is,
                 //        |var f = (...yield) => 42;| should be valid code!
                 //        When this is fixed, make sure to consult both
@@ -3447,7 +3447,7 @@ Parser<FullParseHandler>::bindLexical(BindData<FullParseHandler>* data,
         // js::frontend::CompileScript will adjust the slot again to include
         // script->nfixed and body-level lets.
         //
-        // XXXshu: I should like to optimize global lexicals, but we rely on
+        // XXX shu: I should like to optimize global lexicals, but we rely on id:2919
         // being able to clone JSScripts to run on multiple globals and to be
         // able to parse scripts off-thread in a different compartment.
         if (!blockObj->isGlobal()) {
@@ -3715,7 +3715,7 @@ Parser<ParseHandler>::bindVar(BindData<ParseHandler>* data,
     DefinitionList::Range defs = pc->decls().lookupMulti(name);
     MOZ_ASSERT_IF(stmt, !defs.empty());
 
-    // TODOshu: ES6 Annex B.3.5 is not implemented.
+    // TODO shu: ES6 Annex B.3.5 is not implemented. id:1988
     if (defs.empty())
         return pc->define(parser->tokenStream, name, pn, Definition::VAR);
 
@@ -3917,7 +3917,7 @@ Parser<FullParseHandler>::checkDestructuringName(BindData<FullParseHandler>* dat
         // specialized, in the very weird "for (var [x] = i in o) ..."
         // case. See bug 558633.
         //
-        // XXX Is this necessary with the changes in bug 1164741?  This is
+        // XXX Is this necessary with the changes in bug 1164741? This is id:2617
         //     likely removable now.
         handler.maybeDespecializeSet(expr);
 
@@ -6632,7 +6632,7 @@ Parser<FullParseHandler>::classDefinition(YieldHandling yieldHandling,
             return null();
         }
 
-        // FIXME: Implement ES6 function "name" property semantics
+        // FIXME: Implement ES6 function "name" property semantics id:2224
         // (bug 883377).
         RootedPropertyName funName(context);
         switch (propType) {
@@ -6945,7 +6945,7 @@ Parser<ParseHandler>::statement(YieldHandling yieldHandling, bool canHaveDirecti
         report(ParseError, false, null(), JSMSG_FINALLY_WITHOUT_TRY);
         return null();
 
-      // NOTE: default case handled in the ExpressionStatement section.
+      // NOTE: default case handled in the ExpressionStatement section. id:3310
     }
 }
 
@@ -8296,7 +8296,7 @@ Parser<ParseHandler>::comprehensionFor(GeneratorKind comprehensionKind)
 
     MUST_MATCH_TOKEN(TOK_LP, JSMSG_PAREN_AFTER_FOR);
 
-    // FIXME: Destructuring binding (bug 980828).
+    // FIXME: Destructuring binding (bug 980828). id:2920
 
     MUST_MATCH_TOKEN(TOK_NAME, JSMSG_NO_VARIABLE_NAME);
     RootedPropertyName name(context, tokenStream.currentName());
@@ -9313,7 +9313,7 @@ Parser<ParseHandler>::objectLiteral(YieldHandling yieldHandling)
             if (!handler.addShorthand(literal, propName, nameExpr))
                 return null();
         } else {
-            // FIXME: Implement ES6 function "name" property semantics
+            // FIXME: Implement ES6 function "name" property semantics id:1991
             // (bug 883377).
             RootedPropertyName funName(context);
             switch (propType) {
@@ -9523,7 +9523,7 @@ Parser<ParseHandler>::primaryExpr(YieldHandling yieldHandling, TripledotHandling
         TokenKind next;
         if (!tokenStream.getToken(&next))
             return null();
-        // FIXME: This fails to handle a rest parameter named |yield| correctly
+        // FIXME: This fails to handle a rest parameter named |yield| correctly id:2619
         //        outside of generators: |var f = (...yield) => 42;| should be
         //        valid code!  When this is fixed, make sure to consult both
         //        |yieldHandling| and |checkYieldNameValidity| for correctness

@@ -1,7 +1,7 @@
 /**
  * This test checks the upgrade path from noauth/allowSSL to x509/requireSSL
  *
- * NOTE: This test is similar to upgrade_noauth_to_x509_ssl.js in the ssl test
+ * NOTE: This test is similar to upgrade_noauth_to_x509_ssl.js in the ssl test id:926
  * suite. This test cannot use ssl communication and therefore cannot test
  * modes that only allow ssl.
  *

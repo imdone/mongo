@@ -50,7 +50,7 @@ assert.throws(function() {
      }).toArray();
 });
 
-// TODO: We can't project 'x.y':1 and 'x':1 (yet).
+// TODO: We can't project 'x.y':1 and 'x':1 (yet). id:100
 
 // Clobber an existing field and behave nicely.
 results =

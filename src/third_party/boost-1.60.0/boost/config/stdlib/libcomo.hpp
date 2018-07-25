@@ -18,7 +18,7 @@
 
 //
 // std::streambuf<wchar_t> is non-standard
-// NOTE: versions of libcomo prior to beta28 have octal version numbering,
+// NOTE: versions of libcomo prior to beta28 have octal version numbering, id:2293
 // e.g. version 25 is 21 (dec)
 #if __LIBCOMO_VERSION__ <= 22
 #  define BOOST_NO_STD_WSTREAMBUF

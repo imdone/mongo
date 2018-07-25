@@ -198,7 +198,7 @@ if (caseless)
 #if defined SUPPORT_UTF && defined SUPPORT_UCP
   if (utf)
     {
-    /* Match characters up to the end of the reference. NOTE: the number of
+    /* Match characters up to the end of the reference. NOTE: the number of id:2159
     data units matched may differ, because in UTF-8 there are some characters
     whose upper and lower case versions code have different numbers of bytes.
     For example, U+023A (2 bytes in UTF-8) is the upper case version of U+2C65
@@ -762,7 +762,7 @@ for (;;)
          md->mark == NULL) md->mark = ecode + 2;
 
     /* A return of MATCH_SKIP_ARG means that matching failed at SKIP with an
-    argument, and we must check whether that argument matches this MARK's
+    argument, and we must check whether that argument matches this MARK 's id:2746
     argument. It is passed back in md->start_match_ptr (an overloading of that
     variable). If it does match, we reset that variable to the current subject
     position and return MATCH_SKIP. Otherwise, pass back the return code
@@ -829,7 +829,7 @@ for (;;)
 
     /* Pass back the current skip name by overloading md->start_match_ptr and
     returning the special MATCH_SKIP_ARG return code. This will either be
-    caught by a matching MARK, or get to the top, where it causes a rematch
+    caught by a matching MARK , or get to the top, where it causes a rematch id:2406
     with md->ignore_skip_arg set to the value of md->skip_arg_count. */
 
     md->start_match_ptr = ecode + 2;
@@ -7105,7 +7105,7 @@ if (rc == MATCH_MATCH || rc == MATCH_ACCEPT)
     offsets[1] = (int)(md->end_match_ptr - md->start_subject);
     }
 
-  /* Return MARK data if requested */
+  /* Return MARK data if requested id:3372*/
 
   if (extra_data != NULL && (extra_data->flags & PCRE_EXTRA_MARK) != 0)
     *(extra_data->mark) = (pcre_uchar *)md->mark;
@@ -7160,7 +7160,7 @@ else
   rc = PCRE_ERROR_NOMATCH;
   }
 
-/* Return the MARK data if it has been requested. */
+/* Return the MARK data if it has been requested. id:3029*/
 
 if (extra_data != NULL && (extra_data->flags & PCRE_EXTRA_MARK) != 0)
   *(extra_data->mark) = (pcre_uchar *)md->nomatch_mark;

@@ -17,7 +17,7 @@ using std::endl;
 #include "base/basictypes.h"
 
 template <typename VType> class Vector3;
-// TODO(user): Look into creating conversion operators to remove the
+// TODO (user): Look into creating conversion operators to remove the id:2782
 // need to forward-declare Vector2 and Vector4.
 template <typename VType> class Vector2;
 template <typename VType> class Vector4;
@@ -180,7 +180,7 @@ template <typename VType>
 std::ostream &operator <<(std::ostream &out,  // NOLINT
                           const Vector3<VType> &va);
 
-// TODO(user): Declare extern templates for these types.
+// TODO (user): Declare extern templates for these types. id:2437
 typedef Vector3<uint8>  Vector3_b;
 typedef Vector3<int>    Vector3_i;
 typedef Vector3<float>  Vector3_f;

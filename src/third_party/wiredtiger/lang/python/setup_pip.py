@@ -87,7 +87,7 @@ def check_needed_dependencies(builtins, inc_paths, lib_paths):
             inc_paths.append(os.path.join(package_top, 'include'))
             lib_paths.append(os.path.join(package_top, 'lib'))
 
-    # XXX: we are not accounting for other directories that might be
+    # XXX: we are not accounting for other directories that might be id:2832
     # discoverable via /sbin/ldconfig. It might be better to write a tiny
     # compile using  -lsnappy, -lz...
     #

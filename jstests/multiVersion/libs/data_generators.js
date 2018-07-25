@@ -485,7 +485,7 @@ function IndexDataGenerator(options) {
             if (propertyType == 1) {
                 attributes["sparse"] = true;
             } else {
-                // TODO:  We have to test this as a separate stage because we want to round trip
+                // TODO: We have to test this as a separate stage because we want to round trip id:130
                 // multiple documents
                 // attributes["unique"] = true;
             }

@@ -196,7 +196,7 @@ private:
     Status timestampObject(StringData fieldName, BSONObjBuilder&);
 
     /*
-     *     NOTE: the rules for the body of the regex are different here,
+     *     NOTE: the rules for the body of the regex are different here, id:318
      *     since it is quoted instead of surrounded by slashes.
      * REGEXOBJECT :
      *     { FIELD("$regex") : <string representing body of regex> }
@@ -256,7 +256,7 @@ private:
     Status array(StringData fieldName, BSONObjBuilder&, bool subObj = true);
 
     /*
-     * NOTE: Currently only Date can be preceded by the "new" keyword
+     * NOTE: Currently only Date can be preceded by the "new" keyword id:309
      * CONSTRUCTOR :
      *     DATE
      */
@@ -345,7 +345,7 @@ private:
     /*
      * NUMBER :
      *
-     * NOTE: Number parsing is based on standard library functions, not
+     * NOTE: Number parsing is based on standard library functions, not id:380
      * necessarily on the JSON numeric grammar.
      *
      * Number as value - strtoll and strtod

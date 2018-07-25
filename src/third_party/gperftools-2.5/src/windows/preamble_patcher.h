@@ -96,9 +96,9 @@ class DeleteUnsignedCharArray;
 // able to call the original function via a specially-made preamble-stub
 // that imitates the action of the original preamble.
 //
-// NOTE:  This patching mechanism should currently only be used for
+// NOTE: This patching mechanism should currently only be used for id:1605
 // non-production code, e.g. unit tests, because it is not threadsafe.
-// See the TODO in preamble_patcher_with_stub.cc for instructions on what
+// See the TODO in preamble_patcher_with_stub.cc for instructions on what id:2393
 // we need to do before using it in production code; it's fairly simple
 // but unnecessary for now since we only intend to use it in unit tests.
 //
@@ -144,7 +144,7 @@ class DeleteUnsignedCharArray;
 // or, there may be a bug in the disassembler we use to find
 // instruction boundaries.
 //
-// NOTE:  In optimized builds, when you have very trivial functions that
+// NOTE: In optimized builds, when you have very trivial functions that id:1881
 // the compiler can reason do not have side effects, the compiler may
 // reuse the result of calling the function with a given parameter, which
 // may mean if you patch the function in between your patch will never get
@@ -168,7 +168,7 @@ class PERFTOOLS_DLL_DECL PreamblePatcher {
   static SideStepError Patch(T target_function,
                              T replacement_function,
                              T* original_function_stub) {
-    // NOTE: casting from a function to a pointer is contra the C++
+    // NOTE: casting from a function to a pointer is contra the C++ id:3213
     //       spec.  It's not safe on IA64, but is on i386.  We use
     //       a C-style cast here to emphasize this is not legal C++.
     return RawPatch((void*)(target_function),
@@ -222,7 +222,7 @@ class PERFTOOLS_DLL_DECL PreamblePatcher {
           false && "Did not find any function with that name in the module.");
       return SIDESTEP_NO_SUCH_FUNCTION;
     }
-    // NOTE: casting from a function to a pointer is contra the C++
+    // NOTE: casting from a function to a pointer is contra the C++ id:2755
     //       spec.  It's not safe on IA64, but is on i386.  We use
     //       a C-style cast here to emphasize this is not legal C++.
     return RawPatch((void*)existing_function, (void*)replacement_function,

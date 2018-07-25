@@ -40,7 +40,7 @@ func (e *enum) lookup(s string) enumIndex {
 				e.keys = append(e.keys, s)
 			}
 			if e.keyMap[s] != enumIndex(u) {
-				// TODO: handle more gracefully.
+				// TODO: handle more gracefully. id:1769
 				log.Fatalf("cldrtree: mix of integer and non-integer for %q %v", s, e.keys)
 			}
 			return enumIndex(u)

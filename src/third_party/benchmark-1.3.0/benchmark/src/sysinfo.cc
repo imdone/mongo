@@ -256,7 +256,7 @@ void InitializeSystemInfo() {
   } else {
     cpuinfo_cycles_per_second = hz;
   }
-// TODO: also figure out cpuinfo_num_cpus
+// TODO: also figure out cpuinfo_num_cpus id:2285
 
 #elif defined BENCHMARK_OS_WINDOWS
   // In NT, read MHz from the registry. If we fail to do so or we're in win9x

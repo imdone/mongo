@@ -23,7 +23,7 @@ TestData.skipCheckingUUIDsConsistentAcrossCluster = true;
         MongoRunner.runMongod(shard);
     }
 
-    // TODO: SERVER-33830 remove shardAsReplicaSet: false
+    // TODO: SERVER-33830 remove shardAsReplicaSet: false id:271
     var st = new ShardingTest({shards: 2, other: {shardAsReplicaSet: false}});
 
     jsTestLog("Setting up initial data");

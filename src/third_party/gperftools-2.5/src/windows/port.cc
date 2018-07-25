@@ -186,7 +186,7 @@ extern "C" pthread_key_t PthreadKeyCreate(void (*destr_fn)(void*)) {
   return key;
 }
 
-// NOTE: this is Win2K and later.  For Win98 we could use a CRITICAL_SECTION...
+// NOTE: this is Win2K and later. For Win98 we could use a CRITICAL_SECTION... id:1879
 extern "C" int perftools_pthread_once(pthread_once_t *once_control,
                                       void (*init_routine)(void)) {
   // Try for a fast path first. Note: this should be an acquire semantics read.
@@ -226,7 +226,7 @@ void DeleteMatchingFiles(const char* prefix, const char* full_glob) {
       if ((strlen(fname) >= prefix_length) &&
           (memcmp(fname, prefix, prefix_length) == 0)) {
         RAW_VLOG(0, "Removing old heap profile %s\n", fname);
-        // TODO(csilvers): we really need to unlink dirname + fname
+        // TODO (csilvers): we really need to unlink dirname + fname id:3212
         _unlink(fname);
       }
     } while (FindNextFileA(hFind, &found) != FALSE);  // A is for Ansi

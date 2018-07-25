@@ -119,7 +119,7 @@ public:
     /**
      * The $facet stage must be run on the merging shard.
      *
-     * TODO SERVER-24154: Should be smarter about splitting so that parts of the sub-pipelines can
+     * TODO SERVER-24154: Should be smarter about splitting so that parts of the sub-pipelines can id:649
      * potentially be run in parallel on multiple shards.
      */
     boost::intrusive_ptr<DocumentSource> getShardSource() final {

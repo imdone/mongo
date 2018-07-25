@@ -43,7 +43,7 @@ namespace mongo {
  * 3. (n, 0), n > 0 - invalid configuration.
  * 4. (n, m), n > 0, m > 0 - normal sharded collection version.
  *
- * TODO: This is a "manual type" but, even so, still needs to comform to what's
+ * TODO: This is a "manual type" but, even so, still needs to comform to what's id:1511
  * expected from types.
  */
 struct ChunkVersion {
@@ -72,7 +72,7 @@ public:
     static StatusWith<ChunkVersion> parseWithField(const BSONObj& obj, StringData field);
 
     /**
-     * NOTE: This format is being phased out. Use parseWithField instead.
+     * NOTE: This format is being phased out. Use parseWithField instead. id:3104
      *
      * Parses the BSON formatted by appendLegacyWithField. If the field is missing, returns
      * 'NoSuchKey', otherwise if the field is not properly formatted can return any relevant parsing
@@ -196,7 +196,7 @@ public:
     void appendWithField(BSONObjBuilder* out, StringData field) const;
 
     /**
-     * NOTE: This format is being phased out. Use appendWithField instead.
+     * NOTE: This format is being phased out. Use appendWithField instead. id:1720
      *
      * Serializes the version held by this object to 'out' in the legacy form:
      *  { ..., <field>: [ <combined major/minor> ], <field>Epoch: [ <OID epoch> ], ... }

@@ -182,7 +182,7 @@ void generateLegacyQueryErrorResponse(const AssertionException& exception,
     bb.skip(sizeof(QueryResult::Value));
     bb.appendBuf((void*)errObj.objdata(), errObj.objsize());
 
-    // TODO: call replyToQuery() from here instead of this!!! see dbmessage.h
+    // TODO: call replyToQuery() from here instead of this!!! see dbmessage.h id:676
     QueryResult::View msgdata = bb.buf();
     QueryResult::View qr = msgdata;
     qr.setResultFlags(ResultFlag_ErrSet);
@@ -247,7 +247,7 @@ BSONObj getErrorLabels(const boost::optional<OperationSessionInfoFromClient>& se
  * return a non-OK status.  This class does not treat that case as an error which means that
  * anybody using it is assuming it is ok to continue execution without maintenance mode.
  *
- * TODO: This assumption needs to be audited and documented, or this behavior should be moved
+ * TODO: This assumption needs to be audited and documented, or this behavior should be moved id:2028
  * elsewhere.
  */
 class MaintenanceModeSetter {
@@ -299,7 +299,7 @@ void appendReplyMetadata(OperationContext* opCtx,
             repl::ReplClientInfo::forClient(opCtx->getClient()).getLastOp();
         replCoord->prepareReplMetadata(request.body, lastOpTimeFromClient, metadataBob);
         // For commands from mongos, append some info to help getLastError(w) work.
-        // TODO: refactor out of here as part of SERVER-18236
+        // TODO: refactor out of here as part of SERVER-18236 id:915
         if (isShardingAware || isConfig) {
             rpc::ShardingMetadata(lastOpTimeFromClient, replCoord->getElectionId())
                 .writeToMetadata(metadataBob)
@@ -432,7 +432,7 @@ void appendClusterAndOperationTime(OperationContext* opCtx,
         auto signedTime = SignedLogicalTime(
             LogicalClock::get(opCtx)->getClusterTime(), TimeProofService::TimeProof(), 0);
 
-        // TODO SERVER-35663: invariant that signedTime.getTime() >= operationTime.
+        // TODO SERVER-35663: invariant that signedTime.getTime() >= operationTime. id:749
         rpc::LogicalTimeMetadata(signedTime).writeToMetadata(metadataBob);
         operationTime.appendAsOperationTime(commandBodyFieldsBob);
 
@@ -454,7 +454,7 @@ void appendClusterAndOperationTime(OperationContext* opCtx,
         return;
     }
 
-    // TODO SERVER-35663: invariant that signedTime.getTime() >= operationTime.
+    // TODO SERVER-35663: invariant that signedTime.getTime() >= operationTime. id:1509
     rpc::LogicalTimeMetadata(signedTime).writeToMetadata(metadataBob);
     operationTime.appendAsOperationTime(commandBodyFieldsBob);
 }
@@ -635,7 +635,7 @@ void execCommandDatabase(OperationContext* opCtx,
             CurOp::get(opCtx)->setCommand_inlock(command);
         }
 
-        // TODO: move this back to runCommands when mongos supports OperationContext
+        // TODO: move this back to runCommands when mongos supports OperationContext id:677
         // see SERVER-18515 for details.
         rpc::readRequestMetadata(opCtx, request.body);
         rpc::TrackingMetadata::get(opCtx).initWithOperName(command->getName());
@@ -798,7 +798,7 @@ void execCommandDatabase(OperationContext* opCtx,
         // the OperationContext. The 'maxTimeMS' option unfortunately has a different meaning for a
         // getMore command, where it is used to communicate the maximum time to wait for new inserts
         // on tailable cursors, not as a deadline for the operation.
-        // TODO SERVER-34277 Remove the special handling for maxTimeMS for getMores. This will
+        // TODO SERVER-34277 Remove the special handling for maxTimeMS for getMores. This will id:2033
         // require introducing a new 'max await time' parameter for getMore, and eventually banning
         // maxTimeMS altogether on a getMore command.
         const int maxTimeMS =
@@ -1057,7 +1057,7 @@ DbResponse receivedCommands(OperationContext* opCtx,
     auto response = replyBuilder->done();
     CurOp::get(opCtx)->debug().responseLength = response.header().dataLen();
 
-    // TODO exhaust
+    // TODO exhaust id:917
     return DbResponse{std::move(response)};
 }
 
@@ -1224,7 +1224,7 @@ DbResponse receivedGetMore(OperationContext* opCtx,
             // before an exception terminated processGetMore.  Erase the ClientCursor
             // because it may now be out of sync with the client's iteration state.
             // SERVER-7952
-            // TODO Temporary code, see SERVER-4563 for a cleanup overview.
+            // TODO Temporary code, see SERVER-4563 for a cleanup overview. id:752
             CursorManager::killCursorGlobal(opCtx, cursorid);
         }
 
@@ -1383,7 +1383,7 @@ DbResponse ServiceEntryPointCommon::handleRequest(OperationContext* opCtx,
         } else if (c.isInDirectClient()) {
             LOG(1) << "note: not profiling because we are in DBDirectClient";
         } else if (behaviors.lockedForWriting()) {
-            // TODO SERVER-26825: Fix race condition where fsyncLock is acquired post
+            // TODO SERVER-26825: Fix race condition where fsyncLock is acquired post id:1515
             // lockedForWriting() call but prior to profile collection lock acquisition.
             LOG(1) << "note: not profiling because doing fsync+lock";
         } else if (storageGlobalParams.readOnly) {

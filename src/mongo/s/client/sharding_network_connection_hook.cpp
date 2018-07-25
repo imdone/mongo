@@ -62,7 +62,7 @@ Status ShardingNetworkConnectionHook::validateHostImpl(
 
     long long configServerModeNumber;
     auto status = bsonExtractIntegerField(isMasterReply.data, "configsvr", &configServerModeNumber);
-    // TODO SERVER-22320 fix should collapse the switch to only NoSuchKey handling
+    // TODO SERVER-22320 fix should collapse the switch to only NoSuchKey handling id:2539
 
     switch (status.code()) {
         case ErrorCodes::OK: {

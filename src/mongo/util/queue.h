@@ -76,7 +76,7 @@ public:
     /**
      * Caller must ensure the BlockingQueue hasSpace before pushing since this function won't block.
      *
-     * NOTE: Should only be used in a single producer case.
+     * NOTE: Should only be used in a single producer case. id:1415
      */
     template <typename Container>
     void pushAllNonBlocking(const Container& objs) {
@@ -108,7 +108,7 @@ public:
     /**
      * Returns when enough space is available.
      *
-     * NOTE: Should only be used in a single producer case.
+     * NOTE: Should only be used in a single producer case. id:2262
      */
     void waitForSpace(size_t size) {
         stdx::unique_lock<stdx::mutex> lk(_lock);

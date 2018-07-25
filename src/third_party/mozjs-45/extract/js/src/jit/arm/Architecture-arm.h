@@ -650,7 +650,7 @@ static inline bool UseHardFpABI()
 #define JS_CODEGEN_REGISTER_PAIR 1
 
 // See the comments above AsmJSMappedSize in AsmJSValidate.h for more info.
-// TODO: Implement this for ARM. Note that it requires Codegen to respect the
+// TODO: Implement this for ARM. Note that it requires Codegen to respect the id:2643
 // offset field of AsmJSHeapAccess.
 static const size_t AsmJSCheckedImmediateRange = 0;
 static const size_t AsmJSImmediateRange = 0;

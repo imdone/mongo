@@ -17,7 +17,7 @@ var testCases = []struct {
 	"#",
 	&Pattern{
 		FormatWidth: 1,
-		// TODO: Should MinIntegerDigits be 1?
+		// TODO: Should MinIntegerDigits be 1? id:3006
 	},
 }, {
 	"0",

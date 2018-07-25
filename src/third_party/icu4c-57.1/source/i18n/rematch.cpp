@@ -338,7 +338,7 @@ RegexMatcher &RegexMatcher::appendReplacement(UText *dest,
 
 
     // scan the replacement text, looking for substitutions ($n) and \escapes.
-    //  TODO:  optimize this loop by efficiently scanning for '$' or '\',
+    //  TODO: optimize this loop by efficiently scanning for '$' or '\', id:2569
     //         move entire ranges not containing substitutions.
     UTEXT_SETNATIVEINDEX(replacement, 0);
     for (UChar32 c = UTEXT_NEXT32(replacement); U_SUCCESS(status) && c != U_SENTINEL;  c = UTEXT_NEXT32(replacement)) {
@@ -370,7 +370,7 @@ RegexMatcher &RegexMatcher::appendReplacement(UText *dest,
                             destLen += utext_replace(dest, destLen, destLen, surrogate, 2, &status);
                         }
                     }
-                    // TODO:  Report errors for mal-formed \u escapes?
+                    // TODO: Report errors for mal-formed \u escapes? id:2071
                     //        As this is, the original sequence is output, which may be OK.
                     if (context.lastOffset == offset) {
                         (void)UTEXT_PREVIOUS32(replacement);
@@ -2524,7 +2524,7 @@ REStackFrame *RegexMatcher::resetStack() {
 //
 //          parameters:   pos   - the current position in the input buffer
 //
-//              TODO:  double-check edge cases at region boundaries.
+//              TODO: double-check edge cases at region boundaries. id:3286
 //
 //--------------------------------------------------------------------------------
 UBool RegexMatcher::isWordBoundary(int64_t pos) {
@@ -3042,7 +3042,7 @@ void RegexMatcher::MatchAt(int64_t startIdx, UBool toEnd, UErrorCode &status) {
                UChar32  c = UTEXT_PREVIOUS32(fInputText);
                if ((fp->fInputIdx < fAnchorLimit) && isLineTerminator(c)) {
                    //  It's a new-line.  ^ is true.  Success.
-                   //  TODO:  what should be done with positions between a CR and LF?
+                   //  TODO: what should be done with positions between a CR and LF? id:2896
                    break;
                }
                // Not at the start of a line.  Fail.
@@ -3102,7 +3102,7 @@ void RegexMatcher::MatchAt(int64_t startIdx, UBool toEnd, UErrorCode &status) {
                 UTEXT_SETNATIVEINDEX(fInputText, fp->fInputIdx);
 
                 UChar32 c = UTEXT_NEXT32(fInputText);
-                int8_t ctype = u_charType(c);     // TODO:  make a unicode set for this.  Will be faster.
+                int8_t ctype = u_charType(c);     // TODO: make a unicode set for this. Will be faster. id:1818
                 UBool success = (ctype == U_DECIMAL_DIGIT_NUMBER);
                 success ^= (UBool)(opValue != 0);        // flip sense for \D
                 if (success) {
@@ -3905,7 +3905,7 @@ GC_Done:
             {
                 // Entering a look-behind block.
                 // Save Stack Ptr, Input Pos.
-                //   TODO:  implement transparent bounds.  Ticket #6067
+                //   TODO: implement transparent bounds. Ticket #6067 id:2571
                 U_ASSERT(opValue>=0 && opValue+1<fPattern->fDataSize);
                 fData[opValue]   = fStack->size();
                 fData[opValue+1] = fp->fInputIdx;
@@ -4605,7 +4605,7 @@ void RegexMatcher::MatchChunkAt(int32_t startIdx, UBool toEnd, UErrorCode &statu
                 if ((fp->fInputIdx < fAnchorLimit) &&
                     isLineTerminator(c)) {
                     //  It's a new-line.  ^ is true.  Success.
-                    //  TODO:  what should be done with positions between a CR and LF?
+                    //  TODO: what should be done with positions between a CR and LF? id:2171
                     break;
                 }
                 // Not at the start of a line.  Fail.
@@ -4663,7 +4663,7 @@ void RegexMatcher::MatchChunkAt(int32_t startIdx, UBool toEnd, UErrorCode &statu
 
                 UChar32 c;
                 U16_NEXT(inputBuf, fp->fInputIdx, fActiveLimit, c);
-                int8_t ctype = u_charType(c);     // TODO:  make a unicode set for this.  Will be faster.
+                int8_t ctype = u_charType(c);     // TODO: make a unicode set for this. Will be faster. id:3287
                 UBool success = (ctype == U_DECIMAL_DIGIT_NUMBER);
                 success ^= (UBool)(opValue != 0);        // flip sense for \D
                 if (!success) {
@@ -5413,7 +5413,7 @@ GC_Done:
             {
                 // Entering a look-behind block.
                 // Save Stack Ptr, Input Pos.
-                //   TODO:  implement transparent bounds.  Ticket #6067
+                //   TODO: implement transparent bounds. Ticket #6067 id:2897
                 U_ASSERT(opValue>=0 && opValue+1<fPattern->fDataSize);
                 fData[opValue]   = fStack->size();
                 fData[opValue+1] = fp->fInputIdx;

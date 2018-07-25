@@ -51,7 +51,7 @@ S2RegionUnion* S2RegionUnion::Clone() const {
 }
 
 S2Cap S2RegionUnion::GetCapBound() const {
-  // TODO: This could be optimized to return a tighter bound, but doesn't
+  // TODO: This could be optimized to return a tighter bound, but doesn't id:2774
   // seem worth it unless profiling shows otherwise.
   return GetRectBound().GetCapBound();
 }

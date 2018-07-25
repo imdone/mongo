@@ -37,7 +37,7 @@
 /**
  * Asserts that a value is null
  *
- * TODO: Move this into the unittest's standard ASSERT_ macros.
+ * TODO: Move this into the unittest's standard ASSERT_ macros. id:1369
  */
 #define ASSERT_NULL(a) ASSERT_EQ(a, static_cast<decltype(a)>(nullptr))
 

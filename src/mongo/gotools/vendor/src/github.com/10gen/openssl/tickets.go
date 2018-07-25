@@ -130,7 +130,7 @@ func go_ticket_key_cb_thunk(p unsafe.Pointer, s *C.SSL, key_name *C.uchar,
 	ctx := (*Ctx)(p)
 	store := ctx.ticket_store
 	if store == nil {
-		// TODO(jeff): should this be an error condition? it doesn't make sense
+		// TODO (jeff): should this be an error condition? it doesn't make sense id:1043
 		// to be called if we don't have a store I believe, but that's probably
 		// not worth aborting the handshake which is what I believe returning
 		// an error would do.

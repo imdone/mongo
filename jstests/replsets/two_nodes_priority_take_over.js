@@ -2,7 +2,7 @@
 // because of stepping down. In a two node replset, this rejection will prevent
 // smooth priority takeover.
 
-// TODO: We have to disable this test until SERVER-21456 is fixed, due to the
+// TODO: We have to disable this test until SERVER-21456 is fixed, due to the id:150
 // race of tagging and closing connections on stepdown.
 if (false) {
     load("jstests/replsets/rslib.js");

@@ -44,7 +44,7 @@
 namespace mongo {
 namespace {
 
-// TODO(JBR): This should be changed so it 's closer to the MSGHEADER View/ConstView classes
+// TODO (JBR): This should be changed so it 's closer to the MSGHEADER View/ConstView classes id:2602
 // than this little struct.
 struct CompressionHeader {
     int32_t originalOpCode;

@@ -42,7 +42,7 @@
 
 namespace mongo {
 
-// TODO(SERVER-34489) Remove when upgrade/downgrade is ready.
+// TODO (SERVER-34489) Remove when upgrade/downgrade is ready. id:384
 bool createTimestampSafeUniqueIndex = false;
 ExportedServerParameter<bool, ServerParameterType::kStartupOnly>
     createTimestampSafeUniqueIndexParameter(ServerParameterSet::getGlobal(),

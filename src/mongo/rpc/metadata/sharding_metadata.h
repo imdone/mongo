@@ -43,7 +43,7 @@ namespace rpc {
 /**
  * This class compromises the reply metadata fields that concern sharding. MongoD attaches
  * this information to a command reply, which MongoS uses to process getLastError.
- * TODO(spencer): Rename this to ShardingResponseMetadata.
+ * TODO (spencer): Rename this to ShardingResponseMetadata. id:1494
  */
 class ShardingMetadata {
 public:

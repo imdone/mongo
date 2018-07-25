@@ -31,7 +31,7 @@
 #include <string>
 #include <typeinfo>
 
-#include "mongo/base/status.h"  // NOTE: This is safe as utils depend on base
+#include "mongo/base/status.h"  // NOTE: This is safe as utils depend on base id:1601
 #include "mongo/base/status_with.h"
 #include "mongo/platform/compiler.h"
 #include "mongo/util/concurrency/thread_name.h"
@@ -208,7 +208,7 @@ struct ExceptionForDispatcher<code, CategoryList<categories...>> {
  * It will be a subclass of both AssertionException, along with ExceptionForCat<> of every category
  * that the code belongs to.
  *
- * TODO in C++17 we can combine this with ExceptionForCat by doing something like:
+ * TODO in C++17 we can combine this with ExceptionForCat by doing something like: id:3135
  * template <auto codeOrCategory> using ExceptionFor = typename
  *      error_details::ExceptionForDispatcher<decltype(codeOrCategory)>::type;
  */

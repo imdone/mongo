@@ -160,7 +160,7 @@ MacroAssemblerMIPSCompat::convertDoubleToFloat32(FloatRegister src, FloatRegiste
 
 // Convert the floating point value to an integer, if it did not fit, then it
 // was clamped to INT32_MIN/INT32_MAX, and we can test it.
-// NOTE: if the value really was supposed to be INT32_MAX / INT32_MIN then it
+// NOTE: if the value really was supposed to be INT32_MAX / INT32_MIN then it id:2683
 // will be wrong.
 void
 MacroAssemblerMIPSCompat::branchTruncateDouble(FloatRegister src, Register dest,

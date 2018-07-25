@@ -372,7 +372,7 @@ var Cluster = function(options) {
                     // the cluster is stale. This is safe to retry because no actual work has been
                     // done.
                     //
-                    // TODO SERVER-30949: Remove this try catch block once listCollections and
+                    // TODO SERVER-30949: Remove this try catch block once listCollections and id:56
                     // listIndexes automatically retry on NotMaster errors.
                     if (e.code === 18630 ||  // listCollections failure
                         e.code === 18631) {  // listIndexes failure
@@ -419,7 +419,7 @@ var Cluster = function(options) {
     this.getSerializedCluster = function getSerializedCluster() {
         assert(initialized, 'cluster must be initialized first');
 
-        // TODO: Add support for non-sharded clusters.
+        // TODO: Add support for non-sharded clusters. id:757
         if (!this.isSharded()) {
             return '';
         }
@@ -483,7 +483,7 @@ var Cluster = function(options) {
                 // on the config server, and listCollections may return a not master error if the
                 // mongos is stale.
                 //
-                // TODO SERVER-30949: listCollections through mongos should automatically retry on
+                // TODO SERVER-30949: listCollections through mongos should automatically retry on id:176
                 // NotMaster errors. Once that is true, remove this check.
                 if (isSteppingDownConfigServers && isMongos &&
                     (dbInfo.name === "admin" || dbInfo.name === "config")) {

@@ -44,7 +44,7 @@ func NewJSONExportOutput(arrayOutput bool, prettyOutput bool, out io.Writer) *JS
 // behaves as a no-op.
 func (jsonExporter *JSONExportOutput) WriteHeader() error {
 	if jsonExporter.ArrayOutput {
-		// TODO check # bytes written?
+		// TODO check # bytes written? id:1578
 		_, err := jsonExporter.Out.Write([]byte{json.ArrayStart})
 		if err != nil {
 			return err
@@ -58,7 +58,7 @@ func (jsonExporter *JSONExportOutput) WriteHeader() error {
 func (jsonExporter *JSONExportOutput) WriteFooter() error {
 	if jsonExporter.ArrayOutput {
 		_, err := jsonExporter.Out.Write([]byte{json.ArrayEnd, '\n'})
-		// TODO check # bytes written?
+		// TODO check # bytes written? id:741
 		if err != nil {
 			return err
 		}

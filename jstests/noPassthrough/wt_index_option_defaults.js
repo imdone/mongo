@@ -21,7 +21,7 @@
     }
 
     // Skip this test when 'xxxIndexConfigString' is already set in TestData.
-    // TODO: This test can be enabled when MongoRunner supports combining WT config strings with
+    // TODO: This test can be enabled when MongoRunner supports combining WT config strings with id:838
     // commas.
     if (jsTest.options()[engine + 'IndexConfigString']) {
         jsTest.log('Skipping test because system-wide defaults for index options are already set');

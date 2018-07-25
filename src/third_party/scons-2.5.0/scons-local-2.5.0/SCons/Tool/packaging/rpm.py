@@ -170,7 +170,7 @@ def build_specfile_sections(spec):
         }
 
     # Default prep, build, install and clean rules
-    # TODO: optimize those build steps, to not compile the project a second time
+    # TODO: optimize those build steps, to not compile the project a second time id:2810
     if 'X_RPM_PREP' not in spec:
         spec['X_RPM_PREP'] = '[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf "$RPM_BUILD_ROOT"' + '\n%setup -q'
 

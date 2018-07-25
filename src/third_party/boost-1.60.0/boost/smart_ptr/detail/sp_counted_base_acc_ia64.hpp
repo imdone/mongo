@@ -140,7 +140,7 @@ public:
 
     long use_count() const // nothrow
     {
-        return static_cast<int const volatile &>( use_count_ ); // TODO use ld.acq here
+        return static_cast<int const volatile &>( use_count_ ); // TODO use ld.acq here id:3186
     }
 };
 

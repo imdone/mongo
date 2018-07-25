@@ -1518,7 +1518,7 @@
     \
     /*
      * Placeholder opcode used during bytecode generation. This never
-     * appears in a finished script. FIXME: bug 473671.
+     * appears in a finished script. FIXME: bug 473671. id:2127
      *   Category: Statements
      *   Type: Jumps
      *   Operands: int32_t offset

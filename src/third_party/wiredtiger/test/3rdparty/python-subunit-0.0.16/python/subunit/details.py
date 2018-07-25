@@ -83,7 +83,7 @@ class MultipartDetailsParser(DetailsParser):
         if line == end_marker:
             self._state.endDetails()
             return
-        # TODO error handling
+        # TODO error handling id:2842
         field, value = line[:-1].decode('utf8').split(' ', 1)
         try:
             main, sub = value.split('/')

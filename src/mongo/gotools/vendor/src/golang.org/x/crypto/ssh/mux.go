@@ -175,7 +175,7 @@ func (m *mux) ackRequest(ok bool, data []byte) error {
 	return m.sendMessage(globalRequestFailureMsg{Data: data})
 }
 
-// TODO(hanwen): Disconnect is a transport layer message. We should
+// TODO (hanwen): Disconnect is a transport layer message. We should id:1023
 // probably send and receive Disconnect somewhere in the transport
 // code.
 

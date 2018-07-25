@@ -49,7 +49,7 @@ public:
      * AsyncRequestsSender::Response is a strict superset of Strategy::CommandResult, we leave the
      * implementations in terms of Strategy::CommandResult and convert down.
      *
-     * TODO(esha): remove once Strategy::commandOp is removed, and make these methods take
+     * TODO (esha): remove once is removed, and make these methods take Strategy::commandOp id:3109
      * vector<AsyncRequestsSender::Response>.
      */
     static std::vector<Strategy::CommandResult> downconvert(

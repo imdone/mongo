@@ -34,7 +34,7 @@
 
 namespace mongo {
 
-// TODO SERVER-25493: Remove $exists clause once MongoDB versions <= 3.2 are no longer supported.
+// TODO SERVER-25493: Remove $exists clause once MongoDB versions <= 3.2 are no longer supported. id:408
 BSONObj ListCollectionsFilter::makeTypeCollectionFilter() {
     return BSON("$or" << BSON_ARRAY(BSON("type"
                                          << "collection")

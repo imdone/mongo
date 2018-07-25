@@ -222,7 +222,7 @@ void authenticateClient(const BSONObj& params,
         return asyncAuth(std::move(runCommand), params, hostname, clientName, std::move(handler));
     } else {
         // Run synchronously through async framework
-        // NOTE: this assumes that runCommand executes synchronously.
+        // NOTE: this assumes that runCommand executes synchronously. id:979
         asyncAuth(runCommand, params, hostname, clientName, [](AuthResponse response) {
             // DBClient expects us to throw in case of an auth error.
             uassertStatusOK(response.status);

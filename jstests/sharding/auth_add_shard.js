@@ -14,7 +14,7 @@
     var adminUser = {db: "admin", username: "foo", password: "bar"};
 
     // set up a 2 shard cluster with keyfile
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:143
     var st = new ShardingTest(
         {shards: 1, mongos: 1, other: {keyFile: 'jstests/libs/key1', shardAsReplicaSet: false}});
 

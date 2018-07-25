@@ -96,7 +96,7 @@ func (a Dot11Flags) String() string {
 
 type Dot11Reason uint16
 
-// TODO: Verify these reasons, and append more reasons if necessary.
+// TODO: Verify these reasons, and append more reasons if necessary. id:853
 
 const (
 	Dot11ReasonReserved          Dot11Reason = 1
@@ -239,7 +239,7 @@ func (a Dot11Algorithm) String() string {
 
 type Dot11InformationElementID uint8
 
-// TODO: Verify these element ids, and append more ids if more.
+// TODO: Verify these element ids, and append more ids if more. id:1667
 
 const (
 	Dot11InformationElementIDSSID          Dot11InformationElementID = 0
@@ -591,7 +591,7 @@ func (m *Dot11DataQOS) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback) 
 	m.EOSP = (uint8(data[0]) & 0x10) == 0x10
 	m.AckPolicy = Dot11AckPolicy((uint8(data[0]) & 0x60) >> 5)
 	m.TXOP = uint8(data[1])
-	// TODO: Mesh Control bytes 2:4
+	// TODO: Mesh Control bytes id:860
 	m.BaseLayer = BaseLayer{Contents: data[0:4], Payload: data[4:]}
 	return nil
 }

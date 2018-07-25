@@ -804,7 +804,7 @@ class optional : public optional_detail::optional_base<T>
     // Can throw if T::T(T const&) does
     optional ( bool cond, argument_type val ) : base(cond,val) {}
 
-    // NOTE: MSVC needs templated versions first
+    // NOTE: MSVC needs templated versions first id:1478
 
     // Creates a deep copy of another convertible optional<U>
     // Requires a valid conversion from U to T.

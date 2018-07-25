@@ -199,7 +199,7 @@ def generate(env):
     """Add Builders and construction variables for MSVC++ to an Environment."""
     static_obj, shared_obj = SCons.Tool.createObjBuilders(env)
 
-    # TODO(batch):  shouldn't reach in to cmdgen this way; necessary
+    # TODO (batch): shouldn't reach in to cmdgen this way; necessary id:2232
     # for now to bypass the checks in Builder.DictCmdGenerator.__call__()
     # and allow .cc and .cpp to be compiled in the same command line.
     static_obj.cmdgen.source_ext_match = False

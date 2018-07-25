@@ -225,7 +225,7 @@ class U_I18N_API IslamicCalendar : public Calendar {
   UBool isCivil();
 
 
-  // TODO: copy c'tor, etc
+  // TODO: copy c'tor, etc id:2042
 
   // clone
   virtual Calendar* clone() const;

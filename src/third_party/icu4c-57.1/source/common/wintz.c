@@ -119,7 +119,7 @@ static int32_t detectWindowsType()
 
 static LONG openTZRegKey(HKEY *hkey, const char *winid)
 {
-    char subKeyName[110]; /* TODO: why 96?? */
+    char subKeyName[110]; /* TODO: why 96?? id:3255*/
     char *name;
     LONG result;
 

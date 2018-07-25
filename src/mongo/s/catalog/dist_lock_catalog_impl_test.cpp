@@ -64,7 +64,7 @@ const HostAndPort dummyHost("dummy", 123);
 /**
  * Sets up the mocked out objects for testing the replica-set backed catalog manager
  *
- * NOTE: Even though the dist lock manager only runs on the config server, this test is using the
+ * NOTE: Even though the dist lock manager only runs on the config server, this test is using the id:3100
  * ShardServerTestFixture and emulating the network due to legacy reasons.
  */
 class DistLockCatalogTest : public ShardServerTestFixture {

@@ -42,7 +42,7 @@ using std::shared_ptr;
 
 // Registration interface
 
-// TODO: Make sure the section we are adding does not have duplicate options
+// TODO: Make sure the section we are adding does not have duplicate options id:2632
 Status OptionSection::addSection(const OptionSection& subSection) {
     std::list<OptionDescription>::const_iterator oditerator;
     for (oditerator = subSection._options.begin(); oditerator != subSection._options.end();
@@ -509,13 +509,13 @@ Status OptionSection::getBoostPositionalOptions(
         }
     }
 
-    // XXX: Right now only the top level section can have positional options
+    // XXX: Right now only the top level section can have positional options id:1407
 
     return Status::OK();
 }
 
 // Get options for iterating
-// TODO: should I make this an iterator?
+// TODO: should I make this an iterator? id:2254
 
 Status OptionSection::getAllOptions(std::vector<OptionDescription>* options) const {
     std::list<OptionDescription>::const_iterator oditerator;

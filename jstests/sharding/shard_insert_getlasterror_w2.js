@@ -1,5 +1,5 @@
 // replica set as solo shard
-// TODO: Add assertion code that catches hang
+// TODO: Add assertion code that catches hang id:908
 
 // The UUID check must be able to contact the shard primaries, but this test manually stops 2/3
 // nodes of a replica set.

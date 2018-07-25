@@ -505,7 +505,7 @@ ContractionsAndExpansions::handleCE32(UChar32 start, UChar32 end, uint32_t ce32)
             break;
         case Collation::HANGUL_TAG:
             if(sink != NULL) {
-                // TODO: This should be optimized,
+                // TODO: This should be optimized, id:1755
                 // especially if [start..end] is the complete Hangul range. (assert that)
                 UTF16CollationIterator iter(data, FALSE, NULL, NULL, NULL);
                 UChar hangul[1] = { 0 };

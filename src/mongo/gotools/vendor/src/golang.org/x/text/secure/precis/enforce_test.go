@@ -67,7 +67,7 @@ func TestAppend(t *testing.T) {
 
 func TestStringMallocs(t *testing.T) {
 	if n := testtext.AllocsPerRun(100, func() { UsernameCaseMapped.String("helloworld") }); n > 0 {
-		// TODO: reduce this to 0.
+		// TODO: reduce this to 0. id:1960
 		t.Skipf("got %f allocs, want 0", n)
 	}
 }

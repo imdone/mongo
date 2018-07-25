@@ -206,7 +206,7 @@ func openUnicode(path string) io.ReadCloser {
 	return open(file, *url, path)
 }
 
-// TODO: automatically periodically update non-versioned files.
+// TODO: automatically periodically update non-versioned files. id:1790
 
 func open(file, urlRoot, path string) io.ReadCloser {
 	if f, err := os.Open(file); err == nil {
@@ -239,7 +239,7 @@ func get(root, path string) io.ReadCloser {
 	return resp.Body
 }
 
-// TODO: use Write*Version in all applicable packages.
+// TODO: use Write*Version in all applicable packages. id:1242
 
 // WriteUnicodeVersion writes a constant for the Unicode version from which the
 // tables are generated.

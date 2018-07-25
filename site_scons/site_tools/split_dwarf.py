@@ -32,7 +32,7 @@ def _dwo_emitter(target, source, env):
         base, ext = SCons.Util.splitext(str(t))
         if not any(ext == env[osuffix] for osuffix in ['OBJSUFFIX', 'SHOBJSUFFIX']):
             continue
-        # TODO: Move 'dwo' into DWOSUFFIX so it can be customized? For
+        # TODO: Move 'dwo' into DWOSUFFIX so it can be customized? For id:208
         # now, GCC doesn't let you control the output filename, so it
         # doesn't matter.
         dwotarget = (t.builder.target_factory or env.File)(base + ".dwo")

@@ -23,7 +23,7 @@ import itertools
 # should hold the compilation database, otherwise, the file defaults to compile_commands.json,
 # which is the name that most clang tools search for by default.
 
-# TODO: Is there a better way to do this than this global? Right now this exists so that the
+# TODO: Is there a better way to do this than this global? Right now this exists so that the id:206
 # emitter we add can record all of the things it emits, so that the scanner for the top level
 # compilation database can access the complete list, and also so that the writer has easy
 # access to write all of the files. But it seems clunky. How can the emitter and the scanner
@@ -84,7 +84,7 @@ def makeEmitCompilationDbEntry(comstr):
             __COMPILATIONDB_UACTION=user_action,
             __COMPILATIONDB_ENV=env)
 
-        # TODO: Technically, these next two lines should not be required: it should be fine to
+        # TODO: Technically, these next two lines should not be required: it should be fine to id:272
         # cache the entries. However, they don't seem to update properly. Since they are quick
         # to re-generate disable caching and sidestep this problem.
         env.AlwaysBuild(entry)

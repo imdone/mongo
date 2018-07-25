@@ -86,8 +86,8 @@ void ValueStorage::verifyRefCountingIfShould() const {
             break;
 
         case NumberDecimal:
-        case BinData:  // TODO this should probably support short-string optimization
-        case Array:    // TODO this should probably support empty-is-NULL optimization
+        case BinData:  // TODO this should probably support short-string optimization id:1526
+        case Array:    // TODO this should probably support empty-is-NULL optimization id:659
         case DBRef:
         case CodeWScope:
             // the above types always reference external data.
@@ -435,7 +435,7 @@ void Value::addToBsonArray(BSONArrayBuilder* builder, size_t recursionLevel) con
 }
 
 bool Value::coerceToBool() const {
-    // TODO Unify the implementation with BSONElement::trueValue().
+    // TODO Unify the implementation with BSONElement::trueValue(). id:518
     switch (getType()) {
         case CodeWScope:
         case MinKey:
@@ -1099,7 +1099,7 @@ size_t Value::getApproximateSize() const {
 }
 
 string Value::toString() const {
-    // TODO use StringBuilder when operator << is ready
+    // TODO use StringBuilder when operator << is ready id:1178
     stringstream out;
     out << *this;
     return out.str();

@@ -33,7 +33,7 @@ namespace archive {
 #pragma warning( disable : 4244 4267 )
 #endif
 
-/* NOTE : Warning  : Warning : Warning : Warning : Warning
+/* NOTE : Warning : Warning : Warning : Warning : Warning id:2287
  * Don't ever changes this.  If you do, they previously created
  * binary archives won't be readable !!!
  */
@@ -245,7 +245,7 @@ enum archive_flags {
 BOOST_ARCHIVE_DECL const char *
 BOOST_ARCHIVE_SIGNATURE();
 
-/* NOTE : Warning  : Warning : Warning : Warning : Warning
+/* NOTE : Warning : Warning : Warning : Warning : Warning id:1680
  * If any of these are changed to different sized types, 
  * binary_iarchive won't be able to read older archives
  * unless you rev the library version and include conditional

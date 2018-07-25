@@ -598,7 +598,7 @@ typedef CompartmentsIterT<ZonesIter> CompartmentsIter;
  * report out-of-memory conditions itself; the caller must check for OOM and
  * take the appropriate action.
  *
- * FIXME bug 647103 - replace these *AllocPolicy names.
+ * FIXME bug 647103 - replace these *AllocPolicy names. id:2922
  */
 class ZoneAllocPolicy
 {

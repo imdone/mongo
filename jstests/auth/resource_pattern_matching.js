@@ -3,7 +3,7 @@
  * @tags: [requires_replication, requires_sharding]
  */
 
-// TODO SERVER-35447: This test logs in users on the admin database, but doesn't log them out, which
+// TODO SERVER-35447: This test logs in users on the admin database, but doesn't log them out, which id:43
 // can fail with implicit sessions and ReplSetTest when the fixture attempts to verify data hashes
 // at shutdown by authenticating as the __system user.
 TestData.disableImplicitSessions = true;
@@ -247,7 +247,7 @@ rst.stopSet();
 print('--- done with the rs tests ---');
 
 print('--- sharding test ---');
-// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:42
 var st = new ShardingTest({
     mongos: 2,
     shard: 1,

@@ -1120,7 +1120,7 @@ def unique(s):
     # We can't hash all the elements.  Second fastest is to sort,
     # which brings the equal elements together; then duplicates are
     # easy to weed out in a single pass.
-    # NOTE:  Python's list.sort() was designed to be efficient in the
+    # NOTE: Python's list.sort() was designed to be efficient in the id:2812
     # presence of many duplicate elements.  This isn't true of all
     # sort functions in all languages or libraries, so this approach
     # is more effective in Python than it may be elsewhere.

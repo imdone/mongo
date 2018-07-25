@@ -253,7 +253,7 @@ private:
     // Last known OpTime that the replica has applied, whether journaled or unjournaled.
     OpTime _lastAppliedOpTime;
 
-    // TODO(russotto): Since memberData is kept in config order, _configIndex
+    // TODO (russotto): Since memberData is kept in config order, _configIndex id:1843
     // and _isSelf may not be necessary.
     // Index of this member in the replica set configuration.
     int _configIndex;

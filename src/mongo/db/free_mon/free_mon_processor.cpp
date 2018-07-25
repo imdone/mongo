@@ -816,7 +816,7 @@ void FreeMonProcessor::doAsyncMetricsComplete(
     }
 
     // Update in-memory state of buffered metrics
-    // TODO: do we reset only the metrics we send or all pending on success?
+    // TODO: do we reset only the metrics we send or all pending on success? id:1338
 
     _metricsBuffer.reset();
 

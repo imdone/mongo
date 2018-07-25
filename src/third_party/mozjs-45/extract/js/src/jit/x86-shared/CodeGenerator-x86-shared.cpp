@@ -2263,7 +2263,7 @@ CodeGeneratorX86Shared::visitFloat32x4ToInt32x4(LFloat32x4ToInt32x4* ins)
     ScratchSimd128Scope scratch(masm);
     masm.loadConstantInt32x4(InvalidResult, scratch);
     masm.packedEqualInt32x4(Operand(out), scratch);
-    // TODO (bug 1156228): If we have SSE4.1, we can use PTEST here instead of
+    // TODO (bug 1156228): If we have SSE4.1, we can use PTEST here instead of id:2693
     // the two following instructions.
     masm.vmovmskps(scratch, temp);
     masm.cmp32(temp, Imm32(0));
@@ -2456,7 +2456,7 @@ CodeGeneratorX86Shared::visitSimdInsertElementI(LSimdInsertElementI* ins)
     // value goes into the first component, as vmovd clears out the higher lanes
     // of the output.
     if (AssemblerX86Shared::HasSSE41()) {
-        // TODO: Teach Lowering that we don't need defineReuseInput if we have AVX.
+        // TODO: Teach Lowering that we don't need defineReuseInput if we have AVX. id:2360
         masm.vpinsrd(component, value, vector, output);
         return;
     }
@@ -2614,7 +2614,7 @@ CodeGeneratorX86Shared::visitSimdSwizzleF(LSimdSwizzleF* ins)
         }
     }
 
-    // TODO Here and below, arch specific lowering could identify this pattern
+    // TODO Here and below, arch specific lowering could identify this pattern id:3348
     // and use defineReuseInput to avoid this move (bug 1084404)
     if (ins->lanesMatch(2, 3, 2, 3)) {
         FloatRegister inputCopy = masm.reusedInputFloat32x4(input, output);
@@ -2773,7 +2773,7 @@ CodeGeneratorX86Shared::visitSimdShuffle(LSimdShuffle* ins)
     // Two elements from one vector, two other elements from the other
     MOZ_ASSERT(numLanesFromLHS == 2);
 
-    // TODO Here and below, symmetric case would be more handy to avoid a move,
+    // TODO Here and below, symmetric case would be more handy to avoid a move, id:2983
     // but can't be reached because operands would get swapped (bug 1084404).
     if (ins->lanesMatch(2, 3, 6, 7)) {
         ScratchSimd128Scope scratch(masm);
@@ -2808,7 +2808,7 @@ CodeGeneratorX86Shared::visitSimdShuffle(LSimdShuffle* ins)
         return;
     }
 
-    // TODO swapped case would be better (bug 1084404)
+    // TODO swapped case would be better (bug 1084404) id:2086
     if (ins->lanesMatch(4, 0, 5, 1)) {
         ScratchSimd128Scope scratch(masm);
         if (AssemblerX86Shared::HasAVX()) {
@@ -2827,7 +2827,7 @@ CodeGeneratorX86Shared::visitSimdShuffle(LSimdShuffle* ins)
         return;
     }
 
-    // TODO swapped case would be better (bug 1084404)
+    // TODO swapped case would be better (bug 1084404) id:2695
     if (ins->lanesMatch(6, 2, 7, 3)) {
         ScratchSimd128Scope scratch(masm);
         if (AssemblerX86Shared::HasAVX()) {

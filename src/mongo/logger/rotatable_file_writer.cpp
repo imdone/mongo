@@ -69,7 +69,7 @@ std::wstring utf8ToWide(StringData utf8Str) {
                                         tempBuffer.get(),   // UTF-16 output buffer
                                         utf8Str.size()      // Buffer size in wide characters
                                         );
-    // TODO(schwerin): fassert finalSize > 0?
+    // TODO (schwerin): fassert finalSize > 0? id:1585
     return std::wstring(tempBuffer.get(), finalSize);
 }
 
@@ -126,7 +126,7 @@ private:
 Win32FileStreambuf::Win32FileStreambuf() : _fileHandle(INVALID_HANDLE_VALUE) {}
 Win32FileStreambuf::~Win32FileStreambuf() {
     if (is_open()) {
-        CloseHandle(_fileHandle);  // TODO(schwerin): Should we check for failure?
+        CloseHandle(_fileHandle);  // TODO (schwerin): Should we check for failure? id:1161
     }
 }
 
@@ -156,7 +156,7 @@ bool Win32FileStreambuf::open(StringData fileName, bool append) {
             return true;
         }
     }
-    // TODO(schwerin): Record error info?
+    // TODO (schwerin): Record error info? id:2005
     CloseHandle(_fileHandle);
     return false;
 }
@@ -234,7 +234,7 @@ Status RotatableFileWriter::Use::rotate(bool renameOnRotate, const std::string& 
                                                         << renameTarget
                                                         << "\": "
                                                         << ec.message());
-                // TODO(schwerin): Make errnoWithDescription() available in the logger library, and
+                // TODO (schwerin): Make errnoWithDescription() available in the logger library, and id:1486
                 // use it here.
             }
         }

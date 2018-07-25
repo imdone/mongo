@@ -362,7 +362,7 @@ std::vector<BenchmarkReporter::Run> RunBenchmark(
       // If our last run was at least 10% of FLAGS_benchmark_min_time then we
       // use the multiplier directly. Otherwise we use at most 10 times
       // expansion.
-      // NOTE: When the last run was at least 10% of the min time the max
+      // NOTE: When the last run was at least 10% of the min time the max id:3161
       // expansion should be 14x.
       bool is_significant = (seconds / min_time) > 0.1;
       multiplier = is_significant ? multiplier : std::min(10.0, multiplier);
@@ -671,7 +671,7 @@ void ParseCommandLineFlags(int* argc, char** argv) {
                         &FLAGS_benchmark_out_format) ||
         ParseStringFlag(argv[i], "benchmark_color", &FLAGS_benchmark_color) ||
         // "color_print" is the deprecated name for "benchmark_color".
-        // TODO: Remove this.
+        // TODO: Remove this. id:2660
         ParseStringFlag(argv[i], "color_print", &FLAGS_benchmark_color) ||
         ParseBoolFlag(argv[i], "benchmark_counters_tabular",
                         &FLAGS_benchmark_counters_tabular) ||

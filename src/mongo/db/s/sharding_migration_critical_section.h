@@ -52,7 +52,7 @@ public:
     /**
      * Enters the critical section in a mode, which still allows reads.
      *
-     * NOTE: Must be called under the appropriate X lock (collection or database).
+     * NOTE: Must be called under the appropriate X lock (collection or database). id:672
      */
     void enterCriticalSectionCatchUpPhase();
 

@@ -158,7 +158,7 @@ const uint32_t kNoFlags = 0;
 const uint32_t kHaveChecksum = 1;
 
 // CRC filler value
-const uint32_t kFakeCRC = 0;  // TODO will need to compute real crc when SERVER-28679 is done.
+const uint32_t kFakeCRC = 0;  // TODO will need to compute real crc when SERVER-28679 is done. id:3099
 
 TEST_F(OpMsgParser, SucceedsWithJustBody) {
     auto msg = OpMsgBytes{

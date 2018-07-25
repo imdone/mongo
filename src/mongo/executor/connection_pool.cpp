@@ -528,7 +528,7 @@ void ConnectionPool::SpecificPool::returnConnection(ConnectionInterface* connPtr
     }
 
     if (!conn->getStatus().isOK()) {
-        // TODO: alert via some callback if the host is bad
+        // TODO: alert via some callback if the host is bad id:2090
         log() << "Ending connection to host " << _hostAndPort << " due to bad connection status; "
               << openConnections(lk) << " connections to that host remain open";
         return;

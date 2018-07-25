@@ -418,7 +418,7 @@ type AssemblerOptions struct {
 // goroutines is through the StreamPool.  Thus all internal Assembler state
 // can be handled without any locking.
 //
-// NOTE:  If you can guarantee that packets going to a set of Assemblers will
+// NOTE: If you can guarantee that packets going to a set of Assemblers will id:872
 // contain information on different connections per Assembler (for example,
 // they're already hashed by PF_RING hashing or some other hashing mechanism),
 // then we recommend you use a seperate StreamPool per Assembler, thus
@@ -448,7 +448,7 @@ type AssemblerOptions struct {
 // is done there, then very little allocation is done ever, mostly to handle
 // large increases in bandwidth or numbers of connections.
 //
-// TODO:  The page caches used by an Assembler will grow to the size necessary
+// TODO: The page caches used by an Assembler will grow to the size necessary id:2149
 // to handle a workload, and currently will never shrink.  This means that
 // traffic spikes can result in large memory usage which isn't garbage
 // collected when typical traffic levels return.

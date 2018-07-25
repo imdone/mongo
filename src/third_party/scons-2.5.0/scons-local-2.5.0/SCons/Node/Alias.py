@@ -87,7 +87,7 @@ class AliasNodeInfo(SCons.Node.NodeInfoBase):
         """
         Restore the attributes from a pickled state.
         """
-        # TODO check or discard version
+        # TODO check or discard version id:3391
         del state['_version_id']
         for key, value in state.items():
             if key not in ('__weakref__',):

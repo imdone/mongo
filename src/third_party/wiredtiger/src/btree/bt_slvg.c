@@ -2274,7 +2274,7 @@ __slvg_trk_compare_key(const void *a, const void *b)
 		break;
 	case WT_PAGE_ROW_LEAF:
 		/*
-		 * XXX
+		 * XXX  id:3422
 		 * __wt_compare can potentially fail, and we're ignoring that
 		 * error because this routine is called as an underlying qsort
 		 * routine.

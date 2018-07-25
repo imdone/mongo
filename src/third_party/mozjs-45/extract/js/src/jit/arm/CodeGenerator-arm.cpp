@@ -380,7 +380,7 @@ CodeGeneratorARM::visitMulI(LMulI* ins)
             masm.ma_cmp(ToRegister(lhs), Imm32(0));
             bailoutIf(bailoutCond, ins->snapshot());
         }
-        // TODO: move these to ma_mul.
+        // TODO: move these to ma_mul. id:3325
         switch (constant) {
           case -1:
             masm.ma_rsb(ToRegister(lhs), Imm32(0), ToRegister(dest), SetCC);
@@ -1058,7 +1058,7 @@ CodeGeneratorARM::emitTableSwitchDispatch(MTableSwitch* mir, Register index, Reg
     // on the previous check succeeding.
 
     // Then we conditionally load the pc offset by the (reversed) index (times
-    // the address size) into the pc, which branches to the correct case. NOTE:
+    // the address size) into the pc, which branches to the correct case. NOTE:  id:2941
     // when we go to read the pc, the value that we get back is the pc of the
     // current instruction *PLUS 8*. This means that ldr foo, [pc, +0] reads
     // $pc+8. In other words, there is an empty word after the branch into the
@@ -1571,7 +1571,7 @@ CodeGeneratorARM::visitNotD(LNotD* ins)
 
     // Do the compare.
     masm.ma_vcmpz(opd);
-    // TODO There are three variations here to compare performance-wise.
+    // TODO There are three variations here to compare performance-wise. id:2029
     bool nocond = true;
     if (nocond) {
         // Load the value into the dest register.
@@ -1599,7 +1599,7 @@ CodeGeneratorARM::visitNotF(LNotF* ins)
 
     // Do the compare.
     masm.ma_vcmpz_f32(opd);
-    // TODO There are three variations here to compare performance-wise.
+    // TODO There are three variations here to compare performance-wise. id:2649
     bool nocond = true;
     if (nocond) {
         // Load the value into the dest register.

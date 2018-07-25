@@ -20,7 +20,7 @@ const nonexistentRoot = "I don't exist"
 const unreadableContent = "!!error!!"
 
 func TestHTTPServer(t *testing.T) {
-	// TODO: fix the skipped tests...
+	// TODO: fix the skipped tests... id:878
 
 	Convey("Subject: HttpServer responds to requests appropriately", t, func() {
 		fixture := newServerFixture()

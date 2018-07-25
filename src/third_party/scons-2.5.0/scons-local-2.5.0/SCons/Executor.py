@@ -401,9 +401,9 @@ class Executor(object):
         """Add source files to this Executor's list.  This is necessary
         for "multi" Builders that can be called repeatedly to build up
         a source file list for a given target."""
-        # TODO(batch):  extend to multiple batches
+        # TODO (batch): extend to multiple batches id:2439
         assert (len(self.batches) == 1)
-        # TODO(batch):  remove duplicates?
+        # TODO (batch): remove duplicates? id:3390
         sources = [x for x in sources if x not in self.batches[0].sources]
         self.batches[0].sources.extend(sources)
 
@@ -470,11 +470,11 @@ class Executor(object):
         return 0
 
     def scan_targets(self, scanner):
-        # TODO(batch):  scan by batches
+        # TODO (batch): scan by batches id:3065
         self.scan(scanner, self.get_all_targets())
 
     def scan_sources(self, scanner):
-        # TODO(batch):  scan by batches
+        # TODO (batch): scan by batches id:2196
         if self.batches[0].sources:
             self.scan(scanner, self.get_all_sources())
 
@@ -488,7 +488,7 @@ class Executor(object):
         path = self.get_build_scanner_path
         kw = self.get_kw()
 
-        # TODO(batch):  scan by batches)
+        # TODO (batch): scan by batches) id:2786
         deps = []
 
         for node in node_list:
@@ -518,7 +518,7 @@ class Executor(object):
                 pass
 
         if node:
-            # TODO:  better way to do this (it's a linear search,
+            # TODO: better way to do this (it's a linear search, id:2440
             # but it may not be critical path)?
             sourcelist = []
             for b in self.batches:

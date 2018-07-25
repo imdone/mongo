@@ -127,7 +127,7 @@ class AutoShapeVector;
 // The IC's main fallback, in addition to generating new mainline stubs, also generates
 // type stubs as reflected by its returned value.
 //
-// NOTE: The type IC chain returns directly to the mainline code, not back to the
+// NOTE: The type IC chain returns directly to the mainline code, not back to the id:2641
 // stub it was entered from.  Thus, entering a type IC is a matter of a |jump|, not
 // a |call|.  This allows us to safely call a VM Monitor function from within the monitor IC's
 // fallback chain, since the return address (needed for stack inspection) is preserved.

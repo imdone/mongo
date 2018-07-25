@@ -33,17 +33,17 @@ func (t *Table) AppendNextString(w []Elem, s string) (res []Elem, n int) {
 }
 
 func (t *Table) Start(p int, b []byte) int {
-	// TODO: implement
+	// TODO: implement id:2982
 	panic("not implemented")
 }
 
 func (t *Table) StartString(p int, s string) int {
-	// TODO: implement
+	// TODO: implement id:1158
 	panic("not implemented")
 }
 
 func (t *Table) Domain() []string {
-	// TODO: implement
+	// TODO: implement id:978
 	panic("not implemented")
 }
 
@@ -109,7 +109,7 @@ func (t *Table) appendNext(w []Elem, src source) (res []Elem, n int) {
 				lastHangul  = 0xD7A3
 			)
 			if r >= firstHangul && r <= lastHangul {
-				// TODO: performance can be considerably improved here.
+				// TODO: performance can be considerably improved here. id:1776
 				n = sz
 				var buf [16]byte // Used for decomposing Hangul.
 				for b := src.nfd(buf[:0], hangulSize); len(b) > 0; b = b[sz:] {
@@ -216,7 +216,7 @@ func (t *Table) matchContraction(w []Elem, ce Elem, suffix []byte) ([]Elem, int)
 	return w, n
 }
 
-// TODO: unify the two implementations. This is best done after first simplifying
+// TODO: unify the two implementations. This is best done after first simplifying id:1228
 // the algorithm taking into account the inclusion of both NFC and NFD forms
 // in the table.
 func (t *Table) matchContractionString(w []Elem, ce Elem, suffix string) ([]Elem, int) {

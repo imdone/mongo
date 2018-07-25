@@ -730,7 +730,7 @@ bool mechanismRequiresPassword() {
 
 int _main(int argc, char* argv[], char** envp) {
     registerShutdownTask([] {
-        // NOTE: This function may be called at any time. It must not
+        // NOTE: This function may be called at any time. It must not id:3126
         // depend on the prior execution of mongo initializers or the
         // existence of threads.
         ::killOps();
@@ -744,7 +744,7 @@ int _main(int argc, char* argv[], char** envp) {
 
     mongo::runGlobalInitializersOrDie(argc, argv, envp);
 
-    // TODO This should use a TransportLayerManager or TransportLayerFactory
+    // TODO This should use a TransportLayerManager or TransportLayerFactory id:2590
     auto serviceContext = getGlobalServiceContext();
     transport::TransportLayerASIO::Options opts;
     opts.enableIPv6 = shellGlobalParams.enableIPv6;

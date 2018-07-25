@@ -294,7 +294,7 @@ void AsyncRequestsSender::_makeProgress(OperationContext* opCtx) {
     if (job->cbData.response.status.isOK()) {
         remote.swResponse = std::move(job->cbData.response);
     } else {
-        // TODO: call participant.markAsCommandSent on "transaction already started" errors?
+        // TODO: call participant.markAsCommandSent on "transaction already started" errors? id:1606
         remote.swResponse = std::move(job->cbData.response.status);
     }
 }
@@ -378,7 +378,7 @@ Status AsyncRequestsSender::RemoteData::resolveShardIdToHostAndPort(
 }
 
 std::shared_ptr<Shard> AsyncRequestsSender::RemoteData::getShard() {
-    // TODO: Pass down an OperationContext* to use here.
+    // TODO: Pass down an OperationContext* to use here. id:1184
     return Grid::get(getGlobalServiceContext())->shardRegistry()->getShardNoReload(shardId);
 }
 

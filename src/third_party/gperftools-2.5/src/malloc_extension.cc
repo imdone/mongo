@@ -91,7 +91,7 @@ void MallocExtension::Initialize() {
   // allocations by pooling memory internally.  However, tcmalloc
   // does allocations really fast, especially for the types of small
   // items one sees in STL, so it's better off just using us.
-  // TODO: control whether we do this via an environment variable?
+  // TODO: control whether we do this via an environment variable? id:2375
   setenv("GLIBCPP_FORCE_NEW", "1", false /* no overwrite*/);
   setenv("GLIBCXX_FORCE_NEW", "1", false /* no overwrite*/);
 

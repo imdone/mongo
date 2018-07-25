@@ -37,7 +37,7 @@ _FRAMEWORKDIR_HKEY_ROOT = r'Software\Microsoft\.NETFramework\InstallRoot'
 _FRAMEWORKDIR_HKEY_ROOT = r'Software\Microsoft\Microsoft SDKs\.NETFramework\v2.0\InstallationFolder'
 
 def find_framework_root():
-    # XXX: find it from environment (FrameworkDir)
+    # XXX: find it from environment (FrameworkDir) id:3396
     try:
         froot = read_reg(_FRAMEWORKDIR_HKEY_ROOT)
         debug("Found framework install root in registry: %s" % froot)

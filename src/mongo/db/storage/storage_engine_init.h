@@ -69,7 +69,7 @@ bool isRegisteredStorageEngine(ServiceContext* service, StringData name);
 /**
  * Returns an unowned pointer to the factory for the named storage engine, or nullptr.
  *
- * NOTE: Exposed only for use in legacy testing scenarios.
+ * NOTE: Exposed only for use in legacy testing scenarios. id:1544
  */
 StorageEngine::Factory* getFactoryForStorageEngine(ServiceContext* context, StringData name);
 

@@ -76,7 +76,7 @@ namespace {
  * at those locations.
  * Used to separate the parsing of geometries from a BSONObj (which must stay in scope) from
  * the computation over those geometries.
- * TODO: Merge with 2D/2DSphere key extraction?
+ * TODO: Merge with 2D/2DSphere key extraction? id:1303
  */
 struct StoredGeometry {
     static StoredGeometry* parseFrom(const BSONElement& element) {
@@ -105,7 +105,7 @@ static void extractGeometries(const BSONObj& doc,
                               const string& path,
                               std::vector<std::unique_ptr<StoredGeometry>>* geometries) {
     BSONElementSet geomElements;
-    // NOTE: Annoyingly, we cannot just expand arrays b/c single 2d points are arrays, we need
+    // NOTE: Annoyingly, we cannot just expand arrays b/c single 2d points are arrays, we need id:537
     // to manually expand all results to check if they are geometries
     dps::extractAllElementsAlongPath(doc, path, geomElements, false /* expand arrays */);
 
@@ -160,13 +160,13 @@ static StatusWith<double> computeGeoNearDistance(const GeoNearParams& nearParams
     for (auto it = geometries.begin(); it != geometries.end(); ++it) {
         StoredGeometry& stored = **it;
 
-        // NOTE: A stored document with STRICT_SPHERE CRS is treated as a malformed document
+        // NOTE: A stored document with STRICT_SPHERE CRS is treated as a malformed document id:423
         // and ignored. Since GeoNear requires an index, there's no stored STRICT_SPHERE shape.
         // So we don't check it here.
 
-        // NOTE: For now, we're sure that if we get this far in the query we'll have an
+        // NOTE: For now, we're sure that if we get this far in the query we'll have an id:697
         // appropriate index which validates the type of geometry we're pulling back here.
-        // TODO: It may make sense to change our semantics and, by default, only return
+        // TODO: It may make sense to change our semantics and, by default, only return id:432
         // shapes in the same CRS from $geoNear.
         if (!stored.geometry.supportsProject(queryCRS))
             continue;
@@ -188,7 +188,7 @@ static StatusWith<double> computeGeoNearDistance(const GeoNearParams& nearParams
     if (nearParams.addDistMeta) {
         if (nearParams.nearQuery->unitsAreRadians) {
             // Hack for nearSphere
-            // TODO: Remove nearSphere?
+            // TODO: Remove nearSphere? id:1305
             invariant(SPHERE == queryCRS);
             member->addComputed(new GeoDistanceComputedData(minDistance / kRadiusOfEarthInMeters));
         } else {
@@ -212,7 +212,7 @@ static R2Annulus geoNearDistanceBounds(const GeoNearExpression& query) {
 
     invariant(SPHERE == queryCRS);
 
-    // TODO: Tighten this up a bit by making a CRS for "sphere with radians"
+    // TODO: Tighten this up a bit by making a CRS for "sphere with radians" id:539
     double minDistance = query.minDistance;
     double maxDistance = query.maxDistance;
 
@@ -227,7 +227,7 @@ static R2Annulus geoNearDistanceBounds(const GeoNearExpression& query) {
     // CRS.  We must not try to derive the original point from the spherical S2Point generated
     // as an optimization - the mapping is not 1->1 - [-180, 0] and [180, 0] map to the same
     // place.
-    // TODO: Wrapping behavior should not depend on the index, which would make $near code
+    // TODO: Wrapping behavior should not depend on the index, which would make $near code id:427
     // insensitive to which direction we explore the index in.
     return R2Annulus(query.centroid->oldPoint,
                      min(minDistance, kMaxEarthDistanceInMeters),
@@ -258,7 +258,7 @@ static R2Annulus twoDDistanceBounds(const GeoNearParams& nearParams,
             fullBounds.center(), fullBounds.getInner(), min(fullBounds.getOuter(), diagonalDist));
     } else {
         // Spherical queries have upper bounds set by the earth - no-op
-        // TODO: Wrapping errors would creep in here if nearSphere wasn't defined to not wrap
+        // TODO: Wrapping errors would creep in here if nearSphere wasn't defined to not wrap id:704
         invariant(SPHERE == queryCRS);
         invariant(!nearParams.nearQuery->isWrappingQuery);
     }
@@ -500,7 +500,7 @@ namespace {
 /**
  * Expression which checks whether a legacy 2D index point is contained within our near
  * search annulus.  See nextInterval() below for more discussion.
- * TODO: Make this a standard type of GEO match expression
+ * TODO: Make this a standard type of GEO match expression id:435
  */
 class TwoDPtInAnnulusExpression : public LeafMatchExpression {
 public:
@@ -611,7 +611,7 @@ StatusWith<NearStage::CoveredInterval*>  //
     if (!_specificStats.intervalStats.empty()) {
         const IntervalStats& lastIntervalStats = _specificStats.intervalStats.back();
 
-        // TODO: Generally we want small numbers of results fast, then larger numbers later
+        // TODO: Generally we want small numbers of results fast, then larger numbers later id:1309
         if (lastIntervalStats.numResultsReturned < 300)
             _boundsIncrement *= 2;
         else if (lastIntervalStats.numResultsReturned > 600)
@@ -637,7 +637,7 @@ StatusWith<NearStage::CoveredInterval*>  //
     unique_ptr<R2Region> coverRegion;
 
     if (FLAT == queryCRS) {
-        // NOTE: Due to floating point math issues, FLAT searches of a 2D index need to treat
+        // NOTE: Due to floating point math issues, FLAT searches of a 2D index need to treat id:541
         // containment and distance separately.
         // Ex: (distance) 54.001 - 54 > 0.001, but (containment) 54 + 0.001 <= 54.001
         // The idea is that a $near search with bounds is really a $within search, sorted by
@@ -652,7 +652,7 @@ StatusWith<NearStage::CoveredInterval*>  //
         //
         // IMPORTANT: The *internal* interval distance bounds are *exact thresholds* - these
         // should not be adjusted.
-        // TODO: Maybe integrate annuluses as a standard shape, and literally transform $near
+        // TODO: Maybe integrate annuluses as a standard shape, and literally transform $near id:430
         // internally into a $within query with $near just as sort.
 
         // Compute the maximum axis-aligned distance error
@@ -678,7 +678,7 @@ StatusWith<NearStage::CoveredInterval*>  //
                                         nextBounds.getOuter() + epsilon));
     } else {
         invariant(SPHERE == queryCRS);
-        // TODO: As above, make this consistent with $within : $centerSphere
+        // TODO: As above, make this consistent with $within : $centerSphere id:708
 
         // Our intervals aren't in the same CRS as our index, so we need to adjust them
         coverRegion.reset(new R2Annulus(projectBoundsToTwoDDegrees(nextBounds)));
@@ -736,7 +736,7 @@ StatusWith<NearStage::CoveredInterval*>  //
     MatchExpression* docMatcher = nullptr;
 
     // FLAT searches need to add an additional annulus $within matcher, see above
-    // TODO: Find out if this matcher is actually needed
+    // TODO: Find out if this matcher is actually needed id:439
     if (FLAT == queryCRS) {
         docMatcher = new TwoDPtInAnnulusExpression(_fullBounds, twoDFieldName);
     }
@@ -817,7 +817,7 @@ S2Region* buildS2Region(const R2Annulus& sphereBounds) {
     const double outer = sphereBounds.getOuter();
 
     if (inner > 0) {
-        // TODO: Currently a workaround to fix occasional floating point errors
+        // TODO: Currently a workaround to fix occasional floating point errors id:1312
         // in S2, where sometimes points near the axis will not be returned
         // if inner == 0
         S2Cap innerCap = S2Cap::FromAxisAngle(latLng.ToPoint(),
@@ -1044,7 +1044,7 @@ StatusWith<NearStage::CoveredInterval*>  //
     if (!_specificStats.intervalStats.empty()) {
         const IntervalStats& lastIntervalStats = _specificStats.intervalStats.back();
 
-        // TODO: Generally we want small numbers of results fast, then larger numbers later
+        // TODO: Generally we want small numbers of results fast, then larger numbers later id:543
         if (lastIntervalStats.numResultsReturned < 300)
             _boundsIncrement *= 2;
         else if (lastIntervalStats.numResultsReturned > 600)

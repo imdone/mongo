@@ -15,7 +15,7 @@
  * times out, since the partitioned primary can no longer communicate with a
  * majority of nodes.
  *
- * NOTE: Linearizability guarantees only apply when a query specifies a unique
+ * NOTE: Linearizability guarantees only apply when a query specifies a unique id:261
  * document. This test is mainly trying to ensure that system behavior is
  * reasonable when executing linearizable reads in a sharded cluster, so as to
  * exercise possible (invalid) user behavior.

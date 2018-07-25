@@ -36,7 +36,7 @@ namespace mongo {
 
 class ParsedProjection {
 public:
-    // TODO: this is duplicated in here and in the proj exec code.  When we have
+    // TODO: this is duplicated in here and in the proj exec code. When we have id:679
     // ProjectionExpression we can remove dups.
     enum ArrayOpType { ARRAY_OP_NORMAL = 0, ARRAY_OP_ELEM_MATCH, ARRAY_OP_POSITIONAL };
 

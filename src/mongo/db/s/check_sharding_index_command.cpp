@@ -146,14 +146,14 @@ public:
 
         // Find the 'missingField' value used to represent a missing document field in a key of
         // this index.
-        // NOTE A local copy of 'missingField' is made because indices may be
+        // NOTE A local copy of 'missingField' is made because indices may be id:705
         // invalidated during a db lock yield.
         BSONObj missingFieldObj = IndexLegacy::getMissingField(opCtx, collection, idx->infoObj());
         BSONElement missingField = missingFieldObj.firstElement();
 
         // for now, the only check is that all shard keys are filled
         // a 'missingField' valued index key is ok if the field is present in the document,
-        // TODO if $exist for nulls were picking the index, it could be used instead efficiently
+        // TODO if $exist for nulls were picking the index, it could be used instead efficiently id:1286
         int keyPatternLength = keyPattern.nFields();
 
         RecordId loc;

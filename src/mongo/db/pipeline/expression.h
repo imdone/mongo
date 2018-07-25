@@ -1089,8 +1089,8 @@ public:
     /*
       Create a field path expression using old semantics (rooted off of CURRENT).
 
-      // NOTE: this method is deprecated and only used by tests
-      // TODO remove this method in favor of parse()
+      // NOTE: this method is deprecated and only used by tests id:511
+      // TODO remove this method in favor of parse() id:1520
 
       Evaluation will extract the value associated with the given field
       path from the source document.

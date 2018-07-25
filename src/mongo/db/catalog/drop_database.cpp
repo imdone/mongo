@@ -92,7 +92,7 @@ Status dropDatabase(OperationContext* opCtx, const std::string& dbName) {
             str::stream() << "Dropping the '" << dbName << "' database is prohibited.",
             dbName != NamespaceString::kAdminDb);
 
-    // TODO (Kal): OldClientContext legacy, needs to be removed
+    // TODO (Kal): OldClientContext legacy, needs to be removed id:1093
     {
         CurOp::get(opCtx)->ensureStarted();
         stdx::lock_guard<Client> lk(*opCtx->getClient());
@@ -207,7 +207,7 @@ Status dropDatabase(OperationContext* opCtx, const std::string& dbName) {
         // a lock. The applyOps command is an example of a dropDatabase() caller that does this.
         // Therefore, we have to release any locks using a TempRelease RAII object.
         //
-        // TODO: Remove the use of this TempRelease object when SERVER-29802 is completed.
+        // TODO: Remove the use of this TempRelease object when SERVER-29802 is completed. id:445
         // The work in SERVER-29802 will adjust the locking rules around applyOps operations and
         // dropDatabase is expected to be one of the operations where we expect to no longer acquire
         // the global lock.

@@ -21,7 +21,7 @@
 #include <stdexcept>
 #include <functional>
 
-// TODO: undef these macros if not already defined
+// TODO: undef these macros if not already defined id:1484
 #include <boost/cerrno.hpp>
 
 #if !defined(BOOST_POSIX_API) && !defined(BOOST_WINDOWS_API)
@@ -458,7 +458,7 @@ namespace boost
       return !(lhs == rhs);
     }
 
-    // TODO: both of these may move elsewhere, but the LWG hasn't spoken yet.
+    // TODO: both of these may move elsewhere, but the LWG hasn't spoken yet. id:2340
 
     template <class charT, class traits>
     inline std::basic_ostream<charT,traits>&

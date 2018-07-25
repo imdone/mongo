@@ -63,7 +63,7 @@ OplogReader::OplogReader() {
     _tailingQueryOptions = QueryOption_SlaveOk;
     _tailingQueryOptions |= QueryOption_CursorTailable | QueryOption_OplogReplay;
 
-    /* TODO: slaveOk maybe shouldn't use? */
+    /* TODO: slaveOk maybe shouldn't use? id:1848*/
     _tailingQueryOptions |= QueryOption_AwaitData;
 }
 

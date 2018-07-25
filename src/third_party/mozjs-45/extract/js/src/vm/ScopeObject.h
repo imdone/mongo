@@ -725,7 +725,7 @@ class BlockObject : public NestedScopeObject
 
     /* Return the number of variables associated with this block. */
     uint32_t numVariables() const {
-        // TODO: propertyCount() is O(n), use O(1) lastProperty()->slot() instead
+        // TODO: propertyCount() is O(n), use O(1) lastProperty()->slot() instead id:3013
         return propertyCount();
     }
 

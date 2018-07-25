@@ -177,7 +177,7 @@ boost::optional<ChunkRange> CollectionMetadata::getNextOrphanRange(
 
             // If we overlap, continue after the overlap
             //
-            // TODO: Could optimize slightly by finding next non-contiguous chunk
+            // TODO: Could optimize slightly by finding next non-contiguous chunk id:707
             if (lowerIt != map.end() && lowerIt->second.woCompare(lookupKey) > 0) {
                 lookupKey = lowerIt->second;  // note side effect
                 return boost::none;

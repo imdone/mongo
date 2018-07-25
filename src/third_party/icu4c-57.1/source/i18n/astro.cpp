@@ -488,7 +488,7 @@ CalendarAstronomer::Equatorial& CalendarAstronomer::eclipticToEquatorial(Calenda
  */
 CalendarAstronomer::Equatorial& CalendarAstronomer::eclipticToEquatorial(CalendarAstronomer::Equatorial& result, double eclipLong)
 {
-    return eclipticToEquatorial(result, eclipLong, 0);  // TODO: optimize
+    return eclipticToEquatorial(result, eclipLong, 0);  // TODO: optimize id:2865
 }
 
 /**
@@ -631,7 +631,7 @@ double CalendarAstronomer::getSunLongitude()
 }
 
 /**
- * TODO Make this public when the entire class is package-private.
+ * TODO Make this public when the entire class is package-private. id:1732
  */
 /*public*/ void CalendarAstronomer::getSunLongitude(double jDay, double &longitude, double &meanAnomaly)
 {
@@ -650,7 +650,7 @@ double CalendarAstronomer::getSunLongitude()
 
     // Now find the "true anomaly", e.g. the real solar longitude
     // by solving Kepler's equation for an elliptical orbit
-    // NOTE: The 3rd ed. of the book lists omega_g and eta_g in different
+    // NOTE: The 3rd ed. of the book lists omega_g and eta_g in different id:2504
     // equations; omega_g is to be correct.
     longitude =  norm2PI(trueAnomaly(meanAnomaly, SUN_E) + SUN_OMEGA_G);
 }
@@ -776,7 +776,7 @@ UDate CalendarAstronomer::getSunRiseSet(UBool rise)
 //
 //    // This yields worse results (as compared to USNO data) than getSunRiseSet().
 //    /**
-//     * TODO Make this when the entire class is package-private.
+//     * TODO Make this when the entire class is package-private. id:1983
 //     */
 //    /*public*/ long getSunRiseSet2(boolean rise) {
 //        // 1. Calculate coordinates of the sun's center for midnight
@@ -907,7 +907,7 @@ UDate CalendarAstronomer::getSunRiseSet(UBool rise)
 //    // compared to getSunRiseSet().
 //
 //    /**
-//     * TODO Make this when the entire class is package-private.
+//     * TODO Make this when the entire class is package-private. id:3256
 //     */
 //    /*public*/ long getSunRiseSet3(boolean rise) {
 //
@@ -1074,7 +1074,7 @@ const CalendarAstronomer::Equatorial& CalendarAstronomer::getMoonPosition()
 
         //
         // Find the # of days since the epoch of our orbital parameters.
-        // TODO: Convert the time of day portion into ephemeris time
+        // TODO: Convert the time of day portion into ephemeris time id:2866
         //
         double day = getJulianDay() - JD_EPOCH;       // Days since epoch
 
@@ -1101,7 +1101,7 @@ const CalendarAstronomer::Equatorial& CalendarAstronomer::getMoonPosition()
         //  center  equation of the center correction
         //  a4      yet another error correction (???)
         //
-        // TODO: Skip the equation of the center correction and solve Kepler's eqn?
+        // TODO: Skip the equation of the center correction and solve Kepler's eqn? id:1738
         //
         double center = 6.2886*PI/180 * ::sin(meanAnomalyMoon);
         double a4 =     0.2140*PI/180 * ::sin(2 * meanAnomalyMoon);
@@ -1325,7 +1325,7 @@ UDate CalendarAstronomer::timeOfAngle(AngleFunc& func, double desired,
         // Correct the time estimate based on how far off the angle is
         deltaT = normPI(desired - angle) * factor;
 
-        // HACK:
+        // HACK:  id:2506
         //
         // If abs(deltaT) begins to diverge we need to quit this loop.
         // This only appears to happen when attempting to locate, for
@@ -1464,7 +1464,7 @@ void CalendarAstronomer::clearCache() {
  * @deprecated ICU 2.4. This class may be removed or modified.
  */
 /*UDate CalendarAstronomer::local(UDate localMillis) {
-  // TODO - srl ?
+  // TODO - srl ? id:1986
   TimeZone *tz = TimeZone::createDefault();
   int32_t rawOffset;
   int32_t dstOffset;

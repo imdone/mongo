@@ -169,7 +169,7 @@ __statlog_config(WT_SESSION_IMPL *session, const char **cfg, bool *runp)
 		for (cnt = 0;
 		    (ret = __wt_config_next(&objectconf, &k, &v)) == 0; ++cnt) {
 			/*
-			 * XXX
+			 * XXX  id:3469
 			 * Only allow "file:" and "lsm:" for now: "file:" works
 			 * because it's been converted to data handles, "lsm:"
 			 * works because we can easily walk the list of open LSM
@@ -433,7 +433,7 @@ __statlog_apply(WT_SESSION_IMPL *session, const char *cfg[])
  * __statlog_lsm_apply --
  *	Review the list open LSM trees, and dump statistics on demand.
  *
- * XXX
+ * XXX  id:2284
  * This code should be removed when LSM objects are converted to data handles.
  */
 static int
@@ -452,7 +452,7 @@ __statlog_lsm_apply(WT_SESSION_IMPL *session)
 	 * Walk the list of LSM trees, checking for a match on the set of
 	 * sources.
 	 *
-	 * XXX
+	 * XXX  id:2835
 	 * We can't hold the schema lock for the traversal because the LSM
 	 * statistics code acquires the tree lock, and the LSM cursor code
 	 * acquires the tree lock and then acquires the schema lock, it's a
@@ -547,7 +547,7 @@ __statlog_log_one(WT_SESSION_IMPL *session, WT_ITEM *path, WT_ITEM *tmp)
 	 * Walk the list of open LSM trees, dumping any that match the
 	 * the list of object sources.
 	 *
-	 * XXX
+	 * XXX  id:2517
 	 * This code should be removed when LSM objects are converted to
 	 * data handles.
 	 */

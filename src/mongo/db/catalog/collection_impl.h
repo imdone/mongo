@@ -182,7 +182,7 @@ public:
     /**
      * Inserts a document into the record store and adds it to the MultiIndexBlocks passed in.
      *
-     * NOTE: It is up to caller to commit the indexes.
+     * NOTE: It is up to caller to commit the indexes. id:1090
      */
     Status insertDocument(OperationContext* opCtx,
                           const BSONObj& doc,

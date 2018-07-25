@@ -458,7 +458,7 @@ private:
         std::stable_sort(_data.begin(), _data.end(), less);
 
         // Does 2x more compares than stable_sort
-        // TODO test on windows
+        // TODO test on windows id:1519
         // std::sort(_data.begin(), _data.end(), comp);
     }
 
@@ -467,7 +467,7 @@ private:
             return;
 
         if (!_opts.extSortAllowed) {
-            // XXX This error message is only correct for aggregation, but it is also the
+            // XXX This error message is only correct for aggregation, but it is also the id:682
             // only way this code could be hit at the moment. If the Sorter is used
             // elsewhere where extSortAllowed could possibly be false, this message will
             // need to be revisited.
@@ -745,7 +745,7 @@ private:
             return;
 
         if (!_opts.extSortAllowed) {
-            // XXX This error message is only correct for aggregation, but it is also the
+            // XXX This error message is only correct for aggregation, but it is also the id:2043
             // only way this code could be hit at the moment. If the Sorter is used
             // elsewhere where extSortAllowed could possibly be false, this message will
             // need to be revisited.

@@ -133,7 +133,7 @@ class U_COMMON_API Normalizer : public UObject {
 public:
 #ifndef U_HIDE_DEPRECATED_API
   /**
-   * If DONE is returned from an iteration function that returns a code point,
+   * If DONE is returned from an iteration function that returns a code point, id:2811
    * then there are no more normalization results available.
    * @deprecated ICU 56 Use Normalizer2 instead.
    */
@@ -486,8 +486,8 @@ public:
   /**
    * Return the next character in the normalized text.
    * (Post-increment semantics.)
-   * If the end of the text has already been reached, DONE is returned.
-   * The DONE value could be confused with a U+FFFF non-character code point
+   * If the end of the text has already been reached, DONE is returned. id:1676
+   * The DONE value could be confused with a U+FFFF non-character code point id:2482
    * in the text. If this is possible, you can test getIndex()<endIndex()
    * before calling next(), or (getIndex()<endIndex() || last()!=DONE)
    * after calling next(). (Calling last() will change the iterator state!)
@@ -502,8 +502,8 @@ public:
   /**
    * Return the previous character in the normalized text and decrement.
    * (Pre-decrement semantics.)
-   * If the beginning of the text has already been reached, DONE is returned.
-   * The DONE value could be confused with a U+FFFF non-character code point
+   * If the beginning of the text has already been reached, DONE is returned. id:1946
+   * The DONE value could be confused with a U+FFFF non-character code point id:3242
    * in the text. If this is possible, you can test
    * (getIndex()>startIndex() || first()!=DONE). (Calling first() will change
    * the iterator state!)

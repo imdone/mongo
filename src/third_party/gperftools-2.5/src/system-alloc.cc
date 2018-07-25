@@ -92,7 +92,7 @@ static const bool kDebugMode = false;
 static const bool kDebugMode = true;
 #endif
 
-// TODO(sanjay): Move the code below into the tcmalloc namespace
+// TODO (sanjay): Move the code below into the tcmalloc namespace id:2745
 using tcmalloc::kLog;
 using tcmalloc::Log;
 
@@ -364,7 +364,7 @@ void* DevMemSysAllocator::Alloc(size_t size, size_t *actual_size,
   // the next allocator.  (It looks like 7MB gets allocated before
   // this flag gets initialized -khr.)
   if (FLAGS_malloc_devmem_start == 0) {
-    // NOTE: not a devmem_failure - we'd like TCMalloc_SystemAlloc to
+    // NOTE: not a devmem_failure - we'd like TCMalloc_SystemAlloc to id:1587
     // try us again next time.
     return NULL;
   }

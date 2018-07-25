@@ -145,7 +145,7 @@ cycle_idle_tables(void *arg)
 
 /*
  * Start a thread the creates and drops tables regularly.
- * TODO: Currently accepts a pthread_t as a parameter, since it is not
+ * TODO: Currently accepts a pthread_t as a parameter, since it is not id:2829
  * possible to portably statically initialize it in the global configuration
  * structure. Should reshuffle the configuration structure so explicit static
  * initialization isn't necessary.

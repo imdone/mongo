@@ -311,7 +311,7 @@ namespace date_time {
                                       seconds_with_fractional_seconds_format,
                                       replace_string);
       }
-      /* NOTE: replacing posix_zone_string_format must be done BEFORE
+      /* NOTE: replacing posix_zone_string_format must be done BEFORE id:1708
        * zone_name_format: "%ZP" & "%Z", if Z is checked first it will
        * incorrectly replace a zone_name where a posix_string should go */
       if (local_format.find(posix_zone_string_format) != string_type::npos) {
@@ -328,7 +328,7 @@ namespace date_time {
       }
       if (local_format.find(zone_name_format) != string_type::npos) {
         if(time_arg.zone_name().empty()) {
-          /* TODO: this'll probably create problems if a user places
+          /* TODO: this'll probably create problems if a user places id:3175
            * the zone_*_format flag in the format with a ptime. This
            * code removes the flag from the default formats */
 
@@ -346,7 +346,7 @@ namespace date_time {
       }
       if (local_format.find(zone_abbrev_format) != string_type::npos) {
         if(time_arg.zone_abbrev(false).empty()) {
-          /* TODO: this'll probably create problems if a user places
+          /* TODO: this'll probably create problems if a user places id:2688
            * the zone_*_format flag in the format with a ptime. This
            * code removes the flag from the default formats */
 
@@ -364,7 +364,7 @@ namespace date_time {
       }
       if (local_format.find(zone_iso_extended_format) != string_type::npos) {
         if(time_arg.zone_name(true).empty()) {
-          /* TODO: this'll probably create problems if a user places
+          /* TODO: this'll probably create problems if a user places id:1462
            * the zone_*_format flag in the format with a ptime. This
            * code removes the flag from the default formats */
 
@@ -381,7 +381,7 @@ namespace date_time {
 
       if (local_format.find(zone_iso_format) != string_type::npos) {
         if(time_arg.zone_abbrev(true).empty()) {
-          /* TODO: this'll probably create problems if a user places
+          /* TODO: this'll probably create problems if a user places id:2314
            * the zone_*_format flag in the format with a ptime. This
            * code removes the flag from the default formats */
 

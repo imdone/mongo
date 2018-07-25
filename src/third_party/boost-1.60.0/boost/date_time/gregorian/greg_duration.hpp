@@ -45,7 +45,7 @@ namespace gregorian {
     {}
 
     //  Relational operators
-    //  NOTE: Because of date_time::date_duration< T > design choice we don't use Boost.Operators here,
+    //  NOTE: Because of T > design choice we don't use Boost.Operators here, date_time::date_duration< id:2680
     //  because we need the class to be a direct base. Either lose EBO, or define operators by hand.
     //  The latter is more effecient.
     bool operator== (const date_duration& rhs) const

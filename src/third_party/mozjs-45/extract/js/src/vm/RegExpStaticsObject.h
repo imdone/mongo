@@ -17,7 +17,7 @@ class RegExpStaticsObject : public NativeObject
     static const Class class_;
 
     size_t sizeOfData(mozilla::MallocSizeOf mallocSizeOf) {
-        // XXX: should really call RegExpStatics::sizeOfIncludingThis() here
+        // XXX: should really call here RegExpStatics::sizeOfIncludingThis() id:3011
         // instead, but the extra memory it would measure is insignificant.
         return mallocSizeOf(getPrivate());
     }

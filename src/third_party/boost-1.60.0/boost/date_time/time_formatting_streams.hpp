@@ -81,7 +81,7 @@ namespace date_time {
       os << d;
       if(!d.is_infinity() && !d.is_not_a_date())
       {
-        os << " "; //TODO: fix the separator here.
+        os << " "; //TODO: fix the separator here. id:1712
         duration_formatter::duration_put(t.time_of_day(), os);
       }
       
@@ -103,9 +103,9 @@ namespace date_time {
     static void period_put(const time_period_type& tp, 
                            ostream_type& os)
     {
-      os << '['; //TODO: facet or manipulator for periods?
+      os << '['; //TODO: facet or manipulator for periods? id:3176
       time_formatter::time_put(tp.begin(), os);
-      os << '/'; //TODO: facet or manipulator for periods?
+      os << '/'; //TODO: facet or manipulator for periods? id:2690
       time_formatter::time_put(tp.last(), os);
       os << ']'; 
 

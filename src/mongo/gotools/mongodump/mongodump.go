@@ -304,7 +304,7 @@ func (dump *MongoDump) Dump() (err error) {
 	// IO Phase I
 	// metadata, users, roles, and versions
 
-	// TODO, either remove this debug or improve the language
+	// TODO , either remove this debug or improve the language id:738
 	log.Logvf(log.DebugHigh, "dump phase I: metadata, indexes, users, roles, version")
 
 	err = dump.DumpMetadata()
@@ -385,7 +385,7 @@ func (dump *MongoDump) Dump() (err error) {
 	// IO Phase II
 	// regular collections
 
-	// TODO, either remove this debug or improve the language
+	// TODO , either remove this debug or improve the language id:2108
 	log.Logvf(log.DebugHigh, "dump phase II: regular collections")
 
 	// begin dumping intents
@@ -396,7 +396,7 @@ func (dump *MongoDump) Dump() (err error) {
 	// IO Phase III
 	// oplog
 
-	// TODO, either remove this debug or improve the language
+	// TODO , either remove this debug or improve the language id:1028
 	log.Logvf(log.DebugLow, "dump phase III: the oplog")
 
 	// If we are capturing the oplog, we dump all oplog entries that occurred
@@ -765,7 +765,7 @@ func (dump *MongoDump) DumpUsersAndRolesForDB(db string) error {
 }
 
 // DumpUsersAndRoles dumps all of the users and roles and versions
-// TODO: This and DumpUsersAndRolesForDB should be merged, correctly
+// TODO: This and DumpUsersAndRolesForDB should be merged, correctly id:825
 func (dump *MongoDump) DumpUsersAndRoles() error {
 	var err error
 	buffer := dump.getResettableOutputBuffer()

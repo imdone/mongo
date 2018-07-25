@@ -694,7 +694,7 @@ class NativeObject : public JSObject
     /*
      * Allocate and free an object slot.
      *
-     * FIXME: bug 593129 -- slot allocation should be done by object methods
+     * FIXME: bug 593129 -- slot allocation should be done by object methods id:3362
      * after calling object-parameter-free shape methods, avoiding coupling
      * logic across the object vs. shape module wall.
      */
@@ -1205,7 +1205,7 @@ class NativeObject : public JSObject
 
     /* Private data accessors. */
 
-    inline void*& privateRef(uint32_t nfixed) const { /* XXX should be private, not protected! */
+    inline void*& privateRef(uint32_t nfixed) const { /* XXX should be private, not protected! id:3009*/
         /*
          * The private pointer of an object can hold any word sized value.
          * Private pointers are stored immediately after the last fixed slot of

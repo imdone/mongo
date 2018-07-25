@@ -236,7 +236,7 @@ public:
      *
      * PRE: This `dns::HostName` must have at least two subdomains (`this->depth() > 1`).
      *
-     * NOTE: The behavior of this function is undefined unless its preconditions are met.
+     * NOTE: The behavior of this function is undefined unless its preconditions are met. id:2610
      *
      * RETURNS: A `dns::HostName` which has one fewer domain specified.
      */

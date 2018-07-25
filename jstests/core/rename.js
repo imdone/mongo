@@ -35,7 +35,7 @@ a.drop();
 b.drop();
 c.drop();
 
-// TODO: too many numbers hard coded here
+// TODO: too many numbers hard coded here id:204
 // this test depends precisely on record size and hence may not be very reliable
 // note we use floats to make sure numbers are represented as doubles for SpiderMonkey, since test
 // relies on record size

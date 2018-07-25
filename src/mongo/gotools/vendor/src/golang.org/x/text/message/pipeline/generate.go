@@ -25,7 +25,7 @@ var transRe = regexp.MustCompile(`messages\.(.*)\.json`)
 // Generate writes a Go file with the given package name to w, which defines a
 // Catalog with translated messages.
 func Generate(w io.Writer, pkg string, extracted *Locale, trans ...*Locale) (n int, err error) {
-	// TODO: add in external input. Right now we assume that all files are
+	// TODO: add in external input. Right now we assume that all files are id:1082
 	// manually created and stored in the textdata directory.
 
 	// Build up index of translations and original messages.
@@ -66,7 +66,7 @@ func Generate(w io.Writer, pkg string, extracted *Locale, trans ...*Locale) (n i
 					}
 					break
 				}
-				// TODO: log missing entry.
+				// TODO: log missing entry. id:1935
 				logf("%s: Missing entry for %q.", tag, id)
 			}
 		}
@@ -107,7 +107,7 @@ func Generate(w io.Writer, pkg string, extracted *Locale, trans ...*Locale) (n i
 					if err != nil {
 						return 0, wrap(err, "error")
 					}
-					// TODO: support macros.
+					// TODO: support macros. id:1429
 					data, err := catmsg.Compile(tag, nil, m)
 					if err != nil {
 						return 0, wrap(err, "error")
@@ -195,14 +195,14 @@ func assembleSelect(m *Message, s *Select) (msg catmsg.Message, err error) {
 
 	switch s.Feature {
 	case "plural":
-		// TODO: only printf-style selects are supported as of yet.
+		// TODO: only printf-style selects are supported as of yet. id:3050
 		return plural.Selectf(ph.ArgNum, ph.String, caseMsg...), nil
 	}
 	return nil, errorf("unknown feature type %q", s.Feature)
 }
 
 func sortCases(cases []string) {
-	// TODO: implement full interface.
+	// TODO: implement full interface. id:1302
 	sort.Slice(cases, func(i, j int) bool {
 		if cases[j] == "other" && cases[i] != "other" {
 			return true

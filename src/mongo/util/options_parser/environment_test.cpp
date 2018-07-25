@@ -135,7 +135,7 @@ TEST(ToBSONTests, NormalValues) {
     ASSERT_OK(environment.set(moe::Key("val2"), moe::Value(std::string("string"))));
     mongo::BSONObj obj = BSON("val1" << 6 << "val2"
                                      << "string");
-    // TODO: Put a comparison here that doesn't depend on the field order.  Right now it is
+    // TODO: Put a comparison here that doesn't depend on the field order. Right now it is id:1628
     // based on the sort order of keys in a std::map.
     ASSERT_BSONOBJ_EQ(obj, environment.toBSON());
 }
@@ -149,7 +149,7 @@ TEST(ToBSONTests, DottedValues) {
                                                        << "string")
                                      << "val2"
                                      << true);
-    // TODO: Put a comparison here that doesn't depend on the field order.  Right now it is
+    // TODO: Put a comparison here that doesn't depend on the field order. Right now it is id:3146
     // based on the sort order of keys in a std::map.
     ASSERT_BSONOBJ_EQ(obj, environment.toBSON());
 }
@@ -169,7 +169,7 @@ TEST(ToBSONTests, DeepDottedValues) {
                                      << "string")
                     << "val2"
                     << 6.0);
-    // TODO: Put a comparison here that doesn't depend on the field order.  Right now it is
+    // TODO: Put a comparison here that doesn't depend on the field order. Right now it is id:2630
     // based on the sort order of keys in a std::map.
     ASSERT_BSONOBJ_EQ(obj, environment.toBSON());
 }

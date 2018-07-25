@@ -59,7 +59,7 @@ def Tag(env, target, source, *more_tags, **kw_tags):
     if len(kw_tags) == 0 and len(more_tags) == 0:
         raise UserError("No tags given.")
 
-    # XXX: sanity checks
+    # XXX: sanity checks id:3402
     for x in more_tags:
         kw_tags[x] = ''
 
@@ -68,7 +68,7 @@ def Tag(env, target, source, *more_tags, **kw_tags):
     else:
         # hmm, sometimes the target list, is a list of a list
         # make sure it is flattened prior to processing.
-        # TODO: perhaps some bug ?!?
+        # TODO: perhaps some bug ?!? id:3447
         target=env.Flatten(target)
 
     for t in target:
@@ -214,7 +214,7 @@ def generate(env):
 def exists(env):
     return 1
 
-# XXX
+# XXX  id:2236
 def options(opts):
     opts.AddVariables(
         EnumVariable( 'PACKAGETYPE',

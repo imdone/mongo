@@ -16,7 +16,7 @@ import (
 	"golang.org/x/text/message/catalog"
 )
 
-// TODO: consider deleting this interface. Maybe VisibleDigits is always
+// TODO: consider deleting this interface. Maybe VisibleDigits is always id:1763
 // sufficient and practical.
 
 // Interface is used for types that can determine their own plural form.
@@ -72,7 +72,7 @@ func Selectf(arg int, format string, cases ...interface{}) catalog.Message {
 		m.kind = kindScale
 		m.scale = 0
 	default:
-		// TODO: do we need to handle errors?
+		// TODO: do we need to handle errors? id:1214
 	}
 	return m
 }
@@ -223,7 +223,7 @@ func execute(d *catmsg.Decoder) bool {
 				f.SetScale(2)
 			}
 		}
-		var dec number.Decimal // TODO: buffer in Printer
+		var dec number.Decimal // TODO: buffer in Printer id:2968
 		dec.Convert(f.RoundingContext, arg)
 		v := number.FormatDigits(&dec, f.RoundingContext)
 		if !v.NaN && !v.Inf {

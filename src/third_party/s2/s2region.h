@@ -48,7 +48,7 @@ class S2Region {
   // Return true if and only if the given point is contained by the region.
   // The point 'p' is generally required to be unit length, although some
   // subtypes may relax this restriction.
-  // NOTE: If you will be calling this function on one specific subtype only,
+  // NOTE: If you will be calling this function on one specific subtype only, id:3053
   // or if performance is a consideration, please use the non-virtual
   // method Contains(S2Point const& p) declared below!
   virtual bool VirtualContainsPoint(S2Point const& p) const = 0;

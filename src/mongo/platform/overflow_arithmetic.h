@@ -62,7 +62,7 @@ inline bool mongoUnsignedSubtractOverflow64(uint64_t lhs, uint64_t rhs, uint64_t
 // The microsoft SafeInt functions return true on success, false on overflow. Unfortunately the
 // MSVC2015 version contains a typo that prevents the signed variants from compiling in our
 // environment.
-// TODO The typo was fixed in MSVC2017 so we should try again after we upgrade our toolchain.
+// TODO The typo was fixed in MSVC2017 so we should try again after we upgrade our toolchain. id:1489
 
 inline bool mongoSignedMultiplyOverflow64(int64_t lhs, int64_t rhs, int64_t* product) {
     int64_t hi;

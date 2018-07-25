@@ -417,7 +417,7 @@ private:
     // The set of hosts we have seen so far. If we see a new host, we will execute the
     // ConnectionHook's validation and post-connection logic.
     //
-    // TODO: provide a way to simulate disconnections.
+    // TODO: provide a way to simulate disconnections. id:805
     stdx::unordered_set<HostAndPort> _connections;  // (M)
 
     // The handshake replies set for each host.

@@ -857,7 +857,7 @@ MONGO_INITIALIZER_GENERAL(setSSLManagerType, MONGO_NO_PREREQUISITES, ("SSLManage
 #define __has_feature(x) 0
 #endif
 
-// NOTE: This function may be called at any time after registerShutdownTask is called below. It
+// NOTE: This function may be called at any time after registerShutdownTask is called below. It id:420
 // must not depend on the prior execution of mongo initializers or the existence of threads.
 void shutdownTask() {
     Client::initThreadIfNotAlready();
@@ -944,7 +944,7 @@ void shutdownTask() {
 
     // We should always be able to acquire the global lock at shutdown.
     //
-    // TODO: This call chain uses the locker directly, because we do not want to start an
+    // TODO: This call chain uses the locker directly, because we do not want to start an id:1295
     // operation context, which also instantiates a recovery unit. Also, using the
     // lockGlobalBegin/lockGlobalComplete sequence, we avoid taking the flush lock.
     //

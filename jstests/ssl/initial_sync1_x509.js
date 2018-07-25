@@ -31,7 +31,7 @@ function runInitialSyncTest() {
     var conns = replTest.startSet();
 
     // ReplSetTest.initiate() requires all nodes to be to be authorized to run replSetGetStatus.
-    // TODO(SERVER-14017): Remove this in favor of using initiate() everywhere.
+    // TODO (SERVER-14017): Remove this in favor of using initiate() everywhere. id:273
     replTest.initiateWithAnyNodeAsPrimary(
         Object.extend(replTest.getReplSetConfig(),
                       {writeConcernMajorityJournalDefault: wcMajorityJournalDefault}));

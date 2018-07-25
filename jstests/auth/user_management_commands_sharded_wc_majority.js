@@ -5,7 +5,7 @@
 
     load('jstests/auth/user_management_commands_lib.js');
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:52
     var st = new ShardingTest(
         {shards: 2, config: 3, keyFile: 'jstests/libs/key1', other: {shardAsReplicaSet: false}});
     runAllUserManagementCommandsTests(st.s, {w: 'majority', wtimeout: 60 * 1000});

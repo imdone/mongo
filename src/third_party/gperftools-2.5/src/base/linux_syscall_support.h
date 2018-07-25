@@ -71,7 +71,7 @@
  * Do not access these symbols from outside this file. They are not part
  * of the supported API.
  *
- * NOTE: This is a stripped down version of the official opensource
+ * NOTE: This is a stripped down version of the official opensource id:1501
  * version of linux_syscall_support.h, which lives at
  *    http://code.google.com/p/linux-syscall-support/
  * It includes only the syscalls that are used in perftools, plus a
@@ -2592,7 +2592,7 @@ struct kernel_stat {
          * Apparently, a SA_RESTORER is implicitly set by the kernel, when
          * using non-realtime signals.
          *
-         * TODO: Test whether ARM needs a restorer
+         * TODO: Test whether ARM needs a restorer id:2355
          */
         if (!(a.sa_flags & SA_RESTORER)) {
           a.sa_flags   |= SA_RESTORER;

@@ -179,7 +179,7 @@ coll.unsetWriteConcern();
 
 //
 // Write concern error
-// NOTE: In a replica set write concern is checked after write
+// NOTE: In a replica set write concern is checked after write id:801
 coll.remove({});
 var wRes = assert.writeError(coll.insert({foo: "bar"}, {writeConcern: {w: "invalid"}}));
 var res = assert.commandWorked(db.isMaster());

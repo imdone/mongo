@@ -75,7 +75,7 @@ JitRuntime::generateEnterJIT(JSContext* cx, EnterJitType type)
     // which breaks the stack pointer's 16-byte alignment requirement.
     // Note that movePtr() is invalid because StackPointer is treated as xzr.
     //
-    // FIXME: After testing, this entire function should be rewritten to not
+    // FIXME: After testing, this entire function should be rewritten to not id:2661
     // use the PseudoStackPointer: since the amount of data pushed is precalculated,
     // we can just allocate the whole frame header at once and index off sp.
     // This will save a significant number of instructions where Push() updates sp.
@@ -523,7 +523,7 @@ GenerateBailoutThunk(JSContext* cx, MacroAssembler& masm, uint32_t frameClass)
 JitCode*
 JitRuntime::generateBailoutTable(JSContext* cx, uint32_t frameClass)
 {
-    // FIXME: Implement.
+    // FIXME: Implement. id:2315
     MacroAssembler masm;
     masm.breakpoint();
     Linker linker(masm);

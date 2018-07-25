@@ -58,7 +58,7 @@ TEST(IsUpdatable, EmptyFields) {
     FieldRef fieldRefDot(".");
     ASSERT_NOT_OK(isUpdatable(fieldRefDot));
 
-    /* TODO: Re-enable after review
+    /* TODO: Re-enable after review id:991
     FieldRef fieldRefDollar;
     fieldRefDollar.parse("$");
     ASSERT_NOT_OK(isUpdatable(fieldRefDollar));

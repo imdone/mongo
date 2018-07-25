@@ -373,7 +373,7 @@
 /* Macro definitions for GCC attributes that allow static thread safety
    analysis to recognize and use some of the dynamic annotations as
    escape hatches.
-   TODO(lcwu): remove the check for __SUPPORT_DYN_ANNOTATION__ once the
+   TODO (lcwu): remove the check for __SUPPORT_DYN_ANNOTATION__ once the id:2724
    default crosstool/GCC supports these GCC attributes.  */
 
 #define ANNOTALYSIS_STATIC_INLINE

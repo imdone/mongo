@@ -1025,7 +1025,7 @@
               acc_exp_deg_f + 1);
 
             /*
-            **       NOTE: if (!ONE_TYPE) then ACC_EXP_POLY is identical
+            **       NOTE: if (!ONE_TYPE) then ACC_EXP_POLY is identical id:2650
             **       to ACC_POW2_POLY
             */
 

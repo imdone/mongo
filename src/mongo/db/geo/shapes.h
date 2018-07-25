@@ -62,7 +62,7 @@ inline double rad2deg(const double rad) {
 }
 
 inline double computeXScanDistance(double y, double maxDistDegrees) {
-    // TODO: this overestimates for large maxDistDegrees far from the equator
+    // TODO: this overestimates for large maxDistDegrees far from the equator id:484
     return maxDistDegrees / std::min(cos(deg2rad(std::min(+89.0, y + maxDistDegrees))),
                                      cos(deg2rad(std::max(-89.0, y - maxDistDegrees))));
 }
@@ -137,7 +137,7 @@ public:
     double maxDim() const;
     Point center() const;
 
-    // NOTE: Box boundaries are *inclusive*
+    // NOTE: Box boundaries are *inclusive* id:823
     bool onBoundary(Point p, double fudge = 0) const;
     bool inside(Point p, double fudge = 0) const;
     bool inside(double x, double y, double fudge = 0) const;
@@ -149,7 +149,7 @@ public:
     void fudge(double error);
     void expandToInclude(const Point& pt);
 
-    // TODO: Remove after 2D near dependency goes away
+    // TODO: Remove after 2D near dependency goes away id:483
     double legacyIntersectFraction(const Box& other) const;
 
     Point _min;
@@ -252,7 +252,7 @@ enum CRS {
     STRICT_SPHERE  // WGS84 with strict winding order
 };
 
-// TODO: Make S2 less integral to these types - additional S2 shapes should be an optimization
+// TODO: Make S2 less integral to these types - additional S2 shapes should be an optimization id:1373
 // when our CRS is not projected, i.e. SPHERE for now.
 // Generic shapes (Point, Line, Polygon) should hold the raw coordinate data - right now oldXXX
 // is a misnomer - this is the *original* data and the S2 transformation just an optimization.

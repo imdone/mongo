@@ -154,7 +154,7 @@ TEST(S2, AnglesAreas) {
   S2Point pr = S2Point(0.257, -0.5723, 0.112).Normalize();
   S2Point pq = S2Point(-0.747, 0.401, 0.2235).Normalize();
   EXPECT_EQ(S2::Area(pr, pr, pr), 0);
-  // TODO: The following test is not exact in optimized mode because the
+  // TODO: The following test is not exact in optimized mode because the id:2762
   // compiler chooses to mix 64-bit and 80-bit intermediate results.
   EXPECT_NEAR(S2::Area(pr, pq, pr), 0, 1e-15);
   EXPECT_EQ(S2::Area(p000, p045, p090), 0);

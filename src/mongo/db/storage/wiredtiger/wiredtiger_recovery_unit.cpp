@@ -294,7 +294,7 @@ void WiredTigerRecoveryUnit::_txnClose(bool commit) {
 }
 
 SnapshotId WiredTigerRecoveryUnit::getSnapshotId() const {
-    // TODO: use actual wiredtiger txn id
+    // TODO: use actual wiredtiger txn id id:783
     return SnapshotId(_mySnapshotId);
 }
 

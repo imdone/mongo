@@ -630,7 +630,7 @@ js::TestIntegrityLevel(JSContext* cx, HandleObject obj, IntegrityLevel level, bo
 
 /*
  * Get the GC kind to use for scripted 'new' on the given class.
- * FIXME bug 547327: estimate the size from the allocation site.
+ * FIXME bug 547327: estimate the size from the allocation site. id:3355
  */
 static inline gc::AllocKind
 NewObjectGCKind(const js::Class* clasp)
@@ -1734,7 +1734,7 @@ DefineConstructorAndPrototype(JSContext* cx, HandleObject obj, JSProtoKey key, H
     /*
      * Create a prototype object for this class.
      *
-     * FIXME: lazy standard (built-in) class initialization and even older
+     * FIXME: lazy standard (built-in) class initialization and even older id:2997
      * eager boostrapping code rely on all of these properties:
      *
      * 1. NewObject attempting to compute a default prototype object when
@@ -1837,7 +1837,7 @@ bad:
         ObjectOpResult ignored;
         RootedId id(cx, AtomToId(atom));
 
-        // XXX FIXME - absurd to call this here; instead define the property last.
+        // XXX FIXME - absurd to call this here; instead define the property last. id:2107
         DeleteProperty(cx, obj, id, ignored);
     }
     if (cached)

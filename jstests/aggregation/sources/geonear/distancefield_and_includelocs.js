@@ -99,7 +99,7 @@
         assertCloseEnough(firstGeoNearResult({near: doc.ptForNearQuery, distanceField: "arr"}),
                           docPlusNewFields({arr: expectedDistance}));
 
-        // TODO (SERVER-35561): When "includeLocs" shares a path prefix with an existing field, the
+        // TODO (SERVER-35561): When "includeLocs" shares a path prefix with an existing field, the id:16
         // fields are overwritten, even if they could be preserved.
         assertCloseEnough(firstGeoNearResult({near: doc.ptForNearQuery, distanceField: "arr.b"}),
                           docPlusNewFields({arr: {b: expectedDistance}}));
@@ -159,7 +159,7 @@
                                removeDistFieldProj),
             docPlusNewFields({arr: doc.geo}));
 
-        // TODO (SERVER-35561): When "includeLocs" shares a path prefix with an existing field, the
+        // TODO (SERVER-35561): When "includeLocs" shares a path prefix with an existing field, the id:17
         // fields are overwritten, even if they could be preserved.
         assertCloseEnough(
             firstGeoNearResult({near: doc.ptForNearQuery, distanceField: "d", includeLocs: "arr.a"},

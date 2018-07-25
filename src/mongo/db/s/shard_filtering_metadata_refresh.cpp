@@ -177,7 +177,7 @@ void onDbVersionMismatch(OperationContext* opCtx,
     }
 
     try {
-        // TODO SERVER-33773 if the 'waitForMovePrimaryCriticalSection' flag is set on the
+        // TODO SERVER-33773 if the 'waitForMovePrimaryCriticalSection' flag is set on the id:1903
         // OperationShardingState, wait for the movePrimary critical section to complete before
         // attempting a refresh.
     } catch (const DBException& ex) {

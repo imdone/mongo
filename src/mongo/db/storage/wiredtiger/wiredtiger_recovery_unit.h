@@ -193,7 +193,7 @@ public:
 
 
     WT_CURSOR* get() const {
-        // TODO(SERVER-16816): assertInActiveTxn();
+        // TODO (SERVER-16816): assertInActiveTxn(); id:1549
         return _cursor;
     }
 

@@ -1293,7 +1293,7 @@ TEST(QueryPlannerIXSelectTest, ExpandAllPathsIndices) {
     ASSERT_TRUE(indexEntryKeyPatternsMatch(&expectedKeyPatterns, &result));
 
     const auto allPathsIndexWithSubpath = makeIndexEntry(BSON("a.b.$**" << 1), {});
-    // TODO SERVER-35902: Remove this.
+    // TODO SERVER-35902: Remove this. id:1216
     ASSERT_THROWS_CODE(
         QueryPlannerIXSelect::findRelevantIndices(fields, {allPathsIndexWithSubpath}, &result),
         DBException,
@@ -1361,7 +1361,7 @@ TEST(QueryPlannerIXSelectTest, AllPathsIndicesExpandedEntryHasCorrectProperties)
     ASSERT_TRUE(indexEntryKeyPatternsMatch(&expectedKeyPatterns, &result));
 
     for (auto&& ie : result) {
-        // TODO SERVER-36109. For now we assume allPaths indexes are never multikey.
+        // TODO SERVER-36109. For now we assume allPaths indexes are never multikey. id:544
         ASSERT_FALSE(ie.multikey);
 
         // AllPaths indices are always sparse.
@@ -1370,7 +1370,7 @@ TEST(QueryPlannerIXSelectTest, AllPathsIndicesExpandedEntryHasCorrectProperties)
         // They are never unique.
         ASSERT_FALSE(ie.unique);
 
-        // TODO SERVER-35333: Check that the name of the generated IndexEntry is different from the
+        // TODO SERVER-35333: Check that the name of the generated IndexEntry is different from the id:1815
         // original IndexEntry.
         ASSERT_EQ(ie.name, allPathsIndexEntry.name);
     }

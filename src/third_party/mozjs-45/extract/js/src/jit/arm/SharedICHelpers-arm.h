@@ -298,7 +298,7 @@ EmitCallTypeUpdateIC(MacroAssembler& masm, JitCode* code, uint32_t objectOffset)
     masm.loadPtr(Address(ICStubReg, ICUpdatedStub::offsetOfFirstUpdateStub()),
                  ICStubReg);
 
-    // TODO: Change r0 uses below to use masm's configurable scratch register instead.
+    // TODO: Change r0 uses below to use masm's configurable scratch register instead. id:2651
 
     // Load stubcode pointer from ICStubReg into ICTailCallReg.
     masm.loadPtr(Address(ICStubReg, ICStub::offsetOfStubCode()), r0);
@@ -351,7 +351,7 @@ EmitStubGuardFailure(MacroAssembler& masm)
 {
     MOZ_ASSERT(R2 == ValueOperand(r1, r0));
 
-    // NOTE: This routine assumes that the stub guard code left the stack in the
+    // NOTE: This routine assumes that the stub guard code left the stack in the id:2304
     // same state it was in when it was entered.
 
     // BaselineStubEntry points to the current stub.

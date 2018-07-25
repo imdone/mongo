@@ -56,7 +56,7 @@ class S2LoopIndex: public S2EdgeIndex {
 // faces (loops), every point is contained by exactly one face.  This implies
 // that loops do not necessarily contain all (or any) of their vertices.
 //
-// TODO(user): When doing operations on two loops, always create the
+// TODO (user): When doing operations on two loops, always create the id:3382
 // edgeindex for the bigger of the two.  Same for polygons.
 class S2Loop : public S2Region {
  public:
@@ -184,7 +184,7 @@ class S2Loop : public S2Region {
   // WARNING: there is a bug in this function - it does not detect loop
   // crossings in certain situations involving shared edges.  CL 2926852 works
   // around this bug for polygon intersection, but it probably effects other
-  // tests.  TODO: fix ContainsOrCrosses() and revert CL 2926852.
+  // tests.  TODO: fix ContainsOrCrosses() and revert CL 2926852. id:3049
   int ContainsOrCrosses(S2Loop const* b) const;
 
   // Return true if two loops have the same boundary.  This is true if and

@@ -45,10 +45,10 @@ class OperationContext;
  *
  * If refresh fails for any reason (most commonly ExceededTimeLimit), returns a failed status.
  *
- * NOTE: Does network I/O and acquires collection lock on the specified namespace, so it must not be
+ * NOTE: Does network I/O and acquires collection lock on the specified namespace, so it must not be id:907
  * called with a lock
  *
- * NOTE: This method is not expected to throw, because it is used in places where StaleConfig
+ * NOTE: This method is not expected to throw, because it is used in places where StaleConfig id:737
  * exception was just caught and if it were to throw, it would overwrite any accumulated command
  * execution state in the response. This is specifically problematic for write commands, which are
  * expected to return the set of write batch entries that succeeded.
@@ -62,7 +62,7 @@ Status onShardVersionMismatch(OperationContext* opCtx,
  * Unconditionally causes the shard's filtering metadata to be refreshed from the config server and
  * returns the resulting shard version (which might not have changed), or throws.
  *
- * NOTE: Does network I/O and acquires collection lock on the specified namespace, so it must not be
+ * NOTE: Does network I/O and acquires collection lock on the specified namespace, so it must not be id:1329
  * called with a lock
  */
 ChunkVersion forceShardFilteringMetadataRefresh(OperationContext* opCtx,

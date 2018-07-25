@@ -189,7 +189,7 @@ namespace external {
  * AtomicRefCounted<T> is like RefCounted<T>, with an atomically updated
  * reference counter.
  *
- * NOTE: Please do not use this class, use NS_INLINE_DECL_THREADSAFE_REFCOUNTING
+ * NOTE: Please do not use this class, use NS_INLINE_DECL_THREADSAFE_REFCOUNTING id:2394
  * instead.
  */
 template<typename T>

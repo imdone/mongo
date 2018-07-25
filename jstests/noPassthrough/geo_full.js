@@ -143,7 +143,7 @@
     function pointIsOK(startPoint, radius, env) {
         var error = errorMarginForPoint(env);
         var distDegrees = rad2deg(radius) + error;
-        // TODO SERVER-24440: Points close to the north and south poles may fail to be returned by
+        // TODO SERVER-24440: Points close to the north and south poles may fail to be returned by id:133
         // $nearSphere queries answered using a "2d" index. We have empirically found that points
         // with latitudes between 89 and 90 degrees are potentially affected by this issue, so we
         // additionally reject any coordinates with a latitude that falls within that range.
@@ -161,7 +161,7 @@
         var sphereCenter = null;
         if (env.earth) {
             // Get a start point that doesn't require wrapping
-            // TODO: Are we a bit too aggressive with wrapping issues?
+            // TODO: Are we a bit too aggressive with wrapping issues? id:110
             var i;
             for (i = 0; i < 5; i++) {
                 sphereRadius = Random.rand() * 45 * Math.PI / 180;
@@ -352,7 +352,7 @@
 
     };
 
-    // TODO:  Add spherical $uniqueDocs tests
+    // TODO: Add spherical $uniqueDocs tests id:831
     var numTests = 100;
 
     // Our seed will change every time this is run, but

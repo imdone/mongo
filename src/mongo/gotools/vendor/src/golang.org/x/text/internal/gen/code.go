@@ -21,7 +21,7 @@ import (
 
 // This file contains utilities for generating code.
 
-// TODO: other write methods like:
+// TODO: other write methods like: id:995
 // - slices, maps, types, etc.
 
 // CodeWriter is a utility for writing structured code. It computes the content

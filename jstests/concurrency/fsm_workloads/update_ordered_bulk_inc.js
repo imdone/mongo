@@ -30,7 +30,7 @@ var $config = (function() {
                 bulk.find({_id: i}).update(updateDoc);
             }
             var result = bulk.execute();
-            // TODO: this actually does assume that there are no unique indexes.
+            // TODO: this actually does assume that there are no unique indexes. id:93
             //       but except for weird cases like that, it is valid even when other
             //       threads are modifying the same collection
             assertAlways.eq(0, result.getWriteErrorCount());

@@ -568,7 +568,7 @@ txn_state_set(WT_EXTENSION_API *wt_api,
 	/*
 	 * Update the store -- commits must be durable, flush the volume.
 	 *
-	 * XXX
+	 * XXX  id:3420
 	 * Not endian-portable, we're writing a native transaction ID to the
 	 * store.
 	 */
@@ -687,7 +687,7 @@ cache_value_append(WT_CURSOR *wtcursor, int remove_op)
 	 * Copy the WiredTiger cursor's data into place: txn ID, remove
 	 * tombstone, data length, data.
 	 *
-	 * XXX
+	 * XXX  id:3465
 	 * Not endian-portable, we're writing a native transaction ID to the
 	 * store.
 	 */
@@ -1020,7 +1020,7 @@ copyin_key(WT_CURSOR *wtcursor, int allocate_key)
 		 * Assume we can compare 8B values without locking them, and
 		 * test again after acquiring the lock.
 		 *
-		 * XXX
+		 * XXX  id:2273
 		 * If the put fails for some reason, we'll have incremented the
 		 * maximum record number past the correct point.  I can't think
 		 * of a reason any application would care or notice, but it's
@@ -1373,7 +1373,7 @@ helium_cursor_search_near(WT_CURSOR *wtcursor, int *exact)
 	int ret = 0;
 
 	/*
-	 * XXX
+	 * XXX  id:2831
 	 * I'm not confident this is sufficient: if there are multiple threads
 	 * of control, it's possible for the search for an exact match to fail,
 	 * another thread of control to insert (and commit) an exact match, and
@@ -1635,7 +1635,7 @@ helium_cursor_reserve(WT_CURSOR *wtcursor)
 	(void)wtcursor;
 
 	/*
-	 * XXX
+	 * XXX  id:2509
 	 * We don't currently support reserve, this will require some work.
 	 * The test programs don't currently detect it, so return success.
 	 */
@@ -2409,7 +2409,7 @@ helium_session_truncate(WT_DATA_SOURCE *wtds,
 	wt_api = ds->wt_api;
 
 	/*
-	 * XXX
+	 * XXX  id:3421
 	 * Fail URI truncation for now. (Truncation based on a cursor range is
 	 * handled by the upper-levels of WiredTiger, this is just support for
 	 * URI truncation.) The problem is there's no way to truncate an open

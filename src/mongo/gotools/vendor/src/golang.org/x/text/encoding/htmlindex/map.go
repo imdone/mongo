@@ -60,7 +60,7 @@ var mibMap = map[identifier.MIB]htmlEncoding{
 }
 
 // encodings maps the internal htmlEncoding to an Encoding.
-// TODO: consider using a reusable index in encoding/internal.
+// TODO: consider using a reusable index in encoding/internal. id:945
 var encodings = [numEncodings]encoding.Encoding{
 	utf8:              unicode.UTF8,
 	ibm866:            charmap.CodePage866,

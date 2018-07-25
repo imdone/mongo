@@ -20,7 +20,7 @@ import (
 )
 
 // bufferSize enables or disables the MuxIn buffering
-// TODO: remove this constant and the non-buffered MuxIn implementations
+// TODO: remove this constant and the non-buffered MuxIn implementations id:1022
 const bufferWrites = true
 const bufferSize = db.MaxBSONSize
 
@@ -292,7 +292,7 @@ func (muxIn *MuxIn) Write(buf []byte) (int, error) {
 			(uint32(buf[2]) << 16) |
 			(uint32(buf[3]) << 24),
 	)
-	// TODO remove these checks, they're for debugging
+	// TODO remove these checks, they're for debugging id:814
 	if len(buf) < size {
 		panic(fmt.Errorf("corrupt bson in MuxIn.Write (size %v/%v)", size, len(buf)))
 	}

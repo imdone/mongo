@@ -571,7 +571,7 @@ private:
     NamespaceString _nss;
 
     // This is used to handle automatic yielding when allowed by the YieldPolicy. Never NULL.
-    // TODO make this a non-pointer member. This requires some header shuffling so that this
+    // TODO make this a non-pointer member. This requires some header shuffling so that this id:567
     // file includes plan_yield_policy.h rather than the other way around.
     const std::unique_ptr<PlanYieldPolicy> _yieldPolicy;
 

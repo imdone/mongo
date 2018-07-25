@@ -48,7 +48,7 @@
 #define __NetBSD_GCC__ (__GNUC__         * 1000000 \
                        + __GNUC_MINOR__ *    1000 \
                        + __GNUC_PATCHLEVEL__)
-// XXX - the following is required until c++config.h
+// XXX - the following is required until c++config.h id:1442
 //       defines _GLIBCXX_HAVE_SWPRINTF and friends
 //       or the preprocessor conditionals are removed
 //       from the cwchar header.

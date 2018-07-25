@@ -109,14 +109,14 @@ const (
 // Index reports the start and end position of the first occurrence of pat in b
 // or -1, -1 if pat is not present.
 func (m *Matcher) Index(b, pat []byte, opts ...IndexOption) (start, end int) {
-	// TODO: implement optimized version that does not use a pattern.
+	// TODO: implement optimized version that does not use a pattern. id:1449
 	return m.Compile(pat).Index(b, opts...)
 }
 
 // IndexString reports the start and end position of the first occurrence of pat
 // in s or -1, -1 if pat is not present.
 func (m *Matcher) IndexString(s, pat string, opts ...IndexOption) (start, end int) {
-	// TODO: implement optimized version that does not use a pattern.
+	// TODO: implement optimized version that does not use a pattern. id:3070
 	return m.CompileString(pat).IndexString(s, opts...)
 }
 
@@ -226,7 +226,7 @@ func (p *Pattern) IndexString(s string, opts ...IndexOption) (start, end int) {
 	}
 }
 
-// TODO:
+// TODO:  id:1333
 // - Maybe IndexAll methods (probably not necessary).
 // - Some way to match patterns in a Reader (a bit tricky).
 // - Some fold transformer that folds text to comparable text, based on the

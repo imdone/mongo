@@ -162,7 +162,7 @@ public:
     return mImpl->call(Forward<Args>(aArguments)...);
   }
 private:
-  // TODO: Consider implementing a small object optimization.
+  // TODO: Consider implementing a small object optimization. id:2139
   UniquePtr<detail::FunctionImplBase<ReturnType, Arguments...>> mImpl;
 };
 

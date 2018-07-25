@@ -600,7 +600,7 @@ public:
             if (status == ErrorCodes::InvalidReplicaSetConfig) {
                 result.append("configVersion", configVersion);
             }
-            // TODO convert to uassertStatusOK once SERVER-34806 is done.
+            // TODO convert to uassertStatusOK once SERVER-34806 is done. id:1249
             return CommandHelpers::appendCommandStatusNoThrow(result, status);
         } else {
             // Parsing error from UpdatePositionArgs.

@@ -17,10 +17,10 @@
     // clusterTime. Gossiping a clusterTime to an arbiter as a user other than __system will fail,
     // so we skip gossiping for this test.
     //
-    // TODO SERVER-32639: remove this flag.
+    // TODO SERVER-32639: remove this flag. id:131
     TestData.skipGossipingClusterTime = true;
 
-    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:149
     TestData.disableImplicitSessions = true;
 
     // helper function for verifying contents at the end of the test

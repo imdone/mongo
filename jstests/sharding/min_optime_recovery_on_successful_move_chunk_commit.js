@@ -29,8 +29,8 @@
     assert.neq(null, minOpTimeRecoveryDoc);
     assert.eq('minOpTimeRecovery', minOpTimeRecoveryDoc._id);
     assert.eq(st.configRS.getURL(),
-              minOpTimeRecoveryDoc.configsvrConnectionString);       // TODO SERVER-34166: Remove.
-    assert.eq(st.shard0.shardName, minOpTimeRecoveryDoc.shardName);  // TODO SERVER-34166: Remove.
+              minOpTimeRecoveryDoc.configsvrConnectionString);       // TODO SERVER-34166: Remove. id:251
+    assert.eq(st.shard0.shardName, minOpTimeRecoveryDoc.shardName);  // TODO SERVER-34166: Remove. id:894
     assert.gt(minOpTimeRecoveryDoc.minOpTime.ts.getTime(), 0);
     assert.eq(0, minOpTimeRecoveryDoc.minOpTimeUpdaters);
 

@@ -48,7 +48,7 @@ class test_backup02(wttest.WiredTigerTestCase):
         for this_uri in uris:
             self.session.create(this_uri,
                 "key_format=" + self.fmt + ",value_format=S")
-        # TODO: Ideally we'd like a checkpoint thread, separate to the backup
+        # TODO: Ideally we'd like a checkpoint thread, separate to the backup id:3437
         # thread. Need a way to stop checkpoints while doing backups.
 #        ckpt = checkpoint_thread(self.conn, done)
 #        ckpt.start()

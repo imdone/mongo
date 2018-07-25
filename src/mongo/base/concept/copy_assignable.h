@@ -37,7 +37,7 @@ namespace concept {
 struct CopyAssignable {
     /**
      * The copy assignment operator is required by `CopyAssignable`.
-     * NOTE: Copy Assignment is only required on lvalue targets of `CopyAssignable`.
+     * NOTE: Copy Assignment is only required on lvalue targets of `CopyAssignable`. id:946
      */
     CopyAssignable& operator=(const CopyAssignable&) &;
 };

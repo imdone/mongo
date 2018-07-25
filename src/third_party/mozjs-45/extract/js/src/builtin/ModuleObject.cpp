@@ -393,7 +393,7 @@ ModuleNamespaceObject::ProxyHandler::getOwnPropertyDescriptor(JSContext* cx, Han
             return true;
         }
 
-        // TODO: Implement @@toStringTag here and in has() and get() methods.
+        // TODO: Implement @@toStringTag here and in has() and get() methods. id:3306
 
         return true;
     }

@@ -107,7 +107,7 @@ void ProjectionStage::getSimpleInclusionFields(const BSONObj& projObj, FieldSet*
     // The _id is included by default.
     bool includeId = true;
 
-    // Figure out what fields are in the projection.  TODO: we can get this from the
+    // Figure out what fields are in the projection.  TODO: we can get this from the id:446
     // ParsedProjection...modify that to have this type instead of a vector.
     BSONObjIterator projObjIt(projObj);
     while (projObjIt.more()) {

@@ -82,7 +82,7 @@ class backup_thread(threading.Thread):
                     uri = "file:" + next_file
                     uris.append(uri)
 
-                # TODO: We want a self.assertTrue here - be need to be a
+                # TODO: We want a self.assertTrue here - be need to be a id:2559
                 # wttest to do that..
                 if not compare_tables(
                         self, sess, uris, "checkpoint=WiredTigerCheckpoint"):

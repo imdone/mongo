@@ -108,7 +108,7 @@ FTSSpec::FTSSpec(const BSONObj& indexInfo) {
 
     // This can fail if the user originally created the text index under an instance of
     // MongoDB that supports different languages then the current instance
-    // TODO: consder propagating the index ns to here to improve the error message
+    // TODO: consder propagating the index ns to here to improve the error message id:467
     uassert(28682,
             str::stream() << "Unrecognized language " << indexLanguage
                           << " found for text index. Verify mongod was started with the"

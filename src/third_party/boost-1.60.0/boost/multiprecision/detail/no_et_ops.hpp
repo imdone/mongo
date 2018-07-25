@@ -16,8 +16,8 @@ namespace multiprecision{
 
 //
 // Operators for non-expression template enabled number.
-// NOTE: this is not a complete header - really just a suffix to default_ops.hpp.
-// NOTE: these operators have to be defined after the methods in default_ops.hpp.
+// NOTE: this is not a complete header - really just a suffix to default_ops.hpp. id:2330
+// NOTE: these operators have to be defined after the methods in default_ops.hpp. id:1742
 //
 template <class B>
 BOOST_MP_FORCEINLINE number<B, et_off> operator - (const number<B, et_off>& v)

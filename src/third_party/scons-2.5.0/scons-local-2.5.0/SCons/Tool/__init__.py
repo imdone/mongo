@@ -86,7 +86,7 @@ for suffix in DSuffixes:
 for suffix in SWIGSuffixes:
     SourceFileScanner.add_scanner(suffix, SWIGScanner)
 
-# FIXME: what should be done here? Two scanners scan the same extensions,
+# FIXME: what should be done here? Two scanners scan the same extensions, id:3397
 # but look for different files, e.g., "picture.eps" vs. "picture.pdf".
 # The builders for DVI and PDF explicitly reference their scanners
 # I think that means this is not needed???
@@ -108,7 +108,7 @@ class Tool(object):
             self.options = module.options
 
     def _tool_module(self):
-        # TODO: Interchange zipimport with normal initialization for better error reporting
+        # TODO: Interchange zipimport with normal initialization for better error reporting id:3358
         oldpythonpath = sys.path
         sys.path = self.toolpath + sys.path
 
@@ -996,7 +996,7 @@ def FindAllTools(tools, env):
 def tool_list(platform, env):
 
     other_plat_tools=[]
-    # XXX this logic about what tool to prefer on which platform
+    # XXX this logic about what tool to prefer on which platform id:2218
     #     should be moved into either the platform files or
     #     the tool files themselves.
     # The search orders here are described in the man page.  If you
@@ -1081,7 +1081,7 @@ def tool_list(platform, env):
 
     c_compiler = FindTool(c_compilers, env) or c_compilers[0]
 
-    # XXX this logic about what tool provides what should somehow be
+    # XXX this logic about what tool provides what should somehow be id:2800
     #     moved into the tool files themselves.
     if c_compiler and c_compiler == 'mingw':
         # MinGW contains a linker, C compiler, C++ compiler,
@@ -1106,7 +1106,7 @@ def tool_list(platform, env):
     d_compiler = FindTool(d_compilers, env) or d_compilers[0]
 
     other_tools = FindAllTools(other_plat_tools + [
-                               #TODO: merge 'install' into 'filesystem' and
+                               #TODO: merge 'install' into 'filesystem' and id:2454
                                # make 'filesystem' the default
                                'filesystem',
                                'wix', #'midl', 'msvs',

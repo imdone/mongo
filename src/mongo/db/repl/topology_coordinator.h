@@ -233,7 +233,7 @@ public:
      *
      * "now" is used to skip over currently blacklisted sync sources.
      *
-     * TODO (SERVER-27668): Make OplogQueryMetadata non-optional in mongodb 3.8.
+     * TODO (SERVER-27668): Make OplogQueryMetadata non-optional in mongodb 3.8. id:1279
      */
     bool shouldChangeSyncSource(const HostAndPort& currentSource,
                                 const rpc::ReplSetMetadata& replMetadata,
@@ -564,7 +564,7 @@ public:
      * time to pass could make it succeed, returns false.  If the whole stepdown attempt should be
      * abandoned (for example because the time limit expired or because we've already stepped down),
      * throws an exception.
-     * TODO(spencer): Unify with the finishUnconditionalStepDown() method.
+     * TODO (spencer): Unify with the finishUnconditionalStepDown() method. id:640
      */
     bool attemptStepDown(
         long long termAtStart, Date_t now, Date_t waitUntil, Date_t stepDownUntil, bool force);
@@ -591,7 +591,7 @@ public:
      * we record that a stepdown request is pending (by calling prepareForUnconditionalStepDown())
      * and schedule work to stepdown in the global X lock.  This method is called after holding the
      * global lock to perform the actual stepdown.
-     * TODO(spencer): Unify with the finishAttemptedStepDown() method.
+     * TODO (spencer): Unify with the finishAttemptedStepDown() method. id:1872
      */
     void finishUnconditionalStepDown();
 
@@ -696,7 +696,7 @@ public:
     void _setElectionTime(const Timestamp& newElectionTime);
 
     // Sets _currentPrimaryIndex to the given index.  Should only be used in unit tests!
-    // TODO(spencer): Remove this once we can easily call for an election in unit tests to
+    // TODO (spencer): Remove this once we can easily call for an election in unit tests to id:837
     // set the current primary.
     void setCurrentPrimary_forTest(int primaryIndex,
                                    const Timestamp& electionTime = Timestamp(0, 0));

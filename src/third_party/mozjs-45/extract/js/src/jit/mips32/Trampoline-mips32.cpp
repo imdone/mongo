@@ -352,7 +352,7 @@ JitRuntime::generateInvalidator(JSContext* cx)
 {
     MacroAssembler masm(cx);
 
-    // NOTE: Members ionScript_ and osiPointReturnAddress_ of
+    // NOTE: Members ionScript_ and osiPointReturnAddress_ of id:2974
     // InvalidationBailoutStack are already on the stack.
     static const uint32_t STACK_DATA_SIZE = sizeof(InvalidationBailoutStack) -
                                             2 * sizeof(uintptr_t);
@@ -570,7 +570,7 @@ JitRuntime::generateArgumentsRectifier(JSContext* cx, void** returnAddrOut)
     return code;
 }
 
-// NOTE: Members snapshotOffset_ and padding_ of BailoutStack
+// NOTE: Members snapshotOffset_ and padding_ of BailoutStack id:2073
 // are not stored in PushBailoutFrame().
 static const uint32_t bailoutDataSize = sizeof(BailoutStack) - 2 * sizeof(uintptr_t);
 static const uint32_t bailoutInfoOutParamSize = 2 * sizeof(uintptr_t);

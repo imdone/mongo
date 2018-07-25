@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     }
     if (n < 0) {
       fprintf(stderr, "read error: %s\n", strerror(errno));
-      // TODO: handle EAGAIN, EINTR?
+      // TODO: handle EAGAIN, EINTR? id:857
       return 1;
     }
     s += n;

@@ -158,7 +158,7 @@ private:
     // What are the list of fields in the collection over which the update is going to be
     // applied that participate in indices?
     //
-    // NOTE: Owned by the collection's info cache!.
+    // NOTE: Owned by the collection's info cache!. id:2079
     const UpdateIndexData* _indexedFields = nullptr;
 
     //

@@ -196,7 +196,7 @@ WT_ATOMIC_FUNC(size, size_t, size_t *vp, size_t v)
 	__asm__ volatile ("sync" ::: "memory");				\
 } while (0)
 
-/* TODO: ISA 2.07 Elemental Memory Barriers would be better,
+/* TODO: ISA 2.07 Elemental Memory Barriers would be better, id:2519
    specifically mbll, and mbss, but they are not supported by POWER 8 */
 #define	WT_READ_BARRIER() do {						\
 	__asm__ volatile ("lwsync" ::: "memory");			\

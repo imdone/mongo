@@ -94,7 +94,7 @@
         }
         assert.eq(oplogTruncateAfterPointDoc.oplogTruncateAfterPoint, Timestamp());
     } catch (e) {
-        // TODO remove once SERVER-25777 is resolved.
+        // TODO remove once SERVER-25777 is resolved. id:850
         jsTest.log(
             "Look above and make sure clean shutdown finished without resorting to SIGKILL." +
             "\nUnfortunately that currently doesn't fail the test.");

@@ -48,7 +48,7 @@ StackLocator::StackLocator() {
 
     _begin = stack_info.ss_sp;
 
-    // TODO: Assumes stack grows downward on OpenBSD
+    // TODO: Assumes stack grows downward on OpenBSD id:1491
     _end = static_cast<char*>(_begin) - stack_info.ss_size;
 }
 

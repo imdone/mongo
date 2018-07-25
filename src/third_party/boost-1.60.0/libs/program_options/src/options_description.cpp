@@ -8,7 +8,7 @@
 #define BOOST_PROGRAM_OPTIONS_SOURCE
 #include <boost/program_options/config.hpp>
 #include <boost/program_options/options_description.hpp>
-// FIXME: this is only to get multiple_occurrences class
+// FIXME: this is only to get multiple_occurrences class id:3190
 // should move that to a separate headers.
 #include <boost/program_options/parsers.hpp>
 
@@ -229,7 +229,7 @@ namespace boost { namespace program_options {
     {
         // Create untypes semantic which accepts zero tokens: i.e. 
         // no value can be specified on command line.
-        // FIXME: does not look exception-safe
+        // FIXME: does not look exception-safe id:2718
         shared_ptr<option_description> d(
             new option_description(name, new untyped_value(true), description));
 
@@ -357,7 +357,7 @@ namespace boost { namespace program_options {
             } 
             else 
             {                        
-                // FIXME: the use of 'key' here might not
+                // FIXME: the use of 'key' here might not id:1495
                 // be the best approach.
                 approximate_matches.push_back(m_options[i]->key(name));
                 if (!had_full_match)

@@ -15,7 +15,7 @@
     assert.commandWorked(coll.createIndex({ts: 1, _id: 1}));
 
     // Insert some test documents.
-    // NOTE: Inserting Timestamp() or Timestamp(0, 0) into a collection creates a Timestamp for the
+    // NOTE: Inserting Timestamp() or Timestamp(0, 0) into a collection creates a Timestamp for the id:791
     // current time. Max Timestamp value is Timestamp(2^32 - 1, 2^32 - 1).
     const documents = [
         {_id: 0, ts: new Timestamp(0, 1)},

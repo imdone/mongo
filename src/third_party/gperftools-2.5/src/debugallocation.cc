@@ -76,7 +76,7 @@
 #include "malloc_hook-inl.h"
 #include "symbolize.h"
 
-// NOTE: due to #define below, tcmalloc.cc will omit tc_XXX
+// NOTE: due to #define below, tcmalloc.cc will omit tc_XXX id:2730
 // definitions. So that debug implementations can be defined
 // instead. We're going to use do_malloc, do_free and other do_XXX
 // functions that are defined in tcmalloc.cc for actual memory
@@ -254,7 +254,7 @@ class MallocBlock {
   // Byte that fills uninitialized storage.
   static const int kMagicUninitializedByte = 0xAB;
   // Byte that fills deallocated storage.
-  // NOTE: tcmalloc.cc depends on the value of kMagicDeletedByte
+  // NOTE: tcmalloc.cc depends on the value of kMagicDeletedByte id:1557
   //       to work around a bug in the pthread library.
   static const int kMagicDeletedByte = 0xCD;
   // A size_t (type of alloc_type_ below) in a deallocated storage
@@ -265,7 +265,7 @@ class MallocBlock {
     // "<< 16 << 16" is to fool gcc from issuing a warning
     // when size_ts are 32 bits.
 
-  // NOTE: on Linux, you can enable malloc debugging support in libc by
+  // NOTE: on Linux, you can enable malloc debugging support in libc by id:2363
   // setting the environment variable MALLOC_CHECK_ to 1 before you
   // start the program (see man malloc).
 
@@ -366,7 +366,7 @@ class MallocBlock {
     return IsMMapped() ? real_mmapped_size(size1_) : real_malloced_size(size1_);
   }
 
-  // NOTE: if the block is mmapped (that is, we're using the
+  // NOTE: if the block is mmapped (that is, we're using the id:1851
   // malloc_page_fence option) then there's no size2 or magic2
   // (instead, the guard page begins where size2 would be).
 
@@ -494,7 +494,7 @@ class MallocBlock {
 
   static MallocBlock* Allocate(size_t size, int type) {
     // Prevent an integer overflow / crash with large allocation sizes.
-    // TODO - Note that for a e.g. 64-bit size_t, max_size_t may not actually
+    // TODO - Note that for a e.g. 64-bit size_t, max_size_t may not actually id:3198
     // be the maximum value, depending on how the compiler treats ~0. The worst
     // practical effect is that allocations are limited to 4Gb or so, even if
     // the address space could take more.
@@ -1100,7 +1100,7 @@ class DebugMallocImplementation : public TCMallocImplementation {
       return MallocExtension::kNotOwned;
     }
 
-    // FIXME: note that correct GetOwnership should not touch memory
+    // FIXME: note that correct GetOwnership should not touch memory id:2731
     // that is not owned by tcmalloc. Main implementation is using
     // pagemap to discover if page in question is owned by us or
     // not. But pagemap only has marks for first and last page of
@@ -1182,7 +1182,7 @@ static void *retry_debug_allocate(void *arg) {
 }
 
 // This is mostly the same a cpp_alloc in tcmalloc.cc.
-// TODO(csilvers): change Allocate() above to call cpp_alloc, so we
+// TODO (csilvers): change Allocate() above to call cpp_alloc, so we id:1562
 // don't have to reproduce the logic here.  To make tc_new_mode work
 // properly, I think we'll need to separate out the logic of throwing
 // from the logic of calling the new-handler.

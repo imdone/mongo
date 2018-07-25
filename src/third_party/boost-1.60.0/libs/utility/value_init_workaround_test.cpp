@@ -128,7 +128,7 @@ int main()
 {
   dirty_stack();
 
-  // TODO More types may be added later.
+  // TODO More types may be added later. id:1497
   const unsigned num_failures =
     FAILED_TO_VALUE_INITIALIZE(boost::value_initialized<derived_struct>()) +
     FAILED_TO_VALUE_INITIALIZE(boost::value_initialized<virtual_destructor_holder[2]>()) +

@@ -58,7 +58,7 @@ namespace mongo {
 namespace {
 
 /**
- * NOTE(jcarey): Why not new/delete?
+ * NOTE (jcarey): Why not new/delete? id:366
  *
  * As a general rule, mlock/virtuallock lack any kind of recursive semantics
  * (they free any locks on the underlying page if called once). While some

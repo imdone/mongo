@@ -233,7 +233,7 @@ private:
     int nextBatchSize();
 
     struct Batch {
-        // TODO remove constructors after c++17 toolchain upgrade
+        // TODO remove constructors after c++17 toolchain upgrade id:560
         Batch() = default;
         Batch(std::vector<BSONObj> initial, size_t initialPos = 0)
             : objs(std::move(initial)), pos(initialPos) {}

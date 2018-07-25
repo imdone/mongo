@@ -258,7 +258,7 @@ func ReadKeyRing(r io.Reader) (el EntityList, err error) {
 		var e *Entity
 		e, err = ReadEntity(packets)
 		if err != nil {
-			// TODO: warn about skipped unsupported/unreadable keys
+			// TODO: warn about skipped unsupported/unreadable keys id:1001
 			if _, ok := err.(errors.UnsupportedError); ok {
 				lastUnsupportedError = err
 				err = readToNextPublicKey(packets)
@@ -380,7 +380,7 @@ EachPacket:
 			if pkt.SigType == packet.SigTypeKeyRevocation {
 				revocations = append(revocations, pkt)
 			} else if pkt.SigType == packet.SigTypeDirectSignature {
-				// TODO: RFC4880 5.2.1 permits signatures
+				// TODO: RFC4880 5.2.1 permits signatures id:2169
 				// directly on keys (eg. to bind additional
 				// revocation keys).
 			} else if current == nil {
@@ -420,7 +420,7 @@ EachPacket:
 		if err == nil {
 			e.Revocations = append(e.Revocations, revocation)
 		} else {
-			// TODO: RFC 4880 5.2.3.15 defines revocation keys.
+			// TODO: RFC 4880 5.2.3.15 defines revocation keys. id:1075
 			return nil, errors.StructuralError("revocation signature signed by alternate key")
 		}
 	}

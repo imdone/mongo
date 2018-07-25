@@ -1502,7 +1502,7 @@ bid128_add (BID_UINT128 x, BID_UINT128 y
 	  // If the result has P34+1 digits, redo the steps above with x1+1
 	  // If the result has P34-1 digits or less, redo the steps above with 
 	  // x1-1 but only if initially x1 >= 1
-	  // NOTE: these two steps can be improved, e.g we could guess if
+	  // NOTE: these two steps can be improved, e.g we could guess if id:3157
 	  // P34+1 or P34-1 digits will be obtained by adding/subtracting 
 	  // just the top 64 bits of the two operands
 	  // The result cannot be zero, and it cannot overflow
@@ -2094,7 +2094,7 @@ bid128_add (BID_UINT128 x, BID_UINT128 y
 	  // If the result has P34+1 digits, redo the steps above with x1+1
 	  // If the result has P34-1 digits or less, redo the steps above with 
 	  // x1-1 but only if initially x1 >= 1
-	  // NOTE: these two steps can be improved, e.g we could guess if
+	  // NOTE: these two steps can be improved, e.g we could guess if id:2652
 	  // P34+1 or P34-1 digits will be obtained by adding/subtracting just
 	  // the top 64 bits of the two operands
 	  // The result cannot be zero, but it can overflow
@@ -2613,7 +2613,7 @@ bid128_add (BID_UINT128 x, BID_UINT128 y
 	    *pfpsf |= BID_INEXACT_EXCEPTION;
 	}
       } else {	// if (-P34 + 1 <= delta <= -1) <=> 1 <= -delta <= P34 - 1
-	// NOTE: the following, up to "} else { // if x_sign != y_sign 
+	// NOTE: the following, up to "} else { // if x_sign != y_sign id:1426
 	// the result is exact" is identical to "else if (delta == P34 - q2) {"
 	// from above; also, the code is not symmetric: a+b and b+a may take
 	// different paths (need to unify eventually!) 

@@ -5,7 +5,7 @@
 
 // See http://www.boost.org/libs/iostreams for documentation.
 
-// NOTE: I hope to replace the current implementation with a much simpler
+// NOTE: I hope to replace the current implementation with a much simpler id:1468
 // one.
 
 #ifndef BOOST_IOSTREAMS_NEWLINE_FILTER_HPP_INCLUDED

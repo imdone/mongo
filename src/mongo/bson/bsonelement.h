@@ -261,7 +261,7 @@ public:
     }
 
     /**
-     * NOTE: size includes the NULL terminator.
+     * NOTE: size includes the NULL terminator. id:373
      */
     int fieldNameSize() const {
         return fieldNameSize_;
@@ -717,7 +717,7 @@ private:
 };
 
 inline bool BSONElement::trueValue() const {
-    // NOTE Behavior changes must be replicated in Value::coerceToBool().
+    // NOTE Behavior changes must be replicated in Value::coerceToBool(). id:300
     switch (type()) {
         case NumberLong:
             return _numberLong() != 0;

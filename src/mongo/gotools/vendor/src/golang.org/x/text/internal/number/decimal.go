@@ -232,7 +232,7 @@ func (r RoundingMode) roundFloat(x float64) float64 {
 	case AwayFromZero:
 		inc = true
 	case ToNearestEven:
-		// TODO: check overflow
+		// TODO: check overflow id:998
 		inc = f > 0.5 || f == 0.5 && int64(i)&1 != 0
 	case ToNearestAway:
 		inc = f >= 0.5
@@ -337,7 +337,7 @@ func (d *Decimal) Convert(r RoundingContext, number interface{}) {
 
 	default:
 		d.NaN = true
-		// TODO:
+		// TODO:  id:1792
 		// case string: if produced by strconv, allows for easy arbitrary pos.
 		// case reflect.Value:
 		// case big.Float
@@ -351,7 +351,7 @@ func (d *Decimal) Convert(r RoundingContext, number interface{}) {
 // ConvertInt converts an integer to decimals.
 func (d *Decimal) ConvertInt(r RoundingContext, signed bool, x uint64) {
 	if r.Increment > 0 {
-		// TODO: if uint64 is too large, fall back to float64
+		// TODO: if uint64 is too large, fall back to float64 id:1244
 		if signed {
 			d.ConvertFloat(r, float64(int64(x)), 64)
 		} else {
@@ -416,7 +416,7 @@ func (d *Decimal) ConvertFloat(r RoundingContext, x float64, size int) {
 			verb = 'f'
 		}
 	} else {
-		// TODO: At this point strconv's rounding is imprecise to the point that
+		// TODO: At this point strconv's rounding is imprecise to the point that id:3000
 		// it is not useable for this purpose.
 		// See https://github.com/golang/go/issues/21714
 		// If rounding is requested, we ask for a large number of digits and

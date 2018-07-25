@@ -134,7 +134,7 @@ StatusWith<boost::optional<ChunkRange>> splitChunk(OperationContext* opCtx,
                                                    const OID& expectedCollectionEpoch) {
     //
     // Lock the collection's metadata and get highest version for the current shard
-    // TODO(SERVER-25086): Remove distLock acquisition from split chunk
+    // TODO (SERVER-25086): Remove distLock acquisition from split chunk id:913
     //
     const std::string whyMessage(
         str::stream() << "splitting chunk " << chunkRange.toString() << " in " << nss.toString());

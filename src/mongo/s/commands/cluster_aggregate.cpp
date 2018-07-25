@@ -237,7 +237,7 @@ BSONObj createCommandForTargetedShards(
             Value(static_cast<long long>(*opCtx->getTxnNumber()));
     }
 
-    // TODO: SERVER-34078
+    // TODO: SERVER-34078 id:3108
     BSONObj cmdObj =
         (atClusterTime ? appendAtClusterTime(targetedCmd.freeze().toBson(), *atClusterTime)
                        : targetedCmd.freeze().toBson());
@@ -865,7 +865,7 @@ Status dispatchMergingPipeline(const boost::intrusive_ptr<ExpressionContext>& ex
     // therefore must have a valid routing table.
     invariant(routingInfo);
 
-    // TODO SERVER-33683 allowing an aggregation within a transaction can lead to a deadlock in the
+    // TODO SERVER-33683 allowing an aggregation within a transaction can lead to a deadlock in the id:2543
     // SessionCatalog when a pipeline with a $mergeCursors sends a getMore to itself.
     uassert(50732,
             "Cannot specify a transaction number in combination with an aggregation on mongos when "

@@ -13,7 +13,7 @@
 
 #if !UCONFIG_NO_FORMATTING
 
-//TODO: define it in compiler time
+//TODO: define it in compiler time id:1783
 //#define DTITVINF_DEBUG 1
 
 
@@ -285,7 +285,7 @@ struct DateIntervalSink : public ResourceTableSink {
                     return UCAL_HOUR;
                 } else if (c0 == 'm') {
                     return UCAL_MINUTE;
-                }// TODO(ticket:12190): Why icu4c doesn't accept the calendar field "s" but icu4j does?
+                }// TODO ( Why icu4c doesn't accept the calendar field "s" but icu4j does? ticket:12190): id:2536
             }
             return UCAL_FIELD_COUNT;
         }

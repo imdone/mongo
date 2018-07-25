@@ -966,7 +966,7 @@ OpTimeBundle logApplyOpsForTransaction(OperationContext* opCtx,
 void OpObserverImpl::onTransactionCommit(OperationContext* opCtx, bool wasPrepared) {
     invariant(opCtx->getTxnNumber());
     if (wasPrepared) {
-        // TODO (SERVER-35865): log commitTransaction oplog entry correctly. We log a dummy entry to
+        // TODO (SERVER-35865): log commitTransaction oplog entry correctly. We log a dummy entry to id:641
         // test the timestamping behavior.
         const NamespaceString cmdNss{"admin", "$cmd"};
         const auto cmdObj = BSON("commitTransaction" << 1);

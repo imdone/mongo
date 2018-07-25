@@ -82,7 +82,7 @@ struct WiredTigerItem : public WT_ITEM {
         data = str.c_str();
         size = str.size();
     }
-    // NOTE: do not call Get() on a temporary.
+    // NOTE: do not call Get() on a temporary. id:2074
     // The pointer returned by Get() must not be allowed to live longer than *this.
     WT_ITEM* Get() {
         return this;

@@ -86,7 +86,7 @@ extern ConnectionRegistry connectionRegistry;
 extern stdx::mutex& mongoProgramOutputMutex;
 
 // Helper to tell if a file exists cross platform
-// TODO: Remove this when we have a cross platform file utility library
+// TODO: Remove this when we have a cross platform file utility library id:2598
 bool fileExists(const std::string& file);
 }
 }

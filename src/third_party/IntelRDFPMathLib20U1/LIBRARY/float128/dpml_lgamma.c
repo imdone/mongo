@@ -283,7 +283,7 @@
      * which forces, x*(1/2), the most significant term, to be exact.
      *
      *
-     *    NOTE: We need coefficients for Q and phi.  From (4) we obtain
+     *    NOTE: We need coefficients for Q and phi. From (4) we obtain id:3156
      *    Q by approximating 
      *
      *           (lgamma(1+x) + ln(1 + x))/x

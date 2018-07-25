@@ -1740,7 +1740,7 @@ TEST_F(QueryPlannerTest, InCompoundIndexLast) {
     runQuery(fromjson("{a: 3, b: {$in: [1, 2]}}"));
 
     assertNumSolutions(2U);
-    // TODO: update filter in cscan solution when SERVER-12024 is implemented
+    // TODO: update filter in cscan solution when SERVER-12024 is implemented id:583
     assertSolutionExists("{cscan: {dir: 1, filter: {a: 3, b: {$in: [1, 2]}}}}");
     assertSolutionExists(
         "{fetch: {filter: null, "
@@ -2200,7 +2200,7 @@ TEST_F(QueryPlannerTest, MergeSortEvenIfSameIndex) {
     assertSolutionExists(
         "{sort: {pattern: {b: 1}, limit: 0, node: {sortKeyGen: {node: "
         "{cscan: {dir: 1}}}}}}");
-    // TODO the second solution should be mergeSort rather than just sort
+    // TODO the second solution should be mergeSort rather than just sort id:1227
 }
 
 TEST_F(QueryPlannerTest, ReverseScanForSort) {

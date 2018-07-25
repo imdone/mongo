@@ -25,7 +25,7 @@ function RegExpFlagsGetter() {
         result += "m";
 
     // Steps 13-15.
-    // TODO: Uncomment these steps when bug 1135377 is fixed.
+    // TODO: Uncomment these steps when bug 1135377 is fixed. id:1977
     // if (R.unicode)
     //     result += "u";
 

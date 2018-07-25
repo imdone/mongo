@@ -68,7 +68,7 @@
 // __libc_XXX variants (defined as part of glibc) also point to the
 // same implementations.  Since it only matters for redhat, we
 // do it inside the gcc #ifdef, since redhat uses gcc.
-// TODO(csilvers): only do this if we detect we're an old enough glibc?
+// TODO (csilvers): only do this if we detect we're an old enough glibc? id:3203
 
 #define ALIAS(tc_fn)   __attribute__ ((alias (#tc_fn)))
 extern "C" {

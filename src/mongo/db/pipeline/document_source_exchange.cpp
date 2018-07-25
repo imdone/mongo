@@ -196,17 +196,17 @@ size_t Exchange::loadNextBatch() {
                 size_t target = getTargetConsumer(input.getDocument());
                 bool full = _consumers[target]->appendDocument(std::move(input), _maxBufferSize);
                 if (full && _orderPreserving) {
-                    // TODO send the high watermark here.
+                    // TODO send the high watermark here. id:647
                 }
                 if (full)
                     return target;
             } break;
             case ExchangePolicyEnum::kHash: {
-                // TODO implement the hash policy. Note that returning 0 is technically correct.
+                // TODO implement the hash policy. Note that returning 0 is technically correct. id:506
                 size_t target = 0;
                 bool full = _consumers[target]->appendDocument(std::move(input), _maxBufferSize);
                 if (full && _orderPreserving) {
-                    // TODO send the high watermark here.
+                    // TODO send the high watermark here. id:1153
                 }
                 if (full)
                     return target;
@@ -234,7 +234,7 @@ size_t Exchange::getTargetConsumer(const Document& input) {
         kb << "" << value;
     }
 
-    // TODO implement hash keys for the hash policy.
+    // TODO implement hash keys for the hash policy. id:505
     KeyString key{KeyString::Version::V1, kb.obj(), Ordering::make(BSONObj())};
     std::string keyStr{key.getBuffer(), key.getSize()};
 

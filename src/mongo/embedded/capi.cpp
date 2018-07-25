@@ -262,7 +262,7 @@ mongo_embedded_v1_lib* capi_lib_init(mongo_embedded_v1_init_params const* params
 
     auto lib = std::make_unique<mongo_embedded_v1_lib>();
 
-    // TODO(adam.martin): Fold all of this log initialization into the ctor of lib.
+    // TODO (adam.martin): Fold all of this log initialization into the ctor of lib. id:803
     if (params) {
         using logger::globalLogManager;
         // The standard console log appender may or may not be installed here, depending if this is

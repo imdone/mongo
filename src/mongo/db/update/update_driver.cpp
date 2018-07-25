@@ -244,7 +244,7 @@ Status UpdateDriver::update(StringData matchedField,
                             const FieldRefSet& immutablePaths,
                             BSONObj* logOpRec,
                             bool* docWasModified) {
-    // TODO: assert that update() is called at most once in a !_multi case.
+    // TODO: assert that update() is called at most once in a !_multi case. id:1552
 
     _affectIndices = (isDocReplacement() && (_indexedFields != NULL));
 
@@ -273,7 +273,7 @@ Status UpdateDriver::update(StringData matchedField,
         // this update is using the "kUpdateNode" version of the update semantics and not the older
         // update semantics that could be used by a featureCompatibilityVersion=3.4 node.
         //
-        // TODO (SERVER-32240): Once binVersion <= 3.6 nodes are not supported in a replica set, we
+        // TODO (SERVER-32240): Once binVersion <= 3.6 nodes are not supported in a replica set, we id:706
         // can safely elide this "$v" UpdateSemantics field from oplog entries, because there will
         // only one supported version, which all nodes will assume is in use.
         //

@@ -262,7 +262,7 @@ public:
         bool ok = db.runCommand(nsDb(), cmd.obj(), result);
         log() << result.jsonString();
         ASSERT(ok);
-        // TODO(kangas) test that Tom's score is 1
+        // TODO (kangas) test that Tom's score is 1 id:1002
     }
 };
 

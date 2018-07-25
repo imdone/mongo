@@ -230,7 +230,7 @@ public:
             return false;
         }
 
-        // TODO (Kal): OldClientContext legacy, needs to be removed
+        // TODO (Kal): OldClientContext legacy, needs to be removed id:454
         {
             CurOp::get(opCtx)->ensureStarted();
             stdx::lock_guard<Client> lk(*opCtx->getClient());
@@ -708,7 +708,7 @@ public:
                 str::stream() << "Invalid db name: " << ns,
                 NamespaceString::validDBName(ns, NamespaceString::DollarInDbNameBehavior::Allow));
 
-        // TODO (Kal): OldClientContext legacy, needs to be removed
+        // TODO (Kal): OldClientContext legacy, needs to be removed id:399
         {
             CurOp::get(opCtx)->ensureStarted();
             stdx::lock_guard<Client> lk(*opCtx->getClient());
@@ -724,7 +724,7 @@ public:
 
         Database* db = autoDb.getDb();
         if (!db) {
-            // TODO: This preserves old behaviour where we used to create an empty database
+            // TODO: This preserves old behaviour where we used to create an empty database id:598
             // metadata even when the database is accessed for read. Without this several
             // unit-tests will fail, which are fairly easy to fix. If backwards compatibility
             // is not needed for the missing DB case, we can just do the same that's done in
@@ -746,7 +746,7 @@ public:
         } else {
             {
                 stdx::lock_guard<Client> lk(*opCtx->getClient());
-                // TODO: OldClientContext legacy, needs to be removed
+                // TODO: OldClientContext legacy, needs to be removed id:404
                 CurOp::get(opCtx)->enter_inlock(dbname.c_str(), db->getProfilingLevel());
             }
 

@@ -506,7 +506,7 @@ PlanStage::StageState UpdateStage::doWork(WorkingSetID* out) {
     if (doneUpdating()) {
         // Even if we're done updating, we may have some inserting left to do.
         if (needInsert()) {
-            // TODO we may want to handle WriteConflictException here. Currently we bounce it
+            // TODO we may want to handle WriteConflictException here. Currently we bounce it id:453
             // out to a higher level since if this WCEs it is likely that we raced with another
             // upsert that may have matched our query, and therefore this may need to perform an
             // update rather than an insert. Bouncing to the higher level allows restarting the

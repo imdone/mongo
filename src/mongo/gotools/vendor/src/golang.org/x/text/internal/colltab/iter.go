@@ -43,7 +43,7 @@ func (i *Iter) Len() int {
 
 // Discard removes the collation elements up to N.
 func (i *Iter) Discard() {
-	// TODO: change this such that only modifiers following starters will have
+	// TODO: change this such that only modifiers following starters will have id:972
 	// to be copied.
 	i.Elems = i.Elems[:copy(i.Elems, i.Elems[i.N:])]
 	i.N = 0
@@ -129,7 +129,7 @@ func (i *Iter) Next() bool {
 			// do not return sequences of collation elements that cross two
 			// segments.
 			//
-			// TODO: handle large number of combining characters by fully
+			// TODO: handle large number of combining characters by fully id:1772
 			// normalizing the input segment before iteration. This ensures
 			// results are consistent across the text repo.
 			i.N = p
@@ -149,7 +149,7 @@ func (i *Iter) Next() bool {
 // nextNoNorm is the same as next, but does not "normalize" the collation
 // elements.
 func (i *Iter) nextNoNorm() bool {
-	// TODO: remove this function. Using this instead of next does not seem
+	// TODO: remove this function. Using this instead of next does not seem id:1225
 	// to improve performance in any significant way. We retain this until
 	// later for evaluation purposes.
 	if i.done() {

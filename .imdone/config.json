@@ -1,0 +1,105 @@
+{
+  "exclude": [
+    "^(node_modules|bower_components|\\.imdone|target|build|dist|logs|flow-typed|imdone-export.json)[\\/\\\\]?|\\.(git|svn|hg|npmignore)|\\~$|\\.(jpg|png|gif|swp|ttf|otf)$"
+  ],
+  "watcher": true,
+  "keepEmptyPriority": true,
+  "code": {
+    "include_lists": [
+      "TODO",
+      "DOING",
+      "DONE",
+      "PLANNING",
+      "FIXME",
+      "ARCHIVE",
+      "HACK",
+      "CHANGED",
+      "XXX",
+      "IDEA",
+      "NOTE",
+      "REVIEW",
+      "MARK",
+      "HELP"
+    ]
+  },
+  "lists": [
+    {
+      "name": "HELP",
+      "hidden": false
+    },
+    {
+      "name": "security",
+      "hidden": false
+    },
+    {
+      "name": "replication",
+      "hidden": false
+    },
+    {
+      "name": "auditLog",
+      "hidden": false
+    },
+    {
+      "name": "TODO",
+      "hidden": false
+    },
+    {
+      "name": "NOTE",
+      "hidden": false
+    },
+    {
+      "name": "XXX",
+      "hidden": false
+    },
+    {
+      "name": "FIXME",
+      "hidden": false
+    },
+    {
+      "name": "HACK",
+      "hidden": false
+    },
+    {
+      "name": "DONE",
+      "hidden": false
+    },
+    {
+      "name": "REVIEW",
+      "hidden": false
+    },
+    {
+      "name": "light",
+      "hidden": false
+    },
+    {
+      "name": "StateName",
+      "hidden": false
+    },
+    {
+      "name": "MARK",
+      "hidden": false
+    },
+    {
+      "name": "exactfloat_test",
+      "hidden": false
+    },
+    {
+      "name": "vector_unittest",
+      "hidden": false
+    }
+  ],
+  "marked": {
+    "gfm": true,
+    "tables": true,
+    "breaks": false,
+    "pedantic": false,
+    "smartLists": true,
+    "langPrefix": "language-"
+  },
+  "sync": {
+    "id": "5b588c8c714bd9258f7aacdf",
+    "name": "imdone/mongo",
+    "useImdoneioForPriority": true
+  },
+  "noHelp": true
+}

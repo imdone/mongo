@@ -18,7 +18,7 @@ var doTest = function(signal) {
     var master = replTest.getPrimary();
 
     // Write some data to master
-    // NOTE: this test fails unless we write some data.
+    // NOTE: this test fails unless we write some data. id:240
     master.getDB("foo").foo.insert({a: 1}, {writeConcern: {w: 3, wtimeout: 20000}});
 
     var phase = 1;

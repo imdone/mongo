@@ -44,7 +44,7 @@ FSM). This is NOT Perl-compatible, but it has advantages in certain
 applications. */
 
 
-/* NOTE ABOUT PERFORMANCE: A user of this function sent some code that improved
+/* NOTE ABOUT PERFORMANCE: A user of this function sent some code that improved id:2404
 the performance of his patterns greatly. I could not use it as it stood, as it
 was not thread safe, and made assumptions about pattern sizes. Also, it caused
 test 7 to loop, and test 9 to crash with a segfault.
@@ -178,7 +178,7 @@ static const pcre_uint8 coptable[] = {
   0, 0,                          /* RREF, DNRREF                           */
   0,                             /* DEF                                    */
   0, 0, 0,                       /* BRAZERO, BRAMINZERO, BRAPOSZERO        */
-  0, 0, 0,                       /* MARK, PRUNE, PRUNE_ARG                 */
+  0, 0, 0,                       /* MARK , PRUNE, PRUNE_ARG id:3371*/
   0, 0, 0, 0,                    /* SKIP, SKIP_ARG, THEN, THEN_ARG         */
   0, 0, 0, 0,                    /* COMMIT, FAIL, ACCEPT, ASSERT_ACCEPT    */
   0, 0                           /* CLOSE, SKIPZERO  */
@@ -250,7 +250,7 @@ static const pcre_uint8 poptable[] = {
   0, 0,                          /* RREF, DNRREF                           */
   0,                             /* DEF                                    */
   0, 0, 0,                       /* BRAZERO, BRAMINZERO, BRAPOSZERO        */
-  0, 0, 0,                       /* MARK, PRUNE, PRUNE_ARG                 */
+  0, 0, 0,                       /* MARK , PRUNE, PRUNE_ARG id:3027*/
   0, 0, 0, 0,                    /* SKIP, SKIP_ARG, THEN, THEN_ARG         */
   0, 0, 0, 0,                    /* COMMIT, FAIL, ACCEPT, ASSERT_ACCEPT    */
   0, 0                           /* CLOSE, SKIPZERO                        */

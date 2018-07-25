@@ -1563,7 +1563,7 @@ SortComparatorFunction::operator()(const Value& a, const Value& b, bool* lessOrE
         return false;
 
     /*
-     * XXX eport some kind of error here if cmp is NaN? ECMA talks about
+     * XXX eport some kind of error here if cmp is NaN? ECMA talks about id:2092
      * 'consistent compare functions' that don't return NaN, but is silent
      * about what the result should be. So we currently ignore it.
      */

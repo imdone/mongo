@@ -218,7 +218,7 @@ void R2RegionCoverer::deleteCandidate(Candidate* candidate, bool freeChildren) {
 
 void R2RegionCoverer::getInitialCandidates() {
     // Add the full plane
-    // TODO a better initialization.
+    // TODO a better initialization. id:479
     addCandidate(newCandidate(GeoHash()));
 }
 

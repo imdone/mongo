@@ -49,7 +49,7 @@ func TestFormatting(t *testing.T) {
 		15: {en, USD.Amount(15.00), ISO.Default(TWD), "USD 15.00"},
 		16: {en, KRW.Amount(16.00), ISO.Kind(Cash), "KRW 16"},
 
-		// TODO: support integers as well.
+		// TODO: support integers as well. id:939
 
 		17: {en, USD, nil, "USD"},
 		18: {en, USD, ISO, "USD"},

@@ -8,7 +8,7 @@
     if ("undefined" == typeof inner_mode) {
         // Start a mongod with --ipv6
         jsTest.log("Outer mode test starting mongod with --ipv6");
-        // NOTE: bind_ip arg is present to test if it can parse ipv6 addresses (::1 in this case).
+        // NOTE: bind_ip arg is present to test if it can parse ipv6 addresses (::1 in this case). id:125
         // Unfortunately, having bind_ip = ::1 won't work in the test framework (But does work when
         // tested manually), so 127.0.0.1 is also present so the test mongo shell can connect
         // with that address.

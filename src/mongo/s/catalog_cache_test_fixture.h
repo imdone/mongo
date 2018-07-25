@@ -62,7 +62,7 @@ protected:
      * Invalidates the catalog cache for 'kNss' and schedules a thread to invoke the blocking 'get'
      * call, returning a future which can be obtained to get the specified routing information.
      *
-     * NOTE: The returned value is always set. The reason to use optional is a deficiency of
+     * NOTE: The returned value is always set. The reason to use optional is a deficiency of id:2094
      * std::future with the MSVC STL library, which requires the templated type to be default
      * constructible.
      */

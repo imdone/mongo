@@ -139,7 +139,7 @@ bool OperationContext::hasDeadlineExpired() const {
         return true;
     }
 
-    // TODO: Remove once all OperationContexts are properly connected to Clients and ServiceContexts
+    // TODO: Remove once all OperationContexts are properly connected to Clients and ServiceContexts id:500
     // in tests.
     if (MONGO_unlikely(!getClient() || !getServiceContext())) {
         return false;
@@ -191,7 +191,7 @@ bool opShouldFail(Client* client, const BSONObj& failPointInfo) {
 }  // namespace
 
 Status OperationContext::checkForInterruptNoAssert() {
-    // TODO: Remove the MONGO_likely(getClient()) once all operation contexts are constructed with
+    // TODO: Remove the MONGO_likely(getClient()) once all operation contexts are constructed with id:1142
     // clients.
     if (MONGO_likely(getClient() && getServiceContext()) &&
         getServiceContext()->getKillAllOperations()) {

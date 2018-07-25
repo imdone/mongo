@@ -62,7 +62,7 @@ func (c *cache) Set(k string, x interface{}, d time.Duration) {
 		Object:     x,
 		Expiration: e,
 	}
-	// TODO: Calls to mu.Unlock are currently not deferred because defer
+	// TODO: Calls to mu.Unlock are currently not deferred because defer id:2152
 	// adds ~200 ns (as of go1.)
 	c.mu.Unlock()
 }
@@ -509,7 +509,7 @@ func (c *cache) IncrementFloat64(k string, n float64) (float64, error) {
 // possible to decrement it by n. To retrieve the decremented value, use one
 // of the specialized methods, e.g. DecrementInt64.
 func (c *cache) Decrement(k string, n int64) error {
-	// TODO: Implement Increment and Decrement more cleanly.
+	// TODO: Implement Increment and Decrement more cleanly. id:1063
 	// (Cannot do Increment(k, n*-1) for uints.)
 	c.mu.Lock()
 	v, found := c.items[k]
@@ -922,7 +922,7 @@ func (c *cache) OnEvicted(f func(string, interface{})) {
 
 // Write the cache's items (using Gob) to an io.Writer.
 //
-// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the
+// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the id:868
 // documentation for NewFrom().)
 func (c *cache) Save(w io.Writer) (err error) {
 	enc := gob.NewEncoder(w)
@@ -943,7 +943,7 @@ func (c *cache) Save(w io.Writer) (err error) {
 // Save the cache's items to the given filename, creating the file if it
 // doesn't exist, and overwriting it if it does.
 //
-// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the
+// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the id:1683
 // documentation for NewFrom().)
 func (c *cache) SaveFile(fname string) error {
 	fp, err := os.Create(fname)
@@ -961,7 +961,7 @@ func (c *cache) SaveFile(fname string) error {
 // Add (Gob-serialized) cache items from an io.Reader, excluding any items with
 // keys that already exist (and haven't expired) in the current cache.
 //
-// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the
+// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the id:876
 // documentation for NewFrom().)
 func (c *cache) Load(r io.Reader) error {
 	dec := gob.NewDecoder(r)
@@ -983,7 +983,7 @@ func (c *cache) Load(r io.Reader) error {
 // Load and add cache items from the given filename, excluding any items with
 // keys that already exist in the current cache.
 //
-// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the
+// NOTE: This method is deprecated in favor of c.Items() and NewFrom() (see the id:2157
 // documentation for NewFrom().)
 func (c *cache) LoadFile(fname string) error {
 	fp, err := os.Open(fname)

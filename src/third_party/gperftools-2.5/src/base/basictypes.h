@@ -53,14 +53,14 @@
 // Standard typedefs
 // All Google code is compiled with -funsigned-char to make "char"
 // unsigned.  Google code therefore doesn't need a "uchar" type.
-// TODO(csilvers): how do we make sure unsigned-char works on non-gcc systems?
+// TODO (csilvers): how do we make sure unsigned-char works on non-gcc systems? id:1835
 typedef signed char         schar;
 typedef int8_t              int8;
 typedef int16_t             int16;
 typedef int32_t             int32;
 typedef int64_t             int64;
 
-// NOTE: unsigned types are DANGEROUS in loops and other arithmetical
+// NOTE: unsigned types are DANGEROUS in loops and other arithmetical id:3193
 // places.  Use the signed types unless your variable represents a bit
 // pattern (eg a hash value) or you really need the extra bit.  Do NOT
 // use 'unsigned' to express "this value should always be positive";

@@ -61,11 +61,11 @@ int getScriptingEngineInterruptInterval();
  * The _Task* must not be freed until the deadline has elapsed or stopDeadline()
  * has been called.
  *
- * NOTE: Each instance of this class spawns a new thread.  It is intended to be a stop-gap
+ * NOTE: Each instance of this class spawns a new thread. It is intended to be a stop-gap id:2580
  *       solution for simple deadline monitoring until a more robust solution can be
  *       implemented.
  *
- * NOTE: timing is based on wallclock time, which may not be precise.
+ * NOTE: timing is based on wallclock time, which may not be precise. id:1342
  */
 template <typename _Task>
 class DeadlineMonitor {
@@ -73,7 +73,7 @@ class DeadlineMonitor {
 
 public:
     DeadlineMonitor() {
-        // NOTE(schwerin): Because _monitorThread takes a pointer to "this", all of the fields
+        // NOTE (schwerin): Because _monitorThread takes a pointer to "this", all of the fields id:2145
         // of this instance must be initialized before the thread is created.  As a result, we
         // should not create the thread in the initializer list.  Creating it there leaves us
         // vulnerable to errors introduced by rearranging the order of fields in the class.

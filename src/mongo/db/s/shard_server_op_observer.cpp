@@ -174,7 +174,7 @@ void incrementChunkOnInsertOrUpdate(OperationContext* opCtx,
     if (chunkWritesTracker->shouldSplit(balancerConfig->getMaxChunkSizeBytes())) {
         auto chunkSplitStateDriver = ChunkSplitStateDriver::tryInitiateSplit(chunkWritesTracker);
         if (chunkSplitStateDriver) {
-            // TODO (SERVER-9287): Enable the following to trigger chunk splitting
+            // TODO (SERVER-9287): Enable the following to trigger chunk splitting id:909
             // ChunkSplitter::get(opCtx).trySplitting(std::move(chunkSplitStateDriver.get()),
             //                                       nss,
             //                                       chunk.getMin(),

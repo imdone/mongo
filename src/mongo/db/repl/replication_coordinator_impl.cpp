@@ -1346,7 +1346,7 @@ Status ReplicationCoordinatorImpl::_waitUntilClusterTimeForRead(OperationContext
     auto targetOpTime = OpTime(clusterTime.asTimestamp(), OpTime::kUninitializedTerm);
     invariant(!readConcern.getArgsOpTime());
 
-    // TODO SERVER-34620: Re-enable speculative behavior when "atClusterTime" is specified.
+    // TODO SERVER-34620: Re-enable speculative behavior when "atClusterTime" is specified. id:618
     auto session = OperationContextSession::get(opCtx);
     const bool speculative =
         session && session->inMultiDocumentTransaction() && !readConcern.getArgsAtClusterTime();
@@ -1359,7 +1359,7 @@ Status ReplicationCoordinatorImpl::_waitUntilClusterTimeForRead(OperationContext
     return _waitUntilOpTime(opCtx, isMajorityCommittedRead, targetOpTime, deadline);
 }
 
-// TODO: remove when SERVER-29729 is done
+// TODO: remove when SERVER-29729 is done id:1255
 Status ReplicationCoordinatorImpl::_waitUntilOpTimeForReadDeprecated(
     OperationContext* opCtx, const ReadConcernArgs& readConcern) {
     const bool isMajorityCommittedRead =
@@ -2533,7 +2533,7 @@ ReplicationCoordinatorImpl::_updateMemberStateFromTopologyCoordinator_inlock(
         // before the commit point, but it would be invalid to mark it as the committed snapshot
         // since it was never committed.
         //
-        // TODO SERVER-19209 We also need to clear snapshots before a resync.
+        // TODO SERVER-19209 We also need to clear snapshots before a resync. id:622
         _dropAllSnapshots_inlock();
     }
 

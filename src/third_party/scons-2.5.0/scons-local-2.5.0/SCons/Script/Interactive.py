@@ -26,7 +26,7 @@ __doc__ = """
 SCons interactive mode
 """
 
-# TODO:
+# TODO:  id:3394
 #
 # This has the potential to grow into something with a really big life
 # of its own, which might or might not be a good thing.  Nevertheless,
@@ -211,7 +211,7 @@ class SConsInteractiveCmd(cmd.Cmd):
         # store the list of nodes that need to be cleared as we walk
         # the tree, and clear them in a separate pass.
         #
-        # XXX: Someone more familiar with the inner workings of scons
+        # XXX: Someone more familiar with the inner workings of scons id:3073
         # may be able to point out a more efficient way to do this.
 
         SCons.Script.Main.progress_display("scons: Clearing cached node information ...")

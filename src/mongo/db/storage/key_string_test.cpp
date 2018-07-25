@@ -988,7 +988,7 @@ int compareNumbers(const BSONElement& lhs, const BSONElement& rhs) {
 }
 
 TEST_F(KeyStringTest, NaNs) {
-    // TODO use hex floats to force distinct NaNs
+    // TODO use hex floats to force distinct NaNs id:765
     const double nan1 = std::numeric_limits<double>::quiet_NaN();
     const double nan2 = std::numeric_limits<double>::signaling_NaN();
 

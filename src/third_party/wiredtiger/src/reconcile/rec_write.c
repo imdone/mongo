@@ -281,7 +281,7 @@ typedef struct {
 	uint32_t tested_ref_state;	/* Debugging information */
 
 	/*
-	 * XXX
+	 * XXX  id:3429
 	 * In the case of a modified update, we may need a copy of the current
 	 * value as a set of bytes. We call back into the btree code using a
 	 * fake cursor to do that work. This a layering violation and fragile,
@@ -846,7 +846,7 @@ __rec_raw_compression_config(WT_SESSION_IMPL *session,
 		return (false);
 
 	/*
-	 * XXX
+	 * XXX  id:3474
 	 * Turn off if lookaside or update/restore are configured: those modes
 	 * potentially write blocks without entries and raw compression isn't
 	 * ready for that.
@@ -3698,7 +3698,7 @@ __rec_split_write(WT_SESSION_IMPL *session, WT_RECONCILE *r,
 	 */
 	if (multi->supd != NULL) {
 		/*
-		 * XXX
+		 * XXX  id:2432
 		 * If no entries were used, the page is empty and we can only
 		 * restore eviction/restore or lookaside updates against
 		 * empty row-store leaf pages, column-store modify attempts to

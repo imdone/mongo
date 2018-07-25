@@ -80,7 +80,7 @@ page_init(uint64_t n)
 }
 
 /*
- * TODO: Platform specific?
+ * TODO: Platform specific? id:2445
  */
 static void
 onsig(int signo)

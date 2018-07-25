@@ -36,7 +36,7 @@
 #include "mongo/logger/message_event_utf8_encoder.h"
 #include "mongo/logger/tee.h"
 #include "mongo/stdx/memory.h"
-#include "mongo/util/assert_util.h"  // TODO: remove apple dep for this in threadlocal.h
+#include "mongo/util/assert_util.h"  // TODO: remove apple dep for this in threadlocal.h id:1157
 #include "mongo/util/time_support.h"
 
 namespace mongo {
@@ -116,7 +116,7 @@ LogstreamBuilder::~LogstreamBuilder() {
 
 void LogstreamBuilder::operator<<(Tee* tee) {
     makeStream();  // Adding a Tee counts for purposes of deciding to make a log message.
-    // TODO: dassert(!_tee);
+    // TODO: dassert(!_tee); id:2002
     _tee = tee;
 }
 

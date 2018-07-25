@@ -326,26 +326,26 @@ template<typename T>
 inline T
 js::jit::AtomicOperations::loadSafeWhenRacy(T* addr)
 {
-    return *addr;               // FIXME (1208663): not yet safe
+    return *addr;               // FIXME (1208663): not yet safe id:3346
 }
 
 template<typename T>
 inline void
 js::jit::AtomicOperations::storeSafeWhenRacy(T* addr, T val)
 {
-    *addr = val;                // FIXME (1208663): not yet safe
+    *addr = val;                // FIXME (1208663): not yet safe id:2980
 }
 
 inline void
 js::jit::AtomicOperations::memcpySafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    ::memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe
+    ::memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe id:2080
 }
 
 inline void
 js::jit::AtomicOperations::memmoveSafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    ::memmove(dest, src, nbytes); // FIXME (1208663): not yet safe
+    ::memmove(dest, src, nbytes); // FIXME (1208663): not yet safe id:2691
 }
 
 template<size_t nbytes>
@@ -553,26 +553,26 @@ template<typename T>
 inline T
 js::jit::AtomicOperations::loadSafeWhenRacy(T* addr)
 {
-    return *addr;               // FIXME (1208663): not yet safe
+    return *addr;               // FIXME (1208663): not yet safe id:2358
 }
 
 template<typename T>
 inline void
 js::jit::AtomicOperations::storeSafeWhenRacy(T* addr, T val)
 {
-    *addr = val;                // FIXME (1208663): not yet safe
+    *addr = val;                // FIXME (1208663): not yet safe id:3347
 }
 
 inline void
 js::jit::AtomicOperations::memcpySafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    ::memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe
+    ::memcpy(dest, src, nbytes); // FIXME (1208663): not yet safe id:2981
 }
 
 inline void
 js::jit::AtomicOperations::memmoveSafeWhenRacy(void* dest, const void* src, size_t nbytes)
 {
-    ::memmove(dest, src, nbytes); // FIXME (1208663): not yet safe
+    ::memmove(dest, src, nbytes); // FIXME (1208663): not yet safe id:2083
 }
 
 template<size_t nbytes>

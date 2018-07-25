@@ -36,8 +36,8 @@ namespace mongo {
  * Registers the specified initializer function `init` as the initialization handler for SNMP
  * enterprise modules.
  *
- * NOTE: This function may only be called once.
- * NOTE: This function is not multithread safe.
+ * NOTE: This function may only be called once. id:620
+ * NOTE: This function is not multithread safe. id:488
  */
 void registerSNMPInitializer(stdx::function<void()> init);
 

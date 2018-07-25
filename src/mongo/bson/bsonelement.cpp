@@ -234,7 +234,7 @@ string BSONElement::jsonString(JsonStringFormat format, bool includeFieldNames, 
                     if (d.isFormattable()) {
                         s << "\"" << dateToISOStringLocal(date()) << "\"";
                     } else {
-                        // FIXME: This is not parseable by the shell, since it may not fit in a
+                        // FIXME: This is not parseable by the shell, since it may not fit in a id:312
                         // float
                         s << d.toMillisSinceEpoch();
                     }
@@ -250,7 +250,7 @@ string BSONElement::jsonString(JsonStringFormat format, bool includeFieldNames, 
                 s << "\", \"$options\" : \"" << regexFlags() << "\" }";
             } else {
                 s << "/" << escape(regex(), true) << "/";
-                // FIXME Worry about alpha order?
+                // FIXME Worry about alpha order? id:299
                 for (const char* f = regexFlags(); *f; ++f) {
                     switch (*f) {
                         case 'g':

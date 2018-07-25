@@ -119,7 +119,7 @@ bool isInRange(const BSONObj& obj,
  * Checks if an upsert of a remote document will override a local document with the same _id but in
  * a different range on this shard. Must be in WriteContext to avoid races and DBHelper errors.
  *
- * TODO: Could optimize this check out if sharding on _id.
+ * TODO: Could optimize this check out if sharding on _id. id:730
  */
 bool willOverrideLocalId(OperationContext* opCtx,
                          const NamespaceString& nss,
@@ -355,7 +355,7 @@ Status MigrationDestinationManager::start(OperationContext* opCtx,
     _sessionId = cloneRequest.getSessionId();
     _scopedReceiveChunk = std::move(scopedReceiveChunk);
 
-    // TODO: If we are here, the migrate thread must have completed, otherwise _active above
+    // TODO: If we are here, the migrate thread must have completed, otherwise _active above id:1317
     // would be false, so this would never block. There is no better place with the current
     // implementation where to join the thread.
     if (_migrateThreadHandle.joinable()) {

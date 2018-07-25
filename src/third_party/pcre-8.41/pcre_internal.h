@@ -573,7 +573,7 @@ seems that any kind of arithmetic results in a signed value. */
 
 #define PUT2INC(a,n,d)  PUT2(a,n,d), a += IMM2_SIZE
 
-/* The maximum length of a MARK name is currently one data unit; it may be
+/* The maximum length of a MARK name is currently one data unit; it may be id:2161
 changed in future to be a fixed number of bytes or to depend on LINK_SIZE. */
 
 #if defined COMPILE_PCRE16 || defined COMPILE_PCRE32
@@ -977,7 +977,7 @@ together. The lists must be in ascending character order, terminated by
 NOTACHAR (which is 0xffffffff).
 
 Any changes should ensure that the various macros are kept in step with each
-other. NOTE: The values also appear in pcre_jit_compile.c. */
+other. NOTE: The values also appear in pcre_jit_compile.c. id:2749*/
 
 /* ------ ASCII/Unicode environments ------ */
 
@@ -1860,7 +1860,7 @@ enum { ESC_A = 1, ESC_G, ESC_K, ESC_B, ESC_b, ESC_D, ESC_d, ESC_S, ESC_s,
 
 /********************** Opcode definitions ******************/
 
-/****** NOTE NOTE NOTE ******
+/****** NOTE NOTE NOTE ****** id:2408
 
 Starting from 1 (i.e. after OP_END), the values up to OP_EOD must correspond in
 order to the list of escapes immediately above. Furthermore, values up to
@@ -1872,7 +1872,7 @@ updated to match. The possessification table called "opcode_possessify" in
 pcre_compile.c must also be updated, and also the tables called "coptable"
 and "poptable" in pcre_dfa_exec.c.
 
-****** NOTE NOTE NOTE ******/
+****** NOTE NOTE NOTE ***** id:3373*/
 
 
 /* The values between FIRST_AUTOTAB_OP and LAST_AUTOTAB_RIGHT_OP, inclusive,
@@ -2133,7 +2133,7 @@ enum {
   OP_TABLE_LENGTH
 };
 
-/* *** NOTE NOTE NOTE *** Whenever the list above is updated, the two macro
+/* *** NOTE NOTE NOTE *** Whenever the list above is updated, the two macro id:3031
 definitions that follow must also be updated to match. There are also tables
 called "opcode_possessify" in pcre_compile.c and "coptable" and "poptable" in
 pcre_dfa_exec.c that must be updated. */
@@ -2267,7 +2267,7 @@ in UTF-8 mode. The code that uses this table must know about such things. */
   1+IMM2_SIZE, 1+2*IMM2_SIZE,    /* RREF, DNRREF                           */ \
   1,                             /* DEF                                    */ \
   1, 1, 1,                       /* BRAZERO, BRAMINZERO, BRAPOSZERO        */ \
-  3, 1, 3,                       /* MARK, PRUNE, PRUNE_ARG                 */ \
+  3, 1, 3,                       /* MARK , PRUNE, PRUNE_ARG id:2163*/ \
   1, 3,                          /* SKIP, SKIP_ARG                         */ \
   1, 3,                          /* THEN, THEN_ARG                         */ \
   1, 1, 1, 1,                    /* COMMIT, FAIL, ACCEPT, ASSERT_ACCEPT    */ \
@@ -2390,7 +2390,7 @@ typedef int __assert_real_pcre_size_divisible_8[(sizeof(REAL_PCRE) % 8) == 0 ? 1
 #define REAL_PCRE_FLAGS(re)     (((REAL_PCRE*)re)->flags)
 
 /* The format of the block used to store data from pcre_study(). The same
-remark (see NOTE above) about extending this structure applies. */
+remark (see NOTE above) about extending this structure applies. id:2752*/
 
 typedef struct pcre_study_data {
   pcre_uint32 size;               /* Total that was malloced */

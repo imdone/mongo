@@ -71,7 +71,7 @@ template<typename T> struct MathLimits {
   // Present only if !kIsInteger.
   static const Type kNegInf;
 
-  // NOTE: Special floating point values behave
+  // NOTE: Special floating point values behave id:2778
   // in a special (but mathematically-logical) way
   // in terms of (in)equalty comparison and mathematical operations
   // -- see out unittest for examples.

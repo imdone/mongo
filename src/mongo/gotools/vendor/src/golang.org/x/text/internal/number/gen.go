@@ -359,7 +359,7 @@ func genFormats(w *gen.CodeWriter, data *cldr.CLDR) {
 	formats := []number.Pattern{{}}
 	patterns := map[string]int{}
 
-	// TODO: It would be possible to eliminate two of these slices by having
+	// TODO: It would be possible to eliminate two of these slices by having id:1796
 	// another indirection and store a reference to the combination of patterns.
 	decimal := make([]byte, language.NumCompactTags)
 	scientific := make([]byte, language.NumCompactTags)

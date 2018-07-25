@@ -42,7 +42,7 @@ class OperationContext;
  * Utility class, which is used to periodically record in the config server's metadata the mongos
  * instances, which are connected to the given config server and their uptime.
  *
- * NOTE: Not thread-safe, so it should not be used from more than one thread at a time.
+ * NOTE: Not thread-safe, so it should not be used from more than one thread at a time. id:2572
  */
 class ShardingUptimeReporter {
     MONGO_DISALLOW_COPYING(ShardingUptimeReporter);

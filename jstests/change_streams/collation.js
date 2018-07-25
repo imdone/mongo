@@ -10,7 +10,7 @@
     load("jstests/libs/fixture_helpers.js");           // For 'isMongos'.
 
     if (FixtureHelpers.isMongos(db)) {
-        // TODO: SERVER-33944 Change streams on sharded collection with non-simple default
+        // TODO: SERVER-33944 Change streams on sharded collection with non-simple default id:62
         // collation may be erroneously invalidated if a chunk migration occurs. When this bug is
         // fixed, chunk migrations should be allowed in this test, and we should remove this call
         // to stopBalancer().
@@ -352,7 +352,7 @@
 
     } finally {
         if (FixtureHelpers.isMongos(db)) {
-            // TODO: SERVER-33944 Change streams on sharded collection with non-simple default
+            // TODO: SERVER-33944 Change streams on sharded collection with non-simple default id:78
             // collation may be erroneously invalidated if a chunk migration occurs. When this bug
             // is fixed, chunk migrations should be allowed in this test, and we should remove this
             // call to startBalancer() as well as the earlier call to stopBalancer().

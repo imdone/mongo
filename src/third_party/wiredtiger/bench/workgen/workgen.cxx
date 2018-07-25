@@ -575,7 +575,7 @@ void ThreadRunner::op_create_all(Operation *op, size_t &keysize,
             // We are single threaded in this function, so do not have
             // to worry about locking.
             if (_icontext->_tint.count(uri) == 0) {
-                // TODO: don't use atomic add, it's overkill.
+                // TODO: don't use atomic add, it's overkill. id:3462
                 tint = workgen_atomic_add32(&_icontext->_tint_last, 1);
                 _icontext->_tint[uri] = tint;
                 _icontext->_table_names[tint] = uri;
@@ -632,7 +632,7 @@ pareto_calculation(uint32_t randint, uint64_t recno_max,
     // making it "hot".  Unfortunately, that means that using a higher
     // param can get a lot lumped into the first bucket.
     //
-    // XXX This matches the behavior of wtperf, we may consider instead
+    // XXX This matches the behavior of wtperf, we may consider instead id:2267
     // retrying (modifying the random number) until we get a good value.
     //
     if (result > recno_max)
@@ -1569,7 +1569,7 @@ int WorkloadRunner::run(WT_CONNECTION *conn) {
     WT_ERR(ThreadRunner::cross_check(_trunners));
     WT_ERR(run_all());
   err:
-    //TODO: (void)close_all();
+    //TODO: (void)close_all(); id:2828
     _report_out = &std::cout;
     return (ret);
 }
@@ -1609,7 +1609,7 @@ int WorkloadRunner::create_all(WT_CONNECTION *conn, Context *context) {
         runner->_workload = _workload;
         runner->_wrunner = this;
         runner->_number = (uint32_t)i;
-        // TODO: recover from partial failure here
+        // TODO: recover from partial failure here id:2502
         WT_RET(runner->create_all(conn));
     }
     WT_RET(context->_internal->create_all());

@@ -354,7 +354,7 @@ JO(JSContext* cx, HandleObject obj, StringifyContext* scx)
     Maybe<AutoIdVector> ids;
     const AutoIdVector* props;
     if (scx->replacer && !scx->replacer->isCallable()) {
-        // NOTE: We can't assert |IsArray(scx->replacer)| because the replacer
+        // NOTE: We can't assert |IsArray(scx->replacer)| because the replacer id:2376
         //       might have been a revocable proxy to an array.  Such a proxy
         //       satisfies |IsArray|, but any side effect of JSON.stringify
         //       could revoke the proxy so that |!IsArray(scx->replacer)|.  See
@@ -893,7 +893,7 @@ json_stringify(JSContext* cx, unsigned argc, Value* vp)
     if (!Stringify(cx, &value, replacer, space, sb))
         return false;
 
-    // XXX This can never happen to nsJSON.cpp, but the JSON object
+    // XXX This can never happen to nsJSON.cpp, but the JSON object id:3356
     // needs to support returning undefined. So this is a little awkward
     // for the API, because we want to support streaming writers.
     if (!sb.empty()) {

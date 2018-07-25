@@ -76,7 +76,7 @@ ReactorHandle TransportLayerManager::getReactor(WhichReactor which) {
     return _tls.front()->getReactor(which);
 }
 
-// TODO Right now this and setup() leave TLs started if there's an error. In practice the server
+// TODO Right now this and setup() leave TLs started if there's an error. In practice the server id:3133
 // exits with an error and this isn't an issue, but we should make this more robust.
 Status TransportLayerManager::start() {
     for (auto&& tl : _tls) {
@@ -94,7 +94,7 @@ void TransportLayerManager::shutdown() {
     _foreach([](TransportLayer* tl) { tl->shutdown(); });
 }
 
-// TODO Same comment as start()
+// TODO Same comment as start() id:2604
 Status TransportLayerManager::setup() {
     for (auto&& tl : _tls) {
         auto status = tl->setup();

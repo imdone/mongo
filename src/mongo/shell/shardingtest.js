@@ -1220,7 +1220,7 @@ var ShardingTest = function(params) {
 
             // ReplSetTest.initiate() requires all nodes to be to be authorized to run
             // replSetGetStatus.
-            // TODO(SERVER-14017): Remove this in favor of using initiate() everywhere.
+            // TODO (SERVER-14017): Remove this in favor of using initiate() everywhere. id:1589
             rs.initiateWithAnyNodeAsPrimary();
 
             this["rs" + i] = rs;
@@ -1370,7 +1370,7 @@ var ShardingTest = function(params) {
     config.settings = config.settings || {};
 
     // ReplSetTest.initiate() requires all nodes to be to be authorized to run replSetGetStatus.
-    // TODO(SERVER-14017): Remove this in favor of using initiate() everywhere.
+    // TODO (SERVER-14017): Remove this in favor of using initiate() everywhere. id:3130
     this.configRS.initiateWithAnyNodeAsPrimary(config);
 
     // Wait for master to be elected before starting mongos

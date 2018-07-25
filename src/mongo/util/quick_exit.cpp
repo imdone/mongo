@@ -26,7 +26,7 @@
 *    it in the license file.
 */
 
-// NOTE: This file *must not* depend on any mongo symbols.
+// NOTE: This file *must not* depend on any mongo symbols. id:1640
 
 #include "mongo/platform/basic.h"
 
@@ -39,7 +39,7 @@
 // This will probably get us _exit on non-unistd platforms like Windows.
 #include <cstdlib>
 
-// NOTE: Header only dependencies are OK in this library.
+// NOTE: Header only dependencies are OK in this library. id:3152
 #include "mongo/stdx/mutex.h"
 
 #if !defined(__has_feature)

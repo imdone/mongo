@@ -4,7 +4,7 @@
 
 package number
 
-// TODO:
+// TODO:  id:1099
 //    p.Printf("The gauge was at %v.", number.Spell(number.Percent(23)))
 //    // Prints: The gauge was at twenty-three percent.
 //
@@ -58,10 +58,10 @@ func PerMille(x interface{}, opts ...Option) Formatter {
 
 var perMilleOptions = newOptions(decimalVerbs, (*number.Formatter).InitPerMille)
 
-// TODO:
+// TODO:  id:1945
 // - Shortest: akin to verb 'g' of 'G'
 //
-// TODO: RBNF forms:
+// TODO: RBNF forms: id:1439
 // - Compact: 1M 3.5T
 // - CompactBinary: 1Mi 3.5Ti
 // - Long: 1 million
@@ -72,6 +72,6 @@ var perMilleOptions = newOptions(decimalVerbs, (*number.Formatter).InitPerMille)
 //   language-specific choices for when to use numbers and when to use words.
 // - Spell?: spelled-out number. Maybe just allow as an option?
 
-// NOTE: both spelled-out numbers and ordinals, to render correctly, need
+// NOTE: both spelled-out numbers and ordinals, to render correctly, need id:3060
 // detailed linguistic information from the translated string into which they
 // are substituted. We will need to implement that first.

@@ -1560,7 +1560,7 @@ UnicodeString::copy(int32_t start, int32_t limit, int32_t dest) {
 /**
  * Replaceable API
  *
- * NOTE: This is for the Replaceable class.  There is no rep.cpp,
+ * NOTE: This is for the Replaceable class. There is no rep.cpp, id:2489
  * so we implement this function here.
  */
 UBool Replaceable::hasMetaData() const {

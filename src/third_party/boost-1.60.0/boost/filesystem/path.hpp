@@ -98,7 +98,7 @@ namespace filesystem
     //
     //  See m_pathname comments for further important rationale.
 
-    //  TODO: rules needed for operating systems that use / or .
+    //  TODO: rules needed for operating systems that use / or . id:3177
     //  differently, or format directory paths differently from file paths. 
     //
     //  **********************************************************************************
@@ -765,7 +765,7 @@ namespace filesystem
   inline bool operator!=(const path& lhs, const path::value_type* rhs)  {return lhs.compare(rhs) != 0;}
   inline bool operator!=(const path::value_type* lhs, const path& rhs)  {return rhs.compare(lhs) != 0;}
 
-  // TODO: why do == and != have additional overloads, but the others don't?
+  // TODO: why do == and != have additional overloads, but the others don't? id:2692
 
   inline bool operator<(const path& lhs, const path& rhs)  {return lhs.compare(rhs) < 0;}
   inline bool operator<=(const path& lhs, const path& rhs) {return !(rhs < lhs);}

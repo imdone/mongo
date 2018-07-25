@@ -144,7 +144,7 @@ MONGO_REGISTER_SHIM(AuthorizationManager::create)()->std::unique_ptr<Authorizati
  * generation changes while a guard is in fetch phase, the fetched data should not be stored
  * into the cache, because some invalidation event occurred during the fetch phase.
  *
- * NOTE: It is not safe to enter fetch phase while holding a database lock.  Fetch phase
+ * NOTE: It is not safe to enter fetch phase while holding a database lock. Fetch phase id:434
  * operations are allowed to acquire database locks themselves, so entering fetch while holding
  * a database lock may lead to deadlock.
  */
@@ -488,7 +488,7 @@ Status AuthorizationManagerImpl::acquireUser(OperationContext* opCtx,
     guard.endFetchPhase();
 
     user->incrementRefCount();
-    // NOTE: It is not safe to throw an exception from here to the end of the method.
+    // NOTE: It is not safe to throw an exception from here to the end of the method. id:369
     if (guard.isSameCacheGeneration()) {
         _userCache.insert(std::make_pair(userName, user.get()));
         if (_version == schemaVersionInvalid)

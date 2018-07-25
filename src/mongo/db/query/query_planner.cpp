@@ -315,7 +315,7 @@ StatusWith<std::unique_ptr<PlanCacheIndexTree>> QueryPlanner::cacheDataFromTagge
         // check that the index is OK with the predicate. The only thing we have to do
         // this for is 2d.  For now it's easier to move ahead if we don't cache 2d.
         //
-        // TODO: revisit with a post-cached-index-assignment compatibility check
+        // TODO: revisit with a post-cached-index-assignment compatibility check id:756
         if (is2DIndex(relevantIndices[itag->index].keyPattern)) {
             return Status(ErrorCodes::BadValue, "can't cache '2d' index");
         }
@@ -480,7 +480,7 @@ StatusWith<std::unique_ptr<QuerySolution>> QueryPlanner::planFromCache(
            << redact(winnerCacheData.toString());
 
     // Map from index name to index number.
-    // TODO: can we assume that the index numbering has the same lifetime
+    // TODO: can we assume that the index numbering has the same lifetime id:579
     // as the cache state?
     map<StringData, size_t> indexMap;
     for (size_t i = 0; i < params.indices.size(); ++i) {
@@ -872,7 +872,7 @@ StatusWith<std::vector<std::unique_ptr<QuerySolution>>> QueryPlanner::plan(
     LOG(5) << "Planner: outputted " << out.size() << " indexed solutions.";
 
     // Produce legible error message for failed OR planning with a TEXT child.
-    // TODO: support collection scan for non-TEXT children of OR.
+    // TODO: support collection scan for non-TEXT children of OR. id:1218
     if (out.size() == 0 && textNode != NULL && MatchExpression::OR == query.root()->matchType()) {
         MatchExpression* root = query.root();
         for (size_t i = 0; i < root->numChildren(); ++i) {
@@ -924,7 +924,7 @@ StatusWith<std::vector<std::unique_ptr<QuerySolution>>> QueryPlanner::plan(
                 // Only regular (non-plugin) indexes can be used to provide a sort, and only
                 // non-sparse indexes can be used to provide a sort.
                 //
-                // TODO: Sparse indexes can't normally provide a sort, because non-indexed
+                // TODO: Sparse indexes can't normally provide a sort, because non-indexed id:546
                 // documents could potentially be missing from the result set.  However, if the
                 // query predicate can be used to guarantee that all documents to be returned
                 // are indexed, then the index should be able to provide the sort.

@@ -432,7 +432,7 @@ JitRuntime::generateArgumentsRectifier(JSContext* cx, void** returnAddrOut)
 
     masm.moveValue(UndefinedValue(), ebx, edi);
 
-    // NOTE: The fact that x86 ArgumentsRectifier saves the FramePointer is relied upon
+    // NOTE: The fact that x86 ArgumentsRectifier saves the FramePointer is relied upon id:2697
     // by the baseline bailout code.  If this changes, fix that code!  See
     // BaselineJIT.cpp/BaselineStackBuilder::calculatePrevFramePtr, and
     // BaselineJIT.cpp/InitFromBailout.  Check for the |#if defined(JS_CODEGEN_X86)| portions.

@@ -400,7 +400,7 @@ private:
      * Also return the difference between the input skeleton
      * and the best match skeleton.
      *
-     * TODO (xji): set field weight or
+     * TODO (xji): set field weight or id:1838
      *             isolate the funtionality in DateTimePatternGenerator
      * @param  skeleton               input skeleton
      * @param  bestMatchDistanceInfo  the difference between input skeleton
@@ -431,7 +431,7 @@ private:
     /**
      * Check whether one field width is numeric while the other is string.
      *
-     * TODO (xji): make it general
+     * TODO (xji): make it general id:2591
      *
      * @param fieldWidth          one field width
      * @param anotherFieldWidth   another field width

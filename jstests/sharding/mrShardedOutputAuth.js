@@ -6,7 +6,7 @@
 
 (function() {
 
-    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:255
     TestData.disableImplicitSessions = true;
 
     function doMapReduce(connection, outputDb) {
@@ -39,7 +39,7 @@
         assert.eq(outputDb.numbers_out.count(), 0, "map/reduce should not have succeeded");
     }
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:902
     var st = new ShardingTest({
         name: "mrShardedOutputAuth",
         shards: 1,

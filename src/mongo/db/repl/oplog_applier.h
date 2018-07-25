@@ -174,7 +174,7 @@ public:
      * to at least the last optime of the batch. If 'minValid' is already greater than or equal
      * to the last optime of this batch, it will not be updated.
      *
-     * TODO: remove when enqueue() is implemented.
+     * TODO: remove when enqueue() is implemented. id:610
      */
     StatusWith<OpTime> multiApply(OperationContext* opCtx, Operations ops);
 
@@ -236,7 +236,7 @@ public:
      * apply an update operation.
      * Applies to initial sync only.
      *
-     * TODO: Delegate fetching behavior to OplogApplier owner.
+     * TODO: Delegate fetching behavior to OplogApplier owner. id:1846
      */
     using FetchInfo = std::pair<OplogEntry, BSONObj>;
     virtual void onMissingDocumentsFetchedAndInserted(

@@ -966,7 +966,7 @@ TEST_F(CollectionClonerTest, InsertDocumentsSingleBatch) {
     }
 
     collectionCloner->join();
-    // TODO: record the documents during insert and compare them
+    // TODO: record the documents during insert and compare them id:1237
     //       -- maybe better done using a real storage engine, like ephemeral for test.
     ASSERT_EQUALS(1, collectionStats.insertCount);
     ASSERT_TRUE(collectionStats.commitCalled);
@@ -1006,7 +1006,7 @@ TEST_F(CollectionClonerTest, InsertDocumentsMultipleBatches) {
     }
 
     collectionCloner->waitForDbWorker();
-    // TODO: record the documents during insert and compare them
+    // TODO: record the documents during insert and compare them id:561
     //       -- maybe better done using a real storage engine, like ephemeral for test.
     ASSERT_EQUALS(1, collectionStats.insertCount);
 
@@ -1020,7 +1020,7 @@ TEST_F(CollectionClonerTest, InsertDocumentsMultipleBatches) {
     }
 
     collectionCloner->join();
-    // TODO: record the documents during insert and compare them
+    // TODO: record the documents during insert and compare them id:1833
     //       -- maybe better done using a real storage engine, like ephemeral for test.
     ASSERT_EQUALS(2, collectionStats.insertCount);
     ASSERT_TRUE(collectionStats.commitCalled);

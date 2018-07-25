@@ -42,7 +42,7 @@ func jdec(data []byte, value interface{}) error {
 var jsonExt json.Extension
 var funcExt json.Extension
 
-// TODO
+// TODO  id:1375
 // - Shell regular expressions ("/regexp/opts")
 
 func init() {
@@ -264,11 +264,11 @@ func jencObjectId(v interface{}) ([]byte, error) {
 }
 
 func jdecDBRef(data []byte) (interface{}, error) {
-	// TODO Support unmarshaling $ref and $id into the input value.
+	// TODO Support unmarshaling $ref and $id into the input value. id:1140
 	var v struct {
 		Obj map[string]interface{} `json:"$dbrefFunc"`
 	}
-	// TODO Fix this. Must not be required.
+	// TODO Fix this. Must not be required. id:1987
 	v.Obj = make(map[string]interface{})
 	err := jdec(data, &v)
 	if err != nil {

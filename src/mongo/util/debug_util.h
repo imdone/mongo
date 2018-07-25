@@ -43,7 +43,7 @@ const bool kDebugBuild = false;
 #define DEV MONGO_DEV
 
 // The following declare one unique counter per enclosing function.
-// NOTE The implementation double-increments on a match, but we don't really care.
+// NOTE The implementation double-increments on a match, but we don't really care. id:1377
 #define MONGO_SOMETIMES(occasion, howOften) \
     for (static unsigned occasion = 0; ++occasion % howOften == 0;)
 #define SOMETIMES MONGO_SOMETIMES

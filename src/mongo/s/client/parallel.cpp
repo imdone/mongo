@@ -124,7 +124,7 @@ struct ParallelConnectionMetadata {
 /**
  * Helper class to manage ownership of opened cursors while merging results.
  *
- * TODO:  Choose one set of ownership semantics so that this isn't needed - merge sort via mapreduce
+ * TODO: Choose one set of ownership semantics so that this isn't needed - merge sort via mapreduce id:1196
  * is the main issue since it has no metadata and this holder owns the cursors.
  */
 class DBClientCursorHolder {
@@ -217,7 +217,7 @@ void ParallelSortClusteredCursor::init(OperationContext* opCtx) {
         fullInit(opCtx);
     } else {
         // You can only get here by using the legacy constructor
-        // TODO: Eliminate this
+        // TODO: Eliminate this id:2100
         _oldInit();
     }
 }
@@ -535,7 +535,7 @@ void ParallelSortClusteredCursor::startInit(OperationContext* opCtx) {
             if (!state->cursor) {
                 //
                 // Here we decide whether to split the query limits up for multiple shards.
-                // NOTE: There's a subtle issue here, in that it's possible we target a single
+                // NOTE: There's a subtle issue here, in that it's possible we target a single id:1513
                 // shard first, but are stale, and then target multiple shards, or vice-versa.
                 // In both these cases, we won't re-use the old cursor created here, since the
                 // shard version must have changed on the single shard between queries.
@@ -749,7 +749,7 @@ void ParallelSortClusteredCursor::finishInit(OperationContext* opCtx) {
                 mdata.completed = true;
 
                 // Make sure we didn't get an error we should rethrow
-                // TODO : Refactor this to something better
+                // TODO : Refactor this to something better id:3105
                 throwCursorStale(state->cursor.get());
                 throwCursorError(state->cursor.get());
 
@@ -780,7 +780,7 @@ void ParallelSortClusteredCursor::finishInit(OperationContext* opCtx) {
             }
             throw;
         } catch (DBException& e) {
-            // NOTE: RECV() WILL NOT THROW A SOCKET EXCEPTION - WE GET THIS AS ERROR 15988 FROM
+            // NOTE: RECV() WILL NOT THROW A SOCKET EXCEPTION - WE GET THIS AS ERROR 15988 FROM id:2531
             // ABOVE
             if (e.code() == 15988) {
                 warning() << "exception when receiving data from " << shardId
@@ -869,7 +869,7 @@ void ParallelSortClusteredCursor::finishInit(OperationContext* opCtx) {
         verify(mdata.pcState->primary || mdata.pcState->manager);
     }
 
-    // TODO : More cleanup of metadata?
+    // TODO : More cleanup of metadata? id:1202
 
     // LEGACY STUFF NOW
 
@@ -1030,7 +1030,7 @@ void ParallelSortClusteredCursor::_oldInit() {
 
         // Go through all the potentially started cursors and finish initializing them or log any
         // errors and potentially retry
-        // TODO:  Better error classification would make this easier, errors are indicated in all
+        // TODO: Better error classification would make this easier, errors are indicated in all id:2103
         // sorts of ways here that we need to trap.
         for (size_t i = 0; i < num; i++) {
             const string errLoc = " @ " + serverHosts[i];
@@ -1340,7 +1340,7 @@ void throwCursorStale(DBClientCursor* cursor) {
         // with the stale config error code, but don't set the ShardConfigStale result flag on the
         // cursor.
         //
-        // TODO: Standardize stale config reporting.
+        // TODO: Standardize stale config reporting. id:1516
         BSONObj res = cursor->peekFirst();
         auto status = getStatusFromCommandResult(res);
         if (status == ErrorCodes::StaleConfig) {

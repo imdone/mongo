@@ -247,7 +247,7 @@ struct RelDateTimeFmtDataSink : public ResourceTableSink {
                 return UDAT_ABSOLUTE_WEEK;
             case MONTH:
                 return UDAT_ABSOLUTE_MONTH;
-            /* TODO: Add in QUARTER
+            /* TODO: Add in QUARTER id:3284
              *  case QUARTER:
              * return UDAT_ABSOLUTE_QUARTER;
              */
@@ -424,7 +424,7 @@ struct RelDateTimeFmtDataSink : public ResourceTableSink {
                 return;  // Not interesting.
             }
 
-            // TODO(Travis Keep): This is a hack to get around CLDR bug 6818.
+            // TODO (Travis Keep): This is a hack to get around CLDR bug 6818. id:2894
             UnicodeString displayName = value.getUnicodeString(errorCode);
             if (U_SUCCESS(errorCode)) {
                 if (uprv_strcmp("en", outer.sinkLocaleId) == 0) {
@@ -457,7 +457,7 @@ struct RelDateTimeFmtDataSink : public ResourceTableSink {
     } unitSink;
 
     // For hack for locale "en".
-    // TODO(Travis Keep): This is a hack to get around CLDR bug 6818.
+    // TODO (Travis Keep): This is a hack to get around CLDR bug 6818. id:1814
     const char* sinkLocaleId;
 
     // Values kept between levels of parsing the CLDR data.
@@ -562,7 +562,7 @@ struct RelDateTimeFmtDataSink : public ResourceTableSink {
                 break;
             case 7:
                 if (uprv_strncmp(keyword, "quarter", length) == 0) {
-                    return QUARTER;  // TODO: Check @provisional
+                    return QUARTER;  // TODO: Check @provisional id:2567
                   }
                 break;
             default:
@@ -872,7 +872,7 @@ UnicodeString& RelativeDateTimeFormatter::format(
     const SimpleFormatter* formatter =
         fCache->getRelativeUnitFormatter(fStyle, unit, bFuture, pluralIndex);
     if (formatter == NULL) {
-        // TODO: WARN - look at quantity formatter's action with an error.
+        // TODO: WARN - look at quantity formatter's action with an error. id:2069
         status = U_INVALID_FORMAT_ERROR;
         return appendTo;
     }
@@ -887,7 +887,7 @@ UnicodeString& RelativeDateTimeFormatter::formatNumeric(
     if (U_FAILURE(status)) {
         return appendTo;
     }
-    // TODO:
+    // TODO:  id:3285
     // The full implementation of this depends on CLDR data that is not yet available,
     // see: http://unicode.org/cldr/trac/ticket/9165 Add more relative field data.
     // In the meantime do a quick bring-up by calling the old format method; this
@@ -942,7 +942,7 @@ UnicodeString& RelativeDateTimeFormatter::format(
     if (U_FAILURE(status)) {
         return appendTo;
     }
-    // TODO:
+    // TODO:  id:2895
     // The full implementation of this depends on CLDR data that is not yet available,
     // see: http://unicode.org/cldr/trac/ticket/9165 Add more relative field data.
     // In the meantime do a quick bring-up by calling the old format method; this

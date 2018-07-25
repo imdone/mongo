@@ -84,7 +84,7 @@ __wt_cache_pool_config(WT_SESSION_IMPL *session, const char **cfg)
 			    "in the configuration");
 
 		/*
-		 * NOTE: The allocations made when configuring and opening a
+		 * NOTE: The allocations made when configuring and opening a id:2513
 		 * cache pool don't really belong to the connection that
 		 * allocates them. If a memory allocator becomes connection
 		 * specific in the future we will need a way to allocate memory
@@ -737,7 +737,7 @@ __cache_pool_adjust(WT_SESSION_IMPL *session,
 			    grow ? "" : "-", adjustment, entry->home);
 
 			/*
-			 * TODO: Add a loop waiting for connection to give up
+			 * TODO: Add a loop waiting for connection to give up id:3423
 			 * cache.
 			 */
 		}

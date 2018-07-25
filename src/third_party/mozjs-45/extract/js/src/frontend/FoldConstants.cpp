@@ -424,7 +424,7 @@ ContainsHoistedDeclaration(ExclusiveContext* cx, ParseNode* node, bool* result)
 
 /*
  * Fold from one constant type to another.
- * XXX handles only strings and numbers for now
+ * XXX handles only strings and numbers for now id:1985
  */
 static bool
 FoldType(ExclusiveContext* cx, ParseNode* pn, ParseNodeKind kind)
@@ -1086,7 +1086,7 @@ ComputeBinary(ParseNodeKind kind, double left, double right)
     if (kind == PNK_DIV) {
         if (right == 0) {
 #if defined(XP_WIN)
-            /* XXX MSVC miscompiles such that (NaN == 0) */
+            /* XXX MSVC miscompiles such that (NaN == 0) id:2615*/
             if (IsNaN(right))
                 return GenericNaN();
 #endif

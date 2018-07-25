@@ -127,7 +127,7 @@ std::string StringPrintFImp(const char* msg, va_list args) {
   va_list args_cp;
   va_copy(args_cp, args);
 
-  // TODO(ericwf): use std::array for first attempt to avoid one memory
+  // TODO (ericwf): use for first attempt to avoid one memory std::array id:1436
   // allocation guess what the size might be
   std::array<char, 256> local_buff;
   std::size_t size = local_buff.size();

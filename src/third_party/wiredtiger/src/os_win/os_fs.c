@@ -505,7 +505,7 @@ __win_open_file(WT_FILE_SYSTEM *file_system, WT_SESSION *wt_session,
 	 * The application may spawn a new process, and we don't want another
 	 * process to have access to our file handles.
 	 *
-	 * TODO: Set tighter file permissions but set bInheritHandle to false
+	 * TODO: Set tighter file permissions but set bInheritHandle to false id:2525
 	 * to prevent inheritance
 	 */
 	f = FILE_ATTRIBUTE_NORMAL;

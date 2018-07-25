@@ -20,7 +20,7 @@ var $config = (function() {
             var res = db[collName].insert(doc);
             assertAlways.writeOK(res);
             assertAlways.eq(1, res.nInserted, tojson(res));
-            // TODO: what else can we assert? should that go in a read test?
+            // TODO: what else can we assert? should that go in a read test? id:769
 
             // Searching for the text we inserted should return at least one doc.
             // It might also return docs inserted by other threads, but it should always return

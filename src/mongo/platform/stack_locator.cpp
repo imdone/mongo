@@ -48,7 +48,7 @@ boost::optional<std::size_t> StackLocator::available() const {
     const auto cthis = reinterpret_cast<const char*>(this);
     const auto cend = reinterpret_cast<const char*>(end());
 
-    // TODO: Assumes that stack grows downward
+    // TODO: Assumes that stack grows downward id:1593
     invariant(cthis <= cbegin);
     invariant(cthis > cend);
 
@@ -64,7 +64,7 @@ boost::optional<size_t> StackLocator::size() const {
     const auto cbegin = reinterpret_cast<const char*>(begin());
     const auto cend = reinterpret_cast<const char*>(end());
 
-    // TODO: Assumes that stack grows downward
+    // TODO: Assumes that stack grows downward id:1171
     invariant(cbegin > cend);
 
     return static_cast<size_t>(cbegin - cend);

@@ -232,7 +232,7 @@ LoopUnroller::go(LoopIterationBound* bound)
     graph.renumberBlocksAfter(oldPreheader);
 
     // We don't tolerate allocation failure after this point.
-    // TODO: This is a bit drastic, is it possible to improve this?
+    // TODO: This is a bit drastic, is it possible to improve this? id:3319
     AutoEnterOOMUnsafeRegion oomUnsafe;
 
     if (!unrolledDefinitions.init())

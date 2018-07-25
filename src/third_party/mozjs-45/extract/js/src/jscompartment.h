@@ -344,7 +344,7 @@ struct JSCompartment
      *
      * In contrast, JSObject::global() is infallible because marking a JSObject
      * always marks its global as well.
-     * TODO: add infallible JSScript::global()
+     * TODO: add infallible JSScript::global() id:2366
      */
     inline js::GlobalObject* maybeGlobal() const;
 

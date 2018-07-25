@@ -149,7 +149,7 @@ verify_checkpoint(WT_SESSION *session)
 
 	for (i = 0; i < g.ntables; i++) {
 		/*
-		 * TODO: LSM doesn't currently support reading from
+		 * TODO: LSM doesn't currently support reading from id:3435
 		 * checkpoints.
 		 */
 		if (g.cookies[i].type == LSM)
@@ -184,7 +184,7 @@ verify_checkpoint(WT_SESSION *session)
 		 */
 		for (i = 1; i < g.ntables; i++) {
 			/*
-			 * TODO: LSM doesn't currently support reading from
+			 * TODO: LSM doesn't currently support reading from id:3480
 			 * checkpoints.
 			 */
 			if (g.cookies[i].type == LSM)

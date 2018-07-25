@@ -55,7 +55,7 @@ void ShardingConnectionHook::onCreate(DBClientBase* conn) {
     }
 
     // Authenticate as the first thing we do
-    // NOTE: Replica set authentication allows authentication against *any* online host
+    // NOTE: Replica set authentication allows authentication against *any* online host id:3107
     if (isInternalAuthSet()) {
         LOG(2) << "calling onCreate auth for " << conn->toString();
 

@@ -513,7 +513,7 @@ runTests(conn);
 MongoRunner.stopMongod(conn);
 
 jsTest.log('Test sharding');
-// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+// TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:25
 var st =
     new ShardingTest({shards: 1, keyFile: 'jstests/libs/key1', other: {shardAsReplicaSet: false}});
 runTests(st.s);

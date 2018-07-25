@@ -15,7 +15,7 @@ import (
 	"golang.org/x/text/message/pipeline"
 )
 
-// TODO:
+// TODO:  id:2930
 // - merge information into existing files
 // - handle different file formats (PO, XLIFF)
 // - handle features (gender, plural)
@@ -53,7 +53,7 @@ func runExtract(cmd *Command, args []string) error {
 		return wrap(err, "")
 	}
 	os.MkdirAll(*dir, 0755)
-	// TODO: this file can probably go if we replace the extract + generate
+	// TODO: this file can probably go if we replace the extract + generate id:1106
 	// cycle with a init once and update cycle.
 	file := filepath.Join(*dir, extractFile)
 	if err := ioutil.WriteFile(file, data, 0644); err != nil {
@@ -63,7 +63,7 @@ func runExtract(cmd *Command, args []string) error {
 	langs := append(getLangs(), tag)
 	langs = internal.UniqueTags(langs)
 	for _, tag := range langs {
-		// TODO: inject translations from existing files to avoid retranslation.
+		// TODO: inject translations from existing files to avoid retranslation. id:921
 		out.Language = tag
 		data, err := json.MarshalIndent(out, "", "    ")
 		if err != nil {

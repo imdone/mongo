@@ -132,7 +132,7 @@ Status GeoExpression::parseFrom(const BSONObj& obj) {
     }
 
     // $geoIntersect queries are hardcoded to *always* be in SPHERE CRS
-    // TODO: This is probably bad semantics, should not do this
+    // TODO: This is probably bad semantics, should not do this id:489
     if (GeoExpression::INTERSECT == predicate) {
         if (!geoContainer->supportsProject(SPHERE)) {
             return Status(ErrorCodes::BadValue,

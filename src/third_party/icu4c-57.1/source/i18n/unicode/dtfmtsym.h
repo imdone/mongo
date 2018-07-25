@@ -82,7 +82,7 @@ public:
      * Construct a DateFormatSymbols object by loading format data from
      * resources for the default locale, in the default calendar (Gregorian).
      * <P>
-     * NOTE: This constructor will never fail; if it cannot get resource
+     * NOTE: This constructor will never fail; if it cannot get resource id:2192
      * data for the default locale, it will return a last-resort object
      * based on hard-coded strings.
      *
@@ -111,7 +111,7 @@ public:
      * Construct a DateFormatSymbols object by loading format data from
      * resources for the default locale, in the default calendar (Gregorian).
      * <P>
-     * NOTE: This constructor will never fail; if it cannot get resource
+     * NOTE: This constructor will never fail; if it cannot get resource id:3296
      * data for the default locale, it will return a last-resort object
      * based on hard-coded strings.
      *

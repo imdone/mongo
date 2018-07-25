@@ -8,11 +8,11 @@
 //
 // See http://www.unicode.org/reports/tr9.
 //
-// NOTE: UNDER CONSTRUCTION. This API may change in backwards incompatible ways
+// NOTE: UNDER CONSTRUCTION. This API may change in backwards incompatible ways id:3078
 // and without notice.
 package bidi // import "golang.org/x/text/unicode/bidi"
 
-// TODO:
+// TODO:  id:1351
 // The following functionality would not be hard to implement, but hinges on
 // the definition of a Segmenter interface. For now this is up to the user.
 // - Iterate over paragraphs
@@ -146,7 +146,7 @@ func (o *Ordering) Run(i int) Run {
 	panic("unimplemented")
 }
 
-// TODO: perhaps with options.
+// TODO: perhaps with options. id:1119
 // // Reorder creates a reader that reads the runes in visual order per character.
 // // Modifiers remain after the runes they modify.
 // func (l *Runs) Reorder() io.Reader {
@@ -167,7 +167,7 @@ func (r *Run) Bytes() []byte {
 	panic("unimplemented")
 }
 
-// TODO: methods for
+// TODO: methods for id:1970
 // - Display order
 // - headers and footers
 // - bracket replacement.

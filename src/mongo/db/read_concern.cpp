@@ -220,7 +220,7 @@ Status waitForReadConcern(OperationContext* opCtx,
     // Currently speculative read concern is used only for transactions. However, speculative read
     // concern is not yet supported with atClusterTime.
     //
-    // TODO SERVER-34620: Re-enable speculative behavior when "atClusterTime" is specified.
+    // TODO SERVER-34620: Re-enable speculative behavior when "atClusterTime" is specified. id:770
     const bool speculative =
         session && session->inMultiDocumentTransaction() && !readConcernArgs.getArgsAtClusterTime();
 
@@ -314,7 +314,7 @@ Status waitForReadConcern(OperationContext* opCtx,
     }
 
     if (atClusterTime) {
-        // TODO(SERVER-34620): We should be using Session::setSpeculativeTransactionReadOpTime when
+        // TODO (SERVER-34620): We should be using when Session::setSpeculativeTransactionReadOpTime id:589
         // doing speculative execution with atClusterTime.
         opCtx->recoveryUnit()->setTimestampReadSource(RecoveryUnit::ReadSource::kProvided,
                                                       atClusterTime->asTimestamp());

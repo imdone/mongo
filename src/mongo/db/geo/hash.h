@@ -80,22 +80,22 @@ public:
     bool getBitX(unsigned pos) const;
     bool getBitY(unsigned pos) const;
 
-    // XXX: what does this really do?
+    // XXX: what does this really do? id:1361
     BSONObj wrap(const char* name = "") const;
 
-    // XXX what does this do
+    // XXX what does this do id:606
     bool constrains() const;
     bool canRefine() const;
 
-    // XXX comment better
+    // XXX comment better id:478
     bool atMinX() const;
     bool atMinY() const;
 
-    // XXX comment better
+    // XXX comment better id:810
     bool atMaxX() const;
     bool atMaxY() const;
 
-    // XXX: what does this do
+    // XXX: what does this do id:477
     void move(int x, int y);
 
     GeoHash& operator=(const GeoHash& h);
@@ -144,10 +144,10 @@ private:
     // Create a hash from the provided string.  Used by the std::string and char* cons.
     void initFromString(const char* s);
     /* Keep the upper _bits*2 bits of _hash, clear the lower bits.
-     * Maybe there's junk in there?  XXX Not sure why this is done.
+     * Maybe there's junk in there?  XXX Not sure why this is done. id:1365
      */
     void clearUnusedBits();
-    // XXX: what does this do
+    // XXX: what does this do id:609
     void _move(unsigned offset, int d);
 
     long long _hash;
@@ -221,7 +221,7 @@ public:
     GeoHash hash(const BSONElement& e) const;
     GeoHash hash(const BSONObj& o) const;
     // src is printed out as debugging information.  I'm not sure if it's actually
-    // somehow the 'source' of o?  Anyway, this is nasty, very nasty.  XXX
+    // somehow the 'source' of o?  Anyway, this is nasty, very nasty.  XXX  id:480
     GeoHash hash(const BSONObj& o, const BSONObj* src) const;
     GeoHash hash(double x, double y) const;
 
@@ -232,7 +232,7 @@ public:
      * Box
      * BSONObj
      */
-    // XXX: these should have consistent naming
+    // XXX: these should have consistent naming id:815
     Point unhashToPoint(const GeoHash& h) const;
     Point unhashToPoint(const BSONElement& e) const;
     BSONObj unhashToBSONObj(const GeoHash& h) const;

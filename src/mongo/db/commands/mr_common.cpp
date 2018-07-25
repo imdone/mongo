@@ -131,7 +131,7 @@ void addPrivilegesRequiredForMapReduce(const BasicCommand* commandTemplate,
                                           << outputResource.ns().ns(),
                 outputResource.ns().isValid());
 
-        // TODO: check if outputNs exists and add createCollection privilege if not
+        // TODO: check if outputNs exists and add createCollection privilege if not id:407
         out->push_back(Privilege(outputResource, outputActions));
     }
 }

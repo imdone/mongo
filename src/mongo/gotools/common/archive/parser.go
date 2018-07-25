@@ -89,7 +89,7 @@ func (parse *Parser) readBSONOrTerminator() (isTerminator bool, err error) {
 	if size < minBSONSize || size > db.MaxBSONSize {
 		return false, newParserError(fmt.Sprintf("%v is neither a valid bson length nor a archive terminator", size))
 	}
-	// TODO Because we're reusing this same buffer for all of our IO, we are basically guaranteeing that we'll
+	// TODO Because we're reusing this same buffer for all of our IO, we are basically guaranteeing that we'll id:1569
 	// copy the bytes twice.  At some point we should fix this. It's slightly complex, because we'll need consumer
 	// methods closing one buffer and acquiring another
 	_, err = io.ReadFull(parse.In, parse.buf[4:size])

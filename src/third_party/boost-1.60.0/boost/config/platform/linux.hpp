@@ -33,7 +33,7 @@
 #if defined(__LIBCOMO__)
    //
    // como on linux doesn't have std:: c functions:
-   // NOTE: versions of libcomo prior to beta28 have octal version numbering,
+   // NOTE: versions of libcomo prior to beta28 have octal version numbering, id:2291
    // e.g. version 25 is 21 (dec)
    //
 #  if __LIBCOMO_VERSION__ <= 20

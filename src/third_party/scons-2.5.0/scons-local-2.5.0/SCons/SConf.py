@@ -836,22 +836,22 @@ class CheckContext(object):
 
     def BuildProg(self, text, ext):
         self.sconf.cached = 1
-        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc.
+        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc. id:2444
         return not self.TryBuild(self.env.Program, text, ext)
 
     def CompileProg(self, text, ext):
         self.sconf.cached = 1
-        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc.
+        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc. id:3393
         return not self.TryBuild(self.env.Object, text, ext)
 
     def CompileSharedObject(self, text, ext):
         self.sconf.cached = 1
-        # TODO: should use self.vardict for $SHCC, $CPPFLAGS, etc.
+        # TODO: should use self.vardict for $SHCC, $CPPFLAGS, etc. id:3071
         return not self.TryBuild(self.env.SharedObject, text, ext)
 
     def RunProg(self, text, ext):
         self.sconf.cached = 1
-        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc.
+        # TODO: should use self.vardict for $CC, $CPPFLAGS, etc. id:2202
         st, out = self.TryRun(text, ext)
         return not st, out
 
@@ -1011,7 +1011,7 @@ def CheckLib(context, library = None, symbol = "main",
     context.did_show_result = 1
     return not res
 
-# XXX
+# XXX  id:2792
 # Bram: Can only include one header and can't use #ifdef HAVE_HEADER_H.
 
 def CheckLibWithHeader(context, libs, header, language,

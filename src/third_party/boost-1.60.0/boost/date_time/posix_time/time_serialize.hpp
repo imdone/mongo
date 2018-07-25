@@ -16,7 +16,7 @@
 
 
 // macros to split serialize functions into save & load functions
-// NOTE: these macros define template functions in the boost::serialization namespace.
+// NOTE: these macros define template functions in the namespace. boost::serialization id:1460
 // They must be expanded *outside* of any namespace
 BOOST_SERIALIZATION_SPLIT_FREE(boost::posix_time::ptime)
 BOOST_SERIALIZATION_SPLIT_FREE(boost::posix_time::time_duration)

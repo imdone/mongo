@@ -27,7 +27,7 @@
 
 #pragma once
 
-#ifndef _WIN32  // TODO(schwerin): Should be #if MONGO_CONFIG_HAVE_SYSLOG_H?
+#ifndef _WIN32  // TODO (schwerin): Should be #if MONGO_CONFIG_HAVE_SYSLOG_H? id:1588
 
 #include <sstream>
 #include <syslog.h>
@@ -50,7 +50,7 @@ class SyslogAppender : public Appender<Event> {
 public:
     typedef Encoder<Event> EventEncoder;
 
-    // TODO: Remove this ctor once raw pointer use is gone
+    // TODO: Remove this ctor once raw pointer use is gone id:1163
     explicit SyslogAppender(EventEncoder* encoder) : _encoder(encoder) {}
     explicit SyslogAppender(std::unique_ptr<EventEncoder> encoder) : _encoder(std::move(encoder)) {}
     virtual Status append(const Event& event) {

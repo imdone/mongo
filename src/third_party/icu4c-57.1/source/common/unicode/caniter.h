@@ -87,7 +87,7 @@ public:
 
     /**
      * Gets the NFD form of the current source we are iterating over.
-     * @return gets the source: NOTE: it is the NFD form of source
+     * @return gets the source: NOTE: it is the NFD form of source id:2807
      * @stable ICU 2.4
      */
     UnicodeString getSource();
@@ -119,7 +119,7 @@ public:
 #ifndef U_HIDE_INTERNAL_API
     /**
      * Dumb recursive implementation of permutation.
-     * TODO: optimize
+     * TODO: optimize id:1669
      * @param source     the string to find permutations for
      * @param skipZeros  determine if skip zeros
      * @param result     the results in a set.

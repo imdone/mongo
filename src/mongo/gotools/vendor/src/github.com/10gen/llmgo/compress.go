@@ -75,7 +75,7 @@ func (c *compressionHeader) extract(p []byte) {
 // CompressMessage compresses a message p (header included) using the
 // preferred message compressor.
 func CompressMessage(p []byte) (o []byte, err error) {
-	// TODO select compression based on handshake
+	// TODO select compression based on handshake id:760
 	mc := preferredMessageCompressor
 	if mc == nil {
 		o = p

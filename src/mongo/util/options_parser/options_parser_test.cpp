@@ -1777,7 +1777,7 @@ TEST(JSONConfigFile, StringVectorNonString) {
     argv.push_back("config.json");
     std::map<std::string, std::string> env_map;
 
-    // NOTE: The yaml config file just reads things as strings, and it's up to us to decide what
+    // NOTE: The yaml config file just reads things as strings, and it's up to us to decide what id:1411
     // the type should be later.  This means that we can't tell the difference between when a
     // user provides a non string value or a string value in some cases.
     parser.setConfig("config.json", "{ multival : [ 1, true ] }");
@@ -1824,7 +1824,7 @@ TEST(Parsing, BadConfigFileOption) {
 
     moe::OptionSection testOpts;
 
-    // TODO: Should the error be in here?
+    // TODO: Should the error be in here? id:2258
     testOpts.addOptionChaining("config", "config", moe::Int, "Config file to parse");
 
     std::vector<std::string> argv;
@@ -2246,7 +2246,7 @@ TEST(YAMLConfigFile, ComposingStringMap) {
     std::map<std::string, std::string> env_map;
 
     parser.setConfig("config.yaml",
-                     // NOTE: Indentation is used to determine whether an option is in a sub
+                     // NOTE: Indentation is used to determine whether an option is in a sub id:1636
                      // category, so the spaces after the newlines before key2 and key3 is
                      // significant
                      "setParameter:\n key2: \"overridden_value2\"\n key3: \"value3\"");
@@ -4090,7 +4090,7 @@ TEST(YAMLConfigFile, StringMap) {
     std::map<std::string, std::string> env_map;
 
     parser.setConfig("config.json",
-                     // NOTE: Indentation is used to determine whether an option is in a sub
+                     // NOTE: Indentation is used to determine whether an option is in a sub id:3150
                      // category, so the spaces after the newlines before key2 and key3 is
                      // significant
                      "multival : \n key1 : \"value1\"\n key2 : \"value2\"\n key3 : \"\"");
@@ -4127,7 +4127,7 @@ TEST(YAMLConfigFile, StringMapDuplicateKey) {
     std::map<std::string, std::string> env_map;
 
     parser.setConfig("config.json",
-                     // NOTE: Indentation is used to determine whether an option is in a sub
+                     // NOTE: Indentation is used to determine whether an option is in a sub id:2638
                      // category, so the spaces after the newlines before key2 and key3 is
                      // significant
                      "multival : \n key1 : \"value1\"\n key1 : \"value2\"");

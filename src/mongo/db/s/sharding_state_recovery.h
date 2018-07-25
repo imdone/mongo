@@ -63,7 +63,7 @@ public:
      * sharding metadata so that the instance observes all metadata modifications it did the last
      * time it was active (or PRIMARY, if replica set).
      *
-     * NOTE: This method will block until recovery completes.
+     * NOTE: This method will block until recovery completes. id:674
      *
      * Returns OK if the minOpTime was successfully recovered or failure status otherwise. It is
      * unsafe to read and rely on any sharding metadata before this method has returned success.

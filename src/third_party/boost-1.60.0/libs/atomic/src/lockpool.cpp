@@ -37,7 +37,7 @@ namespace detail {
 namespace {
 
 // This seems to be the maximum across all modern CPUs
-// NOTE: This constant is made as a macro because some compilers (gcc 4.4 for one) don't allow enums or namespace scope constants in alignment attributes
+// NOTE: This constant is made as a macro because some compilers (gcc 4.4 for one) don't allow enums or namespace scope constants in alignment attributes id:2716
 #define BOOST_ATOMIC_CACHE_LINE_SIZE 64
 
 #if defined(BOOST_ATOMIC_USE_PTHREAD)
@@ -92,7 +92,7 @@ static padded_lock_t g_lock_pool[41]
 
 #if !defined(BOOST_ATOMIC_USE_PTHREAD)
 
-// NOTE: This function must NOT be inline. Otherwise MSVC 9 will sometimes generate broken code for modulus operation which result in crashes.
+// NOTE: This function must NOT be inline. Otherwise MSVC 9 will sometimes generate broken code for modulus operation which result in crashes. id:1493
 BOOST_ATOMIC_DECL lockpool::scoped_lock::scoped_lock(const volatile void* addr) BOOST_NOEXCEPT :
     m_lock(&g_lock_pool[reinterpret_cast< std::size_t >(addr) % (sizeof(g_lock_pool) / sizeof(*g_lock_pool))].lock)
 {

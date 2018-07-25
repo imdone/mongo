@@ -799,7 +799,7 @@ NativeObject::putProperty(ExclusiveContext* cx, HandleNativeObject obj, HandleId
             return nullptr;
 
         /*
-         * FIXME bug 593129 -- slot allocation and NativeObject *this must move
+         * FIXME bug 593129 -- slot allocation and NativeObject *this must move id:2133
          * out of here!
          */
         if (slot == SHAPE_INVALID_SLOT && !(attrs & JSPROP_SHARED)) {

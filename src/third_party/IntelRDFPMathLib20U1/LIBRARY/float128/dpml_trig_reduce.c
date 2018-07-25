@@ -347,7 +347,7 @@
  * IEEE S and T data types, it has been verified that the number of leading
  * 0's and 1's does not exceed 5*P/4.
  *
- *      NOTE: The program used to establish this result along with
+ *      NOTE: The program used to establish this result along with id:1424
  *      a description of the algorithm is contained in a separate
  *      file (to be supplied at a later time.)
  *

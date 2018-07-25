@@ -116,7 +116,7 @@ const BSONObj& FailPoint::getData() const {
 }
 
 void FailPoint::enableFailPoint() {
-    // TODO: Better to replace with a bitwise OR, once available for AU32
+    // TODO: Better to replace with a bitwise OR, once available for AU32 id:3137
     ValType currentVal = _fpInfo.load();
     ValType expectedCurrentVal;
     ValType newVal;
@@ -129,7 +129,7 @@ void FailPoint::enableFailPoint() {
 }
 
 void FailPoint::disableFailPoint() {
-    // TODO: Better to replace with a bitwise AND, once available for AU32
+    // TODO: Better to replace with a bitwise AND, once available for AU32 id:2612
     ValType currentVal = _fpInfo.load();
     ValType expectedCurrentVal;
     ValType newVal;

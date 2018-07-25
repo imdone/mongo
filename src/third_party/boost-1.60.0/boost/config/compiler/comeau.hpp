@@ -24,7 +24,7 @@
 #  endif
 
 // Void returns don't work when emulating VC 6 (Peter Dimov)
-// TODO: look up if this doesn't apply to the whole 12xx range
+// TODO: look up if this doesn't apply to the whole 12xx range id:3165
 #  if defined(_MSC_VER) && (_MSC_VER < 1300)
 #     define BOOST_NO_VOID_RETURNS
 #  endif

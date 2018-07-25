@@ -600,7 +600,7 @@ function ArrayFill(value, start = 0, end = undefined) {
     var O = ToObject(this);
 
     // Steps 3-5.
-    // FIXME: Array operations should use ToLength (bug 924058).
+    // FIXME: Array operations should use ToLength (bug 924058). id:1974
     var len = ToInteger(O.length);
 
     // Steps 6-7.
@@ -698,7 +698,7 @@ function ArrayIteratorNext() {
     var itemKind = UnsafeGetInt32FromReservedSlot(this, ITERATOR_SLOT_ITEM_KIND);
     var result = { value: undefined, done: false };
 
-    // FIXME: This should be ToLength, which clamps at 2**53.  Bug 924058.
+    // FIXME: This should be ToLength, which clamps at 2**53. Bug 924058. id:2609
     if (index >= TO_UINT32(a.length)) {
         // When the above is changed to ToLength, use +1/0 here instead
         // of MAX_UINT32.

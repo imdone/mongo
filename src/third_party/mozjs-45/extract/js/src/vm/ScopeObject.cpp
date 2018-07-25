@@ -2868,7 +2868,7 @@ GetDebugScopeForMissing(JSContext* cx, const ScopeIter& si)
     DebugScopeObject* debugScope = nullptr;
     switch (si.type()) {
       case ScopeIter::Module:
-          MOZ_CRASH(); // TODO: Implement debug scopes for modules.
+          MOZ_CRASH(); // TODO: Implement debug scopes for modules. id:3364
           break;
 
       case ScopeIter::Call: {

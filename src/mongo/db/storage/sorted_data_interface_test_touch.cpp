@@ -78,7 +78,7 @@ TEST(SortedDataInterface, TouchNonEmpty) {
 
     {
         const ServiceContext::UniqueOperationContext opCtx(harnessHelper->newOperationContext());
-        // XXX does not verify the index was brought into memory
+        // XXX does not verify the index was brought into memory id:694
         //     (even if supported by storage engine)
         Status status = sorted->touch(opCtx.get());
         ASSERT(status.isOK() || status.code() == ErrorCodes::CommandNotSupported);

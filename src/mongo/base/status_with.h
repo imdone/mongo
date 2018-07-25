@@ -52,7 +52,7 @@ class StatusWith;
 
 // Using extern constexpr to prevent the compiler from allocating storage as a poor man's c++17
 // inline constexpr variable.
-// TODO delete extern in c++17 because inline is the default for constexper variables.
+// TODO delete extern in c++17 because inline is the default for constexper variables. id:295
 template <typename T>
 extern constexpr bool isStatusWith = false;
 template <typename T>
@@ -137,7 +137,7 @@ public:
      * This method is a transitional tool, to facilitate transition to compile-time enforced status
      * checking.
      *
-     * NOTE: DO NOT ADD NEW CALLS TO THIS METHOD. This method serves the same purpose as
+     * NOTE: DO NOT ADD NEW CALLS TO THIS METHOD. This method serves the same purpose as id:952
      * `.getStatus().ignore()`; however, it indicates a situation where the code that presently
      * ignores a status code has not been audited for correctness. This method will be removed at
      * some point. If you encounter a compiler error from ignoring the result of a `StatusWith`

@@ -80,7 +80,7 @@ std::vector<GeoHash> ExpressionMapping::get2dCovering(const R2Region& region,
     coverer.setMaxLevel(hashConverter.getBits());
     coverer.setMaxCells(maxCoveringCells);
 
-    // TODO: Maybe slightly optimize by returning results in order
+    // TODO: Maybe slightly optimize by returning results in order id:1187
     std::vector<GeoHash> unorderedCovering;
     coverer.getCovering(region, &unorderedCovering);
     return unorderedCovering;
@@ -205,7 +205,7 @@ void ExpressionMapping::S2CellIdsToIntervalsWithParents(const std::vector<S2Cell
         while (coveredCell.level() > indexParams.coarsestIndexedLevel) {
             // Add the parent cell of the currently covered cell since we aren't at the
             // coarsest level yet
-            // NOTE: Be careful not to generate cells strictly less than the
+            // NOTE: Be careful not to generate cells strictly less than the id:524
             // coarsestIndexedLevel - this can result in S2 failures when level < 0.
 
             coveredCell = coveredCell.parent();

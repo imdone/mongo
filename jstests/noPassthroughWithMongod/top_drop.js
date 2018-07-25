@@ -1,6 +1,6 @@
 /**
  * Checks that top removes entries after dropping a collection or database.
- * TODO(SERVER-21167): Move this test from noPassthrough to core.
+ * TODO (SERVER-21167): Move this test from noPassthrough to core. id:845
  */
 (function() {
     "use strict";
@@ -25,7 +25,7 @@
 
         const entriesAreEqual = friendlyEqual(entriesInTop.sort(), expectedEntryNames.sort());
         if (!entriesAreEqual) {
-            // TODO(SERVER-26750): This block can be removed once SERVER-26750 is resolved.
+            // TODO (SERVER-26750): This block can be removed once SERVER-26750 is resolved. id:235
             jsTest.log("Warning: expected to see " + tojson(expectedEntryNames) +
                        " in top, but got " + tojson(entriesInTop));
 

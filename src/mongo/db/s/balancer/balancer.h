@@ -127,7 +127,7 @@ public:
      * in accordance with the active balancer policy. An error will be returned if the attempt to
      * move fails for any reason.
      *
-     * NOTE: This call disregards the balancer enabled/disabled status and will proceed with the
+     * NOTE: This call disregards the balancer enabled/disabled status and will proceed with the id:840
      *       move regardless. If should be used only for user-initiated moves.
      */
     Status moveSingleChunk(OperationContext* opCtx,

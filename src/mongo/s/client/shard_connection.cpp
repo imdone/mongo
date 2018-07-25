@@ -245,7 +245,7 @@ public:
                 warning() << "Problem while initially checking shard versions on"
                           << " " << shardId << causedBy(redact(ex));
 
-                // NOTE: This is only a heuristic, to avoid multiple stale version retries across
+                // NOTE: This is only a heuristic, to avoid multiple stale version retries across id:2106
                 // multiple shards, and does not affect correctness.
             }
         }

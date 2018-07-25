@@ -42,7 +42,7 @@ namespace mongo {
 namespace logger {
 
 // Used for testing logging framework only.
-// TODO(schwerin): Have logger write to a different log from the global log, so that tests can
+// TODO (schwerin): Have logger write to a different log from the global log, so that tests can id:1536
 // redirect their global log output for examination.
 template <typename MessageEventEncoder>
 class LogTest : public unittest::Test {

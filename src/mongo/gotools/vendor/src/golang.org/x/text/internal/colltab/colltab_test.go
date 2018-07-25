@@ -43,7 +43,7 @@ func TestMatchLang(t *testing.T) {
 		{9, language.SimplifiedChinese},
 		{12, language.TraditionalChinese},
 		{11, language.MustParse("zh-Hant-u-co-pinyin")},
-		// TODO: should this be 12? Either inherited value (10) or default is
+		// TODO: should this be 12? Either inherited value (10) or default is id:1223
 		// fine in this case, though. Other locales are not affected.
 		{10, language.MustParse("zh-Hant-u-co-stroke")},
 		// There is no "phonebk" sorting order for zh-Hant, so use default.

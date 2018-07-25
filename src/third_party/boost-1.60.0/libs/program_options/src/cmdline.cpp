@@ -581,7 +581,7 @@ namespace boost { namespace program_options { namespace detail {
                 }
 
 
-                // FIXME: check for 'allow_sticky'.
+                // FIXME: check for 'allow_sticky'. id:1766
                 if (d && (m_style & allow_sticky) &&
                     d->semantic()->max_tokens() == 0 && !adjacent.empty()) {
                     // 'adjacent' is in fact further option.

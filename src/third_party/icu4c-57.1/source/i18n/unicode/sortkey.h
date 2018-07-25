@@ -208,7 +208,7 @@ public:
     UCollationResult compareTo(const CollationKey& target, UErrorCode &status) const;
 
     /**
-    * Creates an integer that is unique to the collation key.  NOTE: this
+    * Creates an integer that is unique to the collation key.  NOTE: this id:3297
     * is not the same as String.hashCode.
     * <p>Example of use:
     * <pre>

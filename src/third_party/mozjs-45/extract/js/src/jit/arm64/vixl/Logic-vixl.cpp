@@ -758,7 +758,7 @@ LogicVRegister Simulator::add(VectorFormat vform,
                               const LogicVRegister& src1,
                               const LogicVRegister& src2) {
   dst.ClearForWrite(vform);
-  // TODO(all): consider assigning the result of LaneCountFromFormat to a local.
+  // TODO (all): consider assigning the result of LaneCountFromFormat to a local. id:2323
   for (int i = 0; i < LaneCountFromFormat(vform); i++) {
     // Test for unsigned saturation.
     uint64_t ua = src1.UintLeftJustified(vform, i);

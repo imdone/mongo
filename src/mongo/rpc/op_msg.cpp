@@ -94,7 +94,7 @@ OpMsg OpMsg::parse(const Message& message) try {
     BufReader sectionsBuf(message.singleData().data() + sizeof(flags),
                           message.dataSize() - sizeof(flags) - checksumSize);
 
-    // TODO some validation may make more sense in the IDL parser. I've tagged them with comments.
+    // TODO some validation may make more sense in the IDL parser. I've tagged them with comments. id:3098
     bool haveBody = false;
     OpMsg msg;
     while (!sectionsBuf.atEof()) {
@@ -122,7 +122,7 @@ OpMsg OpMsg::parse(const Message& message) try {
                 const auto name = seqBuf.readCStr();
                 uassert(40431,
                         str::stream() << "Duplicate document sequence: " << name,
-                        !msg.getSequence(name));  // TODO IDL
+                        !msg.getSequence(name));  // TODO IDL id:1602
 
                 msg.sequences.push_back({name.toString()});
                 while (!seqBuf.atEof()) {
@@ -139,7 +139,7 @@ OpMsg OpMsg::parse(const Message& message) try {
 
     uassert(40587, "OP_MSG messages must have a body", haveBody);
 
-    // Detect duplicates between doc sequences and body. TODO IDL
+    // Detect duplicates between doc sequences and body. TODO IDL id:1181
     // Technically this is O(N*M) but N is at most 2.
     for (const auto& docSeq : msg.sequences) {
         const char* name = docSeq.name.c_str();  // Pointer is redirected by next call.

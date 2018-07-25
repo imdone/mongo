@@ -61,7 +61,7 @@ var $config = (function() {
         function readFromView(db, collName) {
             const viewName = this.getRandomView(this.viewList);
             const res = db.runCommand({find: viewName});
-            // TODO SERVER-26037: Replace with the appropriate error code. See ticket for details.
+            // TODO SERVER-26037: Replace with the appropriate error code. See ticket for details. id:771
             this.assertCommandWorkedOrFailedWithCode(res, [ErrorCodes.CommandNotSupportedOnView]);
         }
 

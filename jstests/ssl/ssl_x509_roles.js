@@ -91,7 +91,7 @@ load('jstests/ssl/libs/ssl_helpers.js');
 
     print("2. Testing x.509 auth to mongos");
     {
-        // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+        // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:194
         let st = new ShardingTest({
             shards: 1,
             mongos: 1,

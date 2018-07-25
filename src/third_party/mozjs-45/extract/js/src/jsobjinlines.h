@@ -531,7 +531,7 @@ IsNativeFunction(const js::Value& v, JSNative native)
  * or shadowed. However, we can still do better than the general case by
  * hard-coding the necessary properties for us to find the native we expect.
  *
- * TODO: a per-thread shape-based cache would be faster and simpler.
+ * TODO: a per-thread shape-based cache would be faster and simpler. id:2709
  */
 static MOZ_ALWAYS_INLINE bool
 ClassMethodIsNative(JSContext* cx, NativeObject* obj, const Class* clasp, jsid methodid, JSNative native)

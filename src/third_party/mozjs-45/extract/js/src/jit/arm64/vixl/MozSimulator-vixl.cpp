@@ -166,9 +166,9 @@ Simulator* Simulator::Create() {
   if (!decoder)
     return nullptr;
 
-  // FIXME: This just leaks the Decoder object for now, which is probably OK.
-  // FIXME: We should free it at some point.
-  // FIXME: Note that it can't be stored in the SimulatorRuntime due to lifetime conflicts.
+  // FIXME: This just leaks the Decoder object for now, which is probably OK. id:3338
+  // FIXME: We should free it at some point. id:2965
+  // FIXME: Note that it can't be stored in the SimulatorRuntime due to lifetime conflicts. id:2061
   Simulator *sim;
   if (getenv("USE_DEBUGGER") != nullptr)
     sim = js_new<Debugger>(decoder, stdout);
@@ -337,7 +337,7 @@ class Redirection
     next_(nullptr)
   {
     next_ = sim->redirection();
-    // TODO: Flush ICache?
+    // TODO: Flush ICache? id:2675
     sim->setRedirection(this);
 
     Instruction* instr = (Instruction*)(&svcInstruction_);
@@ -353,7 +353,7 @@ class Redirection
     Simulator* sim = Simulator::Current();
     AutoLockSimulatorCache alsr(sim);
 
-    // TODO: Store srt_ in the simulator for this assertion.
+    // TODO: Store srt_ in the simulator for this assertion. id:2341
     // VIXL_ASSERT_IF(pt->simulator(), pt->simulator()->srt_ == srt);
 
     Redirection* current = sim->redirection();
@@ -519,7 +519,7 @@ Simulator::VisitCallRedirection(const Instruction* instr)
   uintptr_t nativeFn = reinterpret_cast<uintptr_t>(redir->nativeFunction());
 
   // Stack must be aligned prior to the call.
-  // FIXME: It's actually our job to perform the alignment...
+  // FIXME: It's actually our job to perform the alignment... id:3339
   //VIXL_ASSERT((xreg(31, Reg31IsStackPointer) & (StackAlignment - 1)) == 0);
 
   // Used to assert that callee-saved registers are preserved.
@@ -685,7 +685,7 @@ Simulator::VisitCallRedirection(const Instruction* instr)
       MOZ_CRASH("Unknown function type.");
   }
 
-  // TODO: Nuke the volatile registers.
+  // TODO: Nuke the volatile registers. id:2967
 
   // Assert that callee-saved registers are unchanged.
   VIXL_ASSERT(xreg(19) == x19);

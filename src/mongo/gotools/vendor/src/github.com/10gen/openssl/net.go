@@ -139,7 +139,7 @@ func dialSessionWithDialer(dialer *net.Dialer, network, addr string, ctx *Ctx, f
 		if err != nil {
 			return nil, err
 		}
-		// TODO: use operating system default certificate chain?
+		// TODO: use operating system default certificate chain? id:2132
 	}
 	c, err := dialer.Dial(network, addr)
 	if err != nil {

@@ -56,7 +56,7 @@
                       function(conn) {
                           const res = conn.adminCommand({listDatabases: 1});
                           if (!res.ok) {
-                              // TODO: SERVER-31916 for the KeyNotFound error
+                              // TODO: SERVER-31916 for the KeyNotFound error id:101
                               assert.commandFailedWithCode(
                                   res, [ErrorCodes.Unauthorized, ErrorCodes.KeyNotFound]);
                               return {shouldStop: true, reason: "cannot run listDatabases"};

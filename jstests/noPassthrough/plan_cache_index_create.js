@@ -15,7 +15,7 @@
             "command.createIndexes": collName,
             "command.indexes.0.name": indexName
         };
-        // TODO SERVER-34830: Add command name filter for secondaries once available.
+        // TODO SERVER-34830: Add command name filter for secondaries once available. id:215
         const secondaryIndexBuildFilter = {
             ns: dbName + ".system.indexes",
             "command.name": indexName

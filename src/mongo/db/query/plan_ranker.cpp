@@ -160,7 +160,7 @@ size_t PlanRanker::pickBestPlan(const vector<CandidatePlan>& candidates, PlanRan
     return bestChild;
 }
 
-// TODO: Move this out.  This is a signal for ranking but will become its own complicated
+// TODO: Move this out. This is a signal for ranking but will become its own complicated id:1204
 // stats-collecting beast.
 double computeSelectivity(const PlanStageStats* stats) {
     if (STAGE_IXSCAN == stats->stageType) {

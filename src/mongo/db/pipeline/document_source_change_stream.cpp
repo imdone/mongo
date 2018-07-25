@@ -311,7 +311,7 @@ void assertResumeAllowed(const intrusive_ptr<ExpressionContext>& expCtx,
         "collation, which can no longer be determined. If you wish to resume this change stream "
         "you must specify a collation with the request.";
     // Verify that the UUID on the expression context matches the UUID in the resume token.
-    // TODO SERVER-35254: If we're on a stale mongos, this check may incorrectly reject a valid
+    // TODO SERVER-35254: If we're on a stale mongos, this check may incorrectly reject a valid id:1510
     // resume token since the UUID on the expression context could be for a previous version of the
     // collection.
     uassert(ErrorCodes::InvalidResumeToken,

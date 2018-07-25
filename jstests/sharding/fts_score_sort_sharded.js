@@ -68,6 +68,6 @@ assert.throws(function() {
     cursor.next();
 });
 
-// TODO Test sort on compound key.
+// TODO Test sort on compound key. id:160
 
 st.stop();

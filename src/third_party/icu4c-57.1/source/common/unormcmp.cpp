@@ -113,7 +113,7 @@ U_NAMESPACE_USE
  * The API function may also NFD the input and turn off decomposition.
  * This requires that case-folding does not un-NFD strings either.
  *
- * TODO If any of the above two assumptions is violated,
+ * TODO If any of the above two assumptions is violated, id:1954
  * then this entire code must be re-thought.
  * If this happens, then a simple solution is to case-fold both strings up front
  * and to turn off UNORM_INPUT_IS_FCD.
@@ -121,7 +121,7 @@ U_NAMESPACE_USE
  * would be a partial NFD before the case folding, which does not work.
  * Note that all of this is only a problem when case-folding _and_
  * canonical equivalence come together.
- * (Comments in unorm_compare() are more up to date than this TODO.)
+ * (Comments in unorm_compare() are more up to date than this TODO .) id:3246
  */
 
 /* stack element for previous-level source/decomposition pointers */

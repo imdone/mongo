@@ -52,7 +52,7 @@ namespace detail {
 /*!
  * The function converts \c boost::memory_order values to the compiler-specific constants.
  *
- * NOTE: The intention is that the function is optimized away by the compiler, and the
+ * NOTE: The intention is that the function is optimized away by the compiler, and the id:1440
  *       compiler-specific constants are passed to the intrinsics. I know constexpr doesn't
  *       work in this case because the standard atomics interface require memory ordering
  *       constants to be passed as function arguments, at which point they stop being constexpr.

@@ -625,7 +625,7 @@ S2Point S2::TrueCentroid(S2Point const& a, S2Point const& b,
   // other two rows; this reduces the cancellation error when A, B, and C are
   // very close together.  Then we solve it using Cramer's rule.
   //
-  // TODO(user): This code still isn't as numerically stable as it could be.
+  // TODO (user): This code still isn't as numerically stable as it could be. id:2176
   // The biggest potential improvement is to compute B-A and C-A more
   // accurately so that (B-A)x(C-A) is always inside triangle ABC.
   S2Point x(a.x(), b.x() - a.x(), c.x() - a.x());

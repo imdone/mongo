@@ -206,7 +206,7 @@ class Task(object):
         return self.node
 
     def needs_execute(self):
-        # TODO(deprecate):  "return True" is the old default behavior;
+        # TODO (deprecate): "return True" is the old default behavior; id:2794
         # change it to NotImplementedError (after running through the
         # Deprecation Cycle) so the desired behavior is explicitly
         # determined by which concrete subclass is used.

@@ -89,7 +89,7 @@ for i in range(0, 8):
     s.create(tname, 'key_format=S,value_format=S,' + table_config)
     tables.append(Table(tname))
 tname = "table:log"
-# TODO: use table_config for the log file?
+# TODO: use table_config for the log file? id:2499
 s.create(tname, 'key_format=S,value_format=S,' + table_config)
 logtable = Table(tname)
 

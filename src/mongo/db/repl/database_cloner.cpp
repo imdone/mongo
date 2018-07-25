@@ -383,7 +383,7 @@ void DatabaseCloner::_listCollectionsCallback(const StatusWith<Fetcher::QueryRes
                 options.uuid = res.getValue();
             }
         }
-        // TODO(SERVER-27994): Ensure UUID present when FCV >= "3.6".
+        // TODO (SERVER-27994): Ensure UUID present when FCV >= "3.6". id:1239
 
         seen.insert(collectionName);
 

@@ -26,7 +26,7 @@ func newCollator(t colltab.Weighter) *Collator {
 		},
 	}
 
-	// TODO: store vt in tags or remove.
+	// TODO: store vt in tags or remove. id:1116
 	c.variableTop = t.Top()
 
 	return c
@@ -133,7 +133,7 @@ func (o *options) setFromTag(t language.Tag) {
 		o.alternate = altShiftTrimmed
 	}
 
-	// TODO: caseFirst ("kf"), reorder ("kr"), and maybe variableTop ("vt").
+	// TODO: caseFirst ("kf"), reorder ("kr"), and maybe variableTop ("vt"). id:931
 
 	// Not used:
 	// - normalization ("kk", not necessary for this implementation)
@@ -206,11 +206,11 @@ func numericF(o *options) { o.numeric = true }
 
 // Reorder overrides the pre-defined ordering of scripts and character sets.
 func Reorder(s ...string) Option {
-	// TODO: need fractional weights to implement this.
+	// TODO: need fractional weights to implement this. id:1737
 	panic("TODO: implement")
 }
 
-// TODO: consider making these public again. These options cannot be fully
+// TODO: consider making these public again. These options cannot be fully id:1066
 // specified in BCP47, so an API interface seems warranted. Still a higher-level
 // interface would be nice (e.g. a POSIX option for enabling altShiftTrimmed)
 

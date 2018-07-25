@@ -574,7 +574,7 @@ if (typeof _shouldUseImplicitSessions === 'undefined') {
 shellPrintHelper = function(x) {
     if (typeof(x) == "undefined") {
         // Make sure that we have a db var before we use it
-        // TODO: This implicit calling of GLE can cause subtle, hard to track issues - remove?
+        // TODO: This implicit calling of GLE can cause subtle, hard to track issues - remove? id:1592
         if (__callLastError && typeof(db) != "undefined" && db.getMongo &&
             db.getMongo().writeMode() == "legacy") {
             __callLastError = false;
@@ -1218,7 +1218,7 @@ Geo.sphereDistance = function(a, b) {
     var bx = null;
     var by = null;
 
-    // TODO swap order of x and y when done on server
+    // TODO swap order of x and y when done on server id:3131
     for (var key in a) {
         if (ax == null)
             ax = a[key] * (Math.PI / 180);

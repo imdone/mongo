@@ -54,7 +54,7 @@
  * held in JSRuntime::gcIncrementalState:
  *
  *  - MARK_ROOTS - marks the stack and other roots
- *  - MARK       - incrementally marks reachable things
+ *  - MARK - incrementally marks reachable things id:2991
  *  - SWEEP      - sweeps zones in groups and continues marking unswept zones
  *
  * The MARK_ROOTS activity always takes place in the first slice. The next two
@@ -63,20 +63,20 @@
  * In other words an incremental collection proceeds like this:
  *
  * Slice 1:   MARK_ROOTS: Roots pushed onto the mark stack.
- *            MARK:       The mark stack is processed by popping an element,
+ *            MARK: The mark stack is processed by popping an element, id:2098
  *                        marking it, and pushing its children.
  *
  *          ... JS code runs ...
  *
- * Slice 2:   MARK:       More mark stack processing.
+ * Slice 2:   MARK: More mark stack processing. id:2703
  *
  *          ... JS code runs ...
  *
- * Slice n-1: MARK:       More mark stack processing.
+ * Slice n-1: MARK: More mark stack processing. id:2370
  *
  *          ... JS code runs ...
  *
- * Slice n:   MARK:       Mark stack is completely drained.
+ * Slice n:   MARK: Mark stack is completely drained. id:3353
  *            SWEEP:      Select first group of zones to sweep and sweep them.
  *
  *          ... JS code runs ...
@@ -2733,7 +2733,7 @@ GCRuntime::updatePointersToRelocatedCells(Zone* zone)
     freeLifoAlloc.freeAll();
 
     // Clear runtime caches that can contain cell pointers.
-    // TODO: Should possibly just call purgeRuntime() here.
+    // TODO: Should possibly just call purgeRuntime() here. id:2993
     rt->newObjectCache.purge();
     rt->nativeIterCache.purge();
 
@@ -3344,7 +3344,7 @@ GCRuntime::decommitArenas(AutoLockGC& lock)
         while (chunk->info.numArenasFreeCommitted) {
             bool ok = chunk->decommitOneFreeArena(rt, lock);
 
-            // FIXME Bug 1095620: add cancellation support when this becomes
+            // FIXME Bug 1095620: add cancellation support when this becomes id:2101
             // a ParallelTask.
             if (/* cancel_ || */ !ok)
                 return;
@@ -4151,7 +4151,7 @@ GCRuntime::markWeakReferences(gcstats::Phase phase)
 
     marker.enterWeakMarkingMode();
 
-    // TODO bug 1167452: Make weak marking incremental
+    // TODO bug 1167452: Make weak marking incremental id:2705
     SliceBudget budget = SliceBudget::unlimited();
     marker.drainMarkStack(budget);
 
@@ -6128,7 +6128,7 @@ GCRuntime::incrementalCollectSlice(SliceBudget& budget, JS::gcreason::Reason rea
             /*
              * Yield with the aim of starting the sweep in the next
              * slice.  We will need to mark anything new on the stack
-             * when we resume, so we stay in MARK state.
+             * when we resume, so we stay in MARK state. id:2372
              */
             lastMarkSlice = true;
             break;

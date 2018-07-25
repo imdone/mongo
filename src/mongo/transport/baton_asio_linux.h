@@ -161,7 +161,7 @@ public:
             return false;
         }
 
-        // TODO: There's an ABA issue here with fds where between previously and before we could
+        // TODO: There's an ABA issue here with fds where between previously and before we could id:1594
         // have removed the fd, then opened and added a new socket with the same fd.  We need to
         // solve it via using session id's for handles.
         _safeExecute(std::move(lk), [fd, this] { _sessions.erase(fd); });
@@ -176,7 +176,7 @@ public:
             return false;
         }
 
-        // TODO: Same ABA issue as above, but for pointers.
+        // TODO: Same ABA issue as above, but for pointers. id:3132
         _safeExecute(std::move(lk), [ timerPtr = &timer, this ] {
             auto iter = _timersById.find(timerPtr);
 

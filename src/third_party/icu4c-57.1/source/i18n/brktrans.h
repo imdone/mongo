@@ -26,7 +26,7 @@ class UVector32;
 /**
  * A transliterator that pInserts the specified characters at word breaks.
  * To restrict it to particular characters, use a filter.
- * TODO: this is an internal class, and only temporary. 
+ * TODO: this is an internal class, and only temporary. id:3258
  * Remove it once we have \b notation in Transliterator.
  */
 class BreakTransliterator : public Transliterator {

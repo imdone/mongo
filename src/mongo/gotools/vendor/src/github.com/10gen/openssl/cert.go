@@ -396,7 +396,7 @@ func (c *Certificate) X509NamePrintEx() (out []byte, err error) {
 	}
 	defer C.BIO_free(bio)
 	name := C.X509_get_subject_name(c.x)
-	// TODO, pass in flags instead of using this hardcoded one
+	// TODO , pass in flags instead of using this hardcoded one id:1042
 	if int(C.X509_NAME_print_ex(bio, name, 0, C.XN_FLAG_RFC2253)) < 0 {
 		return nil, errors.New("failed formatting subject")
 	}

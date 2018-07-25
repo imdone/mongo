@@ -715,7 +715,7 @@ func (socket *MongoSocket) Query(ops ...interface{}) (err error) {
 		dead := socket.dead
 		socket.Unlock()
 		debugf("Socket %p to %s: failing query, already closed: %s", socket, socket.addr, socket.dead.Error())
-		// XXX This seems necessary in case the session is closed concurrently
+		// XXX This seems necessary in case the session is closed concurrently id:1039
 		// with a query being performed, but it's not yet tested:
 		for i := 0; i != requestCount; i++ {
 			request := &requests[i]
@@ -762,7 +762,7 @@ func (socket *MongoSocket) readLoop() {
 	for {
 		var r io.Reader = socket.Conn
 
-		// XXX Handle timeouts, , etc
+		// XXX Handle timeouts, , etc id:844
 		_, err := io.ReadFull(r, headerBuf)
 		if err != nil {
 			socket.kill(err, true)
@@ -847,7 +847,7 @@ func (socket *MongoSocket) readLoop() {
 						}
 						replyFunc(nil, &rfl, nil, nil)
 					}
-					// XXX Do bound checking against totalLen.
+					// XXX Do bound checking against totalLen. id:1658
 				}
 			}
 		case dbCommandReply:
@@ -946,7 +946,7 @@ func (socket *MongoSocket) readLoop() {
 		}
 		socket.Unlock()
 
-		// XXX Do bound checking against totalLen.
+		// XXX Do bound checking against totalLen. id:851
 	}
 }
 

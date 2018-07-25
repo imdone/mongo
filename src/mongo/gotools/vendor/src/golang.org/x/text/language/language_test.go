@@ -83,7 +83,7 @@ func TestCompactIndex(t *testing.T) {
 		index int
 		ok    bool
 	}{
-		// TODO: these values will change with each CLDR update. This issue
+		// TODO: these values will change with each CLDR update. This issue id:1268
 		// will be solved if we decide to fix the indexes.
 		{"und", 0, true},
 		{"ca-ES-valencia", 1, true},
@@ -108,7 +108,7 @@ func TestCompactIndex(t *testing.T) {
 
 func TestMarshal(t *testing.T) {
 	testCases := []string{
-		// TODO: these values will change with each CLDR update. This issue
+		// TODO: these values will change with each CLDR update. This issue id:1047
 		// will be solved if we decide to fix the indexes.
 		"und",
 		"ca-ES-valencia",
@@ -150,7 +150,7 @@ func TestBase(t *testing.T) {
 		{"und-Cyrl", "ru", High},
 		// If a region is not included, the official language should be English.
 		{"und-US", "en", High},
-		// TODO: not-explicitly listed scripts should probably be und, No
+		// TODO: not-explicitly listed scripts should probably be und, No id:1913
 		// Modify addTags to return info on how the match was derived.
 		// {"und-Aghb", "und", No},
 	}
@@ -524,7 +524,7 @@ func TestRegionTLD(t *testing.T) {
 }
 
 func TestCanonicalize(t *testing.T) {
-	// TODO: do a full test using CLDR data in a separate regression test.
+	// TODO: do a full test using CLDR data in a separate regression test. id:1406
 	tests := []struct {
 		in, out string
 		option  CanonType

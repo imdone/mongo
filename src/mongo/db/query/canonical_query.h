@@ -142,7 +142,7 @@ public:
      * Since 'root' is derived from 'filter' in QueryRequest,
      * 'filter' is not validated.
      *
-     * TODO: Move this to query_validator.cpp
+     * TODO: Move this to query_validator.cpp id:1185
      */
     static Status isValid(MatchExpression* root, const QueryRequest& parsed);
 

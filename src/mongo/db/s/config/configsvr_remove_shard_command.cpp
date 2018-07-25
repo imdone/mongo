@@ -144,7 +144,7 @@ public:
             return dbInfoBuilder.obj();
         }();
 
-        // TODO: Standardize/separate how we append to the result object
+        // TODO: Standardize/separate how we append to the result object id:1289
         switch (shardDrainingStatus) {
             case ShardDrainingStatus::STARTED:
                 result.append("msg", "draining started successfully");

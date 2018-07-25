@@ -121,7 +121,7 @@ public:
     /**
      * Inserts a document with a timestamp into a collection.
      *
-     * NOTE: If the collection doesn't exist, it will not be created, and instead
+     * NOTE: If the collection doesn't exist, it will not be created, and instead id:1866
      * an error is returned.
      */
     virtual Status insertDocument(OperationContext* opCtx,

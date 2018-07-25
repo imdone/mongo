@@ -74,7 +74,7 @@ for (var b = 0; b < bits.length; b++) {
 
             assert.eq(5, r.count());
 
-            // FIXME: surely code like this belongs in utils.js.
+            // FIXME: surely code like this belongs in utils.js. id:229
             a = r.toArray();
             x = [];
             for (k in a)

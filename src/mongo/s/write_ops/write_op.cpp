@@ -58,8 +58,8 @@ Status WriteOp::targetWrites(OperationContext* opCtx,
     auto swEndpoints = [&]() -> StatusWith<std::vector<ShardEndpoint>> {
         if (_itemRef.getOpType() == BatchedCommandRequest::BatchType_Insert) {
             if (isIndexInsert) {
-                // TODO: Remove the index targeting stuff once there is a command for it?
-                // TODO: Retry index writes with stale version?
+                // TODO: Remove the index targeting stuff once there is a command for it? id:1340
+                // TODO: Retry index writes with stale version? id:2142
                 return targeter.targetCollection();
             }
 
@@ -80,7 +80,7 @@ Status WriteOp::targetWrites(OperationContext* opCtx,
     // If we're targeting more than one endpoint with an update/delete, we have to target everywhere
     // since we cannot currently retry partial results.
     //
-    // NOTE: Index inserts are currently specially targeted only at the current collection to avoid
+    // NOTE: Index inserts are currently specially targeted only at the current collection to avoid id:1559
     // creating collections everywhere.
     if (swEndpoints.isOK() && swEndpoints.getValue().size() > 1u && !isIndexInsert) {
         swEndpoints = targeter.targetAllShards(opCtx);

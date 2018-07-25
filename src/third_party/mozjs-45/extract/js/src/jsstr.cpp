@@ -1288,7 +1288,7 @@ StringMatch(const TextChar* text, uint32_t textLen, const PatChar* pat, uint32_t
      * speed of memcmp. For small patterns, a simple loop is faster. We also can't
      * use memcmp if one of the strings is TwoByte and the other is Latin1.
      *
-     * FIXME: Linux memcmp performance is sad and the manual loop is faster.
+     * FIXME: Linux memcmp performance is sad and the manual loop is faster. id:3359
      */
     return
 #if !defined(__linux__)
@@ -1582,7 +1582,7 @@ str_includes(JSContext* cx, unsigned argc, Value* vp)
     return true;
 }
 
-/* TODO: remove String.prototype.contains (bug 1103588) */
+/* TODO: remove String.prototype.contains (bug 1103588) id:3003*/
 static bool
 str_contains(JSContext *cx, unsigned argc, Value *vp)
 {

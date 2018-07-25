@@ -236,7 +236,7 @@ TEST_F(RemoveShardFromZoneTest, RemoveZoneFromShardShouldOnlyRemoveZoneOnSpecifi
 }
 
 /*
-// TODO: This test fails while an OpObserver is present, since the insert of the invalid shard
+// TODO: This test fails while an OpObserver is present, since the insert of the invalid shard id:886
 // doc fails.
 TEST_F(RemoveShardFromZoneTest, RemoveZoneFromShardShouldErrorIfShardDocIsMalformed) {
     // Note: invalid because tags is in string instead of array.

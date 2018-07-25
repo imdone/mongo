@@ -154,7 +154,7 @@ public:
      * equivalent to ROOT. If CURRENT is explicitly defined by a call to this function, it
      * breaks that equivalence.
      *
-     * NOTE: Name validation is responsibility of caller.
+     * NOTE: Name validation is responsibility of caller. id:523
      */
     Variables::Id defineVariable(StringData name);
 

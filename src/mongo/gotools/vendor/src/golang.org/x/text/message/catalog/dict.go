@@ -12,7 +12,7 @@ import (
 	"golang.org/x/text/language"
 )
 
-// TODO:
+// TODO:  id:1071
 // Dictionary returns a Dictionary that returns the first Message, using the
 // given language tag, that matches:
 //   1. the last one registered by one of the Set methods
@@ -20,13 +20,13 @@ import (
 //   3. repeat from 1. using the parent language
 // This approach allows messages to be underspecified.
 // func (c *Catalog) Dictionary(tag language.Tag) (Dictionary, error) {
-// 	// TODO: verify dictionary exists.
+// 	// TODO: verify dictionary exists. id:1927
 // 	return &dict{&c.index, tag}, nil
 // }
 
 type dict struct {
 	s   *store
-	tag language.Tag // TODO: make compact tag.
+	tag language.Tag // TODO: make compact tag. id:1420
 }
 
 func (d *dict) Lookup(key string) (data string, ok bool) {

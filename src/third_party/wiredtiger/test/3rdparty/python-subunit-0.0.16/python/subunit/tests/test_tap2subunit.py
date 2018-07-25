@@ -148,9 +148,9 @@ class TestTAP2SubUnit(TestCase):
 
     def test_ok_TODO_xfail(self):
         # A file
-        # ok # TODO
+        # ok # TODO  id:2843
         # results in a xfail test with name 'test 1'
-        self.tap.write(_u("ok # TODO\n"))
+        self.tap.write(_u("ok # TODO \n")) id:2535
         self.tap.seek(0)
         result = subunit.TAP2SubUnit(self.tap, self.subunit)
         self.assertEqual(0, result)
@@ -159,9 +159,9 @@ class TestTAP2SubUnit(TestCase):
 
     def test_ok_TODO_xfail_comment(self):
         # A file
-        # ok # TODO Not done yet
+        # ok # TODO Not done yet id:3433
         # results in a xfail test with name 'test 1' and a log of Not done yet
-        self.tap.write(_u("ok # TODO Not done yet\n"))
+        self.tap.write(_u("ok # TODO Not done yet\n")) id:3478
         self.tap.seek(0)
         result = subunit.TAP2SubUnit(self.tap, self.subunit)
         self.assertEqual(0, result)
@@ -323,10 +323,10 @@ class TestTAP2SubUnit(TestCase):
 
     def test_todo_and_skip(self):
         # A file
-        # not ok 1 - a fail but # TODO but is TODO
+        # not ok 1 - a fail but # TODO but is TODO id:2441
         # not ok 2 - another fail # SKIP instead
         # results in two tests, numbered and commented.
-        self.tap.write(_u("not ok 1 - a fail but # TODO but is TODO\n"))
+        self.tap.write(_u("not ok 1 - a fail but # TODO but is TODO\n")) id:2844
         self.tap.write(_u("not ok 2 - another fail # SKIP instead\n"))
         self.tap.seek(0)
         result = subunit.TAP2SubUnit(self.tap, self.subunit)

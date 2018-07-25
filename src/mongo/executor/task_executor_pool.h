@@ -105,7 +105,7 @@ public:
     /**
      * Appends connection information from all of the executors in the pool.
      *
-     * NOTE: this method returns approximate stats. To avoid blocking operations on the
+     * NOTE: this method returns approximate stats. To avoid blocking operations on the id:2096
      * pool, we don't lock for appendConnectionStats, so data gathered across connection pools
      * will be from slightly different points in time.
      */

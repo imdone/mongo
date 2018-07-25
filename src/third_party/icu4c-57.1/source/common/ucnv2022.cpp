@@ -850,7 +850,7 @@ changeState_2022(UConverter* _this,
                 /* discard toUBytes[] for ESC ( B because this sequence is correct and complete */
                 _this->toULength = 0;
 
-                /* TODO need to indicate that ESC ( B was seen; if failure, then need to replay from source or from MBCS-style replay */
+                /* TODO need to indicate that ESC ( B was seen; if failure, then need to replay from source or from MBCS-style replay id:1924*/
 
                 /* continue with the loop */
                 value = VALID_NON_TERMINAL_2022;
@@ -1116,7 +1116,7 @@ MBCS_FROM_UCHAR32_ISO2022(UConverterSharedData* sharedData,
     int32_t length;
     const uint8_t *p;
     /*
-     * TODO(markus): Use and require new, faster MBCS conversion table structures.
+     * TODO (markus): Use and require new, faster MBCS conversion table structures. id:3231
      * Use internal version of ucnv_open() that verifies that the new structures are available,
      * else U_INTERNAL_PROGRAM_ERROR.
      */
@@ -1471,7 +1471,7 @@ static  const int8_t escSeqCharsLen[] ={
 *      No  ->  Continue and find the character in next code page
 *
 *
-* TODO: Implement a priority technique where the users are allowed to set the priority of code pages
+* TODO: Implement a priority technique where the users are allowed to set the priority of code pages id:2791
 */
 
 /* Map 00..7F to Unicode according to JIS X 0201. */
@@ -2033,7 +2033,7 @@ getTrail:
 
         /* get the source index of the last input character */
         /*
-         * TODO this would be simpler and more reliable if we used a pair
+         * TODO this would be simpler and more reliable if we used a pair id:1647
          * of sourceIndex/prevSourceIndex like in ucnvmbcs.c
          * so that we could simply use the prevSourceIndex here;
          * this code gives an incorrect result for the rare case of an unmatched
@@ -2527,7 +2527,7 @@ getTrail:
 
         /* get the source index of the last input character */
         /*
-         * TODO this would be simpler and more reliable if we used a pair
+         * TODO this would be simpler and more reliable if we used a pair id:2457
          * of sourceIndex/prevSourceIndex like in ucnvmbcs.c
          * so that we could simply use the prevSourceIndex here;
          * this code gives an incorrect result for the rare case of an unmatched
@@ -3220,7 +3220,7 @@ getTrail:
 
         /* get the source index of the last input character */
         /*
-         * TODO this would be simpler and more reliable if we used a pair
+         * TODO this would be simpler and more reliable if we used a pair id:1926
          * of sourceIndex/prevSourceIndex like in ucnvmbcs.c
          * so that we could simply use the prevSourceIndex here;
          * this code gives an incorrect result for the rare case of an unmatched

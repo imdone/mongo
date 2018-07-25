@@ -64,7 +64,7 @@ Status checkAuthForCopydbCommand(Client* client, const std::string& dbname, cons
         legalClientSystemCollections.push_back("system.users");
         legalClientSystemCollections.push_back("system.roles");
         legalClientSystemCollections.push_back("system.version");
-    } else if (fromdb == "local") {  // TODO(spencer): shouldn't be possible. See SERVER-11383
+    } else if (fromdb == "local") {  // TODO (spencer): shouldn't be possible. See SERVER-11383 id:401
         legalClientSystemCollections.push_back("system.replset");
     }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TODO:
+# TODO:  id:2396
 # SpiderMonkey needs a newer version of python that omnios ships with.
 # To install it, use
 #  pkg set-publisher -g http://pkg.omniti.com/omniti-ms/ ms.omniti.com

@@ -63,7 +63,7 @@
         assertErrorCode(config.system.sessions, user1Pipeline, ErrorCodes.Unauthorized);
 
         if (true) {
-            // TODO SERVER-29141: Support forcing pipelines to run on mongos
+            // TODO SERVER-29141: Support forcing pipelines to run on mongos id:54
             return;
         }
         function listLocalSessions() {
@@ -76,7 +76,7 @@
     runListSessionsTest(mongod);
     MongoRunner.stopMongod(mongod);
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:37
     const st = new ShardingTest({
         shards: 1,
         mongos: 1,

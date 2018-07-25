@@ -133,7 +133,7 @@ CodeGeneratorARM64::visitSqrtF(LSqrtF* ins)
     MOZ_CRASH("visitSqrtF");
 }
 
-// FIXME: Uh, is this a static function? It looks like it is...
+// FIXME: Uh, is this a static function? It looks like it is... id:2036
 template <typename T>
 ARMRegister
 toWRegister(const T* a)
@@ -141,7 +141,7 @@ toWRegister(const T* a)
     return ARMRegister(ToRegister(a), 32);
 }
 
-// FIXME: Uh, is this a static function? It looks like it is...
+// FIXME: Uh, is this a static function? It looks like it is... id:2655
 template <typename T>
 ARMRegister
 toXRegister(const T* a)

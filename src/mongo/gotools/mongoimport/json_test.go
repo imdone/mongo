@@ -53,7 +53,7 @@ func TestJSONArrayStreamDocument(t *testing.T) {
 
 		Convey("array JSON input file sources should be parsed correctly and "+
 			"subsequent imports should parse correctly", func() {
-			// TODO: currently parses JSON as floats and not ints
+			// TODO: currently parses JSON as floats and not ints id:2114
 			expectedReadOne := bson.D{
 				{"a", 1.2},
 				{"b", "a"},

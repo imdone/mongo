@@ -88,7 +88,7 @@ class test_schema02(wttest.WiredTigerTestCase):
         self.expect_failure_colgroup("main:c1", "columns=(S1,i2,bad)",
                                      "/Column 'bad' not found/")
 
-        # TODO: no columns allowed, or not?
+        # TODO: no columns allowed, or not? id:3439
         #self.session.create("colgroup:main:c0", "columns=()")
 
         # key in a column group
@@ -113,7 +113,7 @@ class test_schema02(wttest.WiredTigerTestCase):
                                      "/Column 'S3' in 'table:main' does not"
                                      " appear in a column group/")
 
-        # TODO: is repartitioning column groups allowed?
+        # TODO: is repartitioning column groups allowed? id:3484
         # this does not raise an error
         # self.expect_failure_colgroup("main:c2", "columns=(S1,S3,i4)"
 

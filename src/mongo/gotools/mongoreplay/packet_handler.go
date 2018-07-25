@@ -103,7 +103,7 @@ func (p *PacketHandler) Handle(streamHandler StreamHandler, numToHandle int) err
 				assembler.AssembleWithTimestamp(
 					pkt.TransportLayer().TransportFlow(),
 					tcpLayer.(*layers.TCP),
-					pkt.Metadata().Timestamp) // TODO: use time.Now() here when running in realtime mode
+					pkt.Metadata().Timestamp) // TODO: use time.Now() here when running in realtime mode id:1034
 			}
 			if count == 0 {
 				if firstSeener, ok := streamHandler.(SetFirstSeener); ok {

@@ -1,7 +1,7 @@
 /**
  * This test checks the upgrade path from noauth/nossl to x509/requireSSL.
  *
- * NOTE: This test uses ssl communication and therefore cannot test modes that
+ * NOTE: This test uses ssl communication and therefore cannot test modes that id:264
  * do not allow ssl. The first step in the full upgrade process is to restart
  * the each node into the "transitionToX509AllowSSL" state and is tested in
  * the sslSpecial directory.

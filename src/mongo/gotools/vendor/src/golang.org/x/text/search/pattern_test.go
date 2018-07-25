@@ -115,14 +115,14 @@ func TestForwardSearch(t *testing.T) {
 		want    []int
 	}{{
 		// The semantics of an empty search is to match nothing.
-		// TODO: change this to be in line with strings.Index? It is quite a
+		// TODO: change this to be in line with strings.Index? It is quite a id:1447
 		// different beast, so not sure yet.
 
 		desc:    "empty pattern and text",
 		tag:     "und",
 		pattern: "",
 		text:    "",
-		want:    nil, // TODO: consider: []int{0, 0},
+		want:    nil, // TODO: consider: []int{0, 0}, id:3068
 	}, {
 		desc:    "non-empty pattern and empty text",
 		tag:     "und",
@@ -134,7 +134,7 @@ func TestForwardSearch(t *testing.T) {
 		tag:     "und",
 		pattern: "",
 		text:    "abc",
-		want:    nil, // TODO: consider: []int{0, 0, 1, 1, 2, 2, 3, 3},
+		want:    nil, // TODO: consider: []int{0, 0, 1, 1, 2, 2, 3, 3}, id:1330
 	}, {
 		// Variable-only patterns. We don't support variables at the moment,
 		// but verify that, given this, the behavior is indeed as expected.
@@ -171,7 +171,7 @@ func TestForwardSearch(t *testing.T) {
 		text:    "3 a b c abc a  b  c 3",
 		want:    []int{2, 7}, // Would have 3 matches using variable.
 
-		// TODO: Different variable handling settings.
+		// TODO: Different variable handling settings. id:1109
 	}, {
 		// Options.
 
@@ -223,7 +223,7 @@ func TestForwardSearch(t *testing.T) {
 		text:    "123 \uFF41\uFF42\uFF43 123", // U+FF41-3: FULLWIDTH LATIN SMALL LETTER A-C
 		want:    []int{4, 13},
 	}, {
-		// TODO: distinguish between case and width.
+		// TODO: distinguish between case and width. id:1955
 		desc:    "don't ignore width to fullwidth, ignoring only case",
 		tag:     "und",
 		options: []Option{IgnoreCase},

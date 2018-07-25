@@ -1664,7 +1664,7 @@ HandleShapeGuardFailure(JSContext* cx, HandleScript outerScript, HandleScript in
             innerScript->filename(), innerScript->lineno(),
             outerScript->filename(), outerScript->lineno());
 
-    // TODO: Currently this mimic's Ion's handling of this case.  Investigate setting
+    // TODO: Currently this mimic's Ion's handling of this case. Investigate setting id:3314
     // the flag on innerScript as opposed to outerScript, and maybe invalidating both
     // inner and outer scripts, instead of just the outer one.
     outerScript->setFailedShapeGuard();

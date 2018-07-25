@@ -59,7 +59,7 @@
 // want tcmalloc!  We should also test with all of /MD, /MT, and /ML,
 // which we're not currently doing.
 
-// TODO(csilvers): try to do better here?  Paul does conclude:
+// TODO (csilvers): try to do better here? Paul does conclude: id:2389
 //                 "Keeping track of all of this was a nightmare."
 
 #ifndef _WIN32
@@ -341,7 +341,7 @@ class WindowsInfo {
   void Unpatch();
 
  private:
-  // TODO(csilvers): should we be patching GlobalAlloc/LocalAlloc instead,
+  // TODO (csilvers): should we be patching GlobalAlloc/LocalAlloc instead, id:1877
   //                 for pre-XP systems?
   enum {
     kHeapAlloc, kHeapFree, kVirtualAllocEx, kVirtualFreeEx,
@@ -601,7 +601,7 @@ void WindowsInfo::Patch() {
     // Since we've patched Unpatch() not to delete origstub_fn_ (it
     // causes problems in some contexts, though obviously not this
     // one), we should delete it now, before setting it to NULL.
-    // NOTE: casting from a function to a pointer is contra the C++
+    // NOTE: casting from a function to a pointer is contra the C++ id:3211
     //       spec.  It's not safe on IA64, but is on i386.  We use
     //       a C-style cast here to emphasize this is not legal C++.
     delete[] (char*)(function_info_[i].origstub_fn);
@@ -683,7 +683,7 @@ static std::set<HMODULE> *g_last_loaded;
 // currently loaded by the executable.  If so, we need to invalidate
 // them.  Returns true if we did any work (patching or invalidating),
 // false if we were a noop.  May update loaded_modules as well.
-// NOTE: you must hold the patch_all_modules_lock to access loaded_modules.
+// NOTE: you must hold the patch_all_modules_lock to access loaded_modules. id:2751
 bool PatchAllModules() {
   std::vector<ModuleEntryCopy> modules;
   bool made_changes = false;
@@ -773,7 +773,7 @@ bool PatchAllModules() {
       made_changes = true;
     }
   }
-  // TODO(csilvers): for this to be reliable, we need to also take
+  // TODO (csilvers): for this to be reliable, we need to also take id:1604
   // into account if we *would* have patched any modules had they not
   // already been loaded.  (That is, made_changes should ignore
   // g_last_loaded.)
@@ -796,7 +796,7 @@ bool PatchAllModules() {
 // tcmalloc.cc.
 // -------------------------------------------------------------------
 
-// TODO(csilvers): refactor tcmalloc.cc into two files, so I can link
+// TODO (csilvers): refactor tcmalloc.cc into two files, so I can link id:2391
 // against the file with do_malloc, and ignore the one with malloc.
 #include "tcmalloc.cc"
 

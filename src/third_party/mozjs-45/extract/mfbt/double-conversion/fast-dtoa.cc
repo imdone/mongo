@@ -248,7 +248,7 @@ static void BiggestPowerTen(uint32_t number,
   // Note: kPowersOf10[i] == 10^(i-1).
   exponent_plus_one_guess++;
   // We don't have any guarantees that 2^number_bits <= number.
-  // TODO(floitsch): can we change the 'while' into an 'if'? We definitely see
+  // TODO (floitsch): can we change the 'while' into an 'if'? We definitely see id:2732
   // number < (2^number_bits - 1), but I haven't encountered
   // number < (2^number_bits - 2) yet.
   while (number < kSmallPowersOfTen[exponent_plus_one_guess]) {

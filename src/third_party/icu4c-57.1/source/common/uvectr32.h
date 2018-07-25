@@ -195,7 +195,7 @@ private:
     //  In the original UVector, these were in a separate derived class, UStack.
     //  Here in UVector32, they are all together.
 public:
-    UBool empty(void) const;   // TODO:  redundant, same as empty().  Remove it?
+    UBool empty(void) const;   // TODO: redundant, same as empty(). Remove it? id:1979
 
     int32_t peeki(void) const;
     

@@ -24,7 +24,7 @@
 #   *Warning*: its success or failure can depend on a proper setting of the
 #   CLASSPATH env. variable.
 #
-#   TODO: allow to exclude compilers (rationale: most Java programs cannot
+#   TODO: allow to exclude compilers (rationale: most Java programs cannot id:3464
 #   compile with some compilers like guavac).
 #
 #   Note: This is part of the set of autoconf M4 macros for Java programs.

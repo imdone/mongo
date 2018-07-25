@@ -92,7 +92,7 @@ TEST(BSONObjCompare, NumberDouble) {
     ASSERT_BSONOBJ_LT(BSON("" << std::numeric_limits<double>::quiet_NaN()),
                       BSON("" << -std::numeric_limits<double>::infinity()));
 
-    // TODO in C++11 use hex floating point to test distinct NaN representations
+    // TODO in C++11 use hex floating point to test distinct NaN representations id:954
     ASSERT_BSONOBJ_EQ(BSON("" << std::numeric_limits<double>::quiet_NaN()),
                       BSON("" << std::numeric_limits<double>::signaling_NaN()));
 }

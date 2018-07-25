@@ -965,7 +965,7 @@ def run_isolated(klass, self, result):
 
         # at this point, sys.stdin is redirected, now we want
         # to filter it to escape ]'s.
-        ### XXX: test and write that bit.
+        ### XXX: test and write that bit. id:3476
         stream = os.fdopen(1, 'wb')
         result = TestProtocolClient(stream)
         klass.run(self, result)
@@ -982,7 +982,7 @@ def run_isolated(klass, self, result):
         fileobj = os.fdopen(c2pread, 'rb')
         protocol.readFrom(fileobj)
         os.waitpid(pid, 0)
-        # TODO return code evaluation.
+        # TODO return code evaluation. id:2436
     return result
 
 

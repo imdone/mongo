@@ -271,7 +271,7 @@ public:
                     "sharded collection exists already",
                     !outputRoutingInfo.cm());
 
-            // TODO: Should we also prevent going from non-sharded to sharded? During the
+            // TODO: Should we also prevent going from non-sharded to sharded? During the id:3110
             //       transition client may see partial data.
         }
 
@@ -333,7 +333,7 @@ public:
         {
             bool ok = true;
 
-            // TODO: take distributed lock to prevent split / migration?
+            // TODO: take distributed lock to prevent split / migration? id:2552
 
             try {
                 Strategy::commandOp(
@@ -711,7 +711,7 @@ private:
         // Note that it's not safe to pre-split onto non-primary shards through shardCollection:
         // a conflict may result if multiple map-reduces are writing to the same output collection,
         //
-        // TODO: pre-split mapReduce output in a safer way.
+        // TODO: pre-split mapReduce output in a safer way. id:1215
 
         // Invalidate the routing table cache entry for this collection so that we reload the
         // collection the next time it's accessed, even if we receive a failure, e.g. NetworkError.

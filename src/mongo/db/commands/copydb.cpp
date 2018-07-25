@@ -86,10 +86,10 @@ using std::stringstream;
  * send it to the target when it runs the "copydb" command, which can then use that information
  * to authenticate with the source.
  *
- * NOTE: mongos doesn't know how to call or handle the "copydbgetnonce" command.  See
+ * NOTE: mongos doesn't know how to call or handle the "copydbgetnonce" command. See id:396
  * SERVER-6427.
  *
- * NOTE: Since internal cluster auth works differently, "copydb" currently doesn't work between
+ * NOTE: Since internal cluster auth works differently, "copydb" currently doesn't work between id:596
  * shards in a cluster when auth is enabled.  See SERVER-13080.
  */
 class CmdCopyDb : public ErrmsgCommandDeprecated {

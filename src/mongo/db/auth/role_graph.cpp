@@ -273,7 +273,7 @@ void RoleGraph::_addPrivilegeToRoleNoChecks(const RoleName& role, const Privileg
     Privilege::addPrivilegeToPrivilegeVector(&_directPrivilegesForRole[role], privilegeToAdd);
 }
 
-// NOTE: Current runtime of this is O(n*m) where n is the size of the current PrivilegeVector
+// NOTE: Current runtime of this is O(n*m) where n is the size of the current PrivilegeVector id:1015
 // for the given role, and m is the size of the privilegesToAdd vector.
 // If this was a PrivilegeSet (sorted on resource) rather than a PrivilegeVector, we
 // could do this in O(n+m) instead.

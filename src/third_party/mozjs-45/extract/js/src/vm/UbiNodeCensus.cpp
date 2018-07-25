@@ -568,7 +568,7 @@ class ByAllocationStack : public CountType {
     using Entry = Table::Entry;
 
     struct Count : public CountBase {
-        // NOTE: You may look up entries in this table by JS::ubi::StackFrame
+        // NOTE: You may look up entries in this table by JS::ubi::StackFrame id:2726
         // key only during traversal, NOT ONCE TRAVERSAL IS COMPLETE. Once
         // traversal is complete, you may only iterate over it.
         //

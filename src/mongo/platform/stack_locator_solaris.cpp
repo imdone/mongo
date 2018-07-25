@@ -43,7 +43,7 @@ StackLocator::StackLocator() {
     invariant(stack.ss_sp != nullptr);
     invariant(stack.ss_size != 0);
 
-    // TODO: Assumes stack grows downward on Solaris
+    // TODO: Assumes stack grows downward on Solaris id:1174
     _begin = stack.ss_sp;
     _end = static_cast<char*>(_begin) - stack.ss_size;
 }

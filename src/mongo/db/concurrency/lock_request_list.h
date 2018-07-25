@@ -40,7 +40,7 @@ namespace mongo {
  *
  * Intentionally implemented as a POD in order to avoid constructor/destructor invocations.
  *
- * NOTE: This class should not be used for generic purposes and should not be used outside of
+ * NOTE: This class should not be used for generic purposes and should not be used outside of id:681
  * the Lock Manager library.
  */
 class LockRequestList {

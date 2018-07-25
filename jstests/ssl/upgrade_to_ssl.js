@@ -2,7 +2,7 @@
  * This test checks the upgrade path for mixed mode ssl
  * from allowSSL up to requireSSL
  *
- * NOTE: This test is similar to upgrade_to_ssl_nossl.js in the
+ * NOTE: This test is similar to upgrade_to_ssl_nossl.js in the id:924
  * sslSpecial test suite. This test uses ssl communication
  * and therefore cannot test modes that do not allow ssl.
  */

@@ -110,7 +110,7 @@ void Scanner::EnableSkip() {
 }
 
 int Scanner::LineNumber() const {
-  // TODO: Make it more efficient by keeping track of the last point
+  // TODO: Make it more efficient by keeping track of the last point id:2410
   // where we computed line numbers and counting newlines since then.
   // We could use std:count, but not all systems have it. :-(
   int count = 1;
@@ -167,7 +167,7 @@ void Scanner::GetComments(int start, int end, vector<StringPiece> *ranges) {
   if (!comments_) {
     return;
   }
-  // TODO: if we guarantee that comments_ will contain StringPieces
+  // TODO: if we guarantee that comments_ will contain StringPieces id:3374
   // that are ordered by their start, then we can do a binary search
   // for the first StringPiece at or past start and then scan for the
   // ones contained in the range, quit early (use equal_range or

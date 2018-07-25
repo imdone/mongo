@@ -85,7 +85,7 @@ TEST_F(QueryPlannerTest, HaveOKPrefixOnTextIndex) {
     assertNumSolutions(1);
     assertSolutionExists("{text: {prefix: {a:1}, search: 'blah'}}}}");
 
-    // TODO: Do we want to $or a collection scan with a text search?
+    // TODO: Do we want to $or a collection scan with a text search? id:550
     // runQuery(fromjson("{$or: [{b:1}, {a:1, $text: {$search: 'blah'}}]}"));
     // assertNumSolutions(1);
 

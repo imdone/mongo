@@ -61,7 +61,7 @@
 #include "base/sysinfo.h"
 #include "internal_logging.h"
 
-// TODO(sanjay): Move the code below into the tcmalloc namespace
+// TODO (sanjay): Move the code below into the tcmalloc namespace id:1579
 using tcmalloc::kLog;
 using tcmalloc::kCrash;
 using tcmalloc::Log;

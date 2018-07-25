@@ -571,7 +571,7 @@ public:
 protected:
     WT_CURSOR* openBulkCursor(WiredTigerIndex* idx) {
         // Open cursors can cause bulk open_cursor to fail with EBUSY.
-        // TODO any other cases that could cause EBUSY?
+        // TODO any other cases that could cause EBUSY? id:2067
         WiredTigerSession* outerSession = WiredTigerRecoveryUnit::get(_opCtx)->getSession();
         outerSession->closeAllCursors(idx->uri());
 
@@ -642,7 +642,7 @@ public:
     }
 
     void commit(bool mayInterrupt) override {
-        // TODO do we still need this?
+        // TODO do we still need this? id:980
         // this is bizarre, but required as part of the contract
         WriteUnitOfWork uow(_opCtx);
         uow.commit();
@@ -832,7 +832,7 @@ public:
             return;
         }
 
-        // NOTE: this uses the opposite rules as a normal seek because a forward scan should
+        // NOTE: this uses the opposite rules as a normal seek because a forward scan should id:780
         // end after the key if inclusive and before if exclusive.
         const auto discriminator =
             _forward == inclusive ? KeyString::kExclusiveAfter : KeyString::kExclusiveBefore;
@@ -859,7 +859,7 @@ public:
     boost::optional<IndexKeyEntry> seek(const IndexSeekPoint& seekPoint,
                                         RequestedInfo parts) override {
         dassert(_opCtx->lockState()->isReadLocked());
-        // TODO: don't go to a bson obj then to a KeyString, go straight
+        // TODO: don't go to a bson obj then to a KeyString, go straight id:1547
         BSONObj key = IndexEntryComparison::makeQueryObject(seekPoint, _forward);
 
         // makeQueryObject handles the discriminator in the real exclusive cases.

@@ -545,7 +545,7 @@ func main() {
 		// align to 3 uint64s on 64-bit architectures.
 		w.Size += 2*4*256 + 3*8
 	}
-	// TODO: add proper line breaking.
+	// TODO: add proper line breaking. id:943
 	printf("var listAll = []encoding.Encoding{\n%s,\n}\n\n", strings.Join(all, ",\n"))
 }
 

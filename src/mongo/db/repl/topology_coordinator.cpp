@@ -1246,7 +1246,7 @@ OpTime TopologyCoordinator::_latestKnownOpTime() const {
     for (std::vector<MemberData>::const_iterator it = _memberData.begin(); it != _memberData.end();
          ++it) {
         // Ignore self
-        // TODO(russotto): Simplify when heartbeat and spanning tree times are combined.
+        // TODO (russotto): Simplify when heartbeat and spanning tree times are combined. id:1277
         if (it->isSelf()) {
             continue;
         }
@@ -2045,13 +2045,13 @@ void TopologyCoordinator::_setLeaderMode(TopologyCoordinator::LeaderMode newMode
             invariant(newMode == LeaderMode::kLeaderElect);
             break;
         case LeaderMode::kLeaderElect:
-            invariant(newMode == LeaderMode::kNotLeader ||  // TODO(SERVER-30852): remove this case
+            invariant(newMode == LeaderMode::kNotLeader ||  // TODO (SERVER-30852): remove this case id:638
                       newMode == LeaderMode::kMaster ||
                       newMode == LeaderMode::kAttemptingStepDown ||
                       newMode == LeaderMode::kSteppingDown);
             break;
         case LeaderMode::kMaster:
-            invariant(newMode == LeaderMode::kNotLeader ||  // TODO(SERVER-30852): remove this case
+            invariant(newMode == LeaderMode::kNotLeader ||  // TODO (SERVER-30852): remove this case id:1870
                       newMode == LeaderMode::kAttemptingStepDown ||
                       newMode == LeaderMode::kSteppingDown);
             break;
@@ -2446,7 +2446,7 @@ long long TopologyCoordinator::getTerm() const {
     return _term;
 }
 
-// TODO(siyuan): Merge _hddata into _slaveInfo, so that we have a single view of the
+// TODO (siyuan): Merge _hddata into _slaveInfo, so that we have a single view of the id:832
 // replset. Passing metadata is unnecessary.
 bool TopologyCoordinator::shouldChangeSyncSource(
     const HostAndPort& currentSource,
@@ -2589,7 +2589,7 @@ rpc::OplogQueryMetadata TopologyCoordinator::prepareOplogQueryMetadata(int rbid)
 }
 
 void TopologyCoordinator::summarizeAsHtml(ReplSetHtmlSummary* output) {
-    // TODO(dannenberg) consider putting both optimes into the htmlsummary.
+    // TODO (dannenberg) consider putting both optimes into the htmlsummary. id:698
     output->setSelfOptime(getMyLastAppliedOpTime());
     output->setConfig(_rsConfig);
     output->setHBData(_memberData);

@@ -133,7 +133,7 @@ const char* GetenvBeforeMain(const char* name) {
   }
 #endif
 #if defined(PLATFORM_WINDOWS)
-  // TODO(mbelshe) - repeated calls to this function will overwrite the
+  // TODO (mbelshe) - repeated calls to this function will overwrite the id:2727
   // contents of the static buffer.
   static char envvar_buf[1024];  // enough to hold any envvar we care about
   if (!GetEnvironmentVariableA(name, envvar_buf, sizeof(envvar_buf)-1))
@@ -196,7 +196,7 @@ extern "C" {
 // assuming cpuprofile filenames don't normally have the high bit set
 // in their first character!  If that assumption is violated, we'll
 // still get a profile, but one with an unexpected name.
-// TODO(csilvers): set an envvar instead when we can do it reliably.
+// TODO (csilvers): set an envvar instead when we can do it reliably. id:1505
 bool GetUniquePathFromEnv(const char* env_name, char* path) {
   char* envval = getenv(env_name);
   if (envval == NULL || *envval == '\0')
@@ -268,7 +268,7 @@ static bool NextExtMachHelper(const mach_header* hdr,
   if (hdr->magic != kMagic)
     return false;
   const char* lc = (const char *)hdr + sizeof(MachHeader);
-  // TODO(csilvers): make this not-quadradic (increment and hold state)
+  // TODO (csilvers): make this not-quadradic (increment and hold state) id:2359
   for (int j = 0; j < current_load_cmd; j++)  // advance to *our* load_cmd
     lc += ((const load_command *)lc)->cmdsize;
   if (((const load_command *)lc)->cmd == kLCSegment) {

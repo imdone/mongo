@@ -67,7 +67,7 @@ bool ExprMatchExpression::equivalent(const MatchExpression* other) const {
         return false;
     }
 
-    // TODO SERVER-30982: Add mechanism to allow for checking Expression equivalency.
+    // TODO SERVER-30982: Add mechanism to allow for checking Expression equivalency. id:490
     return ValueComparator().evaluate(_expression->serialize(false) ==
                                       realOther->_expression->serialize(false));
 }
@@ -82,7 +82,7 @@ void ExprMatchExpression::_doSetCollator(const CollatorInterface* collator) {
 
 
 std::unique_ptr<MatchExpression> ExprMatchExpression::shallowClone() const {
-    // TODO SERVER-31003: Replace Expression clone via serialization with Expression::clone().
+    // TODO SERVER-31003: Replace Expression clone via serialization with Expression::clone(). id:834
     BSONObjBuilder bob;
     bob << "" << _expression->serialize(false);
     boost::intrusive_ptr<Expression> clonedExpr =

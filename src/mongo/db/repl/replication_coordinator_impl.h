@@ -1068,7 +1068,7 @@ private:
      * Waits until the optime of the current node is at least the opTime specified in 'readConcern'.
      * Supports local and majority readConcern.
      */
-    // TODO: remove when SERVER-29729 is done
+    // TODO: remove when SERVER-29729 is done id:1854
     Status _waitUntilOpTimeForReadDeprecated(OperationContext* opCtx,
                                              const ReadConcernArgs& readConcern);
 

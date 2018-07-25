@@ -21,7 +21,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# TODO:
+# TODO:  id:3077
 #   * supported arch for versions: for old versions of batch file without
 #     argument, giving bogus argument cannot be detected, so we have to hardcode
 #     this here
@@ -103,7 +103,7 @@ def get_host_target(env):
     host_platform = env.get('HOST_ARCH')
     if not host_platform:
         host_platform = platform.machine()
-        # TODO(2.5):  the native Python platform.machine() function returns
+        # TODO (2.5): the native Python platform.machine() function returns id:2214
         # '' on all Python versions before 2.6, after which it also uses
         # PROCESSOR_ARCHITECTURE.
         if not host_platform:
@@ -492,7 +492,7 @@ def msvc_setup_env(env):
         return None
     debug('msvc_setup_env: using specified MSVC version %s\n' % repr(version))
 
-    # XXX: we set-up both MSVS version for backward
+    # XXX: we set-up both MSVS version for backward id:2798
     # compatibility with the msvs tool
     env['MSVC_VERSION'] = version
     env['MSVS_VERSION'] = version

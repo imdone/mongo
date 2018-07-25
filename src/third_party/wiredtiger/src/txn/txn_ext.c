@@ -64,7 +64,7 @@ __wt_ext_transaction_notify(
 	txn = &session->txn;
 
 	/*
-	 * XXX
+	 * XXX  id:3431
 	 * For now, a single slot for notifications: I'm not bothering with
 	 * more than one because more than one data-source in a transaction
 	 * doesn't work anyway.

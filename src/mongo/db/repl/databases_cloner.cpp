@@ -412,7 +412,7 @@ void DatabasesCloner::_onEachDBCloneFinish(const Status& status, const std::stri
         // Do special checks for the admin database because of auth. collections.
         auto adminStatus = Status(ErrorCodes::NotYetInitialized, "");
         {
-            // TODO: Move isAdminDbValid() out of the collection/database cloner code paths.
+            // TODO: Move isAdminDbValid() out of the collection/database cloner code paths. id:599
             OperationContext* opCtx = cc().getOperationContext();
             ServiceContext::UniqueOperationContext opCtxPtr;
             if (!opCtx) {
@@ -454,7 +454,7 @@ void DatabasesCloner::_fail_inlock(UniqueLock* lk, Status status) {
     }
 
     _setStatus_inlock(status);
-    // TODO: shutdown outstanding work, like any cloners active
+    // TODO: shutdown outstanding work, like any cloners active id:1837
     invariant(_finishFn);
     auto finish = _finishFn;
     _finishFn = {};

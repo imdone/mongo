@@ -131,13 +131,13 @@ cornerPt = t.findOne({loc: {$within: {$center: [offCenter, step / 2]}}});
 assert.eq(cornerPt.loc.y, overallMax);
 
 // Make sure we get correct corner point when center is on bounds
-// NOTE: Only valid points on MIN bounds
+// NOTE: Only valid points on MIN bounds id:85
 cornerPt = t.findOne(
     {loc: {$within: {$center: [onBoundsNeg, Math.sqrt(2 * epsilon * epsilon) + (step / 2)]}}});
 assert.eq(cornerPt.loc.y, overallMin);
 
 // Make sure we can't get corner point when center is over bounds
-// TODO: SERVER-5800 clean up wrapping rules for different CRS queries - not sure this is an error
+// TODO: SERVER-5800 clean up wrapping rules for different CRS queries - not sure this is an error id:109
 /*
 assert.throws(function(){
     t.findOne( { loc : { $within : { $center : [ offBounds, Math.sqrt( 8 * epsilon * epsilon ) + (
@@ -163,7 +163,7 @@ assert.eq(overallMax, t.find({loc: {$near: offCenter}}).next().loc.y);
 assert.eq(overallMin, t.find({loc: {$near: onBoundsNeg}}).next().loc.y);
 
 // Make sure we can't get all nearby points to point over boundary
-// TODO: SERVER-9986 clean up wrapping rules for different CRS queries - not sure this is an error
+// TODO: SERVER-9986 clean up wrapping rules for different CRS queries - not sure this is an error id:73
 /*
 assert.throws(function(){
     t.findOne( { loc : { $near : offBounds } } );

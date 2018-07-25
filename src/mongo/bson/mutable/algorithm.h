@@ -109,7 +109,7 @@ inline ElementType findFirstChildNamed(ElementType parent, StringData fieldName)
 
 /** A less-than ordering for Elements that compares based on the Element field names. */
 class FieldNameLessThan {
-    // TODO: This should possibly derive from std::binary_function.
+    // TODO: This should possibly derive from std::binary_function. id:311
 public:
     inline bool operator()(const ConstElement& left, const ConstElement& right) const {
         return left.getFieldName() < right.getFieldName();
@@ -121,7 +121,7 @@ public:
  */
 template <typename Comparator>
 void sortChildren(Element parent, Comparator comp) {
-    // TODO: The following works, but obviously is not ideal.
+    // TODO: The following works, but obviously is not ideal. id:964
 
     // First, build a vector of the children.
     std::vector<Element> children;
@@ -165,7 +165,7 @@ void deduplicateChildren(Element parent, EqualityComparator equal) {
 
 /** A less-than ordering for Elements that compares based on woCompare */
 class woLess {
-    // TODO: This should possibly derive from std::binary_function.
+    // TODO: This should possibly derive from std::binary_function. id:319
 public:
     woLess(const StringData::ComparatorInterface* comparator, bool considerFieldName = true)
         : _comp(comparator), _considerFieldName(considerFieldName) {}
@@ -181,7 +181,7 @@ private:
 
 /** A greater-than ordering for Elements that compares based on woCompare */
 class woGreater {
-    // TODO: This should possibly derive from std::binary_function.
+    // TODO: This should possibly derive from std::binary_function. id:313
 public:
     woGreater(const StringData::ComparatorInterface* comparator, bool considerFieldName = true)
         : _comp(comparator), _considerFieldName(considerFieldName) {}
@@ -197,7 +197,7 @@ private:
 
 /** An equality predicate for elements that compares based on woCompare */
 class woEqual {
-    // TODO: This should possibly derive from std::binary_function.
+    // TODO: This should possibly derive from std::binary_function. id:382
 public:
     woEqual(const StringData::ComparatorInterface* comparator, bool considerFieldName = true)
         : _comp(comparator), _considerFieldName(considerFieldName) {}
@@ -213,7 +213,7 @@ private:
 
 /** An equality predicate for elements that compares based on woCompare */
 class woEqualTo {
-    // TODO: This should possibly derive from std::binary_function.
+    // TODO: This should possibly derive from std::binary_function. id:315
 public:
     woEqualTo(const ConstElement& value,
               const StringData::ComparatorInterface* comparator,
@@ -230,7 +230,7 @@ private:
     const bool _considerFieldName;
 };
 
-// NOTE: Originally, these truly were algorithms, in that they executed the loop over a
+// NOTE: Originally, these truly were algorithms, in that they executed the loop over a id:966
 // generic ElementType. However, these operations were later made intrinsic to
 // Element/Document for performance reasons. These functions hare here for backward
 // compatibility, and just delegate to the appropriate Element or ConstElement method of

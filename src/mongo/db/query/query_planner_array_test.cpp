@@ -2108,7 +2108,7 @@ TEST_F(QueryPlannerTest, ContainedOrCannotPushdownThroughOrElemMatchObjOrPattern
     assertSolutionExists("{cscan: {dir: 1}}}}");
 }
 
-// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below.
+// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below. id:1817
 TEST_F(QueryPlannerTest, ContainedOrInAndInNestedElemMatch) {
     addIndex(BSON("b.d" << 1 << "b.c.f" << 1));
     addIndex(BSON("b.e" << 1 << "b.c.f" << 1));
@@ -2129,7 +2129,7 @@ TEST_F(QueryPlannerTest, ContainedOrInAndInNestedElemMatch) {
     assertSolutionExists("{cscan: {dir: 1}}}}");
 }
 
-// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below.
+// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below. id:759
 TEST_F(QueryPlannerTest, ContainedOrInAndInNestedElemMatchWithMultikeyPaths) {
     MultikeyPaths multikeyPaths{{0U}, {0U, 1U}};
     addIndex(BSON("b.d" << 1 << "b.c.f" << 1), multikeyPaths);
@@ -2151,7 +2151,7 @@ TEST_F(QueryPlannerTest, ContainedOrInAndInNestedElemMatchWithMultikeyPaths) {
     assertSolutionExists("{cscan: {dir: 1}}}}");
 }
 
-// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below.
+// TODO SERVER-30145: Fixing this ticket should allow us to generate tight bounds on "b.c.f" below. id:581
 TEST_F(QueryPlannerTest, ContainedOrInNestedElemMatchWithMultikeyPaths) {
     MultikeyPaths multikeyPaths{{0U}, {0U, 1U}};
     addIndex(BSON("b.d" << 1 << "b.c.f" << 1), multikeyPaths);

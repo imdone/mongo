@@ -200,7 +200,7 @@ def _SConscript(fs, *files, **kw):
                     # creating a parallel SConscript directory structure
                     # in our local directory tree.
                     #
-                    # XXX This is broken for multiple-repository cases
+                    # XXX This is broken for multiple-repository cases id:2206
                     # where the SConstruct and SConscript files might be
                     # in different Repositories.  For now, cross that
                     # bridge when someone comes to it.

@@ -35,7 +35,7 @@
  */
 
 /*
- * ### TODO in general for letter shaping:
+ * ### TODO in general for letter shaping: id:2498
  * - the letter shaping code is UTF-16-unaware; needs update
  *   + especially invertBuffer()?!
  * - needs to handle the "Arabic Tail" that is used in some legacy codepages
@@ -1535,7 +1535,7 @@ u_shapeArabic(const UChar *source, int32_t sourceLength,
         }
 
         /* calculate destination size */
-        /* TODO: do we ever need to do this pure preflighting? */
+        /* TODO: do we ever need to do this pure preflighting? id:1969*/
         if(((options&U_SHAPE_LAMALEF_MASK)==U_SHAPE_LAMALEF_RESIZE) ||
            ((options&U_SHAPE_TASHKEEL_MASK)==U_SHAPE_TASHKEEL_RESIZE)) {
             outputSize=calculateSize(source,sourceLength,destCapacity,options);
@@ -1627,7 +1627,7 @@ u_shapeArabic(const UChar *source, int32_t sourceLength,
         }
 
         /*
-         * TODO: (markus 2002aug01)
+         * TODO: (markus 2002aug01) id:3252
          * For as long as we always preflight the outputSize above
          * we should U_ASSERT(outputSize==destLength)
          * except for the adjustment above before the tempbuffer allocation

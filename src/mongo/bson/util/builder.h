@@ -332,7 +332,7 @@ public:
 private:
     template <typename T>
     void appendNumImpl(T t) {
-        // NOTE: For now, we assume that all things written
+        // NOTE: For now, we assume that all things written id:339
         // by a BufBuilder are intended for external use: either written to disk
         // or to the wire. Since all of our encoding formats are little endian,
         // we bake that assumption in here. This decision should be revisited soon.

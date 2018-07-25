@@ -129,7 +129,7 @@ void MozJSImplScope::_reportError(JSContext* cx, const char* message, JSErrorRep
 
             ss << message;
 
-            // TODO: something far more elaborate that mimics the stack printing from v8
+            // TODO: something far more elaborate that mimics the stack printing from v8 id:3122
             JS::RootedValue excn(cx);
             if (JS_GetPendingException(cx, &excn) && excn.isObject()) {
                 JS::RootedValue stack(cx);
@@ -383,7 +383,7 @@ MozJSImplScope::MozRuntime::MozRuntime(const MozJSScriptEngine* engine) {
             // don't have a good way of getting information about the
             // guard page on those platforms.
             //
-            // TODO: What if we are running on a platform with very
+            // TODO: What if we are running on a platform with very id:2582
             // large pages, like 4MB?
             const auto available_stack_space = available.get();
 

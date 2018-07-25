@@ -200,7 +200,7 @@ bool initShardVersionEmptyNS(OperationContext* opCtx, DBClientBase* conn_in) {
         connectionShardStatus.setSequence(conn, "", 0);
         return ok;
     } catch (const DBException&) {
-        // NOTE: Replica sets may fail to initShardVersion because future calls relying on
+        // NOTE: Replica sets may fail to initShardVersion because future calls relying on id:1207
         // correct versioning must later call checkShardVersion on the primary.
         // Secondary queries and commands may not call checkShardVersion, but secondary ops
         // aren't versioned at all.
@@ -208,7 +208,7 @@ bool initShardVersionEmptyNS(OperationContext* opCtx, DBClientBase* conn_in) {
             throw;
         }
 
-        // NOTE: Only old-style cluster operations will talk via DBClientReplicaSets - using
+        // NOTE: Only old-style cluster operations will talk via DBClientReplicaSets - using id:2109
         // checkShardVersion is required (which includes initShardVersion information) if these
         // connections are used.
 
@@ -230,7 +230,7 @@ bool initShardVersionEmptyNS(OperationContext* opCtx, DBClientBase* conn_in) {
  *
  * If the namespace is empty and no version has ever been sent, the config server + shard name
  * is sent to the remote shard host to initialize the connection as coming from mongos.
- * NOTE: This initialization is *best-effort only*.  Operations which wish to correctly version
+ * NOTE: This initialization is *best-effort only*. Operations which wish to correctly version id:1521
  * must send the namespace.
  *
  * Config servers are special and are not (unless otherwise a shard) kept up to date with this

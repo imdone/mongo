@@ -53,7 +53,7 @@ class OperationContext;
  * Lets you make server level settings easily configurable.
  * Hooks into (set|get)Parameter, as well as command line processing
  *
- * NOTE: ServerParameters set at runtime can be read or written to at anytime, and are not
+ * NOTE: ServerParameters set at runtime can be read or written to at anytime, and are not id:745
  * thread-safe without atomic types or other concurrency techniques.
  */
 class ServerParameter {
@@ -338,7 +338,7 @@ private:
  * Implementation of BoundServerParameter for reading and writing a server parameter with a given
  * name and type into a specific C++ variable.
  *
- * NOTE: ServerParameters set at runtime can be read or written to at anytime, and are not
+ * NOTE: ServerParameters set at runtime can be read or written to at anytime, and are not id:1506
  * thread-safe without atomic types or other concurrency techniques.
  */
 template <typename T, ServerParameterType paramType>

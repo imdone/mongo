@@ -90,7 +90,7 @@ std::string DBDirectClient::toString() const {
 }
 
 std::string DBDirectClient::getServerAddress() const {
-    return "localhost";  // TODO: should this have the port?
+    return "localhost";  // TODO: should this have the port? id:419
 }
 
 // Returned version should match the incoming connections restrictions.

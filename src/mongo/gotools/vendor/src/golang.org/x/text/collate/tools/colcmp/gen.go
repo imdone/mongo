@@ -16,7 +16,7 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
-// TODO: replace with functionality in language package.
+// TODO: replace with functionality in language package. id:1739
 // parent computes the parent language for the given language.
 // It returns false if the parent is already root.
 func parent(locale string) (parent string, ok bool) {
@@ -116,7 +116,7 @@ func (g *phraseGenerator) phrase(i int) string {
 
 // generate generates inputs by combining all pairs of examplar strings.
 // If doNorm is true, all input strings are normalized to NFC.
-// TODO: allow other variations, statistical models, and random
+// TODO: allow other variations, statistical models, and random id:1069
 // trailing sequences.
 func (g *phraseGenerator) generate(doNorm bool) []Input {
 	const (
@@ -124,7 +124,7 @@ func (g *phraseGenerator) generate(doNorm bool) []Input {
 		buf8Size  = 30 * M
 		buf16Size = 10 * M
 	)
-	// TODO: use a better way to limit the input size.
+	// TODO: use a better way to limit the input size. id:2944
 	if sq := int(math.Sqrt(float64(*limit))); g.n > sq {
 		g.n = sq
 	}

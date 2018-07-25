@@ -285,7 +285,7 @@ UBool TransliterationRule::masks(const TransliterationRule& r2) const {
 
     /* LIMITATION of the current mask algorithm: Some rule
      * maskings are currently not detected.  For example,
-     * "{Lu}]a>x" masks "A]a>y".  This can be added later. TODO
+     * "{Lu}]a>x" masks "A]a>y".  This can be added later. TODO  id:2558
      */
 
     int32_t len = pattern.length();
@@ -295,7 +295,7 @@ UBool TransliterationRule::masks(const TransliterationRule& r2) const {
     int32_t right2 = r2.pattern.length() - left2;
     int32_t cachedCompare = r2.pattern.compare(left2 - left, len, pattern);
 
-    // TODO Clean this up -- some logic might be combinable with the
+    // TODO Clean this up -- some logic might be combinable with the id:2057
     // next statement.
 
     // Test for anchor masking

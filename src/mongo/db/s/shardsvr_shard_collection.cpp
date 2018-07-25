@@ -641,7 +641,7 @@ void shardCollection(OperationContext* opCtx,
         }
         coll.setEpoch(collVersion.epoch());
 
-        // TODO(schwerin): The following isn't really a date, but is stored as one in-memory and in
+        // TODO (schwerin): The following isn't really a date, but is stored as one in-memory and in id:1912
         // config.collections, as a historical oddity.
         coll.setUpdatedAt(Date_t::fromMillisSinceEpoch(collVersion.toLong()));
         coll.setKeyPattern(fieldsAndOrder.toBSON());

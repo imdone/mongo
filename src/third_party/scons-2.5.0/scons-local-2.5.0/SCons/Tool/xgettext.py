@@ -275,7 +275,7 @@ def generate(env,**kw):
     env['XGETTEXT'] = _detect_xgettext(env)
   except:
     env['XGETTEXT'] = 'xgettext' 
-  # NOTE: sources="$SOURCES" would work as well. However, we use following
+  # NOTE: sources="$SOURCES" would work as well. However, we use following id:3448
   # construction to convert absolute paths provided by scons onto paths
   # relative to current working dir. Note, that scons expands $SOURCE(S) to
   # absolute paths for sources $SOURCE(s) outside of current subtree (e.g. in
@@ -288,7 +288,7 @@ def generate(env,**kw):
   sources = '$( ${_concat( "", SOURCES, "", __env__, XgettextRPaths, TARGET' \
     + ', SOURCES)} $)'
 
-  # NOTE: the output from $XGETTEXTCOM command must go to stdout, not to a file.
+  # NOTE: the output from $XGETTEXTCOM command must go to stdout, not to a file. id:2239
   # This is required by the POTUpdate builder's action.
   xgettextcom = '$XGETTEXT $XGETTEXTFLAGS $_XGETTEXTPATHFLAGS' \
     + ' $_XGETTEXTFROMFLAGS -o - ' + sources

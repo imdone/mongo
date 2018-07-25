@@ -116,7 +116,7 @@
 
 // Handle versions above 5.X but below 6.9
 #if (_WRS_VXWORKS_MAJOR == 6) && (_WRS_VXWORKS_MINOR < 9)
-// TODO: Starting from what version does vxWorks work with boost?
+// TODO: Starting from what version does vxWorks work with boost? id:3166
 // We can't reasonably insert a #warning "" as a user hint here,
 // as this will show up with every file including some boost header,
 // badly bugging the user... So for the time being we just leave it.
@@ -193,7 +193,7 @@
 
 // vxWorks doesn't work with asio serial ports:
 #define BOOST_ASIO_DISABLE_SERIAL_PORT
-// TODO: The problem here seems to bee that vxWorks uses its own, very specific
+// TODO: The problem here seems to bee that vxWorks uses its own, very specific id:2670
 //       ways to handle serial ports, incompatible with POSIX or anything...
 //       Maybe a specific implementation would be possible, but until the
 //       straight need arises... This implementation would presumably consist
@@ -246,7 +246,7 @@ extern "C" {
 //                 parameters idtype and id mean, so we must fall back to an educated
 //                 guess - null, argh... :-/
 
-// TODO: getprlimit() and setprlimit() do exist for RTPs only, for whatever reason.
+// TODO: getprlimit() and setprlimit() do exist for RTPs only, for whatever reason. id:1444
 //       Thus for DKMs there would have to be another implementation.
 #ifdef __RTP__
   inline int getrlimit(int resource, struct rlimit *rlp){

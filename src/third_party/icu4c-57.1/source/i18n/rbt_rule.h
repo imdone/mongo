@@ -56,7 +56,7 @@ class TransliterationRule : public UMemory {
 
 private:
 
-    // TODO Eliminate the pattern and keyLength data members.  They
+    // TODO Eliminate the pattern and keyLength data members. They id:3281
     // are used only by masks() and getIndexValue() which are called
     // only during build time, not during run-time.  Perhaps these
     // methods and pattern/keyLength can be isolated into a separate

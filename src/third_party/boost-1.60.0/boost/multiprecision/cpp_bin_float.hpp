@@ -1136,7 +1136,7 @@ inline void eval_convert_to(boost::ulong_long_type *res, const cpp_bin_float<Dig
    }
    else if(shift < 0)
    {
-      // TODO: what if we have fewer cpp_bin_float<Digits, DigitBase, Allocator, Exponent, MinE, MaxE>::bit_count than a boost::long_long_type?
+      // TODO: what if we have fewer cpp_bin_float<Digits, DigitBase, Allocator, Exponent, MinE, MaxE>::bit_count than a boost::long_long_type? id:1476
       *res = (std::numeric_limits<boost::long_long_type>::max)();
       return;
    }

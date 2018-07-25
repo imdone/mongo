@@ -95,7 +95,7 @@ void Parser::HandleYamlDirective(const Token& token) {
     throw ParserException(token.mark, ErrorMsg::YAML_MAJOR_VERSION);
 
   m_pDirectives->version.isDefault = false;
-  // TODO: warning on major == 1, minor > 2?
+  // TODO: warning on major == 1, minor > 2? id:2468
 }
 
 // HandleTagDirective

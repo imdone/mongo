@@ -64,11 +64,11 @@ void expandIndex(const IndexEntry& allPathsIndex,
                  vector<IndexEntry>* out) {
     invariant(out);
 
-    // TODO SERVER-35902: For now indexAllPaths indices cannot supply a projection.
+    // TODO SERVER-35902: For now indexAllPaths indices cannot supply a projection. id:1213
 
     out->reserve(out->size() + fields.size());
     for (auto&& fieldName : fields) {
-        // TODO: This needs to change in SERVER-35902.
+        // TODO: This needs to change in SERVER-35902. id:542
         if (fieldName == "_id") {
             continue;
         }
@@ -79,7 +79,7 @@ void expandIndex(const IndexEntry& allPathsIndex,
                          {},     // multikey paths
                          true,   // sparse
                          false,  // unique
-                         // TODO: SERVER-35333: for plan caching to work, each IndexEntry must have
+                         // TODO: SERVER-35333: for plan caching to work, each IndexEntry must have id:1813
                          // a unique name. We violate that requirement here by giving each
                          // "expanded" index the same name. This must be fixed.
                          allPathsIndex.name,
@@ -274,7 +274,7 @@ void QueryPlannerIXSelect::findRelevantIndices(const stdx::unordered_set<std::st
     for (auto&& entry : allIndices) {
         if (entry.type == INDEX_ALLPATHS) {
             // Should only have one field of the form {"&**" : 1}.
-            // TODO SERVER-35902: This code assumes the allPaths index only indexes the root,
+            // TODO SERVER-35902: This code assumes the allPaths index only indexes the root, id:753
             // and not a subpath (e.g. {"a.b.$**": 1}).
             uassert(ErrorCodes::NotImplemented,
                     "Not yet implemented: expanding allPaths indexes for an index which indexes an "
@@ -382,7 +382,7 @@ bool QueryPlannerIXSelect::_compatible(const BSONElement& keyPatternElt,
         // There are restrictions on when we can use the index if the expression is a NOT.
         if (exprtype == MatchExpression::NOT) {
             // Don't allow indexed NOT on special index types such as geo or text indices.
-            // TODO: SERVER-30994 should remove this check entirely and allow $not on the
+            // TODO: SERVER-30994 should remove this check entirely and allow $not on the id:577
             // 'non-special' fields of non-btree indices.
             // (e.g. {a: 1, geo: "2dsphere"})
             if (INDEX_BTREE != index.type && !isChildOfElemMatchValue) {

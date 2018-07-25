@@ -36,7 +36,7 @@ namespace mongo {
 /**
  * An std::map wrapper that deletes pointers within a vector on destruction.  The objects
  * referenced by the vector's pointers are 'owned' by an object of this class.
- * NOTE that an OwnedPointerMap<K,T,Compare> wraps an std::map<K,T*,Compare>.
+ * NOTE that an OwnedPointerMap<K,T,Compare> wraps an std::map<K,T*,Compare>. id:288
  */
 template <class K, class T, class Compare = std::less<K>>
 class OwnedPointerMap {

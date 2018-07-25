@@ -654,7 +654,7 @@ void IndexBoundsBuilder::translate(const MatchExpression* expr,
         if (ime->hasNull()) {
             // A null index key does not always match a null query value so we must fetch the
             // doc and run a full comparison.  See SERVER-4529.
-            // TODO: Do we already set the tightnessOut by calling translateEquality?
+            // TODO: Do we already set the tightnessOut by calling translateEquality? id:529
             *tightnessOut = INEXACT_FETCH;
         }
 
@@ -1059,7 +1059,7 @@ bool IndexBoundsBuilder::isSingleInterval(const IndexBounds& bounds,
     ++fieldNo;
 
     // Get some "all values" intervals for comparison's sake.
-    // TODO: make static?
+    // TODO: make static? id:1655
     Interval minMax = IndexBoundsBuilder::allValues();
     Interval maxMin = minMax;
     maxMin.reverse();

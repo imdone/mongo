@@ -49,7 +49,7 @@ using std::string;
 using std::unique_ptr;
 using unittest::assertGet;
 
-// TODO: Port these existing tests here: replmonitor_bad_seed.js, repl_monitor_refresh.js
+// TODO: Port these existing tests here: replmonitor_bad_seed.js, repl_monitor_refresh.js id:716
 
 /**
  * Warning: Tests running this fixture cannot be run in parallel with other tests
@@ -103,7 +103,7 @@ TEST_F(ReplicaSetMonitorTest, SeedWithPriOnlySecDown) {
 namespace {
 /**
  * Takes a repl::ReplSetConfig and a node to remove and returns a new config with equivalent
- * members minus the one specified to be removed.  NOTE: Does not copy over properties of the
+ * members minus the one specified to be removed.  NOTE: Does not copy over properties of the id:2087
  * members other than their id and host.
  */
 repl::ReplSetConfig _getConfigWithMemberRemoved(const repl::ReplSetConfig& oldConfig,

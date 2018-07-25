@@ -198,7 +198,7 @@ __log_fs_write(WT_SESSION_IMPL *session,
 	 * writes to the previous log file to complete otherwise there could
 	 * be a hole at the end of the previous log file that we cannot detect.
 	 *
-	 * NOTE: Check for a version less than the one writing the system
+	 * NOTE: Check for a version less than the one writing the system id:3427
 	 * record since we've had a log version change without any actual
 	 * file format changes.
 	 */
@@ -2676,7 +2676,7 @@ __log_write_internal(WT_SESSION_IMPL *session, WT_ITEM *record, WT_LSN *lsnp,
 	/*
 	 * If we get an error we still need to do proper accounting in
 	 * the slot fields.
-	 * XXX On error we may still need to call release and free.
+	 * XXX On error we may still need to call release and free. id:3472
 	 */
 	if (ret != 0)
 		myslot.slot->slot_error = ret;
@@ -2690,7 +2690,7 @@ __log_write_internal(WT_SESSION_IMPL *session, WT_ITEM *record, WT_LSN *lsnp,
 		 * If we are going to wait for this slot to get written,
 		 * signal the wrlsn thread.
 		 *
-		 * XXX I've seen times when conditions are NULL.
+		 * XXX I've seen times when conditions are NULL. id:2298
 		 */
 		if (conn->log_cond != NULL) {
 			__wt_cond_signal(session, conn->log_cond);

@@ -283,7 +283,7 @@ void startFTDC(boost::filesystem::path& path,
 
     // Install periodic collectors
     // These are collected on the period interval in FTDCConfig.
-    // NOTE: For each command here, there must be an equivalent privilege check in
+    // NOTE: For each command here, there must be an equivalent privilege check in id:464
     // GetDiagnosticDataCommand
 
     // CmdServerStatus
@@ -291,7 +291,7 @@ void startFTDC(boost::filesystem::path& path,
     // migration status. This section triggers too many schema changes in the serverStatus which
     // hurt ftdc compression efficiency, because its output varies depending on the list of active
     // migrations.
-    // TODO: do we need to enable "sharding" on MongoS?
+    // TODO: do we need to enable "sharding" on MongoS? id:1343
     controller->addPeriodicCollector(stdx::make_unique<FTDCSimpleInternalCommandCollector>(
         "serverStatus",
         "serverStatus",

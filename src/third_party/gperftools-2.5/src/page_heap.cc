@@ -355,11 +355,11 @@ void PageHeap::MergeIntoFreeList(Span* span) {
   // include any combination of committed and decommitted spans, at the end of
   // the method.
 
-  // TODO(jar): "Always decommit" causes some extra calls to commit when we are
+  // TODO (jar): "Always decommit" causes some extra calls to commit when we are id:2743
   // called in GrowHeap() during an allocation :-/.  We need to eval the cost of
   // that oscillation, and possibly do something to reduce it.
 
-  // TODO(jar): We need a better strategy for deciding to commit, or decommit,
+  // TODO (jar): We need a better strategy for deciding to commit, or decommit, id:1582
   // based on memory usage and free heap sizes.
 
   uint64_t temp_committed = 0;
@@ -514,7 +514,7 @@ bool PageHeap::EnsureLimit(Length n, bool withRelease)
   // We do not use stats_.system_bytes because it does not take
   // MetaDataAllocs into account.
   Length takenPages = TCMalloc_SystemTaken >> kPageShift;
-  //XXX takenPages may be slightly bigger than limit for two reasons:
+  //XXX takenPages may be slightly bigger than limit for two reasons: id:2379
   //* MetaDataAllocs ignore the limit (it is not easy to handle
   //  out of memory there)
   //* sys_alloc may round allocation up to huge page size,
@@ -660,7 +660,7 @@ bool PageHeap::GrowHeap(Length n) {
     return true;
   } else {
     // We could not allocate memory within "pagemap_"
-    // TODO: Once we can return memory to the system, return the new span
+    // TODO: Once we can return memory to the system, return the new span id:1867
     return false;
   }
 }

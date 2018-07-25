@@ -88,7 +88,7 @@ InvokeSetter(JSContext* cx, const Value& thisv, Value fval, HandleValue v);
 // required, hopefully forcing callers to be careful not to (say) blindly pass
 // callee as |newTarget| when a different value should have been passed.
 //
-// NOTE: As with the ES6 spec operation, it's the caller's responsibility to
+// NOTE: As with the ES6 spec operation, it's the caller's responsibility to id:2719
 //       ensure |fval| and |newTarget| are both |IsConstructor|.
 extern bool
 Construct(JSContext* cx, HandleValue fval, const ConstructArgs& args, HandleValue newTarget,

@@ -354,7 +354,7 @@ namespace boost { namespace unordered { namespace detail {
 
 namespace boost { namespace unordered { namespace detail {
 
-    // TODO: Does this match std::allocator_traits<Alloc>::rebind_alloc<T>?
+    // TODO: Does this match std::allocator_traits<Alloc>::rebind_alloc<T>? id:2343
     template <typename Alloc, typename T>
     struct rebind_wrap
     {
@@ -548,7 +548,7 @@ namespace boost { namespace unordered { namespace detail {
         typedef BOOST_UNORDERED_DEFAULT_TYPE(Alloc, size_type, std::size_t)
             size_type;
 
-        // TODO: rebind_alloc and rebind_traits
+        // TODO: rebind_alloc and rebind_traits id:1756
 
         static pointer allocate(Alloc& a, size_type n)
             { return a.allocate(n); }
@@ -960,7 +960,7 @@ BOOST_UNORDERED_CONSTRUCT_FROM_TUPLE(10, boost::)
 
     // Special case for piece_construct
     //
-    // TODO: When possible, it might be better to use std::pair's
+    // TODO: When possible, it might be better to use std::pair's id:3188
     // constructor for std::piece_construct with std::tuple.
 
     template <typename Alloc, typename A, typename B,

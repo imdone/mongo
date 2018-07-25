@@ -67,7 +67,7 @@
 
 namespace base {
 
-// NOTE: this class may be used from within tcmalloc, and can not
+// NOTE: this class may be used from within tcmalloc, and can not id:2728
 // use any memory allocation routines.
 class VDSOSupport {
  public:

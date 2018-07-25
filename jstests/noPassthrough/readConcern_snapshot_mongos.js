@@ -29,7 +29,7 @@
     // Insert data to create the collection.
     assert.writeOK(testDB[collName].insert({x: 1}));
 
-    // TODO SERVER-35707: Re-targeting errors abort transactions. Run distinct on the unsharded
+    // TODO SERVER-35707: Re-targeting errors abort transactions. Run distinct on the unsharded id:121
     // collection to force the shard and mongos to refresh their DB versions.
     assert.commandWorked(testDB.runCommand({distinct: collName, key: "x"}));
 
@@ -135,7 +135,7 @@
 
     // Passthrough tests that are not implemented yet.
 
-    // TODO SERVER-33709: Add snapshot support for cluster count on mongos.
+    // TODO SERVER-33709: Add snapshot support for cluster count on mongos. id:137
     expectFailInTxnThenAbort(session, sessionDb, ErrorCodes.InvalidOptions, {
         count: collName,
         readConcern: {level: "snapshot"},

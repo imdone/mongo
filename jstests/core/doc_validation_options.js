@@ -29,7 +29,7 @@
     t.update({}, {$set: {a: 2}});
     assert.eq(1, t.find({a: 2}).itcount());
 
-    // TODO: check log for message?
+    // TODO: check log for message? id:185
 
     // make sure persisted
     var info = db.getCollectionInfos({name: t.getName()})[0];

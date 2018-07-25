@@ -281,7 +281,7 @@ PlanStage* buildStages(OperationContext* opCtx,
             // We assume here that node->ftsQuery is an FTSQueryImpl, not an FTSQueryNoop. In
             // practice,
             // this means that it is illegal to use the StageBuilder on a QuerySolution created by
-            // planning a query that contains "no-op" expressions. TODO: make StageBuilder::build()
+            // planning a query that contains "no-op" expressions. TODO: make StageBuilder::build() id:554
             // fail in this case (this improvement is being tracked by SERVER-21510).
             params.query = static_cast<FTSQueryImpl&>(*node->ftsQuery);
             params.wantTextScore = (cq.getProj() && cq.getProj()->wantTextScore());

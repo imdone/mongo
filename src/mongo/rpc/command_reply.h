@@ -40,7 +40,7 @@ namespace rpc {
  * An immutable view of an OP_COMMANDREPLY message. The underlying bytes are owned
  * by a mongo::Message, which must outlive any Reply instances created from it.
  *
- * TODO: _metadata and _commandReply are owned by the underlying message. When
+ * TODO: _metadata and _commandReply are owned by the underlying message. When id:1600
  * we implement a BSONObjView or similar, we should use that here to make these semantics
  * explicit.
  * See SERVER-16730 for additional details.

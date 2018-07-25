@@ -17,7 +17,7 @@
   
 // macros to split serialize functions into save & load functions
 // An expanded version is below for gregorian::date
-// NOTE: these macros define template functions in the boost::serialization namespace.
+// NOTE: these macros define template functions in the namespace. boost::serialization id:1701
 // They must be expanded *outside* of any namespace
 BOOST_SERIALIZATION_SPLIT_FREE(::boost::gregorian::date_duration)
 BOOST_SERIALIZATION_SPLIT_FREE(::boost::gregorian::date_duration::duration_rep)

@@ -486,7 +486,7 @@ namespace detail {
  * computed by doing ScrambleHashCode(h) / (2^32/N) or the equivalent
  * right-shift, not ScrambleHashCode(h) % N or the equivalent bit-mask.
  *
- * FIXME: OrderedHashTable uses a bit-mask; see bug 775896.
+ * FIXME: OrderedHashTable uses a bit-mask; see bug 775896. id:3305
  */
 inline HashNumber
 ScrambleHashCode(HashNumber h)

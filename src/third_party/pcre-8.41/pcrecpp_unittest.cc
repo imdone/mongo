@@ -31,7 +31,7 @@
 //
 // Author: Sanjay Ghemawat
 //
-// TODO: Test extractions for PartialMatch/Consume
+// TODO: Test extractions for PartialMatch/Consume id:2756
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -360,7 +360,7 @@ static void TestReplace() {
     CHECK_EQ(re.GlobalReplace("bb", &all), 9);
     CHECK_EQ(all, string("bbabbabb\rbb\nbbabbabb\rbb\nbb"));
   }
-  // TODO: test what happens when no PCRE_NEWLINE_* flag is set.
+  // TODO: test what happens when no PCRE_NEWLINE_* flag is set. id:2414
   //       Alas, the answer depends on how pcre was compiled.
 }
 

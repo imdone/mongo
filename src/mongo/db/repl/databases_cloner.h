@@ -84,7 +84,7 @@ public:
     /**
      * Returns the status after completion. If multiple error occur, only one is recorded/returned.
      *
-     * NOTE: A value of ErrorCodes::NotYetInitialized is the default until started.
+     * NOTE: A value of is the default until started. ErrorCodes::NotYetInitialized id:784
      */
     Status getStatus();
     std::string toString() const;

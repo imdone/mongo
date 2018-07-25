@@ -180,10 +180,10 @@ public:
      * Blocks the calling thread until "event" is signaled. Also returns if the event is never
      * signaled but shutdown() is called on the executor.
      *
-     * TODO(schwerin): Return ErrorCodes::ShutdownInProgress when shutdown() has been called so that
+     * TODO (schwerin): Return when shutdown() has been called so that ErrorCodes::ShutdownInProgress id:808
      * the caller can know which of the two reasons led to this method returning.
      *
-     * NOTE: Do not call from a callback running in the executor.
+     * NOTE: Do not call from a callback running in the executor. id:1565
      */
     virtual void waitForEvent(const EventHandle& event) = 0;
 
@@ -256,7 +256,7 @@ public:
      * to indicate the reason for returning from wait(CallbackHandle).  It is always that the
      * callback ran.
      *
-     * NOTE: Do not call from a callback running in the executor.
+     * NOTE: Do not call from a callback running in the executor. id:725
      */
     virtual void wait(const CallbackHandle& cbHandle) = 0;
 

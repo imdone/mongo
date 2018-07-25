@@ -7,7 +7,7 @@
 #include "proxy/DeadObjectProxy.h"
 
 #include "jsapi.h"
-#include "jsfun.h" // XXXefaust Bug 1064662
+#include "jsfun.h" // XXX efaust Bug 1064662 id:2382
 
 #include "vm/ProxyObject.h"
 

@@ -48,7 +48,7 @@ repl::OpTime ShardingEgressMetadataHookForMongod::_getConfigServerOpTime() {
         return repl::ReplicationCoordinator::get(_serviceContext)
             ->getCurrentCommittedSnapshotOpTime();
     } else {
-        // TODO uncomment as part of SERVER-22663
+        // TODO uncomment as part of SERVER-22663 id:740
         // invariant(serverGlobalParams.clusterRole == ClusterRole::ShardServer);
         return Grid::get(_serviceContext)->configOpTime();
     }

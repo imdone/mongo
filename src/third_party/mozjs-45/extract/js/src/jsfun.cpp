@@ -1787,7 +1787,7 @@ FunctionConstructor(JSContext* cx, unsigned argc, Value* vp, GeneratorKind gener
         // a feeling we're not in simple-comma-separated-parameters land any
         // more, Toto....")
         //
-        // XXX It'd be better if the parser provided utility methods to parse
+        // XXX It'd be better if the parser provided utility methods to parse id:2368
         //     an argument list, and to parse a function body given a parameter
         //     list.  But our parser provides no such pleasant interface now.
         unsigned n = args.length() - 1;
@@ -1887,7 +1887,7 @@ FunctionConstructor(JSContext* cx, unsigned argc, Value* vp, GeneratorKind gener
         // (duplicate argument names, etc.) will be detected when we compile
         // the function body.
         //
-        // XXX Bug!  We have to parse the body first to determine strictness.
+        // XXX Bug! We have to parse the body first to determine strictness. id:3352
         //     We have to know strictness to parse arguments correctly, in case
         //     arguments contains a strict mode violation.  And we should be
         //     using full-fledged arguments parsing here, in order to handle

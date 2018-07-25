@@ -61,7 +61,7 @@
 // need to invoke a hook (which you shouldn't unless you're part of tcmalloc),
 // be sure to #include malloc_hook-inl.h in addition to malloc_hook.h.
 //
-// NOTE FOR C USERS: If you want to use malloc_hook functionality from
+// NOTE FOR C USERS: If you want to use malloc_hook functionality from id:2735
 // a C program, #include malloc_hook_c.h instead of this file.
 
 #ifndef _MALLOC_HOOK_H_

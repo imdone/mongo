@@ -14,7 +14,7 @@ TestData.skipCheckDBHashes = true;
 (function() {
     'use strict';
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:239
     var st = new ShardingTest(
         {shards: 1, other: {keyFile: 'jstests/libs/key1', shardAsReplicaSet: false}});
 

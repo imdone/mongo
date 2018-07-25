@@ -100,7 +100,7 @@ func TestPluralIntegration(t *testing.T) {
 
 			// Indirect the call to p.Sprintf through the variable f
 			// to avoid Go tip failing a vet check.
-			// TODO: remove once vet check has been fixed. See Issue #22936.
+			// TODO: remove once vet check has been fixed. See Issue #22936. id:1310
 			f := p.Sprintf
 			got := f("num %f", tc.f)
 

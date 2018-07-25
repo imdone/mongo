@@ -70,7 +70,7 @@ class progress_timer : public timer, private noncopyable
 //  progress_display displays an appropriate indication of 
 //  progress at an appropriate place in an appropriate form.
 
-// NOTE: (Jan 12, 2001) Tried to change unsigned long to boost::uintmax_t, but
+// NOTE: (Jan 12, 2001) Tried to change unsigned long to but boost::uintmax_t, id:1480
 // found some compilers couldn't handle the required conversion to double.
 // Reverted to unsigned long until the compilers catch up. 
 

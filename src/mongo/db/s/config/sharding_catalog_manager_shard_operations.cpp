@@ -120,7 +120,7 @@ StatusWith<std::string> generateNewShardName(OperationContext* opCtx) {
         count++;
     }
 
-    // TODO: fix so that we can have more than 10000 automatically generated shard names
+    // TODO: fix so that we can have more than 10000 automatically generated shard names id:889
     if (count < 9999) {
         std::stringstream ss;
         ss << "shard" << std::setfill('0') << std::setw(4) << count;
@@ -573,7 +573,7 @@ StatusWith<std::string> ShardingCatalogManager::addShard(
         Grid::get(opCtx)->shardRegistry()->reload(opCtx);
     }
 
-    // TODO: Don't create a detached Shard object, create a detached RemoteCommandTargeter instead.
+    // TODO: Don't create a detached Shard object, create a detached RemoteCommandTargeter instead. id:717
     const std::shared_ptr<Shard> shard{
         Grid::get(opCtx)->shardRegistry()->createConnection(shardConnectionString)};
     invariant(shard);
@@ -670,7 +670,7 @@ StatusWith<std::string> ShardingCatalogManager::addShard(
     auto addShardStatus = runCmdOnNewShard(addShardCmdBSON);
 
     if (!addShardStatus.isOK()) {
-        // TODO (SERVER-35552): Fix this to use an FCV check instead
+        // TODO (SERVER-35552): Fix this to use an FCV check instead id:1299
         // If the _addShard command is not found, that means the mongod for the shard we're adding
         // is running on an older version, so we retry instead with the old method of inserting a
         // shard identity document directly.

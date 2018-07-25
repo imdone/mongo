@@ -575,7 +575,7 @@ PlanExecutor::ExecState PlanExecutor::getNextImpl(Snapshotted<BSONObj>* objOut, 
                         _workingSet->free(id);
                         hasRequestedData = false;
                     } else {
-                        // TODO: currently snapshot ids are only associated with documents, and
+                        // TODO: currently snapshot ids are only associated with documents, and id:683
                         // not with index keys.
                         *objOut = Snapshotted<BSONObj>(SnapshotId(), member->keyData[0].keyData);
                     }

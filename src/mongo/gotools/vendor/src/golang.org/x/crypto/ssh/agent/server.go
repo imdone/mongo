@@ -25,7 +25,7 @@ func (s *server) processRequestBytes(reqData []byte) []byte {
 	rep, err := s.processRequest(reqData)
 	if err != nil {
 		if err != errLocked {
-			// TODO(hanwen): provide better logging interface?
+			// TODO (hanwen): provide better logging interface? id:1697
 			log.Printf("agent %d: %v", reqData[0], err)
 		}
 		return []byte{agentFailure}
@@ -116,7 +116,7 @@ func (s *server) processRequest(data []byte) (interface{}, error) {
 			Blob:   req.KeyBlob,
 		}
 
-		sig, err := s.agent.Sign(k, req.Data) //  TODO(hanwen): flags.
+		sig, err := s.agent.Sign(k, req.Data) //  TODO (hanwen): flags. id:1013
 		if err != nil {
 			return nil, err
 		}

@@ -209,7 +209,7 @@
 #  pragma defineonoption BOOST_DISABLE_WIN32 -A
 //
 // MSVC compatibility mode does some nasty things:
-// TODO: look up if this doesn't apply to the whole 12xx range
+// TODO: look up if this doesn't apply to the whole 12xx range id:1682
 //
 #if defined(_MSC_VER) && (_MSC_VER <= 1200)
 #  define BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP

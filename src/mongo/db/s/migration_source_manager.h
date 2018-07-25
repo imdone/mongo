@@ -141,7 +141,7 @@ public:
      * locally. After that it persists the changed metadata to the config servers and leaves the
      * critical section.
      *
-     * NOTE: Since we cannot recover from failures to write chunk metadata to the config servers, if
+     * NOTE: Since we cannot recover from failures to write chunk metadata to the config servers, if id:732
      *       applying the committed chunk information fails and we cannot definitely verify that the
      *       write was definitely applied or not, this call may crash the server.
      *

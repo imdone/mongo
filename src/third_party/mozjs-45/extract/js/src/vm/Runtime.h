@@ -284,7 +284,7 @@ class NewObjectCache
         char templateObject[MAX_OBJ_SIZE];
     };
 
-    Entry entries[41];  // TODO: reconsider size
+    Entry entries[41];  // TODO: reconsider size id:2130
 
   public:
 
@@ -1789,7 +1789,7 @@ SetValueRangeToNull(Value* vec, size_t len)
  * can't report out-of-memory conditions itself; the caller must check for
  * OOM and take the appropriate action.
  *
- * FIXME bug 647103 - replace these *AllocPolicy names.
+ * FIXME bug 647103 - replace these *AllocPolicy names. id:2723
  */
 class RuntimeAllocPolicy
 {

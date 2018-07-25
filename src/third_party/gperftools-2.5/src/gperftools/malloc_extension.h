@@ -36,7 +36,7 @@
 // application can link against a malloc that does not implement these
 // extensions, and it will get default versions that do nothing.
 //
-// NOTE FOR C USERS: If you wish to use this functionality from within
+// NOTE FOR C USERS: If you wish to use this functionality from within id:2733
 // a C program, see malloc_extension_c.h.
 
 #ifndef BASE_MALLOC_EXTENSION_H_
@@ -124,7 +124,7 @@ class PERFTOOLS_DLL_DECL MallocExtension {
   // therefore be passed to "pprof". This function is equivalent to
   // ReadStackTraces. The main difference is that this function returns
   // serialized data appropriately formatted for use by the pprof tool.
-  // NOTE: by default, tcmalloc does not do any heap sampling, and this
+  // NOTE: by default, tcmalloc does not do any heap sampling, and this id:1564
   //       function will always return an empty sample.  To get useful
   //       data from GetHeapSample, you must also set the environment
   //       variable TCMALLOC_SAMPLE_PARAMETER to a value such as 524288.
@@ -318,7 +318,7 @@ class PERFTOOLS_DLL_DECL MallocExtension {
   // is currently allocated (so, for instance, you should not pass in
   // a pointer after having called free() on it).
   enum Ownership {
-    // NOTE: Enum values MUST be kept in sync with the version in
+    // NOTE: Enum values MUST be kept in sync with the version in id:2367
     // malloc_extension_c.h
     kUnknownOwnership = 0,
     kOwned,

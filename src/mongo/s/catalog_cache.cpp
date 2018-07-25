@@ -147,7 +147,7 @@ StatusWith<CachedDatabaseInfo> CatalogCache::getDatabase(OperationContext* opCtx
             if (dbEntry->mustLoadShardedCollections) {
                 // If this is the first time we are loading info for this database, also load the
                 // sharded collections.
-                // TODO (SERVER-34061): Stop loading sharded collections when loading a database.
+                // TODO (SERVER-34061): Stop loading sharded collections when loading a database. id:3102
 
                 const auto dbNameCopy = dbName.toString();
                 repl::OpTime collLoadConfigOptime;
@@ -422,7 +422,7 @@ void CatalogCache::_scheduleDatabaseRefresh(WithLock,
 
     const auto onRefreshCompleted =
         [ this, t = Timer(), dbName ](const StatusWith<DatabaseType>& swDbt) {
-        // TODO (SERVER-34164): Track and increment stats for database refreshes.
+        // TODO (SERVER-34164): Track and increment stats for database refreshes. id:1710
         if (!swDbt.isOK()) {
             log() << "Refresh for database " << dbName << " took " << t.millis() << " ms and failed"
                   << causedBy(redact(swDbt.getStatus()));

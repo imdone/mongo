@@ -249,7 +249,7 @@ public:
     ~SSLConnectionWindows();
 
     std::string getSNIServerName() const final {
-        // TODO
+        // TODO  id:2626
         return "";
     };
 };
@@ -863,7 +863,7 @@ StatusWith<UniqueCertificateWithPrivateKey> readCertPEMFile(StringData fileName,
         }
     }
 
-    // NOTE: This is used to set the certificate for client side SChannel
+    // NOTE: This is used to set the certificate for client side SChannel id:1401
     ret = CertSetCertificateContextProperty(
         cert, CERT_KEY_PROV_HANDLE_PROP_ID, 0, (const void*)hProv);
     if (!ret) {

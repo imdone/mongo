@@ -404,7 +404,7 @@ DBQuery.prototype.itcount = function() {
     // with some very large cursors.  SpiderMonkey appears happy to allow these objects to
     // accumulate, so regular gc() avoids an overly large memory footprint.
     //
-    // TODO: migrate this function into c++
+    // TODO: migrate this function into c++ id:3127
     var bytesSinceGC = 0;
 
     while (this.hasNext()) {

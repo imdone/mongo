@@ -17,7 +17,7 @@
     var request;
     var result;
 
-    // NOTE: ALL TESTS BELOW SHOULD BE SELF-CONTAINED, FOR EASIER DEBUGGING
+    // NOTE: ALL TESTS BELOW SHOULD BE SELF-CONTAINED, FOR EASIER DEBUGGING id:225
 
     jsTest.log("Starting no journal/repl set tests...");
 

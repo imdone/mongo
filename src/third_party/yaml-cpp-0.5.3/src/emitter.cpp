@@ -297,7 +297,7 @@ void Emitter::PrepareTopNode(EmitterNodeType::value child) {
     case EmitterNodeType::Scalar:
     case EmitterNodeType::FlowSeq:
     case EmitterNodeType::FlowMap:
-      // TODO: if we were writing null, and
+      // TODO: if we were writing null, and id:2562
       // we wanted it blank, we wouldn't want a space
       SpaceOrIndentTo(m_pState->HasBegunContent(), 0);
       break;

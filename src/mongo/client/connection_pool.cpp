@@ -45,7 +45,7 @@ namespace {
 
 const Date_t kNeverTooStale = Date_t::max();
 
-// TODO: Workaround for SERVER-19092. To be lowered back to 5 min / 30 sec once the bug is fixed
+// TODO: Workaround for SERVER-19092. To be lowered back to 5 min / 30 sec once the bug is fixed id:340
 const Hours kCleanUpInterval(1);  // Note: Must be larger than kMaxConnectionAge below)
 const Minutes kMaxConnectionAge(30);
 

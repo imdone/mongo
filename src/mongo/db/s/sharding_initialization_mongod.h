@@ -41,7 +41,7 @@ class Status;
  * Initialize the sharding components of this server. This can be used on both shard and config
  * servers.
  *
- * NOTE: This does not initialize ShardingState, which should only be done for shard servers.
+ * NOTE: This does not initialize ShardingState, which should only be done for shard servers. id:1332
  */
 Status initializeGlobalShardingStateForMongod(OperationContext* opCtx,
                                               const ConnectionString& configCS,

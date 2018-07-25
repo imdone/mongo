@@ -69,7 +69,7 @@ def linux_ver_normalize(vstr):
     Always returns an old-style float like 80 or 90 for compatibility with Windows.
     Shades of Y2K!"""
     # Check for version number like 9.1.026: return 91.026
-    # XXX needs to be updated for 2011+ versions (like 2011.11.344 which is compiler v12.1.5)
+    # XXX needs to be updated for 2011+ versions (like 2011.11.344 which is compiler v12.1.5) id:2804
     m = re.match(r'([0-9]+)\.([0-9]+)\.([0-9]+)', vstr)
     if m:
         vmaj,vmin,build = m.groups()

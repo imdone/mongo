@@ -103,7 +103,7 @@ ConfigServerTestFixture::~ConfigServerTestFixture() = default;
 void ConfigServerTestFixture::setUp() {
     ShardingMongodTestFixture::setUp();
 
-    // TODO: SERVER-26919 set the flag on the mock repl coordinator just for the window where it
+    // TODO: SERVER-26919 set the flag on the mock repl coordinator just for the window where it id:1539
     // actually needs to bypass the op observer.
     replicationCoordinator()->alwaysAllowWrites(true);
 

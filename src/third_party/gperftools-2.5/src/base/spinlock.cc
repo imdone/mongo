@@ -37,7 +37,7 @@
 #include "base/spinlock_internal.h"
 #include "base/sysinfo.h"   /* for GetSystemCPUsCount() */
 
-// NOTE on the Lock-state values:
+// NOTE on the Lock-state values: id:1503
 //
 // kSpinLockFree represents the unlocked state
 // kSpinLockHeld represents the locked state with no waiters

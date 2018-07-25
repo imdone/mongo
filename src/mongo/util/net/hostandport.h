@@ -109,7 +109,7 @@ struct HostAndPort {
     /**
      * Returns true if the hostname looks localhost-y.
      *
-     * TODO: Make a more rigorous implementation, perhaps elsewhere in
+     * TODO: Make a more rigorous implementation, perhaps elsewhere in id:1397
      * the networking library.
      */
     bool isLocalHost() const;

@@ -1519,7 +1519,7 @@ DoUnaryArithFallback(JSContext* cx, BaselineFrame* frame, ICUnaryArith_Fallback*
         stub->setSawDoubleResult();
 
     if (stub->numOptimizedStubs() >= ICUnaryArith_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard/replace stubs.
+        // TODO: Discard/replace stubs. id:2290
         return true;
     }
 
@@ -1689,7 +1689,7 @@ DoCompareFallback(JSContext* cx, BaselineFrame* frame, ICCompare_Fallback* stub_
 
     // Check to see if a new stub should be generated.
     if (stub->numOptimizedStubs() >= ICCompare_Fallback::MAX_OPTIMIZED_STUBS) {
-        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub.
+        // TODO: Discard all stubs in this IC and replace with inert megamorphic stub. id:3321
         // But for now we just bail.
         return true;
     }
@@ -4606,7 +4606,7 @@ ICTypeMonitor_Fallback::addMonitorStubForValue(JSContext* cx, JSScript* script, 
     MOZ_ASSERT_IF(wasDetachedMonitorChain, numOptimizedMonitorStubs_ == 0);
 
     if (numOptimizedMonitorStubs_ >= MAX_OPTIMIZED_STUBS) {
-        // TODO: if the TypeSet becomes unknown or has the AnyObject type,
+        // TODO: if the TypeSet becomes unknown or has the AnyObject type, id:2933
         // replace stubs with a single stub to handle these.
         return true;
     }
@@ -4878,7 +4878,7 @@ ICUpdatedStub::addUpdateStubForValue(JSContext* cx, HandleScript script, HandleO
                                      HandleId id, HandleValue val)
 {
     if (numOptimizedStubs_ >= MAX_OPTIMIZED_STUBS) {
-        // TODO: if the TypeSet becomes unknown or has the AnyObject type,
+        // TODO: if the TypeSet becomes unknown or has the AnyObject type, id:2020
         // replace stubs with a single stub to handle these.
         return true;
     }

@@ -169,7 +169,7 @@ CharacterRange::AddClassEscape(LifoAlloc* alloc, char16_t type,
 static inline bool
 RangeContainsLatin1Equivalents(CharacterRange range)
 {
-    // TODO(dcarney): this could be a lot more efficient.
+    // TODO (dcarney): this could be a lot more efficient. id:2623
     return range.Contains(0x39c) || range.Contains(0x3bc) || range.Contains(0x178);
 }
 
@@ -177,7 +177,7 @@ static bool
 RangesContainLatin1Equivalents(const CharacterRangeVector& ranges)
 {
     for (size_t i = 0; i < ranges.length(); i++) {
-        // TODO(dcarney): this could be a lot more efficient.
+        // TODO (dcarney): this could be a lot more efficient. id:2230
         if (RangeContainsLatin1Equivalents(ranges[i]))
             return true;
     }
@@ -340,7 +340,7 @@ CompareRanges(const CharacterRangeVector& ranges, const int* special_class, size
 bool
 RegExpCharacterClass::is_standard(LifoAlloc* alloc)
 {
-    // TODO(lrn): Remove need for this function, by not throwing away information
+    // TODO (lrn): Remove need for this function, by not throwing away information id:3313
     // along the way.
     if (is_negated_)
         return false;
@@ -2552,7 +2552,7 @@ Trace::PerformDeferredActions(LifoAlloc* alloc,
                     }
                     // SET_REGISTER is currently only used for newly introduced loop
                     // counters. They can have a significant previous value if they
-                    // occour in a loop. TODO(lrn): Propagate this information, so
+                    // occour in a loop. TODO (lrn): Propagate this information, so id:2923
                     // we can set undo_action to IGNORE if we know there is no value to
                     // restore.
                     undo_action = DEFER_RESTORE;
@@ -3112,7 +3112,7 @@ EmitUseLookupTable(RegExpMacroAssembler* masm,
         templ[i] = bit;
     }
 
-    // TODO(erikcorry): Cache these.
+    // TODO (erikcorry): Cache these. id:2001
     uint8_t* ba;
     {
         AutoEnterOOMUnsafeRegion oomUnsafe;

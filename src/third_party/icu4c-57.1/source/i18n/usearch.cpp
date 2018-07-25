@@ -25,7 +25,7 @@
 U_NAMESPACE_USE
 
 // don't use Boyer-Moore
-// (and if we decide to turn this on again there are several new TODOs that will need to be addressed)
+// (and if we decide to turn this on again there are several new TODO s that will need to be addressed) id:2909
 #define BOYER_MOORE 0
 
 // internal definition ---------------------------------------------------
@@ -453,7 +453,7 @@ inline int16_t initializePattern(UStringSearch *strsrch, UErrorCode *status)
                                                                  LAST_BYTE_MASK_;
     }
 
-    // ** HACK **
+    // ** HACK ** id:1844
     if (strsrch->pattern.pces != NULL) {
         if (strsrch->pattern.pces != strsrch->pattern.pcesBuffer) {
             uprv_free(strsrch->pattern.pces);
@@ -605,7 +605,7 @@ UBool isBreakUnit(const UStringSearch *strsrch, int32_t start,
 {
 #if !UCONFIG_NO_BREAK_ITERATION
     UBreakIterator *breakiterator = strsrch->search->breakIter;
-    //TODO: Add here.
+    //TODO: Add here. id:2597
     if (breakiterator) {
         int32_t startindex = ubrk_first(breakiterator);
         int32_t endindex   = ubrk_last(breakiterator);
@@ -3513,7 +3513,7 @@ CEIBuffer::CEIBuffer(UStringSearch *ss, UErrorCode *status) {
     }
 }
 
-// TODO: add a reset or init function so that allocated
+// TODO: add a reset or init function so that allocated id:2201
 //       buffers can be retained & reused.
 
 CEIBuffer::~CEIBuffer() {
@@ -3806,7 +3806,7 @@ static UCompareCEsResult compareCE64s(int64_t targCE, int64_t patCE, int16_t com
 }
 
 #if BOYER_MOORE
-// TODO: #if BOYER_MOORE, need 32-bit version of compareCE64s
+// TODO: #if BOYER_MOORE, need 32-bit version of compareCE64s id:3300
 #endif
 
 namespace {
@@ -3841,7 +3841,7 @@ U_CAPI UBool U_EXPORT2 usearch_search(UStringSearch  *strsrch,
         return FALSE;
     }
 
-    // TODO:  reject search patterns beginning with a combining char.
+    // TODO: reject search patterns beginning with a combining char. id:2910
 
 #ifdef USEARCH_DEBUG
     if (getenv("USEARCH_DEBUG") != NULL) {
@@ -3854,7 +3854,7 @@ U_CAPI UBool U_EXPORT2 usearch_search(UStringSearch  *strsrch,
 
 #endif
     // Input parameter sanity check.
-    //  TODO:  should input indicies clip to the text length
+    //  TODO: should input indicies clip to the text length id:1959
     //         in the same way that UText does.
     if(strsrch->pattern.cesLength == 0         ||
        startIdx < 0                           ||
@@ -4141,7 +4141,7 @@ U_CAPI UBool U_EXPORT2 usearch_searchBackwards(UStringSearch  *strsrch,
         return FALSE;
     }
 
-    // TODO:  reject search patterns beginning with a combining char.
+    // TODO: reject search patterns beginning with a combining char. id:2599
 
 #ifdef USEARCH_DEBUG
     if (getenv("USEARCH_DEBUG") != NULL) {
@@ -4154,7 +4154,7 @@ U_CAPI UBool U_EXPORT2 usearch_searchBackwards(UStringSearch  *strsrch,
 
 #endif
     // Input parameter sanity check.
-    //  TODO:  should input indicies clip to the text length
+    //  TODO: should input indicies clip to the text length id:2203
     //         in the same way that UText does.
     if(strsrch->pattern.cesLength == 0         ||
        startIdx < 0                           ||
@@ -4462,7 +4462,7 @@ UBool usearch_handleNextExact(UStringSearch *strsrch, UErrorCode *status)
             if (lastce == UCOL_NULLORDER || lastce == UCOL_IGNORABLE) {
                 lastce = targetce;
             }
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:3301
             if (targetce == patternce[patternceindex]) {
                 // the first ce can be a contraction
                 found = TRUE;
@@ -4489,7 +4489,7 @@ UBool usearch_handleNextExact(UStringSearch *strsrch, UErrorCode *status)
             }
 
             patternceindex --;
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:2911
             found = found && targetce == patternce[patternceindex];
         }
 
@@ -4573,7 +4573,7 @@ UBool usearch_handleNextCanonical(UStringSearch *strsrch, UErrorCode *status)
             if (lastce == UCOL_NULLORDER || lastce == UCOL_IGNORABLE) {
                 lastce = targetce;
             }
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:1962
             if (targetce == patternce[patternceindex]) {
                 // the first ce can be a contraction
                 found = TRUE;
@@ -4597,7 +4597,7 @@ UBool usearch_handleNextCanonical(UStringSearch *strsrch, UErrorCode *status)
             }
 
             patternceindex --;
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:2601
             found = found && targetce == patternce[patternceindex];
         }
 
@@ -4695,7 +4695,7 @@ UBool usearch_handlePreviousExact(UStringSearch *strsrch, UErrorCode *status)
             if (targetce == UCOL_IGNORABLE && strsrch->strength != UCOL_PRIMARY) {
                 continue;
             }
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:2205
             if (targetce == patternce[0]) {
                 found = TRUE;
                 break;
@@ -4721,7 +4721,7 @@ UBool usearch_handlePreviousExact(UStringSearch *strsrch, UErrorCode *status)
                 continue;
             }
 
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:3302
             found = found && targetce == patternce[patternceindex];
             patternceindex ++;
         }
@@ -4841,7 +4841,7 @@ UBool usearch_handlePreviousCanonical(UStringSearch *strsrch,
                 firstce = targetce;
             }
 
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:2912
             if (targetce == patternce[0]) {
                 // the first ce can be a contraction
                 found = TRUE;
@@ -4867,7 +4867,7 @@ UBool usearch_handlePreviousCanonical(UStringSearch *strsrch,
                 continue;
             }
 
-            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s
+            // TODO: #if BOYER_MOORE, replace with code using 32-bit version of compareCE64s id:1965
             found = found && targetce == patternce[patternceindex];
             patternceindex ++;
         }

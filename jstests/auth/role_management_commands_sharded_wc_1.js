@@ -5,7 +5,7 @@
 
     load('jstests/auth/role_management_commands_lib.js');
 
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:166
     var st = new ShardingTest({
         shards: 2,
         config: 3,

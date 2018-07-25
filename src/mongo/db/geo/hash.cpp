@@ -329,7 +329,7 @@ bool GeoHash::getBitY(unsigned pos) const {
     return getBit((pos * 2) + 1);
 }
 
-// TODO(hk): Comment this.
+// TODO (hk): Comment this. id:473
 BSONObj GeoHash::wrap(const char* name) const {
     BSONObjBuilder b(20);
     appendHashMin(&b, name);
@@ -378,14 +378,14 @@ bool GeoHash::atMaxY() const {
     return (_hash & geoBitSets.allY[_bits]) == geoBitSets.allY[_bits];
 }
 
-// TODO(hk): comment better
+// TODO (hk): comment better id:1359
 void GeoHash::move(int x, int y) {
     verify(_bits);
     _move(0, x);
     _move(1, y);
 }
 
-// TODO(hk): comment much better
+// TODO (hk): comment much better id:603
 void GeoHash::_move(unsigned offset, int d) {
     if (d == 0)
         return;
@@ -696,7 +696,7 @@ GeoHashConverter::GeoHashConverter(const Parameters& params) : _params(params) {
 }
 
 void GeoHashConverter::init() {
-    // TODO(hk): What do we require of the values in params?
+    // TODO (hk): What do we require of the values in params? id:476
 
     // Compute how much error there is so it can be used as a fudge factor.
     GeoHash a(0, 0, _params.bits);
@@ -704,7 +704,7 @@ void GeoHashConverter::init() {
     b.move(1, 1);
 
     // Epsilon is 1/100th of a bucket size
-    // TODO:  Can we actually find error bounds for the sqrt function?
+    // TODO: Can we actually find error bounds for the sqrt function? id:755
     double epsilon = 0.001 / _params.scaling;
     _error = distanceBetweenHashes(a, b) + epsilon;
 
@@ -792,7 +792,7 @@ GeoHash GeoHashConverter::hash(double x, double y) const {
  * Point
  * BSONObj
  */
-// TODO(hk): these should have consistent naming
+// TODO (hk): these should have consistent naming id:475
 Point GeoHashConverter::unhashToPoint(const GeoHash& h) const {
     Point point;
     unhash(h, &point.x, &point.y);

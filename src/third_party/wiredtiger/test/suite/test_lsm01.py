@@ -79,7 +79,7 @@ class test_lsm01(wttest.WiredTigerTestCase):
             'Test LSM with config: ' + args + ' count: ' + str(self.nrecs))
         SimpleDataSet(self, self.uri, self.nrecs).populate()
 
-        # TODO: Adding an explicit drop here can cause deadlocks, if a merge
+        # TODO: Adding an explicit drop here can cause deadlocks, if a merge id:2554
         # is still happening. See issue #349.
         # self.session.drop(self.uri)
 

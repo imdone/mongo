@@ -131,7 +131,7 @@ void EscapeTransliterator::handleTransliterate(Replaceable& text,
                                                UTransPosition& pos,
                                                UBool /*isIncremental*/) const
 {
-    /* TODO: Verify that isIncremental can be ignored */
+    /* TODO: Verify that isIncremental can be ignored id:3272*/
     int32_t start = pos.start;
     int32_t limit = pos.limit;
 

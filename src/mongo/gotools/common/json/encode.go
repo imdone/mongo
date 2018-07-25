@@ -795,7 +795,7 @@ func (sv stringValues) Swap(i, j int)      { sv[i], sv[j] = sv[j], sv[i] }
 func (sv stringValues) Less(i, j int) bool { return sv.get(i) < sv.get(j) }
 func (sv stringValues) get(i int) string   { return sv[i].String() }
 
-// NOTE: keep in sync with stringBytes below.
+// NOTE: keep in sync with stringBytes below. id:1572
 func (e *encodeState) string(s string) (int, error) {
 	len0 := e.Len()
 	e.WriteByte('"')
@@ -868,7 +868,7 @@ func (e *encodeState) string(s string) (int, error) {
 	return e.Len() - len0, nil
 }
 
-// NOTE: keep in sync with string above.
+// NOTE: keep in sync with string above. id:734
 func (e *encodeState) stringBytes(s []byte) (int, error) {
 	len0 := e.Len()
 	e.WriteByte('"')

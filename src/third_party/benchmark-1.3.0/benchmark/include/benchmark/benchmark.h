@@ -271,7 +271,7 @@ size_t RunSpecifiedBenchmarks(BenchmarkReporter* console_reporter,
 // benchmark is reported at the end of the benchmark report line. (It is
 // computed by running the benchmark once with a single iteration and a memory
 // tracer.)
-// TODO(dominic)
+// TODO (dominic) id:2654
 // void MemoryUsage();
 
 namespace internal {
@@ -333,7 +333,7 @@ template <class Tp>
 inline BENCHMARK_ALWAYS_INLINE void DoNotOptimize(Tp const& value) {
   internal::UseCharPointer(&reinterpret_cast<char const volatile&>(value));
 }
-// FIXME Add ClobberMemory() for non-gnu and non-msvc compilers
+// FIXME Add ClobberMemory() for non-gnu and non-msvc compilers id:1428
 #endif
 
 
@@ -424,12 +424,12 @@ class State {
   // REQUIRES: The benchmark has not started running yet. Neither begin nor end
   // have been called previously.
   //
-  // NOTE: KeepRunning may not be used after calling either of these functions.
+  // NOTE: KeepRunning may not be used after calling either of these functions. id:2277
   BENCHMARK_ALWAYS_INLINE StateIterator begin();
   BENCHMARK_ALWAYS_INLINE StateIterator end();
 
   // Returns true if the benchmark should continue through another iteration.
-  // NOTE: A benchmark may not return from the test until KeepRunning() has
+  // NOTE: A benchmark may not return from the test until KeepRunning() has id:1664
   // returned false.
   bool KeepRunning() {
     if (BENCHMARK_BUILTIN_EXPECT(!started_, false)) {
@@ -450,10 +450,10 @@ class State {
   // For threaded benchmarks the PauseTiming() function only pauses the timing
   // for the current thread.
   //
-  // NOTE: The "real time" measurement is per-thread. If different threads
+  // NOTE: The "real time" measurement is per-thread. If different threads id:3159
   // report different measurements the largest one is reported.
   //
-  // NOTE: PauseTiming()/ResumeTiming() are relatively
+  // NOTE: PauseTiming()/ResumeTiming() are relatively id:2656
   // heavyweight, and so their use should generally be avoided
   // within each benchmark iteration, if possible.
   void PauseTiming();
@@ -464,7 +464,7 @@ class State {
   // benchmark function. It begins running after control flow enters the
   // benchmark loop.
   //
-  // NOTE: PauseTiming()/ResumeTiming() are relatively
+  // NOTE: PauseTiming()/ResumeTiming() are relatively id:1430
   // heavyweight, and so their use should generally be avoided
   // within each benchmark iteration, if possible.
   void ResumeTiming();
@@ -484,7 +484,7 @@ class State {
   // the `KeepRunning()` loop. If multiple threads report an error only the
   // first error message is used.
   //
-  // NOTE: Calling 'SkipWithError(...)' does not cause the benchmark to exit
+  // NOTE: Calling 'SkipWithError(...)' does not cause the benchmark to exit id:2279
   // the current scope immediately. If the function is called from within
   // the 'KeepRunning()' loop the current iteration will finish. It is the users
   // responsibility to exit the scope as needed.
@@ -592,7 +592,7 @@ class State {
   const int threads;
   const size_t max_iterations;
 
-  // TODO(EricWF) make me private
+  // TODO (EricWF) make me private id:1668
   State(size_t max_iters, const std::vector<int>& ranges, int thread_i,
         int n_threads, internal::ThreadTimer* timer,
         internal::ThreadManager* manager);
@@ -693,7 +693,7 @@ class Benchmark {
   Benchmark* Args(const std::vector<int>& args);
 
   // Equivalent to Args({x, y})
-  // NOTE: This is a legacy C++03 interface provided for compatibility only.
+  // NOTE: This is a legacy C++03 interface provided for compatibility only. id:3160
   //   New code should use 'Args'.
   Benchmark* ArgPair(int x, int y) {
     std::vector<int> args;
@@ -715,7 +715,7 @@ class Benchmark {
   Benchmark* ArgNames(const std::vector<std::string>& names);
 
   // Equivalent to Ranges({{lo1, hi1}, {lo2, hi2}}).
-  // NOTE: This is a legacy C++03 interface provided for compatibility only.
+  // NOTE: This is a legacy C++03 interface provided for compatibility only. id:2658
   //   New code should use 'Ranges'.
   Benchmark* RangePair(int lo1, int hi1, int lo2, int hi2) {
     std::vector<std::pair<int, int> > ranges;
@@ -741,7 +741,7 @@ class Benchmark {
   // Specify the amount of iterations that should be run by this benchmark.
   // REQUIRES: 'n > 0' and `MinTime` has not been called on this benchmark.
   //
-  // NOTE: This function should only be used when *exact* iteration control is
+  // NOTE: This function should only be used when *exact* iteration control is id:1432
   //   needed and never to control or limit how long a benchmark runs, where
   // `--benchmark_min_time=N` or `MinTime(...)` should be used instead.
   Benchmark* Iterations(size_t n);
@@ -1204,13 +1204,13 @@ class BenchmarkReporter {
 
     // Return a value representing the real time per iteration in the unit
     // specified by 'time_unit'.
-    // NOTE: If 'iterations' is zero the returned value represents the
+    // NOTE: If 'iterations' is zero the returned value represents the id:2281
     // accumulated time.
     double GetAdjustedRealTime() const;
 
     // Return a value representing the cpu time per iteration in the unit
     // specified by 'time_unit'.
-    // NOTE: If 'iterations' is zero the returned value represents the
+    // NOTE: If 'iterations' is zero the returned value represents the id:1671
     // accumulated time.
     double GetAdjustedCPUTime() const;
 

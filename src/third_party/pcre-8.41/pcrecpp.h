@@ -162,7 +162,7 @@
 //    pcrecpp::RE re(utf8_pattern, pcrecpp::UTF8());
 //    re.FullMatch(utf8_string);
 //
-// NOTE: The UTF8 option is ignored if pcre was not configured with the
+// NOTE: The UTF8 option is ignored if pcre was not configured with the id:3035
 //       --enable-utf8 flag.
 //
 // -----------------------------------------------------------------------
@@ -453,7 +453,7 @@ class PCRECPP_EXP_DEFN RE_Options {
     return all_options_ ;
   }
 
-  // TODO: add other pcre flags
+  // TODO: add other pcre flags id:2170
 
  private:
   int match_limit_;

@@ -196,7 +196,7 @@ PlanStage::StageState DeleteStage::doWork(WorkingSetID* out) {
         member->obj.setValue(deletedDoc.getOwned());
     }
 
-    // TODO: Do we want to buffer docs and delete them in a group rather than saving/restoring state
+    // TODO: Do we want to buffer docs and delete them in a group rather than saving/restoring state id:693
     // repeatedly?
 
     WorkingSetCommon::prepareForSnapshotChange(_ws);

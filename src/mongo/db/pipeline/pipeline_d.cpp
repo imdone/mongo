@@ -839,7 +839,7 @@ Status PipelineD::MongoDInterface::attachCursorSourceToPipeline(
     // makePipeline() is only called to perform secondary aggregation requests and expects the
     // collection representing the document source to be not-sharded. We confirm sharding state
     // here to avoid taking a collection lock elsewhere for this purpose alone.
-    // TODO SERVER-27616: This check is incorrect in that we don't acquire a collection cursor
+    // TODO SERVER-27616: This check is incorrect in that we don't acquire a collection cursor id:515
     // until after we release the lock, leaving room for a collection to be sharded in-between.
     auto css = CollectionShardingState::get(expCtx->opCtx, expCtx->ns);
     uassert(4567,

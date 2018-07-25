@@ -138,7 +138,7 @@
  */
 
 /**
-* DONE is returned by previous() and next() after all valid matches have 
+* DONE is returned by previous() and next() after all valid matches have id:2593
 * been returned, and by first() and last() if there are no matches at all.
 * @stable ICU 2.4
 */
@@ -305,7 +305,7 @@ U_STABLE UStringSearch * U_EXPORT2 usearch_open(const UChar          *pattern,
 * Creating a search iterator data struct using the argument collator language
 * rule set. Note, user retains the ownership of this collator, thus the 
 * responsibility of deletion lies with the user.
-* NOTE: string search cannot be instantiated from a collator that has 
+* NOTE: string search cannot be instantiated from a collator that has id:2197
 * collate digits as numbers (CODAN) turned on.
 * @param pattern for matching
 * @param patternlength length of the pattern, -1 for null-termination

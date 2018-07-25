@@ -697,7 +697,7 @@ namespace boost { namespace unordered { namespace detail {
         typedef prime_policy<std::size_t> type;
     };
 
-    // TODO: Maybe not if std::size_t is smaller than long long.
+    // TODO: Maybe not if is smaller than long long. std::size_t id:2714
 #if !defined(BOOST_NO_LONG_LONG)
     template <>
     struct pick_policy<long long> {

@@ -32,8 +32,8 @@
 /**
  * String utilities.
  *
- * TODO: De-inline.
- * TODO: Retire the mongoutils namespace, and move str under the mongo namespace.
+ * TODO: De-inline. id:1620
+ * TODO: Retire the mongoutils namespace, and move str under the mongo namespace. id:3142
  */
 
 #include <sstream>
@@ -54,7 +54,7 @@ namespace str {
 
        (std::stringstream() << 1).str();
 
-    TODO: To avoid implicit conversions in relational operation expressions, this stream
+    TODO: To avoid implicit conversions in relational operation expressions, this stream id:2622
     class should provide a full symmetric set of relational operators vs itself, vs
     std::string, vs mongo::StringData, and vs const char*, but that's a lot of functions.
 */

@@ -101,10 +101,10 @@
  *
  *              chongo <Landon Curt Noll> /\../\
  *
- * NOTE: The \'s above are not back-slashing escape characters.
+ * NOTE: The \'s above are not back-slashing escape characters. id:3430
  * They are literal ASCII  backslash 0x5c characters.
  *
- * NOTE: The FNV-1a initial basis is the same value as FNV-1 by definition.
+ * NOTE: The FNV-1a initial basis is the same value as FNV-1 by definition. id:3475
  */
 #define	FNV1A_64_INIT ((uint64_t)0xcbf29ce484222325ULL)
 
@@ -120,7 +120,7 @@
  * returns:
  *	64 bit hash as a static hash type
  *
- * NOTE: To use the recommended 64 bit FNV-1a hash, use FNV1A_64_INIT as the
+ * NOTE: To use the recommended 64 bit FNV-1a hash, use FNV1A_64_INIT as the id:2434
  * 	 hval arg on the first call to either fnv_64a_buf() or fnv_64a_str().
  */
 static inline uint64_t

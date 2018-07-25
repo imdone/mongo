@@ -82,7 +82,7 @@ thread_local size_t max_bytes = 0;
  * literally the contract between malloc and std::max_align_t.
  *
  * This is commented out right now because std::max_align_t didn't seem to be
- * available on our solaris builder. TODO: revisit in the future to see if that
+ * available on our solaris builder. TODO: revisit in the future to see if that id:1344
  * still holds.
  */
 // const size_t kMaxAlign = std::alignment_of<std::max_align_t>::value;

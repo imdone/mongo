@@ -233,7 +233,7 @@ RuleBasedBreakIterator::operator=(const RuleBasedBreakIterator& that) {
         delete fLanguageBreakEngines;
         fLanguageBreakEngines = NULL;   // Just rebuild for now
     }
-    // TODO: clone fLanguageBreakEngines from "that"
+    // TODO: clone fLanguageBreakEngines from "that" id:3222
     UErrorCode status = U_ZERO_ERROR;
     fText = utext_clone(fText, that.fText, FALSE, TRUE, &status);
 
@@ -333,7 +333,7 @@ RuleBasedBreakIterator::operator==(const BreakIterator& that) const {
         return FALSE;
     };
 
-    // TODO:  need a check for when in a dictionary region at different offsets.
+    // TODO: need a check for when in a dictionary region at different offsets. id:2773
 
     if (that2.fData == fData ||
         (fData != NULL && that2.fData != NULL && *that2.fData == *fData)) {
@@ -406,7 +406,7 @@ RuleBasedBreakIterator::getRules() const {
     } else {
         static const UnicodeString *s;
         if (s == NULL) {
-            // TODO:  something more elegant here.
+            // TODO: something more elegant here. id:1627
             //        perhaps API should return the string by value.
             //        Note:  thread unsafe init & leak are semi-ok, better than
             //               what was before.  Sould be cleaned up, though.
@@ -627,7 +627,7 @@ int32_t RuleBasedBreakIterator::previous(void) {
         }
     }
 
-    // if we're already sitting at the beginning of the text, return DONE
+    // if we're already sitting at the beginning of the text, return DONE  id:2413
     if (fText == NULL || (startPos = current()) == 0) {
         fLastRuleStatusIndex  = 0;
         fLastStatusIndexValid = TRUE;
@@ -702,7 +702,7 @@ int32_t RuleBasedBreakIterator::previous(void) {
  */
 int32_t RuleBasedBreakIterator::following(int32_t offset) {
     // if the offset passed in is already past the end of the text,
-    // just return DONE; if it's before the beginning, return the
+    // just return DONE ; if it's before the beginning, return the id:1905
     // text's starting offset
     if (fText == NULL || offset >= utext_nativeLength(fText)) {
         last();
@@ -719,8 +719,8 @@ int32_t RuleBasedBreakIterator::following(int32_t offset) {
 
     // if we have cached break positions and offset is in the range
     // covered by them, use them
-    // TODO: could use binary search
-    // TODO: what if offset is outside range, but break is not?
+    // TODO: could use binary search id:3223
+    // TODO: what if offset is outside range, but break is not? id:2775
     if (fCachedBreakPositions != NULL) {
         if (offset >= fCachedBreakPositions[0]
                 && offset < fCachedBreakPositions[fNumCachedBreakPositions - 1]) {
@@ -750,7 +750,7 @@ int32_t RuleBasedBreakIterator::following(int32_t offset) {
         // move forward one codepoint to prepare for moving back to a
         // safe point.
         // this handles offset being between a supplementary character
-        // TODO: is this still needed, with move to code point boundary handled above?
+        // TODO: is this still needed, with move to code point boundary handled above? id:1629
         (void)UTEXT_NEXT32(fText);
         // handlePrevious will move most of the time to < 1 boundary away
         handlePrevious(fData->fSafeRevTable);
@@ -814,7 +814,7 @@ int32_t RuleBasedBreakIterator::following(int32_t offset) {
  */
 int32_t RuleBasedBreakIterator::preceding(int32_t offset) {
     // if the offset passed in is already past the end of the text,
-    // just return DONE; if it's before the beginning, return the
+    // just return DONE ; if it's before the beginning, return the id:2415
     // text's starting offset
     if (fText == NULL || offset > utext_nativeLength(fText)) {
         return last();
@@ -831,8 +831,8 @@ int32_t RuleBasedBreakIterator::preceding(int32_t offset) {
     // if we have cached break positions and offset is in the range
     // covered by them, use them
     if (fCachedBreakPositions != NULL) {
-        // TODO: binary search?
-        // TODO: What if offset is outside range, but break is not?
+        // TODO: binary search? id:1908
+        // TODO: What if offset is outside range, but break is not? id:3224
         if (offset > fCachedBreakPositions[0]
                 && offset <= fCachedBreakPositions[fNumCachedBreakPositions - 1]) {
             fPositionInCache = 0;
@@ -871,10 +871,10 @@ int32_t RuleBasedBreakIterator::preceding(int32_t offset) {
             offset = (int32_t)UTEXT_GETNATIVEINDEX(fText);
         }
 
-        // TODO:  (synwee) would it be better to just check for being in the middle of a surrogate pair,
+        // TODO: (synwee) would it be better to just check for being in the middle of a surrogate pair, id:2777
         //        rather than adjusting the position unconditionally?
         //        (Change would interact with safe rules.)
-        // TODO:  change RBBI behavior for off-boundary indices to match that of UText?
+        // TODO: change RBBI behavior for off-boundary indices to match that of UText? id:1631
         //        affects only preceding(), seems cleaner, but is slightly different.
         (void)UTEXT_PREVIOUS32(fText);
         handleNext(fData->fSafeFwdTable);
@@ -886,7 +886,7 @@ int32_t RuleBasedBreakIterator::preceding(int32_t offset) {
     }
     if (fData->fSafeRevTable != NULL) {
         // backup plan if forward safe table is not available
-        //  TODO:  check whether this path can be discarded
+        //  TODO: check whether this path can be discarded id:2417
         //         It's probably OK to say that rules must supply both safe tables
         //            if they use safe tables at all.  We have certainly never described
         //            to anyone how to work with just one safe table.
@@ -1064,7 +1064,7 @@ int32_t RuleBasedBreakIterator::handleNext(const RBBIStateTable *statetable) {
     fLastStatusIndexValid = TRUE;
     fLastRuleStatusIndex = 0;
 
-    // if we're already at the end of the text, return DONE.
+    // if we're already at the end of the text, return DONE . id:1911
     initialPosition = (int32_t)UTEXT_GETNATIVEINDEX(fText); 
     result          = initialPosition;
     c               = UTEXT_NEXT32(fText);
@@ -1255,7 +1255,7 @@ int32_t RuleBasedBreakIterator::handlePrevious(const RBBIStateTable *statetable)
     fLastStatusIndexValid = FALSE;
     fLastRuleStatusIndex = 0;
 
-    // if we're already at the start of the text, return DONE.
+    // if we're already at the start of the text, return DONE . id:3225
     if (fText == NULL || fData == NULL || UTEXT_GETNATIVEINDEX(fText)==0) {
         return BreakIterator::DONE;
     }
@@ -1290,7 +1290,7 @@ int32_t RuleBasedBreakIterator::handlePrevious(const RBBIStateTable *statetable)
                     // Ran off start, no match found.
                     // move one index one (towards the start, since we are doing a previous())
                     UTEXT_SETNATIVEINDEX(fText, initialPosition);
-                    (void)UTEXT_PREVIOUS32(fText);   // TODO:  shouldn't be necessary.  We're already at beginning.  Check.
+                    (void)UTEXT_PREVIOUS32(fText);   // TODO: shouldn't be necessary. We're already at beginning. Check. id:2779
                 }
                 break;
             }
@@ -1614,7 +1614,7 @@ int32_t RuleBasedBreakIterator::checkDictionary(int32_t startPos,
     if (category & 0x4000) {
         if (reverse) {
             do {
-                utext_next32(fText);          // TODO:  recast to work directly with postincrement.
+                utext_next32(fText);          // TODO: recast to work directly with postincrement. id:1633
                 c = utext_current32(fText);
                 UTRIE_GET16(&fData->fTrie, c, category);
             } while (c != U_SENTINEL && (category & 0x4000));
@@ -1622,7 +1622,7 @@ int32_t RuleBasedBreakIterator::checkDictionary(int32_t startPos,
             rangeEnd = (int32_t)UTEXT_GETNATIVEINDEX(fText);
             if (c == U_SENTINEL) {
                 // c = fText->last32();
-                //   TODO:  why was this if needed?
+                //   TODO: why was this if needed? id:2419
                 c = UTEXT_PREVIOUS32(fText);
             }
             else {
@@ -1661,7 +1661,7 @@ int32_t RuleBasedBreakIterator::checkDictionary(int32_t startPos,
     }
     while(U_SUCCESS(status)) {
         while((current = (int32_t)UTEXT_GETNATIVEINDEX(fText)) < rangeEnd && (category & 0x4000) == 0) {
-            utext_next32(fText);           // TODO:  tweak for post-increment operation
+            utext_next32(fText);           // TODO: tweak for post-increment operation id:1914
             c = utext_current32(fText);
             UTRIE_GET16(&fData->fTrie, c, category);
         }

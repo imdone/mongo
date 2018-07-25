@@ -294,7 +294,7 @@ class Spinner(object):
             # Calling 'stop' on the reactor will make it impossible to
             # re-start the reactor.  Since the default signal handlers for
             # TERM, BREAK and INT all call reactor.stop(), we'll patch it over
-            # with crash.  XXX: It might be a better idea to either install
+            # with crash.  XXX: It might be a better idea to either install id:3434
             # custom signal handlers or to override the methods that are
             # Twisted's signal handlers.
             stop, self._reactor.stop = self._reactor.stop, self._reactor.crash

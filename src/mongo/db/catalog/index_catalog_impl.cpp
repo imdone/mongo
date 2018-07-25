@@ -918,7 +918,7 @@ void IndexCatalogImpl::dropAllIndexes(OperationContext* opCtx,
     BackgroundOperation::assertNoBgOpInProgForNs(_collection->ns().ns());
 
     // there may be pointers pointing at keys in the btree(s).  kill them.
-    // TODO: can this can only clear cursors on this index?
+    // TODO: can this can only clear cursors on this index? id:390
     _collection->getCursorManager()->invalidateAll(
         opCtx, false, "all indexes on collection dropped");
 
@@ -1061,7 +1061,7 @@ Status IndexCatalogImpl::_dropIndex(OperationContext* opCtx, IndexCatalogEntry* 
     // If any cursors could be using this index, invalidate them. Note that we do not use indexes
     // until they are ready, so we do not need to invalidate anything if the index fails while it is
     // being built.
-    // TODO only kill cursors that are actually using the index rather than everything on this
+    // TODO only kill cursors that are actually using the index rather than everything on this id:1095
     // collection.
     if (entry->isReady(opCtx)) {
         _collection->getCursorManager()->invalidateAll(

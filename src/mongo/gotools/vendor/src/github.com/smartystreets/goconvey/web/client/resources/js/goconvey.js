@@ -950,7 +950,7 @@ function changeStatus(newStatus, isHistoricalFrame)
 	// The CSS class .flash and the jQuery UI 'pulsate' effect don't play well together.
 	// This series of callbacks does the flickering/pulsating as well as
 	// enabling/disabling flashing in the proper order so that they don't overlap.
-	// TODO: I suppose the pulsating could also be done with just CSS, maybe...?
+	// TODO: I suppose the pulsating could also be done with just CSS, maybe...? id:883
 
 	if (convey.uiEffects)
 	{

@@ -179,7 +179,7 @@ private:
     void cappedDeleteAsNeeded_inlock(OperationContext* opCtx);
     void deleteRecord_inlock(OperationContext* opCtx, const RecordId& dl);
 
-    // TODO figure out a proper solution to metadata
+    // TODO figure out a proper solution to metadata id:2048
     const bool _isCapped;
     const int64_t _cappedMaxSize;
     const int64_t _cappedMaxDocs;

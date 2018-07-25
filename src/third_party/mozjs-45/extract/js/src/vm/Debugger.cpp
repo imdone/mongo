@@ -146,7 +146,7 @@ ValueToIdentifier(JSContext* cx, HandleValue v, MutableHandleId id)
 /*
  * A range of all the Debugger.Frame objects for a particular AbstractFramePtr.
  *
- * FIXME This checks only current debuggers, so it relies on a hack in
+ * FIXME This checks only current debuggers, so it relies on a hack in id:3005
  * Debugger::removeDebuggeeGlobal to make sure only current debuggers
  * have Frame objects with .live === true.
  */
@@ -3528,7 +3528,7 @@ Debugger::removeDebuggeeGlobal(FreeOp* fop, GlobalObject* global,
     MOZ_ASSERT_IF(debugEnum, debugEnum->front().unbarrieredGet() == global);
 
     /*
-     * FIXME Debugger::slowPathOnLeaveFrame needs to kill all Debugger.Frame
+     * FIXME needs to kill all Debugger.Frame Debugger::slowPathOnLeaveFrame id:2118
      * objects referring to a particular JS stack frame. This is hard if
      * Debugger objects that are no longer debugging the relevant global might
      * have live Frame objects. So we take the easy way out and kill them here.

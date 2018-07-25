@@ -39,7 +39,7 @@ func (self *HTTPServer) adjustRoot(response http.ResponseWriter, request *http.R
 	if newRoot == "" {
 		return
 	}
-	info, err := os.Stat(newRoot) // TODO: how to unit test?
+	info, err := os.Stat(newRoot) // TODO: how to unit test? id:2164
 	if !info.IsDir() || err != nil {
 		http.Error(response, err.Error(), http.StatusNotFound)
 		return
@@ -112,7 +112,7 @@ func (self *HTTPServer) LongPollStatus(response http.ResponseWriter, request *ht
 
 	out := <-myReqChan
 
-	if out != "" { // TODO: Why is this check necessary? Sometimes it writes empty string...
+	if out != "" { // TODO: Why is this check necessary? Sometimes it writes empty string... id:1070
 		response.Write([]byte(out))
 	}
 }

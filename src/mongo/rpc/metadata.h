@@ -82,7 +82,7 @@ using RequestMetadataWriter =
  * host that executed the command and returns a Status indicating if the
  * metadata was read successfully.
  *
- * TODO: would it be a layering violation if this hook took an OperationContext* ?
+ * TODO: would it be a layering violation if this hook took an OperationContext* ? id:1176
  */
 using ReplyMetadataReader = stdx::function<Status(
     OperationContext* opCtx, const BSONObj& replyMetadata, StringData sourceHost)>;

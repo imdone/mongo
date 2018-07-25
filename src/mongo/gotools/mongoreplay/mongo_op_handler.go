@@ -237,7 +237,7 @@ func (bidi *bidi) handleStreamStateBeforeMessage(stream *stream) {
 		}
 		bidi.sawStart = true
 	}
-	// TODO deal with the situation that the first packet doesn't contain a
+	// TODO deal with the situation that the first packet doesn't contain a id:1641
 	// whole MessageHeader of an otherwise valid protocol message.  The
 	// following code erroneously assumes that all packets will have at least 16
 	// bytes of data
@@ -279,7 +279,7 @@ func (bidi *bidi) handleStreamStateInMessage(stream *stream) {
 	}
 	stream.reassembly.Bytes = stream.reassembly.Bytes[copySize:]
 	if len(stream.op.Body) == int(stream.op.Header.MessageLength) {
-		// TODO maybe remember if we were recently in streamStateOutOfSync,
+		// TODO maybe remember if we were recently in streamStateOutOfSync, id:751
 		// and if so, parse the raw op here.
 
 		bidi.opStream.unorderedOps <- RecordedOp{
@@ -355,7 +355,7 @@ func (bidi *bidi) streamOps() {
 			// Skip > 0 means that we've missed something, and we have
 			// incomplete packets in hand.
 			if stream.reassembly.Skip > 0 {
-				// TODO, we may want to do more state specific reporting here.
+				// TODO , we may want to do more state specific reporting here. id:2117
 				stream.state = streamStateOutOfSync
 				//when we have skip, we destroy this buffer
 				stream.op.Body = stream.op.Body[:0]

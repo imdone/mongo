@@ -74,7 +74,7 @@ static RtlCaptureStackBackTrace_Function* const RtlCaptureStackBackTrace_fn =
 static int GetStackTrace_win32(void** result, int max_depth,
                                int skip_count) {
   if (!RtlCaptureStackBackTrace_fn) {
-    // TODO(csilvers): should we log an error here?
+    // TODO (csilvers): should we log an error here? id:1869
     return 0;     // can't find a stacktrace with no function to call
   }
   return (int)RtlCaptureStackBackTrace_fn(skip_count + 3, max_depth,

@@ -86,7 +86,7 @@ public:
      *
      *  Note: Currently these are all explicit conversions.
      *        I'm not sure if we want implicit or not.
-     *  //TODO decide
+     *  //TODO decide id:517
      */
 
     Value() : _storage() {}  // "Missing" value
@@ -123,7 +123,7 @@ public:
     explicit Value(const char*) = delete;  // Use StringData instead to prevent accidentally
                                            // terminating the string at the first null byte.
 
-    // TODO: add an unsafe version that can share storage with the BSONElement
+    // TODO: add an unsafe version that can share storage with the BSONElement id:1530
     /// Deep-convert from BSONElement to Value
     explicit Value(const BSONElement& elem);
 
@@ -240,7 +240,7 @@ public:
     /** Coercion operators to extract values with fuzzy type logic.
      *
      *  These currently assert if called on an unconvertible type.
-     *  TODO: decided how to handle unsupported types.
+     *  TODO: decided how to handle unsupported types. id:661
      */
     std::string coerceToString() const;
     int coerceToInt() const;

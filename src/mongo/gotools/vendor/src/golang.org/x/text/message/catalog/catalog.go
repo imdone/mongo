@@ -143,7 +143,7 @@
 // This package is UNDER CONSTRUCTION and its API may change.
 package catalog // import "golang.org/x/text/message/catalog"
 
-// TODO:
+// TODO:  id:1067
 // Some way to freeze a catalog.
 // - Locking on each lockup turns out to be about 50% of the total running time
 //   for some of the benchmarks in the message package.
@@ -189,7 +189,7 @@ func NewFromMap(dictionaries map[string]Dictionary, opts ...Option) (Catalog, er
 	}
 	_, hasFallback := dictionaries[options.fallback.String()]
 	if hasFallback {
-		// TODO: Should it be okay to not have a fallback language?
+		// TODO: Should it be okay to not have a fallback language? id:1925
 		// Catalog generators could enforce there is always a fallback.
 		c.langs = append(c.langs, options.fallback)
 	}
@@ -277,7 +277,7 @@ func Fallback(tag language.Tag) Option {
 	return func(o *options) { o.fallback = tag }
 }
 
-// TODO:
+// TODO:  id:1418
 // // Catalogs specifies one or more sources for a Catalog.
 // // Lookups are in order.
 // // This can be changed inserting a Catalog used for setting, which implements
@@ -354,7 +354,7 @@ func (b *Builder) Context(tag language.Tag, r catmsg.Renderer) *Context {
 // Only one Message may be formatted per context at any given time.
 type Context struct {
 	cat Catalog
-	tag language.Tag // TODO: use compact index.
+	tag language.Tag // TODO: use compact index. id:3040
 	dec *catmsg.Decoder
 }
 

@@ -62,7 +62,7 @@ def _POUpdateBuilderWrapper(env, target=None, source=_null, **kw):
       domain = env['POTDOMAIN']
     else:
       domain = 'messages'
-    source = [ domain ] # NOTE: Suffix shall be appended automatically
+    source = [ domain ] # NOTE: Suffix shall be appended automatically id:3401
   return env._POUpdateBuilder(target, source, **kw)
 #############################################################################
 

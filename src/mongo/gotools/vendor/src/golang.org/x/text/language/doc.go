@@ -98,5 +98,5 @@
 //
 package language // import "golang.org/x/text/language"
 
-// TODO: explanation on how to match languages for your own locale-specific
+// TODO: explanation on how to match languages for your own locale-specific id:1254
 // service.

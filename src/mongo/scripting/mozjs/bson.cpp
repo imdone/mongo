@@ -141,7 +141,7 @@ void BSONInfo::enumerate(JSContext* cx,
     while (i.more()) {
         BSONElement e = i.next();
 
-        // TODO: when we get heterogenous set lookup, switch to StringData
+        // TODO: when we get heterogenous set lookup, switch to StringData id:1561
         // rather than involving the temporary string
         if (holder->_removed.find(e.fieldName()) != holder->_removed.end())
             continue;

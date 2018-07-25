@@ -135,7 +135,7 @@ private:
     };
 
     explicit SharedBuffer(Holder* holder) : _holder(holder, /*add_ref=*/false) {
-        // NOTE: The 'false' above is because we have already initialized the Holder with a
+        // NOTE: The 'false' above is because we have already initialized the Holder with a id:2266
         // refcount of '1' in takeOwnership below. This avoids an atomic increment.
     }
 
@@ -150,7 +150,7 @@ private:
         // Initialize the refcount to 1 so we don't need to increment it in the constructor
         // (see private Holder* constructor above).
         //
-        // TODO: Should dassert alignment of holderPrefixedData here if possible.
+        // TODO: Should dassert alignment of holderPrefixedData here if possible. id:1646
         return SharedBuffer(new (holderPrefixedData) Holder(1U, capacity));
     }
 

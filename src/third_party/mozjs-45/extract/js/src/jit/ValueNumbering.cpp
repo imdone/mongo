@@ -631,7 +631,7 @@ ValueNumberer::leader(MDefinition* def)
     // If the value isn't suitable for eliminating, don't bother hashing it. The
     // convention is that congruentTo returns false for node kinds that wish to
     // opt out of redundance elimination.
-    // TODO: It'd be nice to clean up that convention (bug 1031406).
+    // TODO: It'd be nice to clean up that convention (bug 1031406). id:2935
     if (!def->isEffectful() && def->congruentTo(def)) {
         // Look for a match.
         VisibleValues::AddPtr p = values_.findLeaderForAdd(def);
@@ -741,7 +741,7 @@ ValueNumberer::visitDefinition(MDefinition* def)
     if (dep != nullptr && (dep->isDiscarded() || dep->block()->isDead())) {
         JitSpew(JitSpew_GVN, "      AliasAnalysis invalidated");
         if (updateAliasAnalysis_ && !dependenciesBroken_) {
-            // TODO: Recomputing alias-analysis could theoretically expose more
+            // TODO: Recomputing alias-analysis could theoretically expose more id:2022
             // GVN opportunities.
             JitSpew(JitSpew_GVN, "        Will recompute!");
             dependenciesBroken_ = true;

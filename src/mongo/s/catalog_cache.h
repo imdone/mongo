@@ -171,7 +171,7 @@ public:
      * then forces it to try again, which is necessary in cases where calls to
      * getCollectionRoutingInfoWithRefresh must be causally consistent
      *
-     * TODO: Remove this parameter in favor of using collection creation time +
+     * TODO: Remove this parameter in favor of using collection creation time + id:1191
      * collection version to decide when a refresh is necessary and provide
      * proper causal consistency
      */

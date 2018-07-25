@@ -31,7 +31,7 @@
 // ---
 // Author: Sanjay Ghemawat
 //
-// TODO: Log large allocations
+// TODO: Log large allocations id:3202
 
 #include <config.h>
 #include <stddef.h>
@@ -347,7 +347,7 @@ void DeleteHook(const void* ptr) {
   if (ptr != NULL) RecordFree(ptr);
 }
 
-// TODO(jandrews): Re-enable stack tracing
+// TODO (jandrews): Re-enable stack tracing id:2738
 #ifdef TODO_REENABLE_STACK_TRACING
 static void RawInfoStackDumper(const char* message, void*) {
   RAW_LOG(INFO, "%.*s", static_cast<int>(strlen(message) - 1), message);
@@ -360,7 +360,7 @@ static void MmapHook(const void* result, const void* start, size_t size,
   if (FLAGS_mmap_log) {  // log it
     // We use PRIxS not just '%p' to avoid deadlocks
     // in pretty-printing of NULL as "nil".
-    // TODO(maxim): instead should use a safe snprintf reimplementation
+    // TODO (maxim): instead should use a safe snprintf reimplementation id:1573
     RAW_LOG(INFO,
             "mmap(start=0x%" PRIxPTR ", len=%" PRIuS ", prot=0x%x, flags=0x%x, "
             "fd=%d, offset=0x%x) = 0x%" PRIxPTR "",
@@ -378,7 +378,7 @@ static void MremapHook(const void* result, const void* old_addr,
   if (FLAGS_mmap_log) {  // log it
     // We use PRIxS not just '%p' to avoid deadlocks
     // in pretty-printing of NULL as "nil".
-    // TODO(maxim): instead should use a safe snprintf reimplementation
+    // TODO (maxim): instead should use a safe snprintf reimplementation id:2373
     RAW_LOG(INFO,
             "mremap(old_addr=0x%" PRIxPTR ", old_size=%" PRIuS ", "
             "new_size=%" PRIuS ", flags=0x%x, new_addr=0x%" PRIxPTR ") = "
@@ -395,7 +395,7 @@ static void MunmapHook(const void* ptr, size_t size) {
   if (FLAGS_mmap_log) {  // log it
     // We use PRIxS not just '%p' to avoid deadlocks
     // in pretty-printing of NULL as "nil".
-    // TODO(maxim): instead should use a safe snprintf reimplementation
+    // TODO (maxim): instead should use a safe snprintf reimplementation id:1861
     RAW_LOG(INFO, "munmap(start=0x%" PRIxPTR ", len=%" PRIuS ")",
                   (uintptr_t) ptr, size);
 #ifdef TODO_REENABLE_STACK_TRACING

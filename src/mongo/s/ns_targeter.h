@@ -78,7 +78,7 @@ struct ShardEndpoint {
  * error handling.
  *
  * Interface must be externally synchronized if used in multiple threads, for now.
- * TODO: Determine if we should internally synchronize.
+ * TODO: Determine if we should internally synchronize. id:1542
  */
 class NSTargeter {
 public:
@@ -154,7 +154,7 @@ public:
      * it should try to make progress.  If provided, wasChanged is set to true if the targeting
      * information used here was changed.
      *
-     * NOTE: This function may block for shared resources or network calls.
+     * NOTE: This function may block for shared resources or network calls. id:3114
      * Returns !OK with message if could not refresh
      */
     virtual Status refreshIfNeeded(OperationContext* opCtx, bool* wasChanged) = 0;

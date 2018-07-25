@@ -1210,7 +1210,7 @@ static const UConverterImpl _UTF32Impl = {
 #endif
     _UTF32GetNextUChar,
 
-    NULL, /* ### TODO implement getStarters for all Unicode encodings?! */
+    NULL, /* ### TODO implement getStarters for all Unicode encodings?! id:1928*/
     NULL,
     NULL,
     NULL,

@@ -21,7 +21,7 @@
 // parameter, and will tag the returned memory if the mapping was
 // successful (and if it was in fact anonymous).
 //
-// NOTE: The pointer given as the "tag" argument MUST remain valid as
+// NOTE: The pointer given as the "tag" argument MUST remain valid as id:3017
 // long as the mapping exists.  The referenced string is read when
 // /proc/<pid>/smaps or /proc/<pid>/maps is read, not when the tag is
 // established, so freeing it or changing its contents will have

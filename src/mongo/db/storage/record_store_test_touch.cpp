@@ -101,7 +101,7 @@ TEST(RecordStoreTestHarness, TouchNonEmpty) {
             harnessHelper->newOperationContext(harnessHelper->client()));
         {
             BSONObjBuilder stats;
-            // XXX does not verify the collection was loaded into cache
+            // XXX does not verify the collection was loaded into cache id:965
             // (even if supported by storage engine)
             Status status = rs->touch(opCtx.get(), &stats);
             ASSERT(status.isOK() || status.code() == ErrorCodes::CommandNotSupported);
@@ -163,7 +163,7 @@ TEST(RecordStoreTestHarness, TouchNonEmptyWithNullStats) {
     {
         ServiceContext::UniqueOperationContext opCtx(
             harnessHelper->newOperationContext(harnessHelper->client()));
-        // XXX does not verify the collection was loaded into cache
+        // XXX does not verify the collection was loaded into cache id:772
         // (even if supported by storage engine)
         Status status = rs->touch(opCtx.get(), NULL /* stats output */);
         ASSERT(status.isOK() || status.code() == ErrorCodes::CommandNotSupported);

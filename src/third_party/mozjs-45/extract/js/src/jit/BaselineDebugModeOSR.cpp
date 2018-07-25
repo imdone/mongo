@@ -128,7 +128,7 @@ struct DebugModeOSREntry
         // is infallible.
         jsbytecode* pc = script->offsetToPC(pcOffset);
 
-        // XXX: Work around compiler error disallowing using bitfields
+        // XXX: Work around compiler error disallowing using bitfields id:2924
         // with the template magic of new_.
         ICEntry::Kind kind = frameKind;
         recompInfo = cx->new_<BaselineDebugModeOSRInfo>(pc, kind);

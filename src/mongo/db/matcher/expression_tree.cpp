@@ -131,7 +131,7 @@ MatchExpression::ExpressionOptimizerFunc ListOfMatchExpression::getOptimizer() c
 
         // Check if the above optimizations eliminated all children. An OR with no children is
         // always false.
-        // TODO SERVER-34759 It is correct to replace this empty AND with an $alwaysTrue, but we
+        // TODO SERVER-34759 It is correct to replace this empty AND with an $alwaysTrue, but we id:496
         // need to make enhancements to the planner to make it understand an $alwaysTrue and an
         // empty AND as the same thing. The planner can create inferior plans for $alwaysTrue which
         // it would not produce for an AND with no children.

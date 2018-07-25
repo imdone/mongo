@@ -63,7 +63,7 @@
 
     // Create the capped collection. We make the capped collection large enough so that the initial
     // sync collection cloner will need more than one cursor batch to fetch all documents.
-    // TODO: Once the collection cloner batch size is configurable, we can reduce collection &
+    // TODO: Once the collection cloner batch size is configurable, we can reduce collection & id:147
     // document size to make this test more lightweight.
     var MB = 1024 * 1024;
     var cappedCollSize = 48 * MB;

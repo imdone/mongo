@@ -190,7 +190,7 @@ func nlines(s string, n int) string {
 }
 
 func TestRawMessage(t *testing.T) {
-	// TODO(rsc): Should not need the * in *RawMessage
+	// TODO (rsc): Should not need the * in *RawMessage id:1475
 	var data struct {
 		X  float64
 		Id *RawMessage
@@ -215,7 +215,7 @@ func TestRawMessage(t *testing.T) {
 }
 
 func TestNullRawMessage(t *testing.T) {
-	// TODO(rsc): Should not need the * in *RawMessage
+	// TODO (rsc): Should not need the * in *RawMessage id:3087
 	var data struct {
 		X  float64
 		Id *RawMessage

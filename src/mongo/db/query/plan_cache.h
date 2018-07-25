@@ -62,7 +62,7 @@ struct PlanCacheEntryFeedback {
     double score;
 };
 
-// TODO: Replace with opaque type.
+// TODO: Replace with opaque type. id:565
 typedef std::string PlanID;
 
 /**
@@ -258,7 +258,7 @@ public:
     // it from the cache a deep copy is made and returned inside CachedSolution.
     std::vector<SolutionCacheData*> plannerData;
 
-    // TODO: Do we really want to just hold a copy of the CanonicalQuery?  For now we just
+    // TODO: Do we really want to just hold a copy of the CanonicalQuery? For now we just id:1199
     // extract the data we need.
     //
     // Used by the plan cache commands to display an example query

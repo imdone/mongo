@@ -221,7 +221,7 @@ bool DocumentSourceGeoNear::needsGeoNearPoint() const {
 }
 
 DepsTracker::State DocumentSourceGeoNear::getDependencies(DepsTracker* deps) const {
-    // TODO (SERVER-35424): Implement better dependency tracking. For example, 'distanceField' is
+    // TODO (SERVER-35424): Implement better dependency tracking. For example, 'distanceField' is id:1159
     // produced by this stage, and we could inform the query system that it need not include it in
     // its response. For now, assume that we require the entire document as well as the appropriate
     // geoNear metadata.

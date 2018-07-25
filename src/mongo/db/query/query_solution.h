@@ -67,7 +67,7 @@ struct QuerySolutionNode {
     /**
      * Internal function called by toString()
      *
-     * TODO: Consider outputting into a BSONObj or builder thereof.
+     * TODO: Consider outputting into a BSONObj or builder thereof. id:552
      */
     virtual void appendToString(mongoutils::str::stream* ss, int indent) const = 0;
 
@@ -103,7 +103,7 @@ struct QuerySolutionNode {
      * Usage: If an index-only plan has all the fields we're interested in, we don't
      * have to fetch to show results with those fields.
      *
-     * TODO: 'field' is probably more appropriate as a FieldRef or string.
+     * TODO: 'field' is probably more appropriate as a FieldRef or string. id:1823
      */
     virtual bool hasField(const std::string& field) const = 0;
 
@@ -147,7 +147,7 @@ struct QuerySolutionNode {
     /**
      * Adds a vector of query solution nodes to the list of children of this node.
      *
-     * TODO SERVER-35512: Once 'children' are held by unique_ptr, this method should no longer be
+     * TODO SERVER-35512: Once 'children' are held by unique_ptr, this method should no longer be id:767
      * necessary.
      */
     void addChildren(std::vector<std::unique_ptr<QuerySolutionNode>> newChildren) {
@@ -160,7 +160,7 @@ struct QuerySolutionNode {
 
     // These are owned here.
     //
-    // TODO SERVER-35512: Make this a vector of unique_ptr.
+    // TODO SERVER-35512: Make this a vector of unique_ptr. id:587
     std::vector<QuerySolutionNode*> children;
 
     // If a stage has a non-NULL filter all values outputted from that stage must pass that
@@ -559,7 +559,7 @@ struct ProjectionNode : public QuerySolutionNode {
     }
 
     bool hasField(const std::string& field) const {
-        // TODO: Returning false isn't always the right answer -- we may either be including
+        // TODO: Returning false isn't always the right answer -- we may either be including id:1231
         // certain fields, or we may be dropping fields (in which case hasField returns true).
         //
         // Given that projection sits on top of everything else in .find() it doesn't matter

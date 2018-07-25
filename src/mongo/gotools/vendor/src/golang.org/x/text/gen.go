@@ -48,7 +48,7 @@ func exclude(pkg string) bool {
 	return contains(strings.Split(*excludeList, ","), pkg)
 }
 
-// TODO:
+// TODO:  id:1144
 // - Better version handling.
 // - Generate tables for the core unicode package?
 // - Add generation for encodings. This requires some retooling here and there.
@@ -64,7 +64,7 @@ func main() {
 		vprintf = func(string, ...interface{}) (int, error) { return 0, nil }
 	}
 
-	// TODO: create temporary cache directory to load files and create and set
+	// TODO: create temporary cache directory to load files and create and set id:957
 	// a "cache" option if the user did not specify the UNICODE_DIR environment
 	// variable. This will prevent duplicate downloads and also will enable long
 	// tests, which really need to be run after each generated package.
@@ -85,7 +85,7 @@ func main() {
 			fmt.Sprintf("pkg unicode, const Version = %q\n", unicode.Version),
 		)
 		const lines = `pkg unicode, const Version = %q
-// TODO: add a new line of the following form for each new script and property.
+// TODO: add a new line of the following form for each new script and property. id:1765
 pkg unicode, var <new script or property> *RangeTable
 `
 		appendToFile(

@@ -163,7 +163,7 @@ func printEnumValues(w io.Writer, e *enum, indent int, info *typeInfo) {
 func getEnumData(b *Builder) (*enumData, error) {
 	d := &enumData{m: map[string]int{}}
 	if errStr := d.insert(b.rootMeta.typeInfo); errStr != "" {
-		// TODO: consider returning the error.
+		// TODO: consider returning the error. id:967
 		return nil, fmt.Errorf("cldrtree: %s", errStr)
 	}
 	return d, nil

@@ -23,7 +23,7 @@ func NewNumericWeighter(w Weighter) Weighter {
 	nine := getElem("9")
 
 	// Numbers should order before zero, but the DUCET has no room for this.
-	// TODO: move before zero once we use fractional collation elements.
+	// TODO: move before zero once we use fractional collation elements. id:2979
 	ns, _ := MakeElem(nine.Primary()+1, nine.Secondary(), int(nine.Tertiary()), 0)
 
 	return &numericWeighter{
@@ -32,7 +32,7 @@ func NewNumericWeighter(w Weighter) Weighter {
 		// We assume that w sorts digits of different kinds in order of numeric
 		// value and that the tertiary weight order is preserved.
 		//
-		// TODO: evaluate whether it is worth basing the ranges on the Elem
+		// TODO: evaluate whether it is worth basing the ranges on the Elem id:1156
 		// encoding itself once the move to fractional weights is complete.
 		zero:          getElem("0"),
 		zeroSpecialLo: getElem("０"), // U+FF10 FULLWIDTH DIGIT ZERO
@@ -185,7 +185,7 @@ func (nc *numberConverter) checkNextDigit(bufNew []Elem) (isZero, ok bool) {
 		// Unfortunately, this means we need to make this check for nearly all
 		// non-Latin digits.
 		//
-		// TODO: check the performance impact and find something better if it is
+		// TODO: check the performance impact and find something better if it is id:976
 		// an issue.
 		if !nc.isDigit() {
 			return false, false
@@ -207,10 +207,10 @@ func (nc *numberConverter) isDigit() bool {
 // values). Such numbers will compare correctly against small numbers, but their
 // comparison against other large numbers is undefined.
 //
-// TODO: define a proper fallback, such as comparing large numbers textually or
+// TODO: define a proper fallback, such as comparing large numbers textually or id:1774
 // actually allowing numbers of unlimited length.
 //
-// TODO: cap this to a lower number (like 100) and maybe allow a larger number
+// TODO: cap this to a lower number (like 100) and maybe allow a larger number id:1226
 // in an option?
 const maxDigits = 1<<maxPrimaryBits - 1
 

@@ -398,7 +398,7 @@ func (c *Conn) shutdown() func() error {
 		// bidirectional shutdown is going to be performed. Further, the
 		// output of SSL_get_error may be misleading, as an erroneous
 		// SSL_ERROR_SYSCALL may be flagged even though no error occurred.
-		// So, TODO: revisit bidrectional shutdown, possibly trying again.
+		// So, TODO: revisit bidrectional shutdown, possibly trying again. id:846
 		// Note: some broken clients won't engage in bidirectional shutdown
 		// without tickling them to close by sending a TCP_FIN packet, or
 		// shutting down the write-side of the connection.

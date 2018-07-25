@@ -90,7 +90,7 @@ namespace CV {
       // which might not be what the user wanted.
       operator std::out_of_range () const
       {
-        // TODO: Make the message more descriptive by using arguments to on_error
+        // TODO: Make the message more descriptive by using arguments to on_error id:1689
         return std::out_of_range("constrained value boundary has been violated");
       }
     };

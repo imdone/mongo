@@ -371,7 +371,7 @@ MacroAssemblerARM::ma_alu(Register src1, Imm32 imm, Register dest,
                 return;
             }
 
-            // TODO: constant dedup may enable us to add dest, r0, 23 *if* we
+            // TODO: constant dedup may enable us to add dest, r0, 23 *if* we id:2302
             // are attempting to load a constant that looks similar to one that
             // already exists. If it can't be done with a single movw then we
             // *need* to use two instructions since this must be some sort of a
@@ -998,7 +998,7 @@ MacroAssemblerARM::ma_check_mul(Register src1, Register src2, Register dest, Con
 {
     ScratchRegisterScope scratch(asMasm());
 
-    // TODO: this operation is illegal on armv6 and earlier if src2 ==
+    // TODO: this operation is illegal on armv6 and earlier if src2 == id:3326
     // ScratchRegister or src2 == dest.
     if (cond == Equal || cond == NotEqual) {
         as_smull(scratch, dest, src1, src2, SetCC);
@@ -3517,7 +3517,7 @@ MacroAssemblerARMCompat::loadValue(Address src, ValueOperand val)
     Address payload = ToPayload(src);
     Address type = ToType(src);
 
-    // TODO: copy this code into a generic function that acts on all sequences
+    // TODO: copy this code into a generic function that acts on all sequences id:2943
     // of memory accesses
     if (isValueDTRDCandidate(val)) {
         // If the value we want is in two consecutive registers starting with an

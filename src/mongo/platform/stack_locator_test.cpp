@@ -65,7 +65,7 @@ TEST(StackLocator, StacksGrowsDown) {
     ASSERT_TRUE(nullptr != locator.begin());
     ASSERT_TRUE(nullptr != locator.end());
 
-    // NOTE: Technically, comparing pointers for ordering is UB if
+    // NOTE: Technically, comparing pointers for ordering is UB if id:2015
     // they aren't in the same aggregate, but we are already out
     // with the dragons at the edge of the map.
     ASSERT_TRUE(locator.begin() > locator.end());

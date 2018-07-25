@@ -6,7 +6,7 @@
 (function() {
     'use strict';
 
-    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session.
+    // TODO SERVER-35447: Multiple users cannot be authenticated on one connection within a session. id:23
     TestData.disableImplicitSessions = true;
 
     function testConnection(
@@ -203,7 +203,7 @@
     rst.stopSet();
 
     print("Testing sharded cluster");
-    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed.
+    // TODO: Remove 'shardAsReplicaSet: false' when SERVER-32672 is fixed. id:22
     var st = new ShardingTest({
         mongos: 2,
         config: 3,

@@ -74,7 +74,7 @@ private:
  * RAII-style class, which acquires a locks on the specified database and collection in the
  * requested modes and obtains references to both.
  *
- * NOTE: Throws NamespaceNotFound if the collection UUID cannot be resolved to a name.
+ * NOTE: Throws NamespaceNotFound if the collection UUID cannot be resolved to a name. id:592
  *
  * Any acquired locks may be released when this object goes out of scope, therefore the database
  * and the collection references returned by this class should not be retained.

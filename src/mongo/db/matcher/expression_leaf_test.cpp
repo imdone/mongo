@@ -512,9 +512,9 @@ TEST(GtOp, MatchesWholeArray) {
     ASSERT(!gt.matchesBSON(BSON("a" << BSON_ARRAY(5)), NULL));
     ASSERT(gt.matchesBSON(BSON("a" << BSON_ARRAY(6)), NULL));
     // Nested array.
-    // XXX: The following assertion documents current behavior.
+    // XXX: The following assertion documents current behavior. id:1129
     ASSERT(gt.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(4))), NULL));
-    // XXX: The following assertion documents current behavior.
+    // XXX: The following assertion documents current behavior. id:491
     ASSERT(gt.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(5))), NULL));
     ASSERT(gt.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(6))), NULL));
 }
@@ -628,7 +628,7 @@ TEST(GteOp, MatchesWholeArray) {
     ASSERT(gte.matchesBSON(BSON("a" << BSON_ARRAY(5)), NULL));
     ASSERT(gte.matchesBSON(BSON("a" << BSON_ARRAY(6)), NULL));
     // Nested array.
-    // XXX: The following assertion documents current behavior.
+    // XXX: The following assertion documents current behavior. id:1382
     ASSERT(gte.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(4))), NULL));
     ASSERT(gte.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(5))), NULL));
     ASSERT(gte.matchesBSON(BSON("a" << BSON_ARRAY(BSON_ARRAY(6))), NULL));

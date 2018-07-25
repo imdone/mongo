@@ -24,8 +24,7 @@
 # Here is the syntax of the state definitions in this file:
 #
 #
-#StateName:
-#   input-char           n next-state           ^push-state     action
+#StateName: # input-char n next-state ^push-state action id:2565
 #   input-char           n next-state           ^push-state     action
 #       |                |   |                      |             |
 #       |                |   |                      |             |--- action to be performed by state machine

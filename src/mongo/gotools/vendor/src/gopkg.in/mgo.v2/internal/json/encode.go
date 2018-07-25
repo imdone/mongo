@@ -837,7 +837,7 @@ func (sv byString) Len() int           { return len(sv) }
 func (sv byString) Swap(i, j int)      { sv[i], sv[j] = sv[j], sv[i] }
 func (sv byString) Less(i, j int) bool { return sv[i].s < sv[j].s }
 
-// NOTE: keep in sync with stringBytes below.
+// NOTE: keep in sync with stringBytes below. id:1143
 func (e *encodeState) string(s string, escapeHTML bool) int {
 	len0 := e.Len()
 	e.WriteByte('"')
@@ -915,7 +915,7 @@ func (e *encodeState) string(s string, escapeHTML bool) int {
 	return e.Len() - len0
 }
 
-// NOTE: keep in sync with string above.
+// NOTE: keep in sync with string above. id:1990
 func (e *encodeState) stringBytes(s []byte, escapeHTML bool) int {
 	len0 := e.Len()
 	e.WriteByte('"')

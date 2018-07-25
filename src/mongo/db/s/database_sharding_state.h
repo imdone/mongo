@@ -118,7 +118,7 @@ private:
     // non-null. To write this value, there needs to be X-lock on the database in order to
     // synchronize with other callers which will read the source manager.
     //
-    // NOTE: The source manager is not owned by this class.
+    // NOTE: The source manager is not owned by this class. id:720
     MovePrimarySourceManager* _sourceMgr{nullptr};
 };
 

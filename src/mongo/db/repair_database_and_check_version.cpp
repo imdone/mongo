@@ -389,7 +389,7 @@ StatusWith<bool> repairDatabasesAndCheckVersion(OperationContext* opCtx) {
                 // Convert CanRepairToDowngrade statuses to MustUpgrade statuses to avoid logging a
                 // potentially confusing and inaccurate message.
                 //
-                // TODO SERVER-24097: Log a message informing the user that they can start the
+                // TODO SERVER-24097: Log a message informing the user that they can start the id:558
                 // current version of mongod with --repair and then proceed with normal startup.
                 status = {ErrorCodes::MustUpgrade, status.reason()};
             }

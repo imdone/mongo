@@ -69,7 +69,7 @@ main(void)
 	check("iS", 42, "forty two");
 	check("s", "a big string");
 #if 0
-	/* TODO: need a WT_ITEM */
+	/* TODO: need a WT_ITEM id:3481*/
 	check("u", r"\x42" * 20)
 	check("uu", r"\x42" * 10, r"\x42" * 10)
 #endif

@@ -51,7 +51,7 @@ NumberDiv(double a, double b)
     if (b == 0) {
         if (a == 0 || mozilla::IsNaN(a)
 #ifdef XP_WIN
-            || mozilla::IsNaN(b) /* XXX MSVC miscompiles such that (NaN == 0) */
+            || mozilla::IsNaN(b) /* XXX MSVC miscompiles such that (NaN == 0) id:2995*/
 #endif
         )
             return JS::GenericNaN();

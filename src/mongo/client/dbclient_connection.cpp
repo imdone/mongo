@@ -191,7 +191,7 @@ Status DBClientConnection::connect(const HostAndPort& serverAddress, StringData 
         return connectStatus;
     }
 
-    // NOTE: If the 'applicationName' parameter is a view of the '_applicationName' member, as
+    // NOTE: If the 'applicationName' parameter is a view of the '_applicationName' member, as id:347
     // happens, for instance, in the call to DBClientConnection::connect from
     // DBClientConnection::_checkConnection then the following line will invalidate the
     // 'applicationName' parameter, since the memory that it views within _applicationName will be

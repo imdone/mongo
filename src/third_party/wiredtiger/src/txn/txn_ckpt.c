@@ -180,7 +180,7 @@ __checkpoint_apply_all(WT_SESSION_IMPL *session, const char *cfg[],
 		 * checkpoint both open and closed files; else, only checkpoint
 		 * open files.
 		 *
-		 * XXX
+		 * XXX  id:2841
 		 * We don't optimize unnamed checkpoints of a list of targets,
 		 * we open the targets and checkpoint them even if they are
 		 * quiescent and don't need a checkpoint, believing applications
@@ -1039,7 +1039,7 @@ err:	/*
 	conn->ckpt_timer_start.tv_sec = 0;
 
 	/*
-	 * XXX
+	 * XXX  id:2529
 	 * Rolling back the changes here is problematic.
 	 *
 	 * If we unroll here, we need a way to roll back changes to the avail

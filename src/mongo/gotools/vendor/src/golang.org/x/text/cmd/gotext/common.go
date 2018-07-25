@@ -18,7 +18,7 @@ const (
 	gotextSuffix = ".gotext.json"
 )
 
-// NOTE: The command line tool already prefixes with "gotext:".
+// NOTE: The command line tool already prefixes with " gotext:". id:918
 var (
 	wrap = func(err error, msg string) error {
 		return fmt.Errorf("%s: %v", msg, err)
@@ -26,7 +26,7 @@ var (
 	errorf = fmt.Errorf
 )
 
-// TODO: still used. Remove when possible.
+// TODO: still used. Remove when possible. id:1722
 func loadPackages(conf *loader.Config, args []string) (*loader.Program, error) {
 	if len(args) == 0 {
 		args = []string{"."}

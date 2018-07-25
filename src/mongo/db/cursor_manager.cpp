@@ -184,7 +184,7 @@ bool GlobalCursorIdCache::killCursor(OperationContext* opCtx, CursorId id, bool 
         auto pin = globalCursorManager->pinCursor(opCtx, id, CursorManager::kNoCheckSession);
         if (!pin.isOK()) {
             invariant(pin == ErrorCodes::CursorNotFound || pin == ErrorCodes::Unauthorized);
-            // No such cursor.  TODO: Consider writing to audit log here (even though we don't
+            // No such cursor.  TODO: Consider writing to audit log here (even though we don't id:416
             // have a namespace).
             return false;
         }
@@ -194,7 +194,7 @@ bool GlobalCursorIdCache::killCursor(OperationContext* opCtx, CursorId id, bool 
         uint32_t nsid = idFromCursorId(id);
         IdToNssMap::const_iterator it = _idToNss.find(nsid);
         if (it == _idToNss.end()) {
-            // No namespace corresponding to this cursor id prefix.  TODO: Consider writing to
+            // No namespace corresponding to this cursor id prefix.  TODO: Consider writing to id:685
             // audit log here (even though we don't have a namespace).
             return false;
         }

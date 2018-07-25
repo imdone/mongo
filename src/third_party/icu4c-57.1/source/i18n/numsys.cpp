@@ -244,7 +244,7 @@ UBool NumberingSystem::isAlgorithmic() const {
 }
 
 StringEnumeration* NumberingSystem::getAvailableNames(UErrorCode &status) {
-    // TODO(ticket #11908): Init-once static cache, with u_cleanup() callback.
+    // TODO (ticket #11908): Init-once static cache, with u_cleanup() callback. id:3277
     static StringEnumeration* availableNames = NULL;
 
     if (U_FAILURE(status)) {
@@ -252,7 +252,7 @@ StringEnumeration* NumberingSystem::getAvailableNames(UErrorCode &status) {
     }
 
     if ( availableNames == NULL ) {
-        // TODO: Simple array of UnicodeString objects, based on length of table resource?
+        // TODO: Simple array of UnicodeString objects, based on length of table resource? id:2887
         LocalPointer<UVector> numsysNames(new UVector(uprv_deleteUObject, NULL, status), status);
         if (U_FAILURE(status)) {
             return NULL;

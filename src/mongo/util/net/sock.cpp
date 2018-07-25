@@ -437,7 +437,7 @@ void Socket::send(const vector<pair<char*, int>>& data, const char* context) {
 #endif
 
 #if defined(_WIN32)
-    // TODO use scatter/gather api
+    // TODO use scatter/gather api id:2244
     _send(data, context);
 #else
     vector<struct iovec> d(data.size());
@@ -585,7 +585,7 @@ void Socket::setTimeout(double secs) {
     setSockTimeouts(_fd, secs);
 }
 
-// TODO: allow modification?
+// TODO: allow modification? id:1622
 //
 // <positive value> : secs to wait between stillConnected checks
 // 0 : always check
@@ -594,7 +594,7 @@ const int Socket::errorPollIntervalSecs(5);
 
 // Patch to allow better tolerance of flaky network connections that get broken
 // while we aren't looking.
-// TODO: Remove when better async changes come.
+// TODO: Remove when better async changes come. id:3143
 //
 // isStillConnected() polls the socket at max every Socket::errorPollIntervalSecs to determine
 // if any disconnection-type events have happened on the socket.
@@ -670,7 +670,7 @@ bool Socket::isStillConnected() {
         } else if (recvd > 0) {
             // We got nonzero data from this socket, very weird?
             // Log and warn at runtime, log and abort at devtime
-            // TODO: Dump the data to the log somehow?
+            // TODO: Dump the data to the log somehow? id:2624
             error() << "Socket found pending " << recvd
                     << " bytes of data during connectivity check"
                     << " (idle " << idleTimeSecs << " secs,"

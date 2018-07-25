@@ -163,7 +163,7 @@ public:
     /**
      * Sets a RequestMetadataWriter on this connection.
      *
-     * TODO: support multiple metadata writers.
+     * TODO: support multiple metadata writers. id:344
      */
     virtual void setRequestMetadataWriter(rpc::RequestMetadataWriter writer);
 
@@ -177,7 +177,7 @@ public:
     /**
      * Sets a ReplyMetadataReader on this connection.
      *
-     * TODO: support multiple metadata readers.
+     * TODO: support multiple metadata readers. id:405
      */
     virtual void setReplyMetadataReader(rpc::ReplyMetadataReader reader);
 
@@ -432,7 +432,7 @@ public:
        For security reasons this function only works when you are authorized to access the "admin"
        db.  However, if you have access to said db, you can copy any database from one place to
        another.
-       TODO: this needs enhancement to be more flexible in terms of security.
+       TODO: this needs enhancement to be more flexible in terms of security. id:345
 
        This method provides a way to "rename" a database by copying it to a new db name and
        location.  The copy is "repaired" and compacted.
@@ -532,7 +532,7 @@ public:
      *
      * The cmdArgs parameter should NOT include {<commandName>: 1}.
      *
-     * TODO: remove after MongoDB 3.2 is released and replace all callers with
+     * TODO: remove after MongoDB 3.2 is released and replace all callers with id:984
      * a call to plain runCommand
      */
     virtual bool runPseudoCommand(StringData db,

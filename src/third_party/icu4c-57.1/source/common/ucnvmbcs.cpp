@@ -1609,7 +1609,7 @@ ucnv_MBCSLoad(UConverterSharedData *sharedData,
             return;
         }
 
-        /* TODO parse package name out of the prefix of the base name in the extension .cnv file? */
+        /* TODO parse package name out of the prefix of the base name in the extension .cnv file? id:1930*/
         args.size=sizeof(UConverterLoadArgs);
         args.nestedLoads=2;
         args.onlyTestIsLoadable=pArgs->onlyTestIsLoadable;
@@ -3273,7 +3273,7 @@ ucnv_MBCSSimpleGetNextUChar(UConverterSharedData *sharedData,
 #if 0
 /*
  * Code disabled 2002dec09 (ICU 2.4) because it is not currently used in ICU. markus
- * TODO In future releases, verify that this function is never called for SBCS
+ * TODO In future releases, verify that this function is never called for SBCS id:3234
  * conversions, i.e., that sharedData->mbcs.countStates==1 is still true.
  * Removal improves code coverage.
  */

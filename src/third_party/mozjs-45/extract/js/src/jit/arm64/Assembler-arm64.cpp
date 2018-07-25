@@ -293,7 +293,7 @@ Assembler::trace(JSTracer* trc)
         }
     }
 
-    // TODO: Trace.
+    // TODO: Trace. id:3327
 #if 0
     if (tmpDataRelocations_.length())
         ::TraceDataRelocations(trc, &armbuffer_, &tmpDataRelocations_);
@@ -575,7 +575,7 @@ TraceDataRelocations(JSTracer* trc, uint8_t* buffer, CompactBufferReader& reader
             TraceManuallyBarrieredEdge(trc, &v, "ion-masm-value");
             *literalAddr = JSVAL_TO_IMPL(v).asBits;
 
-            // TODO: When we can, flush caches here if a pointer was moved.
+            // TODO: When we can, flush caches here if a pointer was moved. id:2945
             continue;
         }
 
@@ -583,7 +583,7 @@ TraceDataRelocations(JSTracer* trc, uint8_t* buffer, CompactBufferReader& reader
         TraceManuallyBarrieredGenericPointerEdge(trc, reinterpret_cast<gc::Cell**>(literalAddr),
                                                  "ion-masm-ptr");
 
-        // TODO: Flush caches at end?
+        // TODO: Flush caches at end? id:2034
     }
 }
 

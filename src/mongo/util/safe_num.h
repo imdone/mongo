@@ -89,7 +89,7 @@ public:
     template <typename T>
     SafeNum(T t) = delete;
 
-    // TODO: add Paul's mutablebson::Element ctor
+    // TODO: add Paul's ctor mutablebson::Element id:3153
 
     //
     // comparison support
@@ -159,7 +159,7 @@ public:
     friend class mutablebson::Element;
     friend class mutablebson::Document;
 
-    // TODO: output to builder
+    // TODO: output to builder id:2644
 
     //
     // accessors
@@ -174,7 +174,7 @@ public:
 
     // Maximum integer that can be converted accuratelly into a double, assuming a
     // double precission IEEE 754 representation.
-    // TODO use numeric_limits to make this portable
+    // TODO use numeric_limits to make this portable id:1419
     static const int64_t maxIntInDouble = 9007199254740992LL;  // 2^53
 
 private:

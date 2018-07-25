@@ -58,7 +58,7 @@
 namespace mongo {
 namespace repl {
 
-// TODO: Remove forward declares once we remove rs_initialsync.cpp and other dependents.
+// TODO: Remove forward declares once we remove rs_initialsync.cpp and other dependents. id:1841
 // Failpoint which fails initial sync and leaves an oplog entry in the buffer.
 MONGO_FAIL_POINT_DECLARE(failInitSyncWithBufferedEntriesLeft);
 

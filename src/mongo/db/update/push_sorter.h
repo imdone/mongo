@@ -53,7 +53,7 @@ struct PatternElementCmp {
 
             return (reversed ? comparedValue > 0 : comparedValue < 0);
         } else {
-            // TODO: Push on to mutable in the future, and to support non-contiguous Elements.
+            // TODO: Push on to mutable in the future, and to support non-contiguous Elements. id:790
             BSONObj lhsObj =
                 lhs.getType() == Object ? lhs.getValueObject() : lhs.getValue().wrap("");
             BSONObj rhsObj =

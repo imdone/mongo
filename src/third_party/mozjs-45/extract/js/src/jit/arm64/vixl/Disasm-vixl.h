@@ -55,7 +55,7 @@ class Disassembler: public DecoderVisitor {
   // customize the disassembly output.
 
   // Prints the name of a register.
-  // TODO: This currently doesn't allow renaming of V registers.
+  // TODO: This currently doesn't allow renaming of V registers. id:2051
   virtual void AppendRegisterNameToOutput(const Instruction* instr,
                                           const CPURegister& reg);
 

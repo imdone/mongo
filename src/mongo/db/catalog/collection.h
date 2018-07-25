@@ -115,7 +115,7 @@ public:
      * Waits until 'deadline', or until notifyAll() is called to indicate that new
      * data is available in the capped collection.
      *
-     * NOTE: Waiting threads can be signaled by calling kill or notify* methods.
+     * NOTE: Waiting threads can be signaled by calling kill or notify* methods. id:1086
      */
     void waitUntil(uint64_t prevVersion, Date_t deadline) const;
 
@@ -483,7 +483,7 @@ public:
     /**
      * Inserts a document into the record store and adds it to the MultiIndexBlocks passed in.
      *
-     * NOTE: It is up to caller to commit the indexes.
+     * NOTE: It is up to caller to commit the indexes. id:440
      */
     inline Status insertDocument(OperationContext* const opCtx,
                                  const BSONObj& doc,

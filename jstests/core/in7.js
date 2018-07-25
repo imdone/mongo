@@ -18,6 +18,6 @@ assert.throws(function() {
     t.find({a: {$not: {$nin: [{$elemMatch: {b: 1}}]}}}).itcount();
 });
 
-// NOTE Above we don't check cases like {b:2,$elemMatch:{b:3,4}} - generally
+// NOTE Above we don't check cases like { - generally id:79
 // we assume that the first key is $elemMatch if any key is, and validating
 // every key is expensive in some cases.

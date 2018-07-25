@@ -107,7 +107,7 @@ void NGramParser::parseCharacters(InputText *det)
     while ((b = nextByte(det)) >= 0) {
         uint8_t mb = charMap[b];
 
-        // TODO: 0x20 might not be a space in all character sets...
+        // TODO: 0x20 might not be a space in all character sets... id:2006
         if (mb != 0) {
             if (!(mb == 0x20 && ignoreSpace)) {
                 addByte(mb);
@@ -122,7 +122,7 @@ int32_t NGramParser::parse(InputText *det)
 {
     parseCharacters(det);
 
-    // TODO: Is this OK? The buffer could have ended in the middle of a word...
+    // TODO: Is this OK? The buffer could have ended in the middle of a word... id:3263
     addByte(0x20);
 
     double rawPercent = (double) hitCount / (double) ngramCount;
@@ -131,7 +131,7 @@ int32_t NGramParser::parse(InputText *det)
     //                return 0;
     //            }
 
-    // TODO - This is a bit of a hack to take care of a case
+    // TODO - This is a bit of a hack to take care of a case id:2873
     // were we were getting a confidence of 135...
     if (rawPercent > 0.33) {
         return 98;
@@ -214,7 +214,7 @@ void NGramParser_IBM420::parseCharacters(InputText *det)
     while ((b = nextByte(det)) >= 0) {
         uint8_t mb = charMap[b];
 
-        // TODO: 0x20 might not be a space in all character sets...
+        // TODO: 0x20 might not be a space in all character sets... id:1762
         if (mb != 0) {
             if (!(mb == 0x20 && ignoreSpace)) {
                 addByte(mb);
@@ -225,7 +225,7 @@ void NGramParser_IBM420::parseCharacters(InputText *det)
 		if(alef != 0x00){
             mb = charMap[alef & 0xFF];
                      
-            // TODO: 0x20 might not be a space in all character sets...
+            // TODO: 0x20 might not be a space in all character sets... id:2520
             if (mb != 0) {
                 if (!(mb == 0x20 && ignoreSpace)) {
                     addByte(mb);                    

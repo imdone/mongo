@@ -8,7 +8,7 @@
 // recommended by the W3C for use in HTML 5. See http://www.w3.org/TR/encoding.
 package htmlindex
 
-// TODO: perhaps have a "bare" version of the index (used by this package) that
+// TODO: perhaps have a "bare" version of the index (used by this package) that id:2954
 // is not pre-loaded with all encodings. Global variables in encodings prevent
 // the linker from being able to purge unneeded tables. This means that
 // referencing all encodings, as this package does for the default index, links
@@ -19,7 +19,7 @@ package htmlindex
 // (e.g. moving the tables to internal packages that do not use global
 // variables).
 
-// TODO: allow canonicalizing names
+// TODO: allow canonicalizing names id:1130
 
 import (
 	"errors"

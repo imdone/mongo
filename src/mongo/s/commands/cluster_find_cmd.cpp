@@ -63,7 +63,7 @@ public:
 
     std::unique_ptr<CommandInvocation> parse(OperationContext* opCtx,
                                              const OpMsgRequest& opMsgRequest) override {
-        // TODO: Parse into a QueryRequest here.
+        // TODO: Parse into a QueryRequest here. id:2547
         return std::make_unique<Invocation>(this, opMsgRequest, opMsgRequest.getDatabase());
     }
 
@@ -102,7 +102,7 @@ public:
         }
 
         NamespaceString ns() const override {
-            // TODO get the ns from the parsed QueryRequest.
+            // TODO get the ns from the parsed QueryRequest. id:1211
             return NamespaceString(
                 CommandHelpers::parseNsCollectionRequired(_dbName, _request.body));
         }

@@ -61,7 +61,7 @@ public:
      * Declares a decoration of type T, constructed with T's default constructor, and
      * returns a descriptor for accessing that decoration.
      *
-     * NOTE: T's destructor must not throw exceptions.
+     * NOTE: T's destructor must not throw exceptions. id:1603
      */
     template <typename T>
     auto declareDecoration() {
@@ -164,7 +164,7 @@ private:
      * Declares a decoration with given "constructor" and "destructor" functions,
      * of "sizeBytes" bytes.
      *
-     * NOTE: "destructor" must not throw exceptions.
+     * NOTE: "destructor" must not throw exceptions. id:3136
      */
     typename DecorationContainer<DecoratedType>::DecorationDescriptor declareDecoration(
         const size_t sizeBytes,

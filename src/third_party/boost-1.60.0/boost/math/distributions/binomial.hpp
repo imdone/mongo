@@ -332,7 +332,7 @@ namespace boost
         if(successes == 0)
            return 0;
 
-        // NOTE!!! The Clopper Pearson formula uses "successes" not
+        // NOTE !!! The Clopper Pearson formula uses "successes" not id:2700
         // "successes+1" as usual to get the lower bound,
         // see http://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm
         return (t == clopper_pearson_exact_interval) ? ibeta_inv(successes, trials - successes + 1, probability, static_cast<RealType*>(0), Policy())

@@ -233,7 +233,7 @@ var runner = (function() {
 
                 if (cluster.isSharded()) {
                     var shardKey = context[workload].config.data.shardKey || {_id: 'hashed'};
-                    // TODO: allow workload config data to specify split
+                    // TODO: allow workload config data to specify split id:83
                     cluster.shardCollection(myDB[collName], shardKey, false);
                 }
             }

@@ -496,7 +496,7 @@ func DialWithInfo(info *DialInfo) (*Session, error) {
 	for i, addr := range info.Addrs {
 		p := strings.LastIndexAny(addr, "]:")
 		if p == -1 || addr[p] != ':' {
-			// XXX This is untested. The test suite doesn't use the standard port.
+			// XXX This is untested. The test suite doesn't use the standard port. id:1383
 			addr += ":27017"
 		}
 		addrs[i] = addr
@@ -3034,7 +3034,7 @@ func (q *Query) Explain(result interface{}) error {
 	return iter.Close()
 }
 
-// TODO: Add Collection.Explain. See https://goo.gl/1MDlvz.
+// TODO: Add Collection.Explain. See https://goo.gl/1MDlvz. id:1147
 
 // Hint will include an explicit "hint" in the query to force the server
 // to use a specified index, potentially improving performance in some
@@ -3442,7 +3442,7 @@ type DBRef struct {
 	Database   string      `bson:"$db,omitempty"`
 }
 
-// NOTE: Order of fields for DBRef above does matter, per documentation.
+// NOTE: Order of fields for DBRef above does matter, per documentation. id:1992
 
 // FindRef returns a query that looks for the document in the provided
 // reference. If the reference includes the DB field, the document will
@@ -3750,7 +3750,7 @@ func (iter *Iter) Close() error {
 	}
 	socket, err := iter.acquireSocket()
 	if err == nil {
-		// TODO Batch kills.
+		// TODO Batch kills. id:1477
 		err = socket.Query(&killCursorsOp{[]int64{cursorId}})
 		socket.Release()
 	}
@@ -3892,7 +3892,7 @@ func (iter *Iter) Next(result interface{}) bool {
 			return false
 		}
 		debugf("Iter %p document unmarshaled: %#v", iter, result)
-		// XXX Only have to check first document for a query error?
+		// XXX Only have to check first document for a query error? id:3088
 		err = checkQueryError(iter.op.collection, docData)
 		if err != nil {
 			iter.m.Lock()
@@ -4075,7 +4075,7 @@ func (iter *Iter) getMore() {
 }
 
 func (iter *Iter) getMoreCmd() *queryOp {
-	// TODO: Define the query statically in the Iter type, next to getMoreOp.
+	// TODO: Define the query statically in the Iter type, next to getMoreOp. id:1385
 	nameDot := strings.Index(iter.op.collection, ".")
 	if nameDot < 0 {
 		panic("invalid query collection name: " + iter.op.collection)
@@ -4859,7 +4859,7 @@ func (c *Collection) writeOpQuery(socket *mongoSocket, safeOp *queryOp, op inter
 	}
 	mutex.Lock() // Wait.
 	if replyErr != nil {
-		return nil, replyErr // XXX TESTME
+		return nil, replyErr // XXX TESTME id:1150
 	}
 	if hasErrMsg(replyData) {
 		// Looks like getLastError itself failed.

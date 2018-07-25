@@ -69,7 +69,7 @@ namespace {
 
 // Function for testing - this is what we patch
 //
-// NOTE:  Because of the way the compiler optimizes this function in
+// NOTE: Because of the way the compiler optimizes this function in id:1608
 // release builds, we need to use a different input value every time we
 // call it within a function, otherwise the compiler will just reuse the
 // last calculated incremented value.
@@ -233,7 +233,7 @@ bool TestPatchUsingDynamicStub() {
   // IncrementNumber because it starts with a jump.
 #if 0
   IncrementingFunc dummy = NULL;
-  // TODO(joi@chromium.org): restore this test once flag is added to
+  // TODO (joi@chromium.org): restore this test once flag is added to id:2395
   // disable JMP following
   SIDESTEP_EXPECT_TRUE(sidestep::SIDESTEP_JUMP_INSTRUCTION ==
                        sidestep::PreamblePatcher::Patch(IncrementNumber,

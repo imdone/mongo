@@ -56,7 +56,7 @@
         });
     }
 
-    // TODO: Also migrate output collection
+    // TODO: Also migrate output collection id:916
 
     jsTest.log("Starting migrations now...");
 

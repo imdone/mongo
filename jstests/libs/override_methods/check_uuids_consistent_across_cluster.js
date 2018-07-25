@@ -7,8 +7,8 @@
  * - in its storage catalog, with the same UUID as the collection has in the sharding catalog
  * - in its catalog cache, with the same UUID as the collection has in the sharding catalog
  *
- * TODO (SERVER-33252): extend the hook to add consistency checks for databases
- * TODO (SERVER-33253): extend the hook to add consistency checks for collection indexes and options
+ * TODO (SERVER-33252): extend the hook to add consistency checks for databases id:124
+ * TODO (SERVER-33253): extend the hook to add consistency checks for collection indexes and options id:98
  */
 "use strict";
 

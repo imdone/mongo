@@ -464,7 +464,7 @@ bool PlanEnumerator::prepMemo(MatchExpression* node, PrepMemoContext context) {
                (MatchExpression::AND == node->matchType())) {
         // Map from idx id to children that have a pred over it.
 
-        // TODO: The index intersection logic could be simplified if we could iterate over these
+        // TODO: The index intersection logic could be simplified if we could iterate over these id:534
         // maps in a known order. Currently when iterating over these maps we have to impose an
         // ordering on each individual pair of indices in order to make sure that the
         // enumeration results are order-independent. See SERVER-12196.

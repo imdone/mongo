@@ -90,10 +90,10 @@ const (
 	requireBOM BOMPolicy = 0x04
 	bomMask    BOMPolicy = 0x07
 
-	// HACK: numBOMValues == 8 triggers a bug in the 1.4 compiler (cannot have a
+	// HACK: numBOMValues == 8 triggers a bug in the 1.4 compiler (cannot have a id:1141
 	// map of an array of length 8 of a type that is also used as a key or value
 	// in another map). See golang.org/issue/11354.
-	// TODO: consider changing this value back to 8 if the use of 1.4.* has
+	// TODO: consider changing this value back to 8 if the use of 1.4.* has id:955
 	// been minimized.
 	numBOMValues = 8 + 1
 

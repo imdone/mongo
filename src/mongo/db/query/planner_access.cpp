@@ -247,7 +247,7 @@ std::unique_ptr<QuerySolutionNode> QueryPlannerAccess::makeLeafNode(
         isn->queryCollator = query.getCollator();
 
         // Get the ixtag->pos-th element of the index key pattern.
-        // TODO: cache this instead/with ixtag->pos?
+        // TODO: cache this instead/with ixtag->pos? id:536
         BSONObjIterator it(index.keyPattern);
         BSONElement keyElt = it.next();
         for (size_t i = 0; i < pos; ++i) {
@@ -419,7 +419,7 @@ void QueryPlannerAccess::mergeWithLeafNode(MatchExpression* expr, ScanBuildingSt
     }
 
     // Get the ixtag->pos-th element of the index key pattern.
-    // TODO: cache this instead/with ixtag->pos?
+    // TODO: cache this instead/with ixtag->pos? id:1807
     BSONObjIterator it(index.keyPattern);
     BSONElement keyElt = it.next();
     for (size_t i = 0; i < pos; ++i) {
@@ -596,7 +596,7 @@ void QueryPlannerAccess::finishLeafNode(QuerySolutionNode* node, const IndexEntr
     }
 
     // Find the first field in the scan's bounds that was not filled out.
-    // TODO: could cache this.
+    // TODO: could cache this. id:687
     size_t firstEmptyField = 0;
     for (firstEmptyField = 0; firstEmptyField < bounds->fields.size(); ++firstEmptyField) {
         if ("" == bounds->fields[firstEmptyField].name) {
@@ -735,7 +735,7 @@ bool QueryPlannerAccess::processIndexScans(const CanonicalQuery& query,
         // of a bounds-generating expression), then it's indexed by virtue of one of
         // its children having an index.
         //
-        // NOTE: If the child is logical, it could possibly collapse into a single ixscan.  we
+        // NOTE: If the child is logical, it could possibly collapse into a single ixscan. we id:570
         // ignore this for now.
         if (!Indexability::isBoundsGenerating(child)) {
             // If we're here, then the child is indexed by virtue of its children.
@@ -962,7 +962,7 @@ std::unique_ptr<QuerySolutionNode> QueryPlannerAccess::buildIndexedAnd(
     // an index intersection solution, then we use our copy of the match expression to be
     // sure that the FETCH stage will recheck the entire predicate.
     //
-    // XXX: This block is a hack to accommodate the storage layer concurrency model.
+    // XXX: This block is a hack to accommodate the storage layer concurrency model. id:1206
     std::unique_ptr<MatchExpression> clonedRoot;
     if (params.options & QueryPlannerParams::CANNOT_TRIM_IXISECT) {
         clonedRoot = root->shallowClone();
@@ -1034,7 +1034,7 @@ std::unique_ptr<QuerySolutionNode> QueryPlannerAccess::buildIndexedAnd(
         return andResult;
     }
 
-    // XXX: This block is a hack to accommodate the storage layer concurrency model.
+    // XXX: This block is a hack to accommodate the storage layer concurrency model. id:538
     if ((params.options & QueryPlannerParams::CANNOT_TRIM_IXISECT) &&
         (andResult->getType() == STAGE_AND_HASH || andResult->getType() == STAGE_AND_SORTED)) {
         // We got an index intersection solution, and we aren't allowed to answer predicates
@@ -1267,7 +1267,7 @@ std::unique_ptr<QuerySolutionNode> QueryPlannerAccess::scanWholeIndex(
     if (MatchExpression::AND == filter->matchType() && (0 == filter->numChildren())) {
         solnRoot = std::move(isn);
     } else {
-        // TODO: We may not need to do the fetch if the predicates in root are covered.  But
+        // TODO: We may not need to do the fetch if the predicates in root are covered. But id:1809
         // for now it's safe (though *maybe* slower).
         unique_ptr<FetchNode> fetch = make_unique<FetchNode>();
         fetch->filter = std::move(filter);
@@ -1396,7 +1396,7 @@ std::unique_ptr<QuerySolutionNode> QueryPlannerAccess::makeIndexScan(
     if (MatchExpression::AND == filter->matchType() && (0 == filter->numChildren())) {
         solnRoot = std::move(isn);
     } else {
-        // TODO: We may not need to do the fetch if the predicates in root are covered.  But
+        // TODO: We may not need to do the fetch if the predicates in root are covered. But id:744
         // for now it's safe (though *maybe* slower).
         unique_ptr<FetchNode> fetch = make_unique<FetchNode>();
         fetch->filter = std::move(filter);

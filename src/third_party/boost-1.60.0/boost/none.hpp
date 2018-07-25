@@ -15,7 +15,7 @@
 
 #include "boost/none_t.hpp"
 
-// NOTE: Borland users have to include this header outside any precompiled headers
+// NOTE: Borland users have to include this header outside any precompiled headers id:3183
 // (bcc<=5.64 cannot include instance data in a precompiled header)
 //  -- * To be verified, now that there's no unnamed namespace
 

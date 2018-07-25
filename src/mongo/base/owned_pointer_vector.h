@@ -37,7 +37,7 @@ namespace mongo {
 /**
  * An std::vector wrapper that deletes pointers within a vector on destruction.  The objects
  * referenced by the vector's pointers are 'owned' by an object of this class.
- * NOTE that an OwnedPointerVector<T> wraps an std::vector<T*>.
+ * NOTE that an OwnedPointerVector<T> wraps an std::vector<T*>. id:948
  */
 template <class T>
 class OwnedPointerVector {
@@ -51,7 +51,7 @@ public:
 
     /**
      * Takes ownership of all pointers contained in 'other'.
-     * NOTE: argument is intentionally taken by value.
+     * NOTE: argument is intentionally taken by value. id:306
      */
     OwnedPointerVector(std::vector<T*> other) {
         _vector.swap(other);
@@ -59,7 +59,7 @@ public:
 
     /**
      * Takes ownership of all pointers contained in 'other'.
-     * NOTE: argument is intentionally taken by value.
+     * NOTE: argument is intentionally taken by value. id:290
      */
     OwnedPointerVector& operator=(std::vector<T*> other) {
         clear();

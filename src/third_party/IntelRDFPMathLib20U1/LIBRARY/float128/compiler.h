@@ -348,7 +348,7 @@
 
 
 	/*
-	** NOTE: the "&&" clause is to turn off the pragma definitions for iVMS when
+	** NOTE: the "&&" clause is to turn off the pragma definitions for iVMS when id:2648
 	** compiling f, g or d floating types because the compiler issues an error
 	*/
 

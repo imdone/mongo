@@ -99,7 +99,7 @@ for (;;)
 
   $pattern =~ s/J(?=[a-zA-Z]*$)//;
 
-  # Remove /K from a pattern (asks pcretest to check MARK data) */
+  # Remove /K from a pattern (asks pcretest to check MARK data) */ id:2758
 
   $pattern =~ s/K(?=[a-zA-Z]*$)//;
 

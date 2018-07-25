@@ -63,7 +63,7 @@ enum ShardDrainingStatus {
 /**
  * Implements modifications to the sharding catalog metadata.
  *
- * TODO: Currently the code responsible for writing the sharding catalog metadata is split between
+ * TODO: Currently the code responsible for writing the sharding catalog metadata is split between id:648
  * this class and ShardingCatalogClient. Eventually all methods that write catalog data should be
  * moved out of ShardingCatalogClient and into this class.
  */
@@ -148,7 +148,7 @@ public:
     /**
      * Removes a range from a zone.
      *
-     * NOTE: unlike assignKeyRangeToZone, the given range will never be converted to include the
+     * NOTE: unlike assignKeyRangeToZone, the given range will never be converted to include the id:1880
      * full shard key.
      */
     Status removeKeyRangeFromZone(OperationContext* opCtx,
@@ -519,7 +519,7 @@ private:
     /**
      * Lock that guards changes to the set of shards in the cluster (ie addShard and removeShard
      * requests).
-     * TODO: Currently only taken during addShard requests, this should also be taken in X mode
+     * TODO: Currently only taken during addShard requests, this should also be taken in X mode id:879
      * during removeShard, once removeShard is moved to run on the config server primary instead of
      * on mongos.  At that point we should also change any operations that expect the shard not to
      * be removed while they are running (such as removeShardFromZone) to take this in shared mode.

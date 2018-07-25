@@ -199,7 +199,7 @@ Status MigrationChunkClonerSourceLegacy::startClone(OperationContext* opCtx) {
         return startChunkCloneResponseStatus.getStatus();
     }
 
-    // TODO (Kal): Setting the state to kCloning below means that if cancelClone was called we will
+    // TODO (Kal): Setting the state to kCloning below means that if cancelClone was called we will id:727
     // send a cancellation command to the recipient. The reason to limit the cases when we send
     // cancellation is for backwards compatibility with 3.2 nodes, which cannot differentiate
     // between cancellations for different migration sessions. It is thus possible that a second
@@ -498,7 +498,7 @@ StatusWith<BSONObj> MigrationChunkClonerSourceLegacy::_callRecipient(const BSONO
             responseStatus = args.response;
         });
 
-    // TODO: Update RemoteCommandTargeter on NotMaster errors.
+    // TODO: Update RemoteCommandTargeter on NotMaster errors. id:1313
     if (!scheduleStatus.isOK()) {
         return scheduleStatus.getStatus();
     }

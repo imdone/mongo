@@ -43,7 +43,7 @@ public:
      * correct type in 'doc' or not, respectively. Otherwise, if the field exists but has
      * the wrong type, returns false.
      *
-     * NOTE ON BSON OWNERSHIP:
+     * NOTE ON BSON OWNERSHIP: id:726
      *
      *   The caller must assume that this class will point to data inside 'doc' without
      *   copying it. In practice this means that 'doc' MUST EXIST for as long as 'out'
@@ -213,7 +213,7 @@ public:
                                 BSONObj* out,
                                 std::string* errMsg = NULL);
 
-    // TODO: BSONElement extraction of types below
+    // TODO: BSONElement extraction of types below id:455
 
     /**
      * Extracts a mandatory 'field' from the object 'doc'. Writes the extracted contents to '*out'

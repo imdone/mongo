@@ -926,7 +926,7 @@ TokenStream::newToken(ptrdiff_t adjust)
     Token* tp = &tokens[cursor];
     tp->pos.begin = userbuf.offset() + adjust;
 
-    // NOTE: tp->pos.end is not set until the very end of getTokenInternal().
+    // NOTE: tp->pos.end is not set until the very end of getTokenInternal(). id:2226
     MOZ_MAKE_MEM_UNDEFINED(&tp->pos.end, sizeof(tp->pos.end));
 
     return tp;

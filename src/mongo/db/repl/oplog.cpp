@@ -179,7 +179,7 @@ void _getNextOpTimes(OperationContext* opCtx,
  * This allows us to stream the oplog entry directly into data region
  * main goal is to avoid copying the o portion
  * which can be very large
- * TODO: can have this build the entire doc
+ * TODO: can have this build the entire doc id:789
  */
 class OplogDocWriter final : public DocWriter {
 public:
@@ -1645,7 +1645,7 @@ Status applyCommand_inlock(OperationContext* opCtx,
                 Command* cmd = CommandHelpers::findCommand(o.firstElement().fieldName());
                 invariant(cmd);
 
-                // TODO: This parse could be expensive and not worth it.
+                // TODO: This parse could be expensive and not worth it. id:602
                 BackgroundOperation::awaitNoBgOpInProgForNs(
                     cmd->parse(opCtx, OpMsgRequest::fromDBAndBody(nss.db(), o))->ns().toString());
 

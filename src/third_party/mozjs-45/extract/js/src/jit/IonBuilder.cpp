@@ -8567,7 +8567,7 @@ IonBuilder::getElemTryTypedObject(bool* emitted, MDefinition* obj, MDefinition* 
 
     switch (elemPrediction.kind()) {
       case type::Simd:
-        // FIXME (bug 894105): load into a MIRType_float32x4 etc
+        // FIXME (bug 894105): load into a MIRType_float32x4 etc id:2275
         trackOptimizationOutcome(TrackedOutcome::GenericFailure);
         return true;
 
@@ -9685,7 +9685,7 @@ IonBuilder::setElemTryTypedObject(bool* emitted, MDefinition* obj,
 
     switch (elemPrediction.kind()) {
       case type::Simd:
-        // FIXME (bug 894105): store a MIRType_float32x4 etc
+        // FIXME (bug 894105): store a MIRType_float32x4 etc id:3318
         trackOptimizationOutcome(TrackedOutcome::GenericFailure);
         return true;
 
@@ -11278,7 +11278,7 @@ IonBuilder::getPropTryTypedObject(bool* emitted,
 
     switch (fieldPrediction.kind()) {
       case type::Simd:
-        // FIXME (bug 894104): load into a MIRType_float32x4 etc
+        // FIXME (bug 894104): load into a MIRType_float32x4 etc id:2928
         return true;
 
       case type::Struct:
@@ -12318,7 +12318,7 @@ IonBuilder::setPropTryTypedObject(bool* emitted, MDefinition* obj,
 
     switch (fieldPrediction.kind()) {
       case type::Simd:
-        // FIXME (bug 894104): store into a MIRType_float32x4 etc
+        // FIXME (bug 894104): store into a MIRType_float32x4 etc id:2014
         return true;
 
       case type::Reference:

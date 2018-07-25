@@ -119,7 +119,7 @@ union __wt_lsn {
  * the maximum size less than 32 bits for both joined and released.
  */
 /*
- * XXX
+ * XXX  id:3426
  * The log slot bits are signed and should be rewritten as unsigned. For now,
  * give the logging subsystem its own flags macro.
  */
@@ -352,7 +352,7 @@ struct __wt_log_desc {
 #define	WT_LOG_MAGIC		0x101064u
 	uint32_t	log_magic;	/* 00-03: Magic number */
 /*
- * NOTE: We bumped the log version from 2 to 3 to make it convenient for
+ * NOTE: We bumped the log version from 2 to 3 to make it convenient for id:3471
  * MongoDB to detect users accidentally running old binaries on a newer
  * release. There are no actual log file format changes with version 2 and 3.
  */

@@ -351,7 +351,7 @@ private:
      *    bounds here because the prefix 'a' is shared by two predicates which
      *    are not joined together by an $elemMatch.
      *
-     * NOTE:
+     * NOTE:  id:1805
      *   Usually 'assigned' has just one predicate. However, in order to support
      *   mandatory predicate assignment (TEXT and GEO_NEAR), we allow multiple
      *   already-assigned predicates to be passed. If a mandatory predicate is over

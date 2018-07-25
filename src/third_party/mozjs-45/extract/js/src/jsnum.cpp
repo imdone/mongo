@@ -1059,7 +1059,7 @@ js::InitRuntimeNumberState(JSRuntime* rt)
 {
     FIX_FPU();
 
-    // XXX If EXPOSE_INTL_API becomes true all the time at some point,
+    // XXX If EXPOSE_INTL_API becomes true all the time at some point, id:2707
     //     js::InitRuntimeNumberState is no longer fallible, and we should
     //     change its return type.
 #if !EXPOSE_INTL_API
@@ -1130,7 +1130,7 @@ js::InitNumberClass(JSContext* cx, HandleObject obj)
 {
     MOZ_ASSERT(obj->isNative());
 
-    /* XXX must do at least once per new thread, so do it per JSContext... */
+    /* XXX must do at least once per new thread, so do it per JSContext... id:2374*/
     FIX_FPU();
 
     Rooted<GlobalObject*> global(cx, &obj->as<GlobalObject>());

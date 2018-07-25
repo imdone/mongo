@@ -160,7 +160,7 @@ static const int eint[] = {
   REG_BADPAT,  /* disallowed UTF-8/16/32 code point (>= 0xd800 && <= 0xdfff) */
   REG_BADPAT,  /* invalid UTF-16 string (should not occur) */
   /* 75 */
-  REG_BADPAT,  /* overlong MARK name */
+  REG_BADPAT,  /* overlong MARK name id:3037*/
   REG_BADPAT,  /* character value in \u.... sequence is too large */
   REG_BADPAT,  /* invalid UTF-32 string (should not occur) */
   REG_BADPAT,  /* setting UTF is disabled by the application */

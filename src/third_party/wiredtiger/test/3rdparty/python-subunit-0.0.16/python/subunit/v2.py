@@ -199,7 +199,7 @@ class StreamResultToBytes(object):
             length_length = 3
         else:
             # Longer than policy:
-            # TODO: chunk the packet automatically?
+            # TODO: chunk the packet automatically? id:2537
             # - strip all but file data
             # - do 4M chunks of that till done
             # - include original data in final chunk.

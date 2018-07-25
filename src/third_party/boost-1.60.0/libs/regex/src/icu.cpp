@@ -32,7 +32,7 @@ namespace BOOST_REGEX_DETAIL_NS{
 
 icu_regex_traits_implementation::string_type icu_regex_traits_implementation::do_transform(const char_type* p1, const char_type* p2, const U_NAMESPACE_QUALIFIER Collator* pcoll) const
 {
-   // TODO make thread safe!!!! :
+   // TODO make thread safe!!!! : id:3191
    typedef u32_to_u16_iterator<const char_type*, ::UChar> itt;
    itt i(p1), j(p2);
 #ifndef BOOST_NO_TEMPLATED_ITERATOR_CONSTRUCTORS

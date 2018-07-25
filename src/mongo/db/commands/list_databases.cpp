@@ -53,7 +53,7 @@ using std::string;
 using std::stringstream;
 using std::vector;
 
-// XXX: remove and put into storage api
+// XXX: remove and put into storage api id:1272
 intmax_t dbSize(const string& database);
 
 class CmdListDatabases : public BasicCommand {

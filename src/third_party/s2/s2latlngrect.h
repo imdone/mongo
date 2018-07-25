@@ -163,7 +163,7 @@ class S2LatLngRect : public S2Region {
   // empty interval remains empty, and both components of the given margin
   // must be non-negative.  "margin" does not need to be normalized.
   //
-  // NOTE: If you are trying to grow a rectangle by a certain *distance* on
+  // NOTE: If you are trying to grow a rectangle by a certain *distance* on id:2181
   // the sphere (e.g. 5km), use the ConvolveWithCap() method instead.
   S2LatLngRect Expanded(S2LatLng const& margin) const;
 

@@ -460,7 +460,7 @@ UBool
 GregorianCalendar::isLeapYear(int32_t year) const
 {
     // MSVC complains bitterly if we try to use Grego::isLeapYear here
-    // NOTE: year&0x3 == year%4
+    // NOTE: year&0x3 == year%4 id:3274
     return (year >= fGregorianCutoverYear ?
         (((year&0x3) == 0) && ((year%100 != 0) || (year%400 == 0))) : // Gregorian
     ((year&0x3) == 0)); // Julian
@@ -933,7 +933,7 @@ GregorianCalendar::roll(UCalendarDateFields field, int32_t amount, UErrorCode& s
             fprintf(stderr, "%s:%d: roll WOM %d ??????????????????? \n", 
                 __FILE__, __LINE__,amount);
 #endif
-            // NOTE: following copied from  the old
+            // NOTE: following copied from the old id:2884
             //     GregorianCalendar::roll( WEEK_OF_MONTH )  code 
 
             // This is tricky, because during the roll we may have to shift
@@ -1131,7 +1131,7 @@ int32_t GregorianCalendar::getActualMaximum(UCalendarDateFields field, UErrorCod
         * We know we've exceeded the maximum when either the month, date,
         * time, or era changes in response to setting the year.  We don't
         * check for month, date, and time here because the year and era are
-        * sufficient to detect an invalid year setting.  NOTE: If code is
+        * sufficient to detect an invalid year setting.  NOTE: If code is id:1791
         * added to check the month and date in the future for some reason,
         * Feb 29 must be allowed to shift to Mar 1 when setting the year.
         */

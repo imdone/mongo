@@ -162,9 +162,9 @@ void _dateToISOString(Date_t date, bool local, DateStringBuffer* result) {
         static const int localTzSubstrLen = 5;
         dassert(bufRemaining >= localTzSubstrLen + 1);
 #ifdef _WIN32
-        // NOTE(schwerin): The value stored by _get_timezone is the value one adds to local time
+        // NOTE (schwerin): The value stored by _get_timezone is the value one adds to local time id:1421
         // to get UTC.  This is opposite of the ISO-8601 meaning of the timezone offset.
-        // NOTE(schwerin): Microsoft's timezone code always assumes US rules for daylight
+        // NOTE (schwerin): Microsoft's timezone code always assumes US rules for daylight id:2268
         // savings time.  We can do no better without completely reimplementing localtime_s and
         // related time library functions.
         long msTimeZone;

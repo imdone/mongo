@@ -807,7 +807,7 @@ void State::insert(const NamespaceString& nss, const BSONObj& o) {
             bo = fixedDoc;
         }
 
-        // TODO: Consider whether to pass OpDebug for stats tracking under SERVER-23261.
+        // TODO: Consider whether to pass OpDebug for stats tracking under SERVER-23261. id:460
         OpDebug* const nullOpDebug = nullptr;
         uassertStatusOK(autoColl.getCollection()->insertDocument(
             _opCtx, InsertStatement(bo), nullOpDebug, true));
@@ -840,7 +840,7 @@ void State::_insertToInc(BSONObj& o) {
                                     << BSONObjMaxUserSize);
         }
 
-        // TODO: Consider whether to pass OpDebug for stats tracking under SERVER-23261.
+        // TODO: Consider whether to pass OpDebug for stats tracking under SERVER-23261. id:406
         OpDebug* const nullOpDebug = nullptr;
         uassertStatusOK(autoColl.getCollection()->insertDocument(
             _opCtx, InsertStatement(o), nullOpDebug, false));
@@ -1536,7 +1536,7 @@ public:
                     if (numInputs % 100 == 0) {
                         Timer t;
 
-                        // TODO: As an optimization, we might want to do the save/restore
+                        // TODO: As an optimization, we might want to do the save/restore id:605
                         // state and yield inside the reduceAndSpillInMemoryState method, so
                         // it only happens if necessary.
                         exec->saveState();
@@ -1570,7 +1570,7 @@ public:
                 PlanSummaryStats stats;
                 Explain::getSummaryStats(*exec, &stats);
 
-                // TODO SERVER-23261: Confirm whether this is the correct place to gather all
+                // TODO SERVER-23261: Confirm whether this is the correct place to gather all id:410
                 // metrics. There is no harm adding here for the time being.
                 curOp->debug().setPlanSummaryMetrics(stats);
                 scopedAutoColl->getCollection()->infoCache()->notifyOfQuery(opCtx,
@@ -1640,7 +1640,7 @@ public:
             log() << "mr detected stale config, should retry" << redact(e);
             throw;
         }
-        // TODO:  The error handling code for queries is v. fragile,
+        // TODO: The error handling code for queries is v. fragile, id:1276
         // *requires* rethrow AssertionExceptions - should probably fix.
         catch (AssertionException& e) {
             log() << "mr failed, removing collection" << redact(e);

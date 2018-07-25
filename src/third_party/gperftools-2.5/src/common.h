@@ -142,7 +142,7 @@ static const Length kMaxValidPages = (~static_cast<Length>(0)) >> kPageShift;
 #if defined __x86_64__
 // All current and planned x86_64 processors only look at the lower 48 bits
 // in virtual to physical address translation.  The top 16 are thus unused.
-// TODO(rus): Under what operating systems can we increase it safely to 17?
+// TODO (rus): Under what operating systems can we increase it safely to 17? id:1849
 // This lets us use smaller page maps.  On first allocation, a 36-bit page map
 // uses only 96 KB instead of the 4.5 MB used by a 52-bit page map.
 static const int kAddressBits = (sizeof(void*) < 8 ? (8 * sizeof(void*)) : 48);

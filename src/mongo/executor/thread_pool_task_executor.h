@@ -114,7 +114,7 @@ private:
      *        \               ^
      *         \_____________/
      *
-     * NOTE: The enumeration values below are compared using operator<, etc, with the expectation
+     * NOTE: The enumeration values below are compared using operator<, etc, with the expectation id:811
      * that a -> b in the diagram above implies that a < b in the enum below.
      */
     enum State { preStart, running, joinRequired, joining, shutdownComplete };

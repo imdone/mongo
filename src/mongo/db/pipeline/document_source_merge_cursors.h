@@ -80,7 +80,7 @@ public:
                                      HostTypeRequirement::kNone,
                                      DiskUseRequirement::kNoDiskUse,
                                      FacetRequirement::kNotAllowed,
-                                     // TODO SERVER-33683: Permit $mergeCursors with readConcern
+                                     // TODO SERVER-33683: Permit $mergeCursors with readConcern id:510
                                      // level "snapshot".
                                      TransactionRequirement::kNotAllowed);
 

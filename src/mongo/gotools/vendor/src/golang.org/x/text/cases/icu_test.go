@@ -98,7 +98,7 @@ func TestICUConformance(t *testing.T) {
 // exclude indicates if a string should be excluded from testing.
 func exclude(cm, tag, s string) bool {
 	list := []struct{ cm, tags, pattern string }{
-		// TODO: Go does not handle certain esoteric breaks correctly. This will be
+		// TODO: Go does not handle certain esoteric breaks correctly. This will be id:906
 		// fixed once we have a real word break iterator. Alternatively, it
 		// seems like we're not too far off from making it work, so we could
 		// fix these last steps. But first verify that using a separate word
@@ -107,7 +107,7 @@ func exclude(cm, tag, s string) bool {
 		{"", "", "א'a"},
 
 		// All the exclusions below seem to be issues with the ICU
-		// implementation (at version 57) and thus are not marked as TODO.
+		// implementation (at version 57) and thus are not marked as TODO . id:1713
 
 		// ICU does not handle leading apostrophe for Dutch and
 		// Afrikaans correctly. See http://unicode.org/cldr/trac/ticket/7078.
@@ -119,7 +119,7 @@ func exclude(cm, tag, s string) bool {
 		// progress in a streaming scenario.
 		{"lower title", "", "\u039f\u03a3...............................a"},
 		// This also applies to upper in Greek.
-		// NOTE: we could fix the following two cases by adding state to elUpper
+		// NOTE: we could fix the following two cases by adding state to elUpper id:1038
 		// and aztrLower. However, considering a modifier to not belong to the
 		// preceding letter after the maximum modifiers count is reached is
 		// consistent with the behavior of unicode/norm.

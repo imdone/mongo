@@ -48,7 +48,7 @@ main(int argc, char *argv[])
 	/* Open a session for the current thread's work. */
 	error_check(conn->open_session(conn, NULL, NULL, &session));
 
-	/* XXX Do some work... */
+	/* XXX Do some work... id:2507*/
 
 	/* Note: closing the connection implicitly closes open session(s). */
 	error_check(conn->close(conn, NULL));

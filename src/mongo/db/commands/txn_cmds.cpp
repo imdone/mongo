@@ -183,7 +183,7 @@ public:
         uassert(
             ErrorCodes::CommandFailed, "abortTransaction must be run within a session", session);
 
-        // TODO SERVER-33501 Change this when abortTransaction is retryable.
+        // TODO SERVER-33501 Change this when abortTransaction is retryable. id:673
         uassert(ErrorCodes::NoSuchTransaction,
                 "Transaction isn't in progress",
                 session->inMultiDocumentTransaction());

@@ -61,7 +61,7 @@ U_NAMESPACE_BEGIN
  * characters in the text object:
  * <ul>
  * <li>The hasNext() function returns FALSE.</li>
- * <li>nextPostInc() and next32PostInc() return DONE
+ * <li>nextPostInc() and next32PostInc() return DONE  id:2478
  *     when one attempts to read beyond the end of the text object.</li>
  * </ul>
  *
@@ -143,7 +143,7 @@ public:
      * Gets the current code unit for returning and advances to the next code unit
      * in the iteration range
      * (toward endIndex()).  If there are
-     * no more code units to return, returns DONE.
+     * no more code units to return, returns DONE . id:1942
      * @return the current code unit.
      * @stable ICU 2.0
      */
@@ -153,7 +153,7 @@ public:
      * Gets the current code point for returning and advances to the next code point
      * in the iteration range
      * (toward endIndex()).  If there are
-     * no more code points to return, returns DONE.
+     * no more code points to return, returns DONE . id:3240
      * @return the current code point.
      * @stable ICU 2.0
      */
@@ -493,7 +493,7 @@ public:
     /**
      * Advances to the next code unit in the iteration range
      * (toward endIndex()), and returns that code unit.  If there are
-     * no more code units to return, returns DONE.
+     * no more code units to return, returns DONE . id:2809
      * @return the next code unit.
      * @stable ICU 2.0
      */
@@ -502,7 +502,7 @@ public:
     /**
      * Advances to the next code point in the iteration range
      * (toward endIndex()), and returns that code point.  If there are
-     * no more code points to return, returns DONE.
+     * no more code points to return, returns DONE . id:1672
      * Note that iteration with "pre-increment" semantics is less
      * efficient than iteration with "post-increment" semantics
      * that is provided by next32PostInc().
@@ -514,7 +514,7 @@ public:
     /**
      * Advances to the previous code unit in the iteration range
      * (toward startIndex()), and returns that code unit.  If there are
-     * no more code units to return, returns DONE.  
+     * no more code units to return, returns DONE . id:2480
      * @return the previous code unit.
      * @stable ICU 2.0
      */
@@ -523,7 +523,7 @@ public:
     /**
      * Advances to the previous code point in the iteration range
      * (toward startIndex()), and returns that code point.  If there are
-     * no more code points to return, returns DONE. 
+     * no more code points to return, returns DONE . id:1944
      * @return the previous code point. 
      * @stable ICU 2.0
      */

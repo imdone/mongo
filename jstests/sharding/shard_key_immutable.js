@@ -19,14 +19,14 @@
  * *Updates are targeted by the update query if $op-style, or the update document if
  *replacement-style.
  *
- * NOTE: The above is enough to ensure that shard keys do not change.  It is not enough to ensure
+ * NOTE: The above is enough to ensure that shard keys do not change. It is not enough to ensure id:269
  * uniqueness of an upserted document based on the upsert query.  This is necessary due to the
  *save()
  * style operation:
  * db.coll.update({ _id : xxx }, { _id : xxx, shard : xxx, key : xxx, other : xxx }, { upsert : true
  *})
  *
- * TODO: Minimize the impact of this hole by disallowing anything but save-style upserts of this
+ * TODO: Minimize the impact of this hole by disallowing anything but save-style upserts of this id:180
  *form.
  * Save-style upserts of this form are not safe (duplicate _ids can be created) but the user is
  * explicitly responsible for this for the _id field.

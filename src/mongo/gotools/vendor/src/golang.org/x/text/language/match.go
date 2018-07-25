@@ -16,7 +16,7 @@ func PreferSameScript(preferSame bool) MatchOption {
 	return func(m *matcher) { m.preferSameScript = preferSame }
 }
 
-// TODO(v1.0.0): consider making Matcher a concrete type, instead of interface.
+// TODO (v1.0.0): consider making Matcher a concrete type, instead of interface. id:1050
 // There doesn't seem to be too much need for multiple types.
 // Making it a concrete type allows MatchStrings to be a method, which will
 // improve its discoverability.
@@ -78,7 +78,7 @@ func (m *matcher) Match(want ...Tag) (t Tag, index int, c Confidence) {
 	if match != nil {
 		t, index = match.tag, match.index
 	} else {
-		// TODO: this should be an option
+		// TODO: this should be an option id:1915
 		t = m.default_.tag
 		if m.preferSameScript {
 		outer:
@@ -97,15 +97,15 @@ func (m *matcher) Match(want ...Tag) (t Tag, index int, c Confidence) {
 				}
 			}
 		}
-		// TODO: select first language tag based on script.
+		// TODO: select first language tag based on script. id:1408
 	}
 	if w.region != 0 && t.region != 0 && t.region.contains(w.region) {
 		t, _ = Raw.Compose(t, Region{w.region})
 	}
 	// Copy options from the user-provided tag into the result tag. This is hard
 	// to do after the fact, so we do it here.
-	// TODO: add in alternative variants to -u-va-.
-	// TODO: add preferred region to -u-rg-.
+	// TODO: add in alternative variants to -u-va-. id:3030
+	// TODO: add preferred region to -u-rg-. id:1273
 	if e := w.Extensions(); len(e) > 0 {
 		t, _ = Raw.Compose(t, e)
 	}
@@ -493,7 +493,7 @@ func makeHaveTag(tag Tag, index int) (haveTag, langID) {
 // script to map to another and we rely on this to keep the code simple.
 func altScript(l langID, s scriptID) scriptID {
 	for _, alt := range matchScript {
-		// TODO: also match cases where language is not the same.
+		// TODO: also match cases where language is not the same. id:1055
 		if (langID(alt.wantLang) == l || langID(alt.haveLang) == l) &&
 			scriptID(alt.haveScript) == s {
 			return scriptID(alt.wantScript)
@@ -652,7 +652,7 @@ func (m *matcher) getBest(want ...Tag) (got *haveTag, orig Tag, c Confidence) {
 			if w.region != max.region {
 				w.region = max.region
 			}
-			// TODO: should we do the same for scripts?
+			// TODO: should we do the same for scripts? id:1917
 			// See test case: en, sr, nl ; sh ; sr
 			max, _ = addTags(max)
 		} else {
@@ -893,7 +893,7 @@ func (t Tag) variantOrPrivateTagStr() string {
 
 // equalsRest compares everything except the language.
 func (a Tag) equalsRest(b Tag) bool {
-	// TODO: don't include extensions in this comparison. To do this efficiently,
+	// TODO: don't include extensions in this comparison. To do this efficiently, id:1410
 	// though, we should handle private tags separately.
 	return a.script == b.script && a.region == b.region && a.variantOrPrivateTagStr() == b.variantOrPrivateTagStr()
 }

@@ -419,7 +419,7 @@ class NodeInfoBase(object):
         """
         Restore the attributes from a pickled state. The version is discarded.
         """
-        # TODO check or discard version
+        # TODO check or discard version id:3069
         del state['_version_id']
     
         for key, value in state.items():
@@ -481,7 +481,7 @@ class BuildInfoBase(object):
         """
         Restore the attributes from a pickled state.
         """
-        # TODO check or discard version
+        # TODO check or discard version id:2200
         del state['_version_id']
         for key, value in state.items():
             if key not in ('__weakref__',):

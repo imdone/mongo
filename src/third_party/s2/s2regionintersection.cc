@@ -45,7 +45,7 @@ S2RegionIntersection* S2RegionIntersection::Clone() const {
 }
 
 S2Cap S2RegionIntersection::GetCapBound() const {
-  // TODO: This could be optimized to return a tighter bound, but doesn't
+  // TODO: This could be optimized to return a tighter bound, but doesn't id:2186
   // seem worth it unless profiling shows otherwise.
   return GetRectBound().GetCapBound();
 }

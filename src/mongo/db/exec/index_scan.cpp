@@ -293,7 +293,7 @@ std::unique_ptr<PlanStageStats> IndexScan::getStats() {
 
     // These specific stats fields never change.
     if (_specificStats.indexType.empty()) {
-        _specificStats.indexType = "BtreeCursor";  // TODO amName;
+        _specificStats.indexType = "BtreeCursor";  // TODO amName; id:433
 
         _specificStats.indexBounds = _params.bounds.toBSON();
 

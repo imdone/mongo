@@ -233,7 +233,7 @@ ProcessOplogResult processSessionOplog(OperationContext* opCtx,
                     !lastResult.isPrePostImage);
         }
     } else {
-        object2 = oplogBSON;  // TODO: strip redundant info?
+        object2 = oplogBSON;  // TODO: strip redundant info? id:1900
     }
 
     const auto& sessionInfo = oplogEntry.getOperationSessionInfo();
@@ -438,7 +438,7 @@ void SessionCatalogMigrationDestination::_retrieveSessionStateFromSource(Service
             }
 
             if (excep.code() == ErrorCodes::CommandNotFound) {
-                // TODO: remove this after v3.7
+                // TODO: remove this after v3.7 id:905
                 //
                 // This means that the donor shard is running at an older version so it is safe to
                 // just end this because there is no session information to transfer.

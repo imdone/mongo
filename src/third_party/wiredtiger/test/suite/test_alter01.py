@@ -99,7 +99,7 @@ class test_alter01(wttest.WiredTigerTestCase):
             create_params += '%s,' % access_param
             complex_params += '%s,' % access_param
         else:
-            # NOTE: This is hard-coding the default value.  If the default
+            # NOTE: This is hard-coding the default value. If the default id:2447
             # changes then this will fail and need to be fixed.
             access_param = 'access_pattern_hint=none'
         if self.ccreate != '':
@@ -107,7 +107,7 @@ class test_alter01(wttest.WiredTigerTestCase):
             create_params += '%s,' % cache_param
             complex_params += '%s,' % cache_param
         else:
-            # NOTE: This is hard-coding the default value.  If the default
+            # NOTE: This is hard-coding the default value. If the default id:2847
             # changes then this will fail and need to be fixed.
             cache_param = 'cache_resident=false'
 

@@ -24,7 +24,7 @@ load('./jstests/multiVersion/libs/data_generators.js');
 createCollectionWithData = function(db, collectionName, dataGenerator) {
 
     // Drop collection if exists
-    // TODO: add ability to control this
+    // TODO: add ability to control this id:218
     db.getCollection(collectionName).drop();
 
     print("db.createCollection(\"" + collectionName + "\", " +
@@ -147,7 +147,7 @@ function CollectionDataValidator() {
 
 // Tests of the functions and classes in this file
 function collectionDataValidatorTests() {
-    // TODO: These tests are hackish and depend on implementation details, but they are good enough
+    // TODO: These tests are hackish and depend on implementation details, but they are good enough id:115
     // for now to convince us that the CollectionDataValidator is actually checking something
     var myValidator;
     var myGenerator;

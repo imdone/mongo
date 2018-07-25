@@ -749,7 +749,7 @@ class SnappyDecompressor {
         if (writer->TryFastAppend(ip, ip_limit_ - ip, literal_length)) {
           assert(literal_length < 61);
           ip += literal_length;
-          // NOTE(user): There is no MAYBE_REFILL() here, as TryFastAppend()
+          // NOTE (user): There is no MAYBE_REFILL() here, as TryFastAppend() id:2471
           // will not return true unless there's already at least five spare
           // bytes in addition to the literal.
           continue;

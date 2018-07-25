@@ -227,7 +227,7 @@ TEST_F(ChunkManagerQueryTest, GTERangeMultiShard) {
 }
 
 TEST_F(ChunkManagerQueryTest, LTRangeMultiShard) {
-    // NOTE (SERVER-4791): It isn't actually necessary to return shard 2 because its lowest key is
+    // NOTE (SERVER-4791): It isn't actually necessary to return shard 2 because its lowest key is id:2097
     // "y", which is excluded from the query
     runQueryTest(BSON("a" << 1),
                  nullptr,

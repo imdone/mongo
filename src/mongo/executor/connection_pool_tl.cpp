@@ -50,7 +50,7 @@ struct TimeoutHandler {
 
 void TLTimer::setTimeout(Milliseconds timeoutVal, TimeoutCallback cb) {
     _timer->waitFor(timeoutVal).getAsync([cb = std::move(cb)](Status status) {
-        // TODO: verify why we still get broken promises when expliciting call stop and shutting
+        // TODO: verify why we still get broken promises when expliciting call stop and shutting id:1014
         // down NITL's quickly.
         if (status == ErrorCodes::CallbackCanceled || status == ErrorCodes::BrokenPromise) {
             return;

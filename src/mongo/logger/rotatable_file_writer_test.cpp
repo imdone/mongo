@@ -39,7 +39,7 @@ using namespace mongo::logger;
 const std::string logFileName("LogTest_RotatableFileAppender.txt");
 const std::string logFileNameRotated("LogTest_RotatableFileAppender_Rotated.txt");
 
-// TODO(schwerin): Create a safe, uniform mechanism by which unit tests may read and write
+// TODO (schwerin): Create a safe, uniform mechanism by which unit tests may read and write id:3093
 // temporary files.
 class RotatableFileWriterTest : public mongo::unittest::Test {
 public:

@@ -40,7 +40,7 @@ class WarningOnByDefault(Warning):
     pass
 
 
-# NOTE:  If you add a new warning class, add it to the man page, too!
+# NOTE: If you add a new warning class, add it to the man page, too! id:3404
 class TargetNotBuiltWarning(Warning): # Should go to OnByDefault
     pass
 

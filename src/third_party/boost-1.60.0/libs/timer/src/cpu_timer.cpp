@@ -40,7 +40,7 @@ namespace
 
   void show_time(const cpu_times& times,
     std::ostream& os, const std::string& fmt, short places)
-  //  NOTE WELL: Will truncate least-significant digits to LDBL_DIG, which may
+  //  NOTE WELL: Will truncate least-significant digits to LDBL_DIG, which may id:2720
   //  be as low as 10, although will be 15 for many common platforms.
   {
     if (places > 9)

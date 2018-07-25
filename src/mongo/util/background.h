@@ -73,7 +73,7 @@ protected:
      * after this returns, state is set to done.
      * after this returns, deleted if deleteSelf true.
      *
-     * NOTE:
+     * NOTE:  id:2608
      *   if run() throws, the exception will be caught within 'this' object and will ultimately lead
      *   to the BackgroundJob's thread being finished, as if run() returned.
      *
