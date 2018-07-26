@@ -69,6 +69,10 @@
     {
       "hidden": false,
       "name": "vector_unittest"
+    },
+    {
+      "name": "ROO",
+      "hidden": false
     }
   ],
   "code": {
@@ -86,7 +90,8 @@
       "NOTE",
       "REVIEW",
       "MARK",
-      "HELP"
+      "HELP",
+      "ROO"
     ]
   },
   "keepEmptyPriority": true,
