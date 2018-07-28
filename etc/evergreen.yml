@@ -379,7 +379,7 @@ variables:
   - command: manifest.load
   - func: "git get project"
   - func: "get modified patch files"
-  # NOTE: To disable the compile bypass feature, comment out the next line. id:3
+  # TODO: To disable the compile bypass feature, comment out the next line. id:3
   #
   - func: "bypass compile and fetch binaries"
   - func: "update bypass expansions"
